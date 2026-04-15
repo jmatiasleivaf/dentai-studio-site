@@ -222,6 +222,7 @@
       <a href="#funcionalidades">Funcionalidades</a>
       <a href="#whatsapp">WhatsApp IA</a>
       <a href="#automatizacion">Automatización</a>
+      <a href="#autoatendimiento">Totems</a>
       <a href="#planes">Planes</a>
       <a href="https://app.superclini.com" class="btn btn-primary nav-cta">Acceder</a>
     </div>
@@ -427,6 +428,76 @@
         <p>Comisiones calculadas y gastos generados automáticamente.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- SELF-SERVICE / TOTEMS -->
+<section class="section section-alt" id="autoatendimiento">
+  <div class="container">
+    <div class="text-center">
+      <p class="label">Autoatendimiento inteligente</p>
+      <h2>Tu clínica funciona sola.<br><span class="grad">Incluso sin recepcionista.</span></h2>
+      <p class="subtitle">Totems de autoatendimiento que gestionan check-in, agendamiento y fila de espera. El dentista controla todo desde su consultorio.</p>
+    </div>
+
+    <!-- 3 Totem Cards -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:64px;">
+
+      <!-- Totem 1: Recepción -->
+      <div style="background:white;border:1px solid #f1f5f9;border-radius:20px;overflow:hidden;transition:all 0.3s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(0,0,0,0.06)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="padding:20px;background:linear-gradient(135deg,#0ea5e9,#06b6d4);text-align:center;">
+          <p style="color:white;font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:0.12em;opacity:0.8;">Totem</p>
+          <p style="color:white;font-size:1.1rem;font-weight:800;">Recepción</p>
+        </div>
+        <div style="padding:12px;">
+          <img src="/totem-recepcao1.png" alt="Totem Recepción — Check-in de pacientes" style="width:100%;border-radius:12px;display:block;" />
+        </div>
+        <div style="padding:0 20px 20px;">
+          <p style="font-size:0.85rem;color:#64748b;line-height:1.6;">Check-in con RUT, registro de nuevos pacientes, firma de consentimientos y agendamiento de citas.</p>
+        </div>
+      </div>
+
+      <!-- Totem 2: Fila -->
+      <div style="background:white;border:1px solid #f1f5f9;border-radius:20px;overflow:hidden;transition:all 0.3s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(0,0,0,0.06)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="padding:20px;background:linear-gradient(135deg,#10b981,#14b8a6);text-align:center;">
+          <p style="color:white;font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:0.12em;opacity:0.8;">Panel</p>
+          <p style="color:white;font-size:1.1rem;font-weight:800;">Fila de Espera</p>
+        </div>
+        <div style="padding:12px;">
+          <img src="/totem-recepcao2.png" alt="Panel de Fila — Lista de espera" style="width:100%;border-radius:12px;display:block;" />
+        </div>
+        <div style="padding:0 20px 20px;">
+          <p style="font-size:0.85rem;color:#64748b;line-height:1.6;">Pantalla para TV o monitor. Los pacientes ven su turno en tiempo real. Se actualiza automáticamente.</p>
+        </div>
+      </div>
+
+      <!-- Totem 3: Box -->
+      <div style="background:white;border:1px solid #f1f5f9;border-radius:20px;overflow:hidden;transition:all 0.3s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(0,0,0,0.06)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="padding:20px;background:linear-gradient(135deg,#8b5cf6,#7c3aed);text-align:center;">
+          <p style="color:white;font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:0.12em;opacity:0.8;">Totem</p>
+          <p style="color:white;font-size:1.1rem;font-weight:800;">Box / Consultorio</p>
+        </div>
+        <div style="padding:12px;">
+          <img src="/totem-recepcao3.png" alt="Totem Box — Control del dentista" style="width:100%;border-radius:12px;display:block;" />
+        </div>
+        <div style="padding:0 20px 20px;">
+          <p style="font-size:0.85rem;color:#64748b;line-height:1.6;">El dentista controla su fila, llama pacientes, registra atendimiento y recibe alertas clínicas con IA.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Responsive: stack on mobile -->
+    <style>
+      @media (max-width: 768px) {
+        #autoatendimiento [style*="grid-template-columns"] {
+          grid-template-columns: 1fr !important;
+          max-width: 400px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+    </style>
   </div>
 </section>
 
