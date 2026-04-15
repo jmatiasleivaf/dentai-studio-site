@@ -436,65 +436,54 @@
   <div class="container">
     <div class="text-center">
       <p class="label">Autoatendimiento inteligente</p>
-      <h2>Tu clínica funciona sola.<br><span class="grad">Incluso sin recepcionista.</span></h2>
-      <p class="subtitle">Totems de autoatendimiento que gestionan check-in, agendamiento y fila de espera. El dentista controla todo desde su consultorio.</p>
+      <h2>Tus pacientes se atienden solos.<br><span class="grad">Tu equipo se enfoca en lo clínico.</span></h2>
+      <p class="subtitle">Totem táctil para la sala de espera. Check-in, agendamiento y registro de pacientes nuevos — sin intervención de la recepcionista.</p>
     </div>
 
-    <!-- 3 Totem Cards -->
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:64px;">
+    <!-- 3 Totem Devices -->
+    <div style="display:flex;justify-content:center;align-items:flex-end;gap:32px;margin-top:64px;flex-wrap:wrap;">
 
-      <!-- Totem 1: Recepción -->
-      <div style="background:white;border:1px solid #f1f5f9;border-radius:20px;overflow:hidden;transition:all 0.3s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(0,0,0,0.06)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-        <div style="padding:20px;background:linear-gradient(135deg,#0ea5e9,#06b6d4);text-align:center;">
-          <p style="color:white;font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:0.12em;opacity:0.8;">Totem</p>
-          <p style="color:white;font-size:1.1rem;font-weight:800;">Recepción</p>
+      <!-- Device 1 -->
+      <div style="text-align:center;max-width:240px;">
+        <div style="background:#0f172a;border-radius:24px;padding:12px 10px 16px;box-shadow:0 20px 60px rgba(0,0,0,0.15),inset 0 1px 0 rgba(255,255,255,0.1);">
+          <div style="background:#1e293b;border-radius:4px;width:40px;height:4px;margin:0 auto 8px;opacity:0.5;"></div>
+          <img src="/totem-recepcao1.png" alt="Identificación con RUT" style="width:100%;border-radius:12px;display:block;" />
+          <div style="background:#1e293b;border-radius:50%;width:28px;height:28px;margin:10px auto 0;border:2px solid #334155;"></div>
         </div>
-        <div style="padding:12px;">
-          <img src="/totem-recepcao1.png" alt="Totem Recepción — Check-in de pacientes" style="width:100%;border-radius:12px;display:block;" />
-        </div>
-        <div style="padding:0 20px 20px;">
-          <p style="font-size:0.85rem;color:#64748b;line-height:1.6;">Check-in con RUT, registro de nuevos pacientes, firma de consentimientos y agendamiento de citas.</p>
-        </div>
+        <p style="font-size:0.9rem;font-weight:700;color:#0f172a;margin-top:16px;">Identificación</p>
+        <p style="font-size:0.8rem;color:#64748b;margin-top:4px;line-height:1.5;">El paciente ingresa su RUT. Si no está registrado, se crea en segundos.</p>
       </div>
 
-      <!-- Totem 2: Fila -->
-      <div style="background:white;border:1px solid #f1f5f9;border-radius:20px;overflow:hidden;transition:all 0.3s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(0,0,0,0.06)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-        <div style="padding:20px;background:linear-gradient(135deg,#10b981,#14b8a6);text-align:center;">
-          <p style="color:white;font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:0.12em;opacity:0.8;">Panel</p>
-          <p style="color:white;font-size:1.1rem;font-weight:800;">Fila de Espera</p>
+      <!-- Device 2 -->
+      <div style="text-align:center;max-width:240px;">
+        <div style="background:#0f172a;border-radius:24px;padding:12px 10px 16px;box-shadow:0 20px 60px rgba(0,0,0,0.15),inset 0 1px 0 rgba(255,255,255,0.1);">
+          <div style="background:#1e293b;border-radius:4px;width:40px;height:4px;margin:0 auto 8px;opacity:0.5;"></div>
+          <img src="/totem-recepcao2.png" alt="Confirmación de cita" style="width:100%;border-radius:12px;display:block;" />
+          <div style="background:#1e293b;border-radius:50%;width:28px;height:28px;margin:10px auto 0;border:2px solid #334155;"></div>
         </div>
-        <div style="padding:12px;">
-          <img src="/totem-recepcao2.png" alt="Panel de Fila — Lista de espera" style="width:100%;border-radius:12px;display:block;" />
-        </div>
-        <div style="padding:0 20px 20px;">
-          <p style="font-size:0.85rem;color:#64748b;line-height:1.6;">Pantalla para TV o monitor. Los pacientes ven su turno en tiempo real. Se actualiza automáticamente.</p>
-        </div>
+        <p style="font-size:0.9rem;font-weight:700;color:#0f172a;margin-top:16px;">Agendamiento</p>
+        <p style="font-size:0.8rem;color:#64748b;margin-top:4px;line-height:1.5;">Selecciona profesional, fecha y hora. Confirma su cita en un solo paso.</p>
       </div>
 
-      <!-- Totem 3: Box -->
-      <div style="background:white;border:1px solid #f1f5f9;border-radius:20px;overflow:hidden;transition:all 0.3s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(0,0,0,0.06)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-        <div style="padding:20px;background:linear-gradient(135deg,#8b5cf6,#7c3aed);text-align:center;">
-          <p style="color:white;font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:0.12em;opacity:0.8;">Totem</p>
-          <p style="color:white;font-size:1.1rem;font-weight:800;">Box / Consultorio</p>
+      <!-- Device 3 -->
+      <div style="text-align:center;max-width:240px;">
+        <div style="background:#0f172a;border-radius:24px;padding:12px 10px 16px;box-shadow:0 20px 60px rgba(0,0,0,0.15),inset 0 1px 0 rgba(255,255,255,0.1);">
+          <div style="background:#1e293b;border-radius:4px;width:40px;height:4px;margin:0 auto 8px;opacity:0.5;"></div>
+          <img src="/totem-recepcao3.png" alt="Check-in completado" style="width:100%;border-radius:12px;display:block;" />
+          <div style="background:#1e293b;border-radius:50%;width:28px;height:28px;margin:10px auto 0;border:2px solid #334155;"></div>
         </div>
-        <div style="padding:12px;">
-          <img src="/totem-recepcao3.png" alt="Totem Box — Control del dentista" style="width:100%;border-radius:12px;display:block;" />
-        </div>
-        <div style="padding:0 20px 20px;">
-          <p style="font-size:0.85rem;color:#64748b;line-height:1.6;">El dentista controla su fila, llama pacientes, registra atendimiento y recibe alertas clínicas con IA.</p>
-        </div>
+        <p style="font-size:0.9rem;font-weight:700;color:#0f172a;margin-top:16px;">Check-in</p>
+        <p style="font-size:0.8rem;color:#64748b;margin-top:4px;line-height:1.5;">Confirma su llegada, firma consentimientos y entra en la fila de espera automáticamente.</p>
       </div>
 
     </div>
 
-    <!-- Responsive: stack on mobile -->
+    <!-- Responsive -->
     <style>
       @media (max-width: 768px) {
-        #autoatendimiento [style*="grid-template-columns"] {
-          grid-template-columns: 1fr !important;
-          max-width: 400px;
-          margin-left: auto;
-          margin-right: auto;
+        #autoatendimiento [style*="display:flex"] {
+          flex-direction: column !important;
+          align-items: center !important;
         }
       }
     </style>
