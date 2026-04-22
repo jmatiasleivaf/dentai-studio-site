@@ -1,0 +1,291 @@
+{
+  "meta": {
+    "siteName": "SuperClini",
+    "title": "SuperClini — Software dental com IA no WhatsApp, simulação de sorriso e DICOM 3D",
+    "description": "A primeira plataforma dental com assistente IA no WhatsApp, simulação de sorriso e visor DICOM 3D integrado. Funciona em 9 países com moeda e fiscal locais."
+  },
+  "nav": {
+    "features": "Funcionalidades",
+    "ai": "IA",
+    "whatsapp": "WhatsApp",
+    "pricing": "Preços",
+    "clients": "Clientes",
+    "login": "Entrar",
+    "demo": "Ver demo",
+    "menuLabel": "Menu principal",
+    "openMenu": "Abrir menu",
+    "closeMenu": "Fechar menu"
+  },
+  "hero": {
+    "badge": "Disponível em 9 países",
+    "h1Line1": "Sua clínica responde no WhatsApp.",
+    "h1Line2": "Diagnostica com IA.",
+    "h1Line3": "Cobra automaticamente.",
+    "sub": "SuperClini é a primeira plataforma dental com agente IA no WhatsApp, simulação de sorriso e visor DICOM 3D integrado — adaptada à moeda e legislação de cada país.",
+    "ctaPrimary": "Testar 14 dias grátis",
+    "ctaSecondary": "Ver como funciona",
+    "trustItems": {
+      "noCard": "Sem cartão de crédito",
+      "setup": "Setup guiado em 1 dia",
+      "cancel": "Cancele quando quiser"
+    }
+  },
+  "trustStrip": {
+    "title": "Construído para ser confiável desde o primeiro dia",
+    "items": {
+      "tests": "603 testes automatizados",
+      "compliance": "LGPD · CFO · Ley 20.584",
+      "countries": "9 países · 8 moedas",
+      "uptime": "Infraestrutura cloud 24/7"
+    }
+  },
+  "ai": {
+    "eyebrow": "A diferença está na IA",
+    "title": "A IA que seu concorrente ainda não tem.",
+    "sub": "Não falamos que temos IA. Mostramos funcionando.",
+    "cards": {
+      "whatsapp": {
+        "title": "Sofía, sua recepcionista com IA no WhatsApp",
+        "desc": "Agenda, confirma, remarca e tira dúvidas 24/7 — consultando horários reais e criando a consulta na sua agenda.",
+        "proofLabel": "Conversa real com a agente Sofía",
+        "examples": {
+          "user1": "Oi, queria marcar uma limpeza dental",
+          "bot1": "Oi! Com prazer. Tenho disponibilidade quinta às 9h com a Dra. Carolina. Funciona pra você?",
+          "user2": "Perfeito",
+          "bot2": "Pronto. Sua consulta foi agendada. Vou te enviar um lembrete no dia anterior."
+        }
+      },
+      "smile": {
+        "title": "Simulação de sorriso na hora",
+        "desc": "Faça upload de uma foto e a IA gera uma simulação visual do resultado em segundos. Aumenta a taxa de aceitação na primeira consulta.",
+        "before": "Antes",
+        "after": "Depois"
+      },
+      "radiograph": {
+        "title": "Análise de radiografias com IA",
+        "desc": "Detecção assistida de cáries, lesões periapicais e patologias visíveis. A IA não substitui o clínico — acelera o diagnóstico.",
+        "metrics": {
+          "caries": "Cáries detectadas",
+          "lesions": "Lesões apicais",
+          "restorations": "Restaurações prévias"
+        }
+      }
+    },
+    "ctaAll": "Explorar todas as capacidades de IA"
+  },
+  "pricing": {
+    "eyebrow": "Preços transparentes",
+    "title": "Preços na sua moeda local. Sem surpresas.",
+    "sub": "Detectamos seu país automaticamente. Você pode trocar se preferir outra região.",
+    "countryLabel": "Seu país:",
+    "changeCountry": "Trocar",
+    "perMonth": "/mês",
+    "billedMonthly": "Cobrança mensal",
+    "popular": "Mais escolhido",
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "desc": "Para consultórios que querem digitalizar e organizar processos."
+      },
+      "professional": {
+        "name": "Professional",
+        "desc": "Para clínicas que querem IA, automação e máxima eficiência."
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "desc": "Para clínicas multi-sede com autoatendimento e personalização total."
+      }
+    },
+    "features": {
+      "maxProfessionals2": "Até 2 profissionais",
+      "maxProfessionals8": "Até 8 profissionais",
+      "unlimitedProfessionals": "Profissionais ilimitados",
+      "agenda": "Agenda inteligente multi-box",
+      "prontuario": "Prontuário e odontograma FDI",
+      "financeiroBasico": "Financeiro e caixa diário",
+      "reportsBasic": "Relatórios gerais",
+      "rolesBasic": "Perfis e permissões",
+      "allStarter": "Tudo do plano Starter",
+      "allProfessional": "Tudo do plano Professional",
+      "aiAnalysis": "Análise clínica com IA",
+      "smileSimulation": "Simulação de sorriso IA",
+      "autoSettlements": "Liquidações automáticas",
+      "whatsappAi": "Agente WhatsApp IA",
+      "dicom3d": "Visor DICOM 3D integrado",
+      "reportsAdvanced": "Relatórios avançados e BI",
+      "laboratoryPortal": "Portal do laboratório",
+      "memberships": "Memberships para pacientes",
+      "totem": "Totem de autoatendimento",
+      "digitalSignature": "Assinatura digital de consentimentos",
+      "queueSystem": "Sistema de fila inteligente",
+      "multiWhatsapp": "WhatsApp multi-número",
+      "apiAccess": "API para integrações",
+      "prioritySupport": "Suporte prioritário 24/7",
+      "superAdmin": "Consolidação multi-sede"
+    },
+    "ctaPlan": "Testar grátis",
+    "ctaContact": "Falar com vendas"
+  },
+  "personas": {
+    "eyebrow": "Para sua realidade",
+    "title": "Escolhida por diferentes tamanhos de clínica.",
+    "tabs": {
+      "solo": "Dentista solo",
+      "clinic": "Clínica (2-8 dentistas)",
+      "network": "Rede (+8 unidades)"
+    },
+    "content": {
+      "solo": {
+        "pain": "Você é a própria recepcionista, assistente e financeiro.",
+        "benefit": "Sofía responde no WhatsApp enquanto você atende. Agenda sozinha. Lembra sozinha.",
+        "highlights": ["Agenda automática 24/7", "Um painel só: clínico + financeiro", "PWA: instala no celular sem App Store"]
+      },
+      "clinic": {
+        "pain": "Vários dentistas, vários boxes, um caixa só pra fechar no dia.",
+        "benefit": "Comissões automáticas ao evoluir. Agenda multi-box. Relatórios unificados.",
+        "highlights": ["Liquidações automáticas por dentista", "Protocolos clínicos auditáveis", "Ticket médio por especialidade"]
+      },
+      "network": {
+        "pain": "Cada unidade com seu próprio caos. Zero consolidação.",
+        "benefit": "Plataforma multi-tenant real. Superadmin consolida unidades, centros de custo e permissões.",
+        "highlights": ["Multi-sede com impersonação", "Consolidação contábil", "Suporte prioritário 24/7"]
+      }
+    },
+    "cta": "Ver plano recomendado"
+  },
+  "features": {
+    "eyebrow": "22 módulos operacionais",
+    "title": "Tudo que sua clínica precisa.",
+    "sub": "Sem add-ons escondidos. Sem integrações caras de terceiros.",
+    "items": {
+      "agenda": { "title": "Agenda multi-box", "desc": "Disponibilidade em tempo real por profissional e box. Detecta conflitos automaticamente." },
+      "prontuario": { "title": "Prontuário digital", "desc": "Odontograma FDI, periodontograma, evolução imutável (LGPD / CFO / Ley 20.584)." },
+      "planos": { "title": "Planos de tratamento", "desc": "Com fases, sessões, aceite digital e liquidação automática por prestação." },
+      "financeiro": { "title": "Financeiro completo", "desc": "Contas a receber, parcelas, caixa diário, liquidações e relatórios." },
+      "memberships": { "title": "Memberships", "desc": "Planos de assinatura pra pacientes com MRR, ARR e métricas de retenção." },
+      "dicom": { "title": "Visor DICOM 3D", "desc": "CBCT integrado com Cornerstone3D. Presets dentais, W/L, ROI, medidas." },
+      "whatsapp": { "title": "WhatsApp IA", "desc": "Agente Sofía com function calling. Agenda, confirma, remarca, responde." },
+      "laboratory": { "title": "Portal do laboratório", "desc": "Ordens bidirecionais com o lab externo. Sem dados financeiros para o técnico." },
+      "totem": { "title": "Totem autoatendimento", "desc": "Check-in na recepção + painel pro box. Assinatura digital de consentimentos." }
+    },
+    "ctaAll": "Ver todas as funcionalidades"
+  },
+  "totem": {
+    "eyebrow": "Autoatendimento inteligente",
+    "title": "Seus pacientes se atendem sozinhos.",
+    "sub": "Um totem na sala de espera libera sua recepção para tarefas estratégicas.",
+    "steps": {
+      "identify": {
+        "title": "Identificação",
+        "desc": "O paciente informa seu {taxId}. Se não está cadastrado, criamos em segundos."
+      },
+      "schedule": {
+        "title": "Agendamento",
+        "desc": "Escolhe profissional, data e hora. Confirma a consulta em um único passo."
+      },
+      "checkin": {
+        "title": "Check-in",
+        "desc": "Confirma a chegada, assina consentimentos e entra na fila automaticamente."
+      }
+    }
+  },
+  "proof": {
+    "eyebrow": "A história por trás",
+    "title": "Construído com dentistas, não para eles.",
+    "sub": "SuperClini nasceu da frustração de um time que escutou dezenas de clínicas antes de escrever a primeira linha de código. Nossa promessa: se sua rotina melhora, a nossa também.",
+    "ctaStory": "Conhecer o time"
+  },
+  "faq": {
+    "eyebrow": "Perguntas frequentes",
+    "title": "Dúvidas que a gente escuta o tempo todo.",
+    "items": [
+      {
+        "q": "Como funciona o trial gratuito?",
+        "a": "14 dias com acesso completo a todas as funções. Sem cartão de crédito. Se no fim não quiser continuar, simplesmente não cadastra meio de pagamento."
+      },
+      {
+        "q": "Dá pra migrar de outro sistema?",
+        "a": "Sim. Importamos pacientes, histórico e agenda de planilhas Excel, Clinicorp, Dentalink e outros. O time de onboarding acompanha."
+      },
+      {
+        "q": "O agente Sofía realmente agenda na minha agenda?",
+        "a": "Sim. Usa function calling contra sua base real. Consulta disponibilidade, cria a consulta, respeita conflitos e pode remarcar ou cancelar."
+      },
+      {
+        "q": "A IA substitui o dentista no diagnóstico?",
+        "a": "Não. A IA assiste o diagnóstico apontando achados visíveis na imagem. A decisão clínica sempre é sua. Registramos auditoria legal completa."
+      },
+      {
+        "q": "Meus dados estão seguros?",
+        "a": "Multi-tenant real com isolamento por organização. Criptografia em trânsito e em repouso. Cumprimos LGPD (Brasil), Ley 20.584 (Chile) e GDPR (Europa)."
+      },
+      {
+        "q": "E se eu precisar de suporte?",
+        "a": "Chat de WhatsApp direto com o time. Plano Professional tem suporte em horário comercial. Enterprise é 24/7 com SLA."
+      },
+      {
+        "q": "Funciona no meu país?",
+        "a": "SuperClini opera em 9 países: Brasil, Chile, Colômbia, Argentina, México, Peru, Estados Unidos, Espanha e Portugal. Cada um com moeda, fiscal e idioma locais."
+      },
+      {
+        "q": "Posso cancelar quando quiser?",
+        "a": "Sim. Sem contratos, sem multas, sem letra miúda. Cancela pelo painel e mantém acesso até o final do período pago."
+      }
+    ]
+  },
+  "ctaFinal": {
+    "title": "Comece hoje. 14 dias grátis.",
+    "sub": "Sem cartão. Sem compromisso. Com nosso time no seu setup.",
+    "ctaPrimary": "Criar conta grátis",
+    "ctaSecondary": "Agendar demo com vendas"
+  },
+  "footer": {
+    "tagline": "A plataforma de gestão dental com IA nativa — feita pra clínicas que querem crescer sem caos.",
+    "productTitle": "Produto",
+    "product": {
+      "features": "Funcionalidades",
+      "ai": "IA",
+      "whatsapp": "WhatsApp IA",
+      "pricing": "Preços",
+      "clients": "Clientes"
+    },
+    "companyTitle": "Empresa",
+    "company": {
+      "about": "Sobre a gente",
+      "blog": "Blog",
+      "contact": "Contato",
+      "help": "Central de ajuda"
+    },
+    "legalTitle": "Legal",
+    "legal": {
+      "privacy": "Política de privacidade",
+      "terms": "Termos de uso",
+      "security": "Segurança"
+    },
+    "countriesTitle": "Países",
+    "rights": "Todos os direitos reservados."
+  },
+  "countrySelector": {
+    "title": "Selecione seu país",
+    "sub": "Trocar o país ajusta moeda, idioma e legislação exibidos.",
+    "cancel": "Cancelar"
+  },
+  "paymentMethods": {
+    "cash": "Dinheiro",
+    "transfer": "Transferência",
+    "pix": "PIX",
+    "pse": "PSE",
+    "oxxo": "OXXO",
+    "spei": "SPEI",
+    "yape": "Yape",
+    "plin": "Plin",
+    "bizum": "Bizum",
+    "boleto": "Boleto",
+    "credit": "Crédito",
+    "debit": "Débito",
+    "check": "Cheque",
+    "wire": "Transferência internacional",
+    "insurance": "Plano de saúde",
+    "mercadopago": "Mercado Pago"
+  }
+}
