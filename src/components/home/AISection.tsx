@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { MessageSquare, Sparkles, Scan, ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
@@ -65,13 +66,27 @@ function SmileCard() {
         {t("desc")}
       </p>
       <div className="mt-5 grid grid-cols-2 gap-2">
-        <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-ink-200 to-ink-400 pt-[100%]">
-          <span className="absolute bottom-2 left-2 rounded-md bg-black/40 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white">
+        <div className="relative aspect-square overflow-hidden rounded-xl bg-ink-100 dark:bg-ink-800">
+          <Image
+            src="/showcase/smile-antes.png"
+            alt={t("before")}
+            fill
+            sizes="(min-width: 768px) 200px, 50vw"
+            className="object-cover"
+          />
+          <span className="absolute bottom-2 left-2 rounded-md bg-black/60 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur">
             {t("before")}
           </span>
         </div>
-        <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-brand-300 to-accent-500 pt-[100%]">
-          <span className="absolute bottom-2 left-2 rounded-md bg-white/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur">
+        <div className="relative aspect-square overflow-hidden rounded-xl bg-ink-100 ring-2 ring-brand-400/50 dark:bg-ink-800">
+          <Image
+            src="/showcase/smile-depois.png"
+            alt={t("after")}
+            fill
+            sizes="(min-width: 768px) 200px, 50vw"
+            className="object-cover"
+          />
+          <span className="absolute bottom-2 left-2 rounded-md bg-emerald-500/90 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur">
             {t("after")}
           </span>
         </div>
