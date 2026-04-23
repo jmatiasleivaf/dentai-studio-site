@@ -5,12 +5,13 @@ import { motion, useReducedMotion } from "framer-motion";
 
 /**
  * Fade-up on scroll — reusável em qualquer seção.
- * Respeita `prefers-reduced-motion` automaticamente (sem animação se o
- * usuário pediu).
+ * Respeita `prefers-reduced-motion` automaticamente.
  *
- * Uso:
- *   <FadeInSection>...</FadeInSection>
- *   <FadeInSection delay={0.1} y={12}>...</FadeInSection>
+ * Defesa importante: SSR/pré-hidratação renderizam o conteúdo sem motion
+ * (opacity 1), e só depois de mount no cliente o motion assume com
+ * initial `opacity: 0` disparando whileInView. Isso evita que o usuário
+ * caia numa janela onde o JS não rodou e os filhos fiquem presos em
+ * opacity 0 (bug visto em navegação via anchor `/es#features`).
  */
 export function FadeInSection({
   children,
@@ -24,8 +25,14 @@ export function FadeInSection({
   className?: string;
 }) {
   const reduce = useReducedMotion();
+  const [mounted, setMounted] = React.useState(false);
 
-  if (reduce) {
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // SSR + pré-hidratação + prefers-reduced-motion → renderiza direto visível
+  if (reduce || !mounted) {
     return <div className={className}>{children}</div>;
   }
 
@@ -33,8 +40,7 @@ export function FadeInSection({
     <motion.div
       className={className}
       initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-10% 0px" }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.55, delay, ease: [0.16, 1, 0.3, 1] }}
     >
       {children}
