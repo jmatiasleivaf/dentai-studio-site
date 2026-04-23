@@ -5,7 +5,6 @@ import { useTranslations } from "next-intl";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
-import { COUNTRY_LIST } from "@/lib/countries";
 
 export function Hero() {
   const t = useTranslations("hero");
@@ -30,16 +29,9 @@ export function Hero() {
                 <Sparkles className="h-3 w-3" aria-hidden />
                 {t("badge")}
               </Badge>
-              <span className="flex -space-x-1 text-base" aria-hidden>
-                {COUNTRY_LIST.slice(0, 9).map((c) => (
-                  <span key={c.code} title={c.name.es}>
-                    {c.flag}
-                  </span>
-                ))}
-              </span>
             </div>
 
-            <h1 className="mt-6 font-display text-fluid-5xl font-extrabold leading-[1.02] tracking-tight text-ink-900 dark:text-ink-50">
+            <h1 className="mt-6 font-display text-fluid-4xl font-extrabold leading-[1.05] tracking-tight text-ink-900 dark:text-ink-50">
               <span className="block">{t("h1Line1")}</span>
               <span className="block bg-brand-gradient bg-clip-text text-transparent">
                 {t("h1Line2")}
@@ -111,8 +103,8 @@ function HeroProofCards() {
         </div>
       </div>
 
-      {/* Smile card (floating) — somente ≥xl para evitar overlap em tablet */}
-      <div className="absolute -right-4 -top-8 z-10 hidden w-56 -rotate-6 rounded-2xl border border-ink-100 bg-white p-4 shadow-lg xl:block animate-float dark:border-ink-800 dark:bg-ink-900">
+      {/* Smile card (floating) — somente ≥2xl (1536px+) onde há espaço real */}
+      <div className="absolute -right-8 -top-10 z-10 hidden w-56 -rotate-6 rounded-2xl border border-ink-100 bg-white p-4 shadow-lg 2xl:block animate-float dark:border-ink-800 dark:bg-ink-900">
         <div className="flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider text-violet-600 dark:text-violet-400">
           <Sparkles className="h-3 w-3" aria-hidden /> AI Smile
         </div>
@@ -130,8 +122,8 @@ function HeroProofCards() {
         </div>
       </div>
 
-      {/* Radiograph card (floating) — somente ≥xl */}
-      <div className="absolute -bottom-10 -left-4 z-10 hidden w-52 rotate-3 rounded-2xl border border-ink-100 bg-white p-4 shadow-lg xl:block dark:border-ink-800 dark:bg-ink-900">
+      {/* Radiograph card (floating) — somente ≥2xl */}
+      <div className="absolute -bottom-12 -left-8 z-10 hidden w-52 rotate-3 rounded-2xl border border-ink-100 bg-white p-4 shadow-lg 2xl:block dark:border-ink-800 dark:bg-ink-900">
         <div className="flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
           <Scan className="h-3 w-3" aria-hidden /> AI Radio
         </div>
