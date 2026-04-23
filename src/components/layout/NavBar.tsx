@@ -7,6 +7,7 @@ import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Logo } from "@/components/ui/logo";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 
 const SECTIONS = [
@@ -49,6 +50,7 @@ export function NavBar() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <ThemeToggle />
           <LocaleSwitcher />
           <Button asChild size="sm" variant="ghost" className="hidden md:inline-flex">
             <a href="https://app.superclini.com">{t("login")}</a>

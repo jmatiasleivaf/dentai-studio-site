@@ -4,6 +4,7 @@ import { TrustStrip } from "@/components/home/TrustStrip";
 import { AISection } from "@/components/home/AISection";
 import { Personas } from "@/components/home/Personas";
 import { Pricing } from "@/components/home/Pricing";
+import { PricingMatrix } from "@/components/home/PricingMatrix";
 import { Features } from "@/components/home/Features";
 import { Totem } from "@/components/home/Totem";
 import { Proof } from "@/components/home/Proof";
@@ -26,6 +27,7 @@ export default async function HomePage({
       <Features />
       <Personas />
       <Pricing />
+      <PricingMatrix />
       <Totem />
       <Proof />
       <FAQ />

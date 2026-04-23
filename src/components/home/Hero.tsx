@@ -22,7 +22,7 @@ export function Hero() {
       />
 
       <Container>
-        <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_1fr] lg:gap-20">
+        <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-20 xl:gap-24">
           {/* ─── Left: copy ─── */}
           <div className="text-center lg:text-left">
             <div className="flex flex-wrap items-center justify-center gap-2 lg:justify-start">
@@ -85,9 +85,9 @@ function HeroProofCards() {
   const t = useTranslations("ai.cards");
 
   return (
-    <div className="relative mx-auto w-full max-w-[520px] lg:max-w-none">
+    <div className="relative mx-auto w-full max-w-full sm:max-w-[520px] lg:max-w-none">
       {/* Chat card (primary) */}
-      <div className="relative z-20 overflow-hidden rounded-3xl border border-ink-100 bg-white p-5 shadow-card-hover dark:border-ink-800 dark:bg-ink-900">
+      <div className="relative z-20 overflow-hidden rounded-3xl border border-ink-100 bg-white p-5 shadow-card-hover dark:border-ink-800 dark:bg-ink-900 sm:p-6">
         <div className="flex items-center gap-3 border-b border-ink-100 pb-4 dark:border-ink-800">
           <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-gradient">
             <Bot className="h-5 w-5 text-white" aria-hidden />
@@ -111,8 +111,8 @@ function HeroProofCards() {
         </div>
       </div>
 
-      {/* Smile card (floating) */}
-      <div className="absolute -right-4 -top-8 z-10 hidden w-56 -rotate-6 rounded-2xl border border-ink-100 bg-white p-4 shadow-lg lg:block animate-float dark:border-ink-800 dark:bg-ink-900">
+      {/* Smile card (floating) — somente ≥xl para evitar overlap em tablet */}
+      <div className="absolute -right-4 -top-8 z-10 hidden w-56 -rotate-6 rounded-2xl border border-ink-100 bg-white p-4 shadow-lg xl:block animate-float dark:border-ink-800 dark:bg-ink-900">
         <div className="flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider text-violet-600 dark:text-violet-400">
           <Sparkles className="h-3 w-3" aria-hidden /> AI Smile
         </div>
@@ -130,8 +130,8 @@ function HeroProofCards() {
         </div>
       </div>
 
-      {/* Radiograph card (floating) */}
-      <div className="absolute -bottom-10 -left-4 z-10 hidden w-52 rotate-3 rounded-2xl border border-ink-100 bg-white p-4 shadow-lg lg:block dark:border-ink-800 dark:bg-ink-900">
+      {/* Radiograph card (floating) — somente ≥xl */}
+      <div className="absolute -bottom-10 -left-4 z-10 hidden w-52 rotate-3 rounded-2xl border border-ink-100 bg-white p-4 shadow-lg xl:block dark:border-ink-800 dark:bg-ink-900">
         <div className="flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
           <Scan className="h-3 w-3" aria-hidden /> AI Radio
         </div>

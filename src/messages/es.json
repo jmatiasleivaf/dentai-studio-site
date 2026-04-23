@@ -79,52 +79,150 @@
     "sub": "Detectamos tu país automáticamente. Puedes cambiarlo si prefieres otra región.",
     "countryLabel": "Tu país:",
     "changeCountry": "Cambiar",
+    "cycle": {
+      "monthly": "Mensual",
+      "annual": "Anual",
+      "discount": "−20%"
+    },
     "perMonth": "/mes",
+    "perMonthAnnual": "/mes",
+    "perLocation": "/mes por filial",
     "billedMonthly": "Facturación mensual",
+    "billedAnnually": "2 meses gratis · facturado anual",
+    "fromPrefix": "Desde",
+    "quoteLabel": "Cotización",
+    "quoteBadge": "Contrato anual · cotización",
     "popular": "Más elegido",
+    "forNetworks": "Para redes",
+    "arsDisclaimer": "Argentina: facturado en USD al cambio oficial. Precio revisado trimestralmente.",
+    "seeMatrixLink": "Ver comparación detallada de los 4 planes",
+    "ctaContact": "Hablar con ventas",
     "plans": {
-      "starter": {
-        "name": "Starter",
-        "desc": "Para consultorios que quieren digitalizarse y ordenar procesos."
+      "esencial": {
+        "name": "Esencial",
+        "desc": "Para el dentista solo o clínica 1-2 sillones recién empezando.",
+        "cta": "Probar gratis"
       },
-      "professional": {
-        "name": "Professional",
-        "desc": "Para clínicas que quieren IA, automatización y máxima eficiencia."
+      "profesional": {
+        "name": "Profesional",
+        "desc": "La clínica consolidada de 3-8 sillones que quiere cerrar más casos con IA.",
+        "cta": "Probar 14 días gratis"
+      },
+      "avanzado": {
+        "name": "Avanzado",
+        "desc": "La clínica de inversión con CBCT, escáner y WhatsApp 24/7.",
+        "cta": "Probar gratis"
       },
       "enterprise": {
         "name": "Enterprise",
-        "desc": "Para clínicas multi-sede con autoatendimiento y personalización total."
+        "desc": "Red de 3+ filiales con gestión corporativa, SSO y SLA contractual.",
+        "cta": "Hablar con ventas"
       }
     },
     "features": {
-      "maxProfessionals2": "Hasta 2 profesionales",
-      "maxProfessionals8": "Hasta 8 profesionales",
-      "unlimitedProfessionals": "Profesionales ilimitados",
       "agenda": "Agenda inteligente multi-box",
-      "prontuario": "Ficha clínica y odontograma FDI",
-      "financeiroBasico": "Finanzas y caja diaria",
-      "reportsBasic": "Reportes generales",
-      "rolesBasic": "Roles y permisos",
-      "allStarter": "Todo del plan Starter",
-      "allProfessional": "Todo del plan Professional",
-      "aiAnalysis": "Análisis clínico con IA",
-      "smileSimulation": "Simulación de sonrisa IA",
-      "autoSettlements": "Liquidaciones automáticas",
-      "whatsappAi": "Asistente WhatsApp IA",
-      "dicom3d": "Visor DICOM 3D integrado",
-      "reportsAdvanced": "Reportes avanzados y BI",
-      "laboratoryPortal": "Portal del laboratorio",
+      "prontuarioOdontograma": "Ficha clínica + odontograma FDI",
+      "financeiroBasico": "Financiero + caja diaria",
+      "procedimentosCatalog": "231 procedimientos del arancel",
+      "documentos5": "5 plantillas de documentos esenciales",
+      "maxProf2": "Hasta 2 profesionales",
+      "maxProf10": "Hasta 10 profesionales",
+      "maxProf20": "Hasta 20 profesionales",
+      "unlimitedProfessionals": "Profesionales ilimitados",
+      "supportEmail72h": "Soporte por email · SLA 72h",
+      "supportChat24h": "Chat en vivo · SLA 24h",
+      "supportChat4h": "Chat en vivo · SLA 4h",
+      "everythingEssential": "Todo del plan Esencial",
+      "everythingProfessional": "Todo del plan Profesional",
+      "everythingAdvanced": "Todo del plan Avanzado",
       "memberships": "Membresías para pacientes",
-      "totem": "Tótem de autoatendimiento",
-      "digitalSignature": "Firma digital de consentimientos",
-      "queueSystem": "Sistema de fila inteligente",
-      "multiWhatsapp": "WhatsApp multi-número",
-      "apiAccess": "API para integraciones",
-      "prioritySupport": "Soporte prioritario 24/7",
-      "superAdmin": "Consolidación multi-sede"
+      "laboratoryPortal": "Portal del laboratorio",
+      "casosIa20": "20 simulaciones de sonrisa IA/mes",
+      "casosIa100": "100 simulaciones de sonrisa IA/mes",
+      "radiographIa50": "50 análisis radiográficos IA/mes",
+      "radiographIa500": "500 análisis radiográficos IA/mes",
+      "planIa5": "5 planes de tratamiento IA/mes",
+      "planIa30": "30 planes de tratamiento IA/mes",
+      "whatsappIa1k": "Sofía · 1.000 mensajes/mes",
+      "dicom3d": "Visor DICOM 3D (CBCT)",
+      "alignersUnlimited": "Alineadores ilimitados",
+      "patientPortal": "Portal del paciente",
+      "reportsBi": "Reportes BI",
+      "reportsBiAdvanced": "Reportes BI avanzados + embudo",
+      "multiLocation": "Multi-filial consolidado",
+      "whitelabel": "White-label",
+      "sso": "SSO corporativo (Azure AD · Okta)",
+      "apiAccess": "API completa + webhooks",
+      "sla999": "SLA 99,9% contractual",
+      "accountManager": "Gerente de cuenta dedicado",
+      "onboardingPremium": "Onboarding premium (2-4 sem.)"
     },
-    "ctaPlan": "Probar gratis",
-    "ctaContact": "Hablar con ventas"
+    "matrix": {
+      "title": "Comparación detallada de los 4 planes",
+      "sub": "Todas las funcionalidades lado a lado, sin letra chica.",
+      "groups": {
+        "core": "Funcionalidades base",
+        "limits": "Límites y capacidad",
+        "growth": "Crecimiento y operación",
+        "ai": "Inteligencia artificial",
+        "advanced": "Funcionalidades avanzadas",
+        "enterprise": "Enterprise"
+      },
+      "rows": {
+        "agenda": "Agenda multi-box",
+        "prontuario": "Ficha clínica + odontograma",
+        "financial": "Financiero",
+        "proceduresCatalog": "Catálogo de procedimientos",
+        "professionals": "Profesionales incluidos",
+        "boxes": "Boxes / sillones",
+        "activePatients": "Pacientes activos",
+        "storage": "Almacenamiento",
+        "documents": "Documentos clínicos",
+        "memberships": "Membresías de pacientes",
+        "laboratory": "Portal del laboratorio",
+        "casosIa": "Simulación de sonrisa IA",
+        "radiographIa": "Análisis radiográfico IA",
+        "planIa": "Plan de tratamiento IA",
+        "whatsappIa": "WhatsApp IA (Sofía)",
+        "dicom3d": "Visor DICOM 3D (CBCT)",
+        "aligners": "Alineadores (Invisalign / ClearCorrect)",
+        "patientPortal": "Portal del paciente",
+        "reportsBi": "Reportes BI",
+        "api": "API · Webhooks",
+        "sso": "SSO corporativo",
+        "whitelabel": "White-label",
+        "multiLocation": "Multi-filial consolidado",
+        "sla": "Soporte"
+      },
+      "values": {
+        "basic": "Básico",
+        "intermediate": "Intermedio",
+        "advanced": "Avanzado",
+        "custom": "Personalizable",
+        "unlimited": "Ilimitado",
+        "readonly": "Solo lectura",
+        "full": "Completa",
+        "yes-wl": "Sí · white-label",
+        "email72": "Email · 72h",
+        "chat24": "Chat · 24h",
+        "chat4": "Chat · 4h",
+        "dedicated": "Dedicado · 99,9%",
+        "5gb": "5 GB",
+        "50gb": "50 GB",
+        "100gb": "100 GB",
+        "500gb": "500 GB",
+        "5tpl": "5 plantillas",
+        "33tpl": "33 plantillas",
+        "20mo": "20/mes",
+        "100mo": "100/mes",
+        "50mo": "50/mes",
+        "500mo": "500/mes",
+        "5mo": "5/mes",
+        "30mo": "30/mes",
+        "1kmo": "1.000/mes",
+        "10kmo": "10.000/mes"
+      }
+    }
   },
   "personas": {
     "eyebrow": "Para tu realidad",
@@ -287,5 +385,143 @@
     "wire": "Wire transfer",
     "insurance": "Insurance",
     "mercadopago": "Mercado Pago"
+  },
+  "contact": {
+    "metaTitle": "Hablar con el equipo",
+    "metaDescription": "Contáctanos para probar SuperClini 14 días gratis, agendar una demo o solicitar cotización Enterprise.",
+    "eyebrow": "Hablemos",
+    "pageTitle": "Cuéntanos sobre tu clínica.",
+    "pageBody": "Te respondemos en menos de 24 horas hábiles, en español. Sin compromiso, sin scripts genéricos.",
+    "benefits": {
+      "trial": {
+        "title": "Prueba gratis 14 días",
+        "body": "Te activamos el plan Profesional con todo el poder de IA, sin tarjeta ni compromiso."
+      },
+      "demo": {
+        "title": "Demo guiada",
+        "body": "Agendamos 30 minutos con tu equipo para recorrer la plataforma con datos reales de tu clínica."
+      },
+      "enterprise": {
+        "title": "Cotización Enterprise",
+        "body": "Redes de 3+ filiales, multi-locación, SSO, API y SLA contractual."
+      }
+    },
+    "title": "Escríbenos",
+    "subtitle": "Te respondemos en menos de 24 horas hábiles.",
+    "dialogTitle": "Hablemos",
+    "dialogSubtitle": "Compártenos tu contacto y te respondemos en menos de 24 horas hábiles.",
+    "submit": "Enviar solicitud",
+    "submitting": "Enviando…",
+    "successTitle": "¡Gracias! Recibimos tu mensaje.",
+    "successBody": "Te contactaremos en menos de 24 horas hábiles por email o WhatsApp.",
+    "sendAnother": "Enviar otra solicitud",
+    "consent": "Acepto ser contactado por SuperClini con información comercial y acepto la <link>política de privacidad</link>.",
+    "form": {
+      "name": "Nombre",
+      "clinic": "Clínica",
+      "email": "Email",
+      "phone": "Teléfono",
+      "phoneHint": "Incluye el código de país",
+      "country": "País",
+      "size": "Tamaño del equipo",
+      "sizeAny": "Prefiero no decir",
+      "interest": "¿En qué te podemos ayudar?",
+      "interestAny": "Selecciona una opción",
+      "message": "Mensaje",
+      "optional": "Opcional",
+      "countries": {
+        "CL": "Chile",
+        "BR": "Brasil",
+        "CO": "Colombia",
+        "AR": "Argentina",
+        "MX": "México",
+        "PE": "Perú",
+        "US": "Estados Unidos",
+        "ES": "España",
+        "PT": "Portugal"
+      },
+      "sizes": {
+        "1": "1 dentista",
+        "2-5": "2–5 dentistas",
+        "6-10": "6–10 dentistas",
+        "11-20": "11–20 dentistas",
+        "20+": "Más de 20 dentistas"
+      },
+      "interests": {
+        "avaliar": "Evaluar la plataforma",
+        "demo": "Agendar demo",
+        "trial_profesional": "Probar 14 días gratis",
+        "cotizacion_enterprise": "Cotización Enterprise (3+ filiales)",
+        "suporte": "Soporte",
+        "outro": "Otro"
+      }
+    },
+    "errors": {
+      "required": "Este campo es obligatorio",
+      "min2": "Mínimo 2 caracteres",
+      "email": "Email inválido",
+      "tel": "Formato internacional: +56912345678",
+      "pais": "Selecciona un país",
+      "consent": "Necesitamos tu consentimiento para contactarte",
+      "tooLong": "Demasiado largo",
+      "invalid": "Revisa los datos e inténtalo de nuevo.",
+      "rateLimit": "Recibimos muchas solicitudes de tu red. Inténtalo en unos minutos.",
+      "network": "Problema de red. Revisa tu conexión e inténtalo de nuevo.",
+      "generic": "Algo salió mal. Inténtalo de nuevo en unos minutos."
+    }
+  },
+  "privacy": {
+    "metaTitle": "Política de privacidad",
+    "metaDescription": "Cómo SuperClini recopila, usa y protege tus datos personales en Chile (Ley 19.628), Brasil (LGPD) y la UE (GDPR).",
+    "eyebrow": "Privacidad",
+    "title": "Política de privacidad",
+    "lastUpdated": "Última actualización: {date}",
+    "intro": "En SuperClini tratamos datos personales con transparencia y responsabilidad. Esta política explica qué recopilamos del sitio superclini.com y de nuestros formularios comerciales, por qué lo hacemos y qué derechos tienes. Las operaciones dentro del producto (ficha clínica, pagos, DICOM) están cubiertas por el Acuerdo de Tratamiento de Datos firmado con cada clínica contratante.",
+    "sections": {
+      "who": {
+        "title": "1. Quiénes somos",
+        "body": "SuperClini / DentAI Studio es operado por SuperClini SpA (Chile). Somos el responsable del tratamiento de los datos que recopilamos a través de este sitio. Para datos clínicos procesados dentro del producto, SuperClini actúa como encargado del tratamiento por cuenta de cada clínica contratante."
+      },
+      "what": {
+        "title": "2. Qué datos recopilamos",
+        "body": "A través del formulario de contacto: nombre, email, teléfono, nombre de la clínica (opcional), país, tamaño del equipo (opcional), tipo de interés y mensaje libre. Automáticamente: dirección IP, user-agent del navegador, URL de origen y parámetros UTM cuando aplique. No recopilamos datos clínicos a través del sitio público — esos son tratados exclusivamente dentro del producto bajo contrato separado."
+      },
+      "why": {
+        "title": "3. Para qué usamos los datos",
+        "body": "Responder tu solicitud comercial y calificar tu interés en la plataforma.\nEnviarte información sobre funcionalidades, precios y novedades relacionadas al producto (solo si diste consentimiento).\nCumplir obligaciones legales y contables.\nPrevenir fraude y uso indebido del sitio."
+      },
+      "legal": {
+        "title": "4. Base legal del tratamiento",
+        "body": "Consentimiento explícito del titular (checkbox en el formulario) — Ley 19.628 (Chile), LGPD art. 7º, I (Brasil), GDPR art. 6(1)(a) (UE).\nInterés legítimo para prevención de fraude y seguridad del sitio — GDPR art. 6(1)(f), LGPD art. 7º, IX.\nCumplimiento de obligación legal cuando aplicable — GDPR art. 6(1)(c), LGPD art. 7º, II."
+      },
+      "rights": {
+        "title": "5. Tus derechos",
+        "body": "Puedes en cualquier momento solicitar: acceso a tus datos, corrección, eliminación, portabilidad, revocación del consentimiento y oposición al tratamiento. Basta escribirnos a privacidad@superclini.com con tu email registrado. Responderemos en hasta 15 días hábiles (Chile) / 15 días (Brasil, LGPD) / 1 mes (GDPR)."
+      },
+      "retention": {
+        "title": "6. Retención",
+        "body": "Leads comerciales: hasta 24 meses desde el último contacto, después de eso son anonimizados o eliminados automáticamente. Datos exigidos por ley (contratos, facturación): según el plazo legal aplicable."
+      },
+      "security": {
+        "title": "7. Seguridad",
+        "body": "Aplicamos medidas técnicas y organizativas razonables: TLS en toda comunicación, hash irreversible de contraseñas, control de acceso basado en roles, logs de auditoría, backups cifrados. El sitio y el producto están alojados en proveedores con certificaciones ISO 27001 y SOC 2."
+      },
+      "cookies": {
+        "title": "8. Cookies y tecnologías similares",
+        "body": "Usamos cookies esenciales para funcionamiento del sitio (preferencia de idioma, país detectado). No usamos cookies de rastreo publicitario de terceros sin tu consentimiento. Analytics se ejecuta con IP anonimizada y sin identificadores personales."
+      },
+      "transfer": {
+        "title": "9. Transferencias internacionales",
+        "body": "Algunos de nuestros proveedores de infraestructura (hosting, email transaccional) están ubicados fuera de Chile. Cuando hay transferencia internacional, garantizamos protección equivalente vía cláusulas contractuales estándar (GDPR SCC) o decisiones de adecuación."
+      },
+      "contact": {
+        "title": "10. Contacto",
+        "body": "Para ejercer tus derechos o aclarar dudas sobre esta política: privacidad@superclini.com.\nResponsable: SuperClini SpA, Chile."
+      }
+    },
+    "dpo": {
+      "title": "Encargado de Protección de Datos (DPO)",
+      "body": "Para consultas específicas sobre protección de datos, escribe a dpo@superclini.com."
+    }
   }
 }

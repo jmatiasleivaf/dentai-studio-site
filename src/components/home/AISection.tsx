@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Section, SectionHeader } from "@/components/ui/section";
+import { FadeInSection } from "@/components/ui/fade-in-section";
 
 export function AISection() {
   const t = useTranslations("ai");
@@ -13,9 +14,15 @@ export function AISection() {
         <SectionHeader eyebrow={t("eyebrow")} title={t("title")} sub={t("sub")} />
 
         <div className="mt-14 grid gap-6 md:grid-cols-3">
-          <WhatsAppCard />
-          <SmileCard />
-          <RadiographCard />
+          <FadeInSection delay={0}>
+            <WhatsAppCard />
+          </FadeInSection>
+          <FadeInSection delay={0.08}>
+            <SmileCard />
+          </FadeInSection>
+          <FadeInSection delay={0.16}>
+            <RadiographCard />
+          </FadeInSection>
         </div>
 
         <div className="mt-12 text-center">

@@ -1,11 +1,12 @@
 import * as React from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Container } from "@/components/ui/container";
 import { Logo } from "@/components/ui/logo";
 import { COUNTRY_LIST } from "@/lib/countries";
 
 export function Footer() {
   const t = useTranslations("footer");
+  const locale = useLocale();
   const year = new Date().getFullYear();
 
   return (
@@ -28,12 +29,12 @@ export function Footer() {
 
           <FooterCol title={t("companyTitle")}>
             <FooterLink href="#">{t("company.about")}</FooterLink>
-            <FooterLink href="#">{t("company.contact")}</FooterLink>
+            <FooterLink href={`/${locale}/contato`}>{t("company.contact")}</FooterLink>
             <FooterLink href="#">{t("company.help")}</FooterLink>
           </FooterCol>
 
           <FooterCol title={t("legalTitle")}>
-            <FooterLink href="#">{t("legal.privacy")}</FooterLink>
+            <FooterLink href={`/${locale}/privacidade`}>{t("legal.privacy")}</FooterLink>
             <FooterLink href="#">{t("legal.terms")}</FooterLink>
             <FooterLink href="#">{t("legal.security")}</FooterLink>
           </FooterCol>

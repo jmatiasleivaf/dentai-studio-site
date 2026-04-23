@@ -79,43 +79,150 @@
     "sub": "We detect your country automatically. Switch if you prefer another region.",
     "countryLabel": "Your country:",
     "changeCountry": "Change",
+    "cycle": {
+      "monthly": "Monthly",
+      "annual": "Annual",
+      "discount": "−20%"
+    },
     "perMonth": "/mo",
+    "perMonthAnnual": "/mo",
+    "perLocation": "/mo per location",
     "billedMonthly": "Billed monthly",
+    "billedAnnually": "2 months free · billed annually",
+    "fromPrefix": "From",
+    "quoteLabel": "Get a quote",
+    "quoteBadge": "Annual contract · quote",
     "popular": "Most picked",
+    "forNetworks": "For networks",
+    "arsDisclaimer": "Argentina: billed in USD at the official rate. Price reviewed quarterly.",
+    "seeMatrixLink": "See detailed comparison across all 4 plans",
+    "ctaContact": "Talk to sales",
     "plans": {
-      "starter": { "name": "Starter", "desc": "For solo offices going digital and organizing processes." },
-      "professional": { "name": "Professional", "desc": "For clinics that want AI, automation and top efficiency." },
-      "enterprise": { "name": "Enterprise", "desc": "For multi-site practices with self-service and full customization." }
+      "esencial": {
+        "name": "Essential",
+        "desc": "For the solo dentist or 1-2 chair practice just starting out.",
+        "cta": "Try free"
+      },
+      "profesional": {
+        "name": "Professional",
+        "desc": "The established 3-8 chair practice that wants to close more cases with AI.",
+        "cta": "Try 14 days free"
+      },
+      "avanzado": {
+        "name": "Advanced",
+        "desc": "The investment practice with CBCT, intraoral scanner and 24/7 WhatsApp.",
+        "cta": "Try free"
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "desc": "3+ location network with corporate management, SSO and contractual SLA.",
+        "cta": "Talk to sales"
+      }
     },
     "features": {
-      "maxProfessionals2": "Up to 2 providers",
-      "maxProfessionals8": "Up to 8 providers",
-      "unlimitedProfessionals": "Unlimited providers",
       "agenda": "Smart multi-op scheduling",
-      "prontuario": "EHR and FDI tooth chart",
-      "financeiroBasico": "Finance and daily cashier",
-      "reportsBasic": "General reports",
-      "rolesBasic": "Roles and permissions",
-      "allStarter": "Everything in Starter",
-      "allProfessional": "Everything in Professional",
-      "aiAnalysis": "AI clinical analysis",
-      "smileSimulation": "AI smile simulation",
-      "autoSettlements": "Automatic payroll settlements",
-      "whatsappAi": "WhatsApp AI agent",
-      "dicom3d": "Built-in DICOM 3D viewer",
-      "reportsAdvanced": "Advanced reports and BI",
-      "laboratoryPortal": "Lab portal",
+      "prontuarioOdontograma": "EHR + FDI tooth chart",
+      "financeiroBasico": "Finance + daily cashier",
+      "procedimentosCatalog": "231-procedure catalog",
+      "documentos5": "5 essential document templates",
+      "maxProf2": "Up to 2 providers",
+      "maxProf10": "Up to 10 providers",
+      "maxProf20": "Up to 20 providers",
+      "unlimitedProfessionals": "Unlimited providers",
+      "supportEmail72h": "Email support · 72h SLA",
+      "supportChat24h": "Live chat · 24h SLA",
+      "supportChat4h": "Live chat · 4h SLA",
+      "everythingEssential": "Everything in Essential",
+      "everythingProfessional": "Everything in Professional",
+      "everythingAdvanced": "Everything in Advanced",
       "memberships": "Patient memberships",
-      "totem": "Self-service kiosk",
-      "digitalSignature": "Digital consent signing",
-      "queueSystem": "Smart queue system",
-      "multiWhatsapp": "Multi-number WhatsApp",
-      "apiAccess": "API for integrations",
-      "prioritySupport": "24/7 priority support",
-      "superAdmin": "Multi-site consolidation"
+      "laboratoryPortal": "Lab portal",
+      "casosIa20": "20 AI smile simulations/mo",
+      "casosIa100": "100 AI smile simulations/mo",
+      "radiographIa50": "50 AI radiograph analyses/mo",
+      "radiographIa500": "500 AI radiograph analyses/mo",
+      "planIa5": "5 AI treatment plans/mo",
+      "planIa30": "30 AI treatment plans/mo",
+      "whatsappIa1k": "Sofía · 1,000 messages/mo",
+      "dicom3d": "DICOM 3D viewer (CBCT)",
+      "alignersUnlimited": "Unlimited aligners",
+      "patientPortal": "Patient portal",
+      "reportsBi": "BI reports",
+      "reportsBiAdvanced": "Advanced BI reports + funnel",
+      "multiLocation": "Multi-location consolidation",
+      "whitelabel": "White-label",
+      "sso": "Corporate SSO (Azure AD · Okta)",
+      "apiAccess": "Full API + webhooks",
+      "sla999": "99.9% contractual SLA",
+      "accountManager": "Dedicated account manager",
+      "onboardingPremium": "Premium onboarding (2-4 wks)"
     },
-    "ctaPlan": "Try free",
-    "ctaContact": "Talk to sales"
+    "matrix": {
+      "title": "Detailed comparison of all 4 plans",
+      "sub": "Every feature side by side — no fine print.",
+      "groups": {
+        "core": "Core features",
+        "limits": "Limits & capacity",
+        "growth": "Growth & operations",
+        "ai": "Artificial intelligence",
+        "advanced": "Advanced features",
+        "enterprise": "Enterprise"
+      },
+      "rows": {
+        "agenda": "Multi-op scheduling",
+        "prontuario": "EHR + tooth chart",
+        "financial": "Finance",
+        "proceduresCatalog": "Procedure catalog",
+        "professionals": "Included providers",
+        "boxes": "Operatories",
+        "activePatients": "Active patients",
+        "storage": "Storage",
+        "documents": "Clinical documents",
+        "memberships": "Patient memberships",
+        "laboratory": "Lab portal",
+        "casosIa": "AI smile simulation",
+        "radiographIa": "AI radiograph analysis",
+        "planIa": "AI treatment plan",
+        "whatsappIa": "WhatsApp AI (Sofía)",
+        "dicom3d": "DICOM 3D viewer (CBCT)",
+        "aligners": "Aligners (Invisalign / ClearCorrect)",
+        "patientPortal": "Patient portal",
+        "reportsBi": "BI reports",
+        "api": "API · Webhooks",
+        "sso": "Corporate SSO",
+        "whitelabel": "White-label",
+        "multiLocation": "Multi-location consolidation",
+        "sla": "Support"
+      },
+      "values": {
+        "basic": "Basic",
+        "intermediate": "Intermediate",
+        "advanced": "Advanced",
+        "custom": "Customizable",
+        "unlimited": "Unlimited",
+        "readonly": "Read-only",
+        "full": "Full",
+        "yes-wl": "Yes · white-label",
+        "email72": "Email · 72h",
+        "chat24": "Chat · 24h",
+        "chat4": "Chat · 4h",
+        "dedicated": "Dedicated · 99.9%",
+        "5gb": "5 GB",
+        "50gb": "50 GB",
+        "100gb": "100 GB",
+        "500gb": "500 GB",
+        "5tpl": "5 templates",
+        "33tpl": "33 templates",
+        "20mo": "20/mo",
+        "100mo": "100/mo",
+        "50mo": "50/mo",
+        "500mo": "500/mo",
+        "5mo": "5/mo",
+        "30mo": "30/mo",
+        "1kmo": "1,000/mo",
+        "10kmo": "10,000/mo"
+      }
+    }
   },
   "personas": {
     "eyebrow": "For your reality",
@@ -239,5 +346,143 @@
     "wire": "Wire transfer",
     "insurance": "Insurance",
     "mercadopago": "Mercado Pago"
+  },
+  "contact": {
+    "metaTitle": "Talk to our team",
+    "metaDescription": "Get in touch to try SuperClini free for 14 days, schedule a demo, or request an Enterprise quote.",
+    "eyebrow": "Let's talk",
+    "pageTitle": "Tell us about your practice.",
+    "pageBody": "We reply within 24 business hours, in your language. No commitment, no canned scripts.",
+    "benefits": {
+      "trial": {
+        "title": "14-day free trial",
+        "body": "We activate the Professional plan with full AI — no card, no commitment."
+      },
+      "demo": {
+        "title": "Guided demo",
+        "body": "30 minutes with your team, walking through the platform with real clinic data."
+      },
+      "enterprise": {
+        "title": "Enterprise quote",
+        "body": "3+ locations, multi-site consolidation, SSO, API and contractual SLA."
+      }
+    },
+    "title": "Write to us",
+    "subtitle": "We reply within 24 business hours.",
+    "dialogTitle": "Let's talk",
+    "dialogSubtitle": "Share your contact info and we'll get back within 24 business hours.",
+    "submit": "Send request",
+    "submitting": "Sending…",
+    "successTitle": "Thanks! We got your message.",
+    "successBody": "We'll reply within 24 business hours by email or WhatsApp.",
+    "sendAnother": "Send another request",
+    "consent": "I agree to be contacted by SuperClini with commercial info and accept the <link>privacy policy</link>.",
+    "form": {
+      "name": "Name",
+      "clinic": "Practice",
+      "email": "Email",
+      "phone": "Phone",
+      "phoneHint": "Include country code",
+      "country": "Country",
+      "size": "Team size",
+      "sizeAny": "Prefer not to say",
+      "interest": "How can we help?",
+      "interestAny": "Select an option",
+      "message": "Message",
+      "optional": "Optional",
+      "countries": {
+        "CL": "Chile",
+        "BR": "Brazil",
+        "CO": "Colombia",
+        "AR": "Argentina",
+        "MX": "Mexico",
+        "PE": "Peru",
+        "US": "United States",
+        "ES": "Spain",
+        "PT": "Portugal"
+      },
+      "sizes": {
+        "1": "1 dentist",
+        "2-5": "2–5 dentists",
+        "6-10": "6–10 dentists",
+        "11-20": "11–20 dentists",
+        "20+": "More than 20 dentists"
+      },
+      "interests": {
+        "avaliar": "Evaluate the platform",
+        "demo": "Schedule a demo",
+        "trial_profesional": "Try 14 days free",
+        "cotizacion_enterprise": "Enterprise quote (3+ locations)",
+        "suporte": "Support",
+        "outro": "Other"
+      }
+    },
+    "errors": {
+      "required": "Required field",
+      "min2": "Minimum 2 characters",
+      "email": "Invalid email",
+      "tel": "International format: +14155551234",
+      "pais": "Select a country",
+      "consent": "We need your consent to contact you",
+      "tooLong": "Too long",
+      "invalid": "Please review the fields and try again.",
+      "rateLimit": "Too many requests from your network. Try again in a few minutes.",
+      "network": "Network issue. Check your connection and try again.",
+      "generic": "Something went wrong. Try again in a few minutes."
+    }
+  },
+  "privacy": {
+    "metaTitle": "Privacy policy",
+    "metaDescription": "How SuperClini collects, uses and protects your personal data under Chile (Ley 19.628), Brazil (LGPD), and EU (GDPR).",
+    "eyebrow": "Privacy",
+    "title": "Privacy policy",
+    "lastUpdated": "Last updated: {date}",
+    "intro": "At SuperClini we handle personal data with transparency and accountability. This policy explains what we collect on superclini.com and our commercial forms, why we do it, and what rights you have. Operations inside the product (EHR, payments, DICOM) are covered by the Data Processing Agreement signed with each contracting clinic.",
+    "sections": {
+      "who": {
+        "title": "1. Who we are",
+        "body": "SuperClini / DentAI Studio is operated by SuperClini SpA (Chile). We act as the data controller for information we collect through this website. For clinical data processed inside the product, SuperClini acts as a data processor on behalf of each contracting clinic (controller)."
+      },
+      "what": {
+        "title": "2. What we collect",
+        "body": "Through the contact form: name, email, phone, clinic name (optional), country, team size (optional), interest type, and free-text message. Automatically: IP address, browser user-agent, origin URL, and UTM parameters when applicable. We do not collect clinical data via the public site — that is handled exclusively inside the product under a separate agreement."
+      },
+      "why": {
+        "title": "3. Why we use the data",
+        "body": "To respond to your commercial inquiry and qualify your interest in the platform.\nTo send you information about features, pricing, and product updates (only if you consented).\nTo comply with legal and accounting obligations.\nTo prevent fraud and abuse of the website."
+      },
+      "legal": {
+        "title": "4. Legal basis",
+        "body": "Explicit consent of the data subject (form checkbox) — Ley 19.628 (Chile), LGPD art. 7, I (Brazil), GDPR art. 6(1)(a) (EU).\nLegitimate interest for fraud prevention and site security — GDPR art. 6(1)(f), LGPD art. 7, IX.\nCompliance with legal obligations when applicable — GDPR art. 6(1)(c), LGPD art. 7, II."
+      },
+      "rights": {
+        "title": "5. Your rights",
+        "body": "You may at any time request: access to your data, correction, deletion, portability, withdrawal of consent, and objection to processing. Just email us at privacy@superclini.com from your registered address. We respond within 15 business days (Chile), 15 days (Brazil, LGPD), or 1 month (GDPR)."
+      },
+      "retention": {
+        "title": "6. Retention",
+        "body": "Commercial leads: up to 24 months since last contact — after that they are automatically anonymized or deleted. Data required by law (contracts, invoicing): kept for the applicable legal term."
+      },
+      "security": {
+        "title": "7. Security",
+        "body": "We apply reasonable technical and organizational measures: TLS on all traffic, irreversible password hashing, role-based access control, audit logs, encrypted backups. Site and product are hosted on providers with ISO 27001 and SOC 2 certifications."
+      },
+      "cookies": {
+        "title": "8. Cookies and similar technologies",
+        "body": "We use essential cookies to run the site (language preference, detected country). We don't use third-party advertising tracking cookies without your consent. Analytics runs with anonymized IP and no personal identifiers."
+      },
+      "transfer": {
+        "title": "9. International transfers",
+        "body": "Some of our infrastructure providers (hosting, transactional email) are located outside Chile and Brazil. When international transfer happens, we ensure equivalent protection via standard contractual clauses (GDPR SCC) or adequacy decisions."
+      },
+      "contact": {
+        "title": "10. Contact",
+        "body": "To exercise your rights or ask questions about this policy: privacy@superclini.com.\nController: SuperClini SpA, Chile."
+      }
+    },
+    "dpo": {
+      "title": "Data Protection Officer (DPO)",
+      "body": "For specific data-protection queries, write to dpo@superclini.com."
+    }
   }
 }
