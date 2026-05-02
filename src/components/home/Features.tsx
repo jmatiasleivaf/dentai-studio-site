@@ -14,6 +14,7 @@ import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Section, SectionHeader } from "@/components/ui/section";
+import { SUPERCLINI_FACTS } from "@/lib/superclini.facts";
 import { cn } from "@/lib/utils";
 
 const ITEMS = [
@@ -44,7 +45,11 @@ export function Features() {
   return (
     <Section id="features" tone="default">
       <Container>
-        <SectionHeader eyebrow={t("eyebrow")} title={t("title")} sub={t("sub")} />
+        <SectionHeader
+          eyebrow={t("eyebrow", { count: SUPERCLINI_FACTS.modulesCount })}
+          title={t("title")}
+          sub={t("sub")}
+        />
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {ITEMS.map(({ id, Icon, tone }) => (

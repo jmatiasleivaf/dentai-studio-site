@@ -19,7 +19,7 @@ const TIER_COLORS: Record<PlanId, { header: string; cell: string }> = {
     header: "text-ink-700 dark:text-ink-200",
     cell: "bg-white dark:bg-ink-900",
   },
-  enterprise: {
+  corporativo: {
     header: "text-violet-700 dark:text-violet-300",
     cell: "bg-violet-50/40 dark:bg-violet-950/20",
   },
@@ -49,7 +49,7 @@ export function PricingMatrix() {
     return (
       <span
         className={
-          planId === "enterprise"
+          planId === "corporativo"
             ? "font-semibold text-violet-700 dark:text-violet-300"
             : planId === "profesional"
               ? "font-semibold text-brand-700 dark:text-brand-300"

@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "SuperClini",
     "title": "SuperClini — Software dental com IA no WhatsApp, simulação de sorriso e DICOM 3D",
-    "description": "A primeira plataforma dental com assistente IA no WhatsApp, simulação de sorriso e visor DICOM 3D integrado. Funciona em 9 países com moeda e fiscal locais."
+    "description": "A primeira plataforma dental com assistente IA no WhatsApp, simulação de sorriso e visor DICOM 3D integrado. Funciona em {countries} mercados com moeda e fiscal locais."
   },
   "nav": {
     "features": "Funcionalidades",
@@ -17,7 +17,7 @@
     "closeMenu": "Fechar menu"
   },
   "hero": {
-    "badge": "Disponível em 9 países",
+    "badge": "Disponível em {count} países",
     "h1Line1": "Sua clínica responde no WhatsApp.",
     "h1Line2": "Diagnostica com IA.",
     "h1Line3": "Cobra automaticamente.",
@@ -33,9 +33,9 @@
   "trustStrip": {
     "title": "Construído para ser confiável desde o primeiro dia",
     "items": {
-      "tests": "603 testes automatizados",
+      "tests": "{count} testes automatizados",
       "compliance": "LGPD · CFO · Ley 20.584",
-      "countries": "9 países · 8 moedas",
+      "countries": "{countries} países · {currencies} moedas",
       "uptime": "Infraestrutura cloud 24/7"
     }
   },
@@ -94,7 +94,7 @@
     "quoteBadge": "Contrato anual · cotação",
     "popular": "Mais escolhido",
     "forNetworks": "Para redes",
-    "arsDisclaimer": "Argentina: cobrado em USD pelo câmbio oficial. Preço revisto trimestralmente.",
+    "arsDisclaimer": "Argentina: cobrado em ARS. Preço revisto trimestralmente por volatilidade cambial.",
     "seeMatrixLink": "Ver comparação detalhada dos 4 planos",
     "ctaContact": "Falar com vendas",
     "plans": {
@@ -110,12 +110,12 @@
       },
       "avanzado": {
         "name": "Avançado",
-        "desc": "A clínica de investimento com CBCT, escâner e WhatsApp 24/7.",
+        "desc": "Clínica de investimento ou rede odontológica de até 3 filiais com WhatsApp Sofía 24/7.",
         "cta": "Testar grátis"
       },
-      "enterprise": {
-        "name": "Enterprise",
-        "desc": "Rede de 3+ filiais com gestão corporativa, SSO e SLA contratual.",
+      "corporativo": {
+        "name": "Corporativo",
+        "desc": "Rede odontológica com 4+ filiais · 100% personalizado para sua organização.",
         "cta": "Falar com vendas"
       }
     },
@@ -124,11 +124,18 @@
       "prontuarioOdontograma": "Prontuário + odontograma FDI",
       "financeiroBasico": "Financeiro + caixa diário",
       "procedimentosCatalog": "Catálogo de 231 procedimentos",
-      "documentos5": "5 templates de documentos essenciais",
+      "documentos33": "33 templates clínicos completos",
       "maxProf2": "Até 2 profissionais",
       "maxProf10": "Até 10 profissionais",
       "maxProf20": "Até 20 profissionais",
       "unlimitedProfessionals": "Profissionais ilimitados",
+      "boxes2": "Até 2 boxes / cadeiras",
+      "patientsUnlimited": "Pacientes ativos ilimitados",
+      "totemUnlimited": "Totens de autoatendimento ilimitados",
+      "branches3": "Até 3 filiais (rede odontológica)",
+      "unlimitedBranches": "Filiais ilimitadas (multi-unidade)",
+      "customAiQuotas": "Cotas IA personalizadas ao seu volume",
+      "slaContractual": "SLA contratual personalizado",
       "supportEmail72h": "Suporte por email · SLA 72h",
       "supportChat24h": "Chat ao vivo · SLA 24h",
       "supportChat4h": "Chat ao vivo · SLA 4h",
@@ -137,13 +144,11 @@
       "everythingAdvanced": "Tudo do plano Avançado",
       "memberships": "Memberships para pacientes",
       "laboratoryPortal": "Portal do laboratório",
-      "casosIa20": "20 simulações de sorriso IA/mês",
+      "casosIa30": "30 simulações de sorriso IA/mês",
       "casosIa100": "100 simulações de sorriso IA/mês",
-      "radiographIa50": "50 análises radiográficas IA/mês",
-      "radiographIa500": "500 análises radiográficas IA/mês",
-      "planIa5": "5 planos de tratamento IA/mês",
-      "planIa30": "30 planos de tratamento IA/mês",
-      "whatsappIa1k": "Sofía · 1.000 mensagens/mês",
+      "radiographIa30": "30 análises radiográficas IA/mês",
+      "radiographIa100": "100 análises radiográficas IA/mês",
+      "whatsappConv300": "Sofía · 300 conversas únicas/mês",
       "dicom3d": "Visor DICOM 3D (CBCT)",
       "alignersUnlimited": "Alinhadores ilimitados",
       "patientPortal": "Portal do paciente",
@@ -153,7 +158,6 @@
       "whitelabel": "White-label",
       "sso": "SSO corporativo (Azure AD · Okta)",
       "apiAccess": "API completa + webhooks",
-      "sla999": "SLA 99,9% contratual",
       "accountManager": "Gerente de conta dedicado",
       "onboardingPremium": "Onboarding premium (2-4 sem.)"
     },
@@ -166,7 +170,7 @@
         "growth": "Crescimento e operação",
         "ai": "Inteligência artificial",
         "advanced": "Funcionalidades avançadas",
-        "enterprise": "Enterprise"
+        "corporativo": "Corporativo"
       },
       "rows": {
         "agenda": "Agenda multi-box",
@@ -175,14 +179,15 @@
         "proceduresCatalog": "Catálogo de procedimentos",
         "professionals": "Profissionais incluídos",
         "boxes": "Boxes / cadeiras",
+        "branches": "Filiais / unidades",
         "activePatients": "Pacientes ativos",
         "storage": "Armazenamento",
         "documents": "Documentos clínicos",
+        "totems": "Totens de autoatendimento",
         "memberships": "Memberships de pacientes",
         "laboratory": "Portal do laboratório",
         "casosIa": "Simulação de sorriso IA",
         "radiographIa": "Análise radiográfica IA",
-        "planIa": "Plano de tratamento IA",
         "whatsappIa": "WhatsApp IA (Sofía)",
         "dicom3d": "Visor DICOM 3D (CBCT)",
         "aligners": "Alinhadores (Invisalign / ClearCorrect)",
@@ -198,7 +203,7 @@
         "basic": "Básico",
         "intermediate": "Intermediário",
         "advanced": "Avançado",
-        "custom": "Personalizável",
+        "custom": "Personalizado",
         "unlimited": "Ilimitado",
         "readonly": "Só leitura",
         "full": "Completa",
@@ -206,21 +211,16 @@
         "email72": "Email · 72h",
         "chat24": "Chat · 24h",
         "chat4": "Chat · 4h",
-        "dedicated": "Dedicado · 99,9%",
+        "contractual": "Contratual personalizado",
+        "limited3": "Até 3",
         "5gb": "5 GB",
         "50gb": "50 GB",
         "100gb": "100 GB",
         "500gb": "500 GB",
-        "5tpl": "5 templates",
         "33tpl": "33 templates",
-        "20mo": "20/mês",
-        "100mo": "100/mês",
-        "50mo": "50/mês",
-        "500mo": "500/mês",
-        "5mo": "5/mês",
         "30mo": "30/mês",
-        "1kmo": "1.000/mês",
-        "10kmo": "10.000/mês"
+        "100mo": "100/mês",
+        "300conv": "300 conversas/mês"
       }
     }
   },
@@ -252,7 +252,7 @@
     "cta": "Ver plano recomendado"
   },
   "features": {
-    "eyebrow": "22 módulos operacionais",
+    "eyebrow": "{count} módulos operacionais",
     "title": "Tudo que sua clínica precisa.",
     "sub": "Sem add-ons escondidos. Sem integrações caras de terceiros.",
     "items": {
@@ -319,7 +319,7 @@
       },
       {
         "q": "E se eu precisar de suporte?",
-        "a": "Chat de WhatsApp direto com o time. Plano Professional tem suporte em horário comercial. Enterprise é 24/7 com SLA."
+        "a": "Chat de WhatsApp direto com o time. Plano Profissional tem suporte em horário comercial. Corporativo é 24/7 com SLA."
       },
       {
         "q": "Funciona no meu país?",
@@ -388,7 +388,7 @@
   },
   "contact": {
     "metaTitle": "Falar com o time",
-    "metaDescription": "Entre em contato para testar o SuperClini 14 dias grátis, agendar demo ou solicitar cotação Enterprise.",
+    "metaDescription": "Entre em contato para testar o SuperClini 14 dias grátis, agendar demo ou solicitar cotação Corporativo.",
     "eyebrow": "Vamos conversar",
     "pageTitle": "Conte pra gente sobre sua clínica.",
     "pageBody": "Respondemos em até 24h úteis, em português. Sem compromisso e sem script genérico.",
@@ -402,8 +402,8 @@
         "body": "30 minutos com seu time para conhecer a plataforma usando dados reais da sua clínica."
       },
       "enterprise": {
-        "title": "Cotação Enterprise",
-        "body": "Redes de 3+ filiais, multi-unidade, SSO, API e SLA contratual."
+        "title": "Cotação Corporativo",
+        "body": "Redes de 4+ filiais, multi-unidade, SSO, API completa e SLA contratual."
       }
     },
     "title": "Escreva pra gente",
@@ -451,7 +451,7 @@
         "avaliar": "Avaliar a plataforma",
         "demo": "Agendar demo",
         "trial_profesional": "Testar 14 dias grátis",
-        "cotizacion_enterprise": "Cotação Enterprise (3+ filiais)",
+        "cotizacion_enterprise": "Cotação Corporativo (4+ filiais)",
         "suporte": "Suporte",
         "outro": "Outro"
       }

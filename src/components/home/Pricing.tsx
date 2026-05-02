@@ -13,8 +13,6 @@ import { COUNTRIES, COUNTRY_LIST, formatCurrency, type CountryCode } from "@/lib
 import {
   PRICING,
   PLANS,
-  ENTERPRISE_FLOOR,
-  PRICE_IN_USD_OVERRIDE,
   ANNUAL_DISCOUNT,
   PLAN_ORDER,
   type PlanId,
@@ -110,8 +108,8 @@ export function Pricing() {
           ))}
         </div>
 
-        {/* Disclaimer ARS */}
-        {PRICE_IN_USD_OVERRIDE[country.code] ? (
+        {/* Disclaimer ARS — revisão trimestral por volatilidade cambial */}
+        {country.code === "AR" ? (
           <p className="mt-6 text-center text-xs text-ink-400">{t("arsDisclaimer")}</p>
         ) : null}
 
@@ -146,14 +144,13 @@ function PlanCard({
   t: ReturnType<typeof useTranslations>;
 }) {
   const isPopular = planId === "profesional";
-  const isEnterprise = planId === "enterprise";
+  const isCorporativo = planId === "corporativo";
 
-  // Enterprise: mostrar floor em USD/EUR
+  // Corporativo: 100% cotización, sem floor público
   const rawPrice = PRICING[country][planId];
-  const enterpriseFloor = isEnterprise ? ENTERPRISE_FLOOR[country] : null;
 
-  // Aplicar desconto anual (exceto Enterprise)
-  const priceMonthly = rawPrice > 0 && !isEnterprise && cycle === "annual"
+  // Aplicar desconto anual (exceto Corporativo)
+  const priceMonthly = rawPrice > 0 && !isCorporativo && cycle === "annual"
     ? Math.round(rawPrice * (1 - ANNUAL_DISCOUNT))
     : rawPrice;
 
@@ -161,19 +158,13 @@ function PlanCard({
 
   // Render de preço
   const priceDisplay = (() => {
-    if (isEnterprise) {
-      if (enterpriseFloor) {
-        // Formatação manual: Enterprise é sempre USD/EUR, independente do país.
-        const symbol = enterpriseFloor.currency === "EUR" ? "€" : "$";
-        const formatted = new Intl.NumberFormat("en-US").format(enterpriseFloor.amount);
-        return {
-          prefix: t("fromPrefix"),
-          amount: `${symbol}${formatted}`,
-          period: t("perLocation"),
-          quote: t("quoteBadge"),
-        };
-      }
-      return { amount: t("quoteLabel"), period: null, prefix: null, quote: null };
+    if (isCorporativo) {
+      return {
+        prefix: null,
+        amount: t("quoteLabel"),
+        period: null,
+        quote: t("quoteBadge"),
+      };
     }
     return {
       prefix: null,
@@ -185,15 +176,16 @@ function PlanCard({
 
   const cardClass = isPopular
     ? "relative rounded-3xl border-2 border-brand-400/60 bg-gradient-to-br from-brand-500/15 via-accent-500/5 to-transparent p-7 shadow-brand"
-    : isEnterprise
+    : isCorporativo
       ? "relative rounded-3xl border border-violet-400/40 bg-gradient-to-br from-violet-500/10 via-transparent to-transparent p-7"
       : "relative rounded-3xl border border-white/10 bg-white/[0.03] p-7";
 
+  // Mantém a chave `cotizacion_enterprise` no contact form para não quebrar integração de backend/CRM existente.
   const interesseMap: Record<PlanId, "avaliar" | "trial_profesional" | "cotizacion_enterprise"> = {
     esencial: "avaliar",
     profesional: "trial_profesional",
     avanzado: "avaliar",
-    enterprise: "cotizacion_enterprise",
+    corporativo: "cotizacion_enterprise",
   };
 
   return (
@@ -205,7 +197,7 @@ function PlanCard({
           </Badge>
         </div>
       ) : null}
-      {isEnterprise ? (
+      {isCorporativo ? (
         <div className="absolute -top-3 left-1/2 -translate-x-1/2">
           <Badge tone="onBrand" className="bg-violet-500 text-white">
             {t("forNetworks")}
@@ -232,9 +224,9 @@ function PlanCard({
             <span className="text-sm text-ink-400">{priceDisplay.period}</span>
           ) : null}
         </div>
-        {cycle === "annual" && !isEnterprise ? (
+        {cycle === "annual" && !isCorporativo ? (
           <p className="mt-1 text-xs text-emerald-400">{t("billedAnnually")}</p>
-        ) : !isEnterprise ? (
+        ) : !isCorporativo ? (
           <p className="mt-1 text-xs text-ink-500">{t("billedMonthly")}</p>
         ) : priceDisplay.quote ? (
           <p className="mt-1 text-xs text-violet-300">{priceDisplay.quote}</p>
@@ -274,12 +266,12 @@ function PlanCard({
               className={
                 isPopular
                   ? "w-full"
-                  : isEnterprise
+                  : isCorporativo
                     ? "w-full border-violet-400/40 text-white hover:border-violet-300 hover:text-white"
                     : "w-full border-white/20 text-white hover:border-white/40 hover:text-white"
               }
             >
-              {isEnterprise ? (
+              {isCorporativo ? (
                 <>
                   <MessageSquare className="h-4 w-4" aria-hidden />
                   {t("ctaContact")}

@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
+import { SUPERCLINI_FACTS } from "@/lib/superclini.facts";
 
 export function Hero() {
   const t = useTranslations("hero");
@@ -27,7 +28,7 @@ export function Hero() {
             <div className="flex flex-wrap items-center justify-center gap-2 lg:justify-start">
               <Badge tone="brand">
                 <Sparkles className="h-3 w-3" aria-hidden />
-                {t("badge")}
+                {t("badge", { count: SUPERCLINI_FACTS.countriesCount })}
               </Badge>
             </div>
 
