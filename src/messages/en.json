@@ -326,6 +326,7 @@
   },
   "footer": {
     "tagline": "The dental platform with native AI — built for practices that want to grow without chaos.",
+    "resourcesTitle": "Resources",
     "productTitle": "Product",
     "product": { "features": "Features", "ai": "AI", "whatsapp": "WhatsApp AI", "pricing": "Pricing", "clients": "Customers" },
     "companyTitle": "Company",
@@ -991,6 +992,174 @@
       "title": "Everything you need to practice — without installing a thing.",
       "sub": "14-day trial with full clinical module. Sales-led setup in 1 business day.",
       "ctaPrimary": "Request module demo",
+      "ctaSecondary": "Talk to sales"
+    }
+  },
+  "totemPage": {
+    "meta": {
+      "title": "Self-service Kiosk — Front-desk check-in, scheduling and consent",
+      "description": "Touch tablet that frees up your front desk: patients identify with ID, see their next appointment, check in, book a new slot and digitally sign consent. No queue."
+    },
+    "hero": {
+      "badge": "Self-service · Front desk",
+      "h1": "Your front desk runs itself.",
+      "sub": "Touch tablet where patients identify themselves, check in, book appointments and digitally sign consent. Your receptionist focuses on what matters: people who need human attention.",
+      "ctaPrimary": "Request kiosk demo",
+      "ctaSecondary": "See how it works",
+      "mockupLabels": {
+        "welcome": "Welcome",
+        "title": "Identify yourself",
+        "subtitle": "Type your ID number",
+        "idLabel": "ID",
+        "cta": "Continue"
+      }
+    },
+    "howItWorks": {
+      "eyebrow": "How it works",
+      "title": "From arrival to chair in 4 steps",
+      "steps": {
+        "1": { "title": "Patient arrives", "desc": "Friendly home screen on the tablet, in English/Spanish/Portuguese based on country." },
+        "2": { "title": "Identifies", "desc": "Types SSN/RUT/CPF on the touch numpad. System finds the patient in seconds." },
+        "3": { "title": "Checks in or books", "desc": "Sees confirmed next appointment or picks a new available slot with the right provider." },
+        "4": { "title": "Signs consent", "desc": "HIPAA-ready/LGPD compliant. Digital signature saved as base64 in the case, with legal audit trail." }
+      }
+    },
+    "checkin": {
+      "eyebrow": "Front desk",
+      "title": "Check-in, scheduling and queue — all on the tablet.",
+      "description": "Patient recognized by ID, next appointment confirmed with one tap. New patients register on the spot. Queue is managed automatically.",
+      "bullets": [
+        "Identification by SSN/RUT/CPF/NIT (per-country format)",
+        "Recognizes existing patient in seconds (search + match)",
+        "Registers new patient on the kiosk (name + ID + age)",
+        "Confirms scheduled appointment with one tap",
+        "Allows rescheduling to available slot in real time",
+        "Queue position visible, automatic updates"
+      ],
+      "mockupLabels": {
+        "title": "Front-desk check-in",
+        "patientLabel": "Patient identified",
+        "nextLabel": "Next appointment",
+        "confirmed": "Confirmed",
+        "queueLabel": "Your position"
+      }
+    },
+    "consent": {
+      "eyebrow": "Digital Consent",
+      "title": "Digital signature with full legal audit trail.",
+      "description": "Consent forms (anesthesia, procedure, photography, LGPD) signed by the patient's finger on the tablet. Saved as base64 linked to the case, with timestamp and IP — compliant with HIPAA-ready, LGPD and Ley 20.584 (Chile).",
+      "bullets": [
+        "Pre-configured forms (anesthesia, procedure, photography, LGPD/GDPR)",
+        "Touch canvas signature (finger or stylus)",
+        "Saved as immutable base64 in patient case",
+        "Timestamp + IP + UserAgent for legal audit",
+        "Compliant with HIPAA-ready, LGPD, GDPR, Ley 20.584",
+        "PDF auto-generated for download/print"
+      ],
+      "mockupLabels": {
+        "title": "Digital consent",
+        "docTitle": "Consent form",
+        "signLabel": "Sign here with your finger",
+        "dateLabel": "Signed on",
+        "signed": "Signed"
+      }
+    },
+    "useCases": {
+      "eyebrow": "For your front desk",
+      "title": "Who wins most with the kiosk",
+      "cases": {
+        "alto": {
+          "persona": "High-volume practice",
+          "pain": "Front desk overwhelmed with 50-100 check-ins/day. Queue at the counter.",
+          "benefit": "60% of check-ins go self-service. Receptionist focuses on people who actually need human help."
+        },
+        "luxo": {
+          "persona": "Premium / boutique practice",
+          "pain": "Wants a differentiated experience — but the receptionist can't do it all alone.",
+          "benefit": "Apple Store-style experience. Patient walks in, identifies on the tablet, sees estimated time, gets a coffee."
+        },
+        "rede": {
+          "persona": "Multi-location dental network",
+          "pain": "Service standard varies across locations. No comparable metrics.",
+          "benefit": "Same check-in flow at every location. Comparable wait-time and no-show metrics."
+        }
+      }
+    },
+    "comparison": {
+      "eyebrow": "Before and after",
+      "title": "Traditional front desk vs with kiosk",
+      "beforeHeader": "Traditional front desk",
+      "afterHeader": "Front desk with kiosk",
+      "rows": {
+        "tempo": {
+          "topic": "Average check-in time",
+          "before": "3-5min per patient (depends on counter queue).",
+          "after": "30-60s — patient does it solo on arrival."
+        },
+        "fila": {
+          "topic": "Visible queue",
+          "before": "Patient stands without knowing their turn.",
+          "after": "Tablet shows position in real time."
+        },
+        "dados": {
+          "topic": "New patient registration",
+          "before": "Receptionist types it all at the counter (5-10min).",
+          "after": "Patient fills it in solo (2min) — receptionist validates later."
+        },
+        "consent": {
+          "topic": "Legal consent",
+          "before": "Printed paper, pen signature, optional scan.",
+          "after": "Digital signature with timestamp + IP, immutable base64 in the case."
+        },
+        "recep": {
+          "topic": "Receptionist workload",
+          "before": "100% of time on check-in + registrations + consents.",
+          "after": "40% — focuses on complex patients, calls, special bookings."
+        }
+      }
+    },
+    "faq": {
+      "eyebrow": "About the Kiosk",
+      "title": "Frequently asked questions",
+      "items": [
+        {
+          "q": "What hardware do I need?",
+          "a": "Touch tablet (iPad or Android) or Mac Mini + 15-22\" touch monitor. The app is web/PWA — runs on any device with up-to-date Chrome/Safari and a touch screen. We recommend Mac Mini + standing monitor for high-volume practices."
+        },
+        {
+          "q": "Does it work offline?",
+          "a": "No. Requires constant connection (queries real schedule, saves consent, syncs queue)."
+        },
+        {
+          "q": "How much does the hardware cost?",
+          "a": "Basic iPad ~$350. Mac Mini + touch monitor setup ~$1,200. You decide what to buy — our part is just the software, included in Professional+ plans."
+        },
+        {
+          "q": "Is there a kiosk for the operatory (not front desk)?",
+          "a": "It's in development (Phase 2). Current version covers 100% front desk: identification, scheduling, queue, consent. Operatory kiosk (chart visualization in the kiosk in front of the chair) ships in Q3."
+        },
+        {
+          "q": "Does it accept payment directly on the kiosk?",
+          "a": "Not yet. Integrated payment via gateway is on the roadmap. For now, payment continues at the traditional front desk or via QR shown by the receptionist."
+        },
+        {
+          "q": "How does it work with new patients?",
+          "a": "Patient types ID, system doesn't find them → kiosk offers quick registration (name + age + phone). Registration is pending receptionist validation (no conflict with existing patients)."
+        },
+        {
+          "q": "What languages does the kiosk support?",
+          "a": "Spanish, Portuguese and English. Detects the country language (Brazil = PT, US = EN, others = ES) automatically. Configurable per location."
+        },
+        {
+          "q": "Is the digital consent legally valid?",
+          "a": "Yes. Digital signature + timestamp + IP + UserAgent + immutable base64 in the case is valid evidence per HIPAA-ready, LGPD and Ley 20.584 (CL). Auto-generated PDF for download/print if you prefer a physical backup."
+        }
+      ]
+    },
+    "ctaFinal": {
+      "title": "Your front desk frees up 60% of its time. Without firing anyone.",
+      "sub": "14-day trial with kiosk active. Sales-led setup in 1 business day — no hardware required, runs on any tablet.",
+      "ctaPrimary": "Request kiosk demo",
       "ctaSecondary": "Talk to sales"
     }
   }

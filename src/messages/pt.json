@@ -350,6 +350,7 @@
   },
   "footer": {
     "tagline": "A plataforma de gestão dental com IA nativa — feita pra clínicas que querem crescer sem caos.",
+    "resourcesTitle": "Recursos",
     "productTitle": "Produto",
     "product": {
       "features": "Funcionalidades",
@@ -1030,6 +1031,174 @@
       "title": "Tudo que você precisa pro atendimento — sem instalar nada.",
       "sub": "Trial 14 dias com módulo clínico completo. Setup guiado pelo nosso time em 1 dia útil.",
       "ctaPrimary": "Solicitar demo do módulo",
+      "ctaSecondary": "Falar com vendas"
+    }
+  },
+  "totemPage": {
+    "meta": {
+      "title": "Totem Autoatendimento — Check-in, agendamento e consentimento na recepção",
+      "description": "Tablet touch que libera sua recepção: paciente identifica RUT/CPF, vê próxima consulta, faz check-in, escolhe novo horário e assina consentimento digital. Tudo sem fila."
+    },
+    "hero": {
+      "badge": "Autoatendimento · Recepção",
+      "h1": "Sua recepção atende sozinha.",
+      "sub": "Tablet touch onde o paciente se identifica, faz check-in, agenda consulta e assina consentimento digital. Sua recepcionista foca no que importa: quem precisa de atenção humana.",
+      "ctaPrimary": "Solicitar demo do totem",
+      "ctaSecondary": "Ver como funciona",
+      "mockupLabels": {
+        "welcome": "Bem-vindo(a)",
+        "title": "Identifique-se",
+        "subtitle": "Digite seu CPF ou RUT",
+        "idLabel": "Documento",
+        "cta": "Continuar"
+      }
+    },
+    "howItWorks": {
+      "eyebrow": "Como funciona",
+      "title": "Da chegada à cadeira em 4 passos",
+      "steps": {
+        "1": { "title": "Paciente chega", "desc": "Tela inicial convidativa no tablet, em português ou espanhol conforme país." },
+        "2": { "title": "Identifica-se", "desc": "Digita CPF/RUT/NIT no numpad touch. Sistema busca paciente em segundos." },
+        "3": { "title": "Faz check-in ou agenda", "desc": "Vê próxima consulta confirmada ou escolhe novo horário disponível com o profissional certo." },
+        "4": { "title": "Assina consentimento", "desc": "LGPD/Ley 20.584 conforme. Assinatura digital salva como base64 no caso, com auditoria legal." }
+      }
+    },
+    "checkin": {
+      "eyebrow": "Recepção",
+      "title": "Check-in, agenda e fila — tudo no tablet.",
+      "description": "Paciente reconhecido pelo documento, próxima consulta confirmada com 1 toque. Pacientes novos cadastram na hora. A fila é gerenciada automaticamente.",
+      "bullets": [
+        "Identificação por CPF/RUT/NIT (suporta formato por país)",
+        "Reconhece paciente existente em segundos (busca + cruza com base)",
+        "Cadastra paciente novo no totem (nome + documento + idade)",
+        "Confirma consulta agendada com 1 toque",
+        "Permite reagendar para horário disponível em tempo real",
+        "Posição na fila visível, atualização automática"
+      ],
+      "mockupLabels": {
+        "title": "Check-in da recepção",
+        "patientLabel": "Paciente identificado",
+        "nextLabel": "Próxima consulta",
+        "confirmed": "Confirmada",
+        "queueLabel": "Sua posição"
+      }
+    },
+    "consent": {
+      "eyebrow": "Consentimento Digital",
+      "title": "Assinatura digital com auditoria legal completa.",
+      "description": "Termos de consentimento (anestesia, procedimento, fotografia, LGPD) assinados pelo dedo do paciente no tablet. Salvo como base64 vinculado ao caso, com timestamp e IP — conforme Ley 20.584 (Chile), CFO (Brasil) e LGPD.",
+      "bullets": [
+        "Termos pré-cadastrados (anestesia, procedimento, fotografia, LGPD/GDPR)",
+        "Assinatura no canvas touch (dedo ou stylus)",
+        "Salvo como base64 imutável no caso do paciente",
+        "Timestamp + IP + UserAgent para auditoria legal",
+        "Conforme Ley 20.584 (CL), CFO (BR), LGPD, GDPR",
+        "PDF gerado automaticamente para download/impressão"
+      ],
+      "mockupLabels": {
+        "title": "Consentimento digital",
+        "docTitle": "Termo de consentimento",
+        "signLabel": "Assine aqui com o dedo",
+        "dateLabel": "Assinado em",
+        "signed": "Assinado"
+      }
+    },
+    "useCases": {
+      "eyebrow": "Para sua recepção",
+      "title": "Quem ganha mais com o totem",
+      "cases": {
+        "alto": {
+          "persona": "Clínica de alto volume",
+          "pain": "Recepção sobrecarregada com 50-100 check-ins/dia. Fila de espera no balcão.",
+          "benefit": "60% dos check-ins viram autoatendimento. Recepcionista foca em quem realmente precisa de humano."
+        },
+        "luxo": {
+          "persona": "Clínica de luxo / experiência premium",
+          "pain": "Quer experiência diferenciada — mas recepcionista não dá conta sozinha.",
+          "benefit": "Experiência tipo Apple Store. Paciente entra, se identifica no tablet, vê tempo estimado, recebe café."
+        },
+        "rede": {
+          "persona": "Rede odontológica multi-filial",
+          "pain": "Padrão de atendimento varia entre filiais. Sem métricas comparáveis.",
+          "benefit": "Mesmo fluxo de check-in em todas as filiais. Métricas de tempo de espera e taxa de no-show comparáveis."
+        }
+      }
+    },
+    "comparison": {
+      "eyebrow": "Antes e depois",
+      "title": "Recepção tradicional vs com totem",
+      "beforeHeader": "Recepção tradicional",
+      "afterHeader": "Recepção com totem",
+      "rows": {
+        "tempo": {
+          "topic": "Tempo médio de check-in",
+          "before": "3-5min cada paciente (depende da fila no balcão).",
+          "after": "30-60s — paciente faz sozinho enquanto chega."
+        },
+        "fila": {
+          "topic": "Fila visível",
+          "before": "Paciente fica em pé sem saber a vez.",
+          "after": "Tablet mostra posição em tempo real."
+        },
+        "dados": {
+          "topic": "Cadastro de paciente novo",
+          "before": "Recepcionista digita tudo no balcão (5-10min).",
+          "after": "Paciente preenche sozinho (2min) — recepcionista valida depois."
+        },
+        "consent": {
+          "topic": "Consentimento legal",
+          "before": "Papel impresso, assinatura à caneta, scan opcional.",
+          "after": "Assinatura digital com timestamp + IP, base64 imutável no caso."
+        },
+        "recep": {
+          "topic": "Carga da recepcionista",
+          "before": "100% do tempo em check-in + cadastros + consentimentos.",
+          "after": "40% — foca em pacientes complexos, ligações, agendamentos especiais."
+        }
+      }
+    },
+    "faq": {
+      "eyebrow": "Sobre o Totem",
+      "title": "Perguntas frequentes",
+      "items": [
+        {
+          "q": "Que hardware preciso?",
+          "a": "Tablet touch (iPad ou Android) ou Mac Mini + monitor touch 15-22\". A app é web/PWA — roda em qualquer device com Chrome/Safari atualizado e tela touch. Recomendamos Mac Mini + monitor de pé pra clínicas alto volume."
+        },
+        {
+          "q": "Funciona offline?",
+          "a": "Não. Requer conexão constante (consulta agenda real, salva consentimento, sincroniza fila)."
+        },
+        {
+          "q": "Quanto custa o hardware?",
+          "a": "iPad básico ~R$ 2.500 (BR) / US$ 350 (US). Setup Mac Mini + monitor touch ~R$ 6.000 (BR) / US$ 1.200 (US). Você decide o que comprar — nossa parte é só o software, incluído nos planos Profesional+."
+        },
+        {
+          "q": "Tem totem para o box do dentista (não recepção)?",
+          "a": "Está em desenvolvimento (Fase 2). A versão atual cobre 100% recepção: identificação, agendamento, fila, consentimento. Box do dentista (visualização do prontuário no totem em frente à cadeira) chega no Q3."
+        },
+        {
+          "q": "Aceita pagamento direto no totem?",
+          "a": "Ainda não. Pagamento integrado via gateway está no roadmap. Por enquanto, pagamento continua na recepção tradicional ou via PIX/QR mostrado pela recepcionista."
+        },
+        {
+          "q": "Como funciona com pacientes novos?",
+          "a": "Paciente digita CPF/RUT, sistema não encontra → totem oferece cadastro rápido (nome + idade + telefone). Cadastro fica pendente de validação pela recepcionista (não cria conflito com pacientes existentes)."
+        },
+        {
+          "q": "Em que idiomas o totem opera?",
+          "a": "Espanhol e português. Detecta o idioma do país (Brasil = PT, demais = ES) automaticamente. Configurável por filial."
+        },
+        {
+          "q": "O consentimento digital é juridicamente válido?",
+          "a": "Sim. Assinatura digital + timestamp + IP + UserAgent + base64 imutável no caso constitui prova válida conforme Ley 20.584 (CL), CFO (BR) e LGPD. PDF gerado automaticamente para download/impressão se preferir backup físico."
+        }
+      ]
+    },
+    "ctaFinal": {
+      "title": "Sua recepção libera 60% do tempo. Sem demitir ninguém.",
+      "sub": "Trial 14 dias com totem ativo. Setup guiado em 1 dia útil — sem hardware, instalável em qualquer tablet.",
+      "ctaPrimary": "Solicitar demo do totem",
       "ctaSecondary": "Falar com vendas"
     }
   }

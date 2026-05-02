@@ -3,9 +3,16 @@ import { useLocale, useTranslations } from "next-intl";
 import { Container } from "@/components/ui/container";
 import { Logo } from "@/components/ui/logo";
 import { COUNTRY_LIST } from "@/lib/countries";
+import { NAV_RESOURCES } from "@/lib/site-nav";
 
+/**
+ * Footer com cross-linking SEO para todas as landings de feature. Renderiza
+ * sempre no SSR (não depende de hover JS como o NavBar dropdown), garantindo
+ * que Google indexe os links e descubra as landings via internal linking.
+ */
 export function Footer() {
   const t = useTranslations("footer");
+  const tRes = useTranslations("nav.resourcesItems");
   const locale = useLocale();
   const year = new Date().getFullYear();
 
@@ -20,16 +27,29 @@ export function Footer() {
             </p>
           </div>
 
-          <FooterCol title={t("productTitle")}>
-            <FooterLink href="/#features">{t("product.features")}</FooterLink>
-            <FooterLink href="/#ai">{t("product.ai")}</FooterLink>
-            <FooterLink href="/#whatsapp">{t("product.whatsapp")}</FooterLink>
+          <FooterCol title={t("resourcesTitle")}>
+            {NAV_RESOURCES.map((r) =>
+              r.available ? (
+                <FooterLink key={r.labelKey} href={`/${locale}${r.href}`}>
+                  {tRes(r.labelKey as never)}
+                </FooterLink>
+              ) : (
+                <li key={r.labelKey}>
+                  <span className="inline-flex items-center gap-1.5 text-sm text-ink-500">
+                    {tRes(r.labelKey as never)}
+                    <span className="rounded-full bg-ink-800 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-ink-400">
+                      {tRes("comingSoon")}
+                    </span>
+                  </span>
+                </li>
+              )
+            )}
             <FooterLink href="/#pricing">{t("product.pricing")}</FooterLink>
           </FooterCol>
 
           <FooterCol title={t("companyTitle")}>
-            <FooterLink href="#">{t("company.about")}</FooterLink>
             <FooterLink href={`/${locale}/contato`}>{t("company.contact")}</FooterLink>
+            <FooterLink href="#">{t("company.about")}</FooterLink>
             <FooterLink href="#">{t("company.help")}</FooterLink>
           </FooterCol>
 

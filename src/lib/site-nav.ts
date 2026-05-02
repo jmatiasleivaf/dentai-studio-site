@@ -17,6 +17,6 @@ export const NAV_RESOURCES: ReadonlyArray<NavResource> = [
   { href: "/sofia", labelKey: "sofia", available: true },
   { href: "/ia-clinica", labelKey: "iaClinica", available: true },
   { href: "/clinico", labelKey: "clinico", available: true },
-  { href: "/totem", labelKey: "totem", available: false },
+  { href: "/totem", labelKey: "totem", available: true },
   { href: "/automatizacoes", labelKey: "automatizacoes", available: false },
 ] as const;
