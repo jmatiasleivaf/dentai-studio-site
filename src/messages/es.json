@@ -1201,5 +1201,202 @@
       "ctaPrimary": "Solicitar demo del tótem",
       "ctaSecondary": "Hablar con ventas"
     }
+  },
+  "automatizacoesPage": {
+    "meta": {
+      "title": "Automatizaciones — Caja, liquidaciones y cobro automático (MercadoPago)",
+      "description": "Caja diaria cierra sola vía cron. Liquidaciones de dentistas calculadas por período. Memberships con cobro recurrente automático (MercadoPago) y recordatorios escalonados. Todo duerme contigo."
+    },
+    "hero": {
+      "badge": "Automatizaciones Financieras",
+      "h1": "Tu clínica factura. Mientras tú duermes.",
+      "sub": "La caja diaria cierra sola. Las liquidaciones de comisión se calculan por período. Memberships con cobro recurrente automático vía gateway. Recordatorios WhatsApp+Email escalonados — sin perder mensualidad.",
+      "ctaPrimary": "Solicitar demo financiero",
+      "ctaSecondary": "Ver cómo funciona",
+      "mockupLabels": {
+        "title": "Panel financiero · Hoy",
+        "period": "30/04 → 02/05",
+        "caixa": "Caja del día",
+        "mrr": "MRR Memberships",
+        "pendente": "Cobros pendientes",
+        "retencao": "Retención 90d",
+        "cronStatus": "Crons corriendo · último run a las 03:00"
+      }
+    },
+    "howItWorks": {
+      "eyebrow": "Cómo funciona",
+      "title": "Configura una vez. Corre toda la noche.",
+      "steps": {
+        "1": { "title": "Configura tarifas", "desc": "Comisión por profesional, planes de membership, gateway de pago (MercadoPago)." },
+        "2": { "title": "Atiende y cierra el caso", "desc": "Cada prestación evolucionada actualiza caja, comisión y cuentas por cobrar en tiempo real." },
+        "3": { "title": "El cron corre overnight", "desc": "La caja cierra a las 23h. Cobro recurrente a las 03h. Recordatorios a las 10h. Todo en UTC." },
+        "4": { "title": "Ves el consolidado", "desc": "Mañana: dashboard con caja cerrada, MRR actualizado, cobros realizados, fallas con retry programado." }
+      }
+    },
+    "caixa": {
+      "eyebrow": "Caja Automática",
+      "title": "La caja diaria cierra sola. Tú solo revisas.",
+      "description": "MovimentoCaixa registra cada entrada (consulta, transferencia, tarjeta) y salida (proveedor, anticipo) en tiempo real. Cron de cierre corre a medianoche — saldo del día consolidado, listo para revisar en la mañana.",
+      "bullets": [
+        "Movimientos registrados en tiempo real al evolucionar prestación",
+        "Cron de cierre automático (configurable por sucursal)",
+        "Saldo calculado: entrada - salida - planilla = caja real",
+        "Soporte a múltiples formas de pago (PIX, tarjeta, transferencia, OXXO, PSE, Yape, Bizum)",
+        "Reapertura manual permitida con motivo registrado",
+        "Histórico de cierres por mes"
+      ],
+      "mockupLabels": {
+        "title": "Caja del día · Recepción",
+        "closed": "Cerrada",
+        "consulta": "Consulta tarjeta",
+        "pix": "Transferencia recibida",
+        "fornecedor": "Proveedor",
+        "cartao": "Tarjeta crédito",
+        "balance": "Saldo del día"
+      }
+    },
+    "liquidacao": {
+      "eyebrow": "Liquidaciones Automáticas",
+      "title": "Comisión de cada dentista calculada por período.",
+      "description": "Configuras % de comisión por profesional (o override por convenio). Toda prestación evolucionada genera ítem de Liquidación automáticamente. Al fin de mes, cierras el período y pagas — sin planilla, sin fricción.",
+      "bullets": [
+        "% configurable por profesional o por convenio",
+        "Auto-upsert al evolucionar prestación del plan de tratamiento",
+        "Liquidación agrupada por período mensual (o personalizable)",
+        "Histórico inmutable: quién evolucionó, cuándo, qué procedimiento",
+        "Comisión por período — no por procedimiento (decisión arquitectural validada)",
+        "Exportable a planilla (CSV/PDF) o procesamiento directo"
+      ],
+      "mockupLabels": {
+        "title": "Liquidaciones · Abril 2026",
+        "period": "Período mensual",
+        "professional": "Profesional",
+        "payout": "A pagar",
+        "dentista": "Clínico general",
+        "implantodontista": "Implantología",
+        "ortodontista": "Ortodoncia",
+        "total": "Total del mes"
+      }
+    },
+    "membership": {
+      "eyebrow": "Memberships + Cobro Recurrente",
+      "title": "MRR previsible. Cobro recurrente automático.",
+      "description": "Pacientes se suscriben a plan mensual/anual. Cobro recurrente vía MercadoPago (CL/BR/AR/MX/CO/PE) sucede solo. Recordatorios pre (7d/3d/0d) + retry escalonado post (D+1..D+7 diario, después semanal). 4 estados visibles en el badge: activo, por vencer, en deuda, cancelado.",
+      "bullets": [
+        "Cobro recurrente mensual o anual (auto-renovación toggle)",
+        "Gateway MercadoPago MVP — failover entre múltiples gateways soportado",
+        "Recordatorios pre-cobro: WhatsApp + Email (7d / 3d / 0d)",
+        "Retry escalonado post-cobro: D+1, D+2, ... D+7, después W2/W3/W4",
+        "Webhook idempotente (sin cobro duplicado)",
+        "Credenciales cifradas AES-256-GCM en la base",
+        "4 estados de membership badge: activo / por vencer / en deuda / cancelado"
+      ],
+      "mockupLabels": {
+        "title": "Memberships · Estado",
+        "active": "Activos",
+        "dueSoon": "Por vencer",
+        "overdue": "En deuda",
+        "cancelled": "Cancelados",
+        "timeline": "Timeline recordatorios (config global)"
+      }
+    },
+    "useCases": {
+      "eyebrow": "Para tu clínica",
+      "title": "Quiénes ganan más con las automatizaciones",
+      "cases": {
+        "solo": {
+          "persona": "Dentista solo",
+          "pain": "Fin de mes: pasas el domingo cerrando caja, calculando comisión de la asistente, mandando link de cobro de la mensualidad.",
+          "benefit": "La caja cierra sola. La comisión de la asistente va incluida. La mensualidad del paciente se cobra automática con tarjeta guardada. Domingo libre."
+        },
+        "clinica": {
+          "persona": "Clínica 3-8 sillones",
+          "pain": "5 dentistas con comisión diferente. Error de cálculo cada 2 meses. Mensualidad de membership olvidada.",
+          "benefit": "Liquidación automática por profesional + retro-fix de errores vía auditoría. Membership cobra automático y le recuerda al paciente — sin ti."
+        },
+        "rede": {
+          "persona": "Red odontológica multi-sucursal",
+          "pain": "Consolidar financiero entre 5 sucursales. Cada una con su forma. Reconciliación manual demora 1 semana.",
+          "benefit": "Caja de cada sucursal cierra overnight. Dashboard consolida MRR + comisiones + cobros en tiempo real. Reconciliación contable en horas."
+        }
+      }
+    },
+    "comparison": {
+      "eyebrow": "Antes y después",
+      "title": "Gestión financiera manual vs automatizada",
+      "beforeHeader": "Manual / planilla",
+      "afterHeader": "Automatizada SuperClini",
+      "rows": {
+        "fechamento": {
+          "topic": "Cierre de caja diario",
+          "before": "La recepcionista suma todo en Excel en la noche (30-60min/día).",
+          "after": "El cron cierra automático a las 23h. Tú revisas el saldo en la mañana."
+        },
+        "comissao": {
+          "topic": "Comisión de dentistas",
+          "before": "Planilla mensual con riesgo de error en cada cálculo.",
+          "after": "Auto-upsert al evolucionar cada prestación. Histórico inmutable."
+        },
+        "cobranca": {
+          "topic": "Cobro de membership",
+          "before": "Link manual o se olvida. El paciente paga cuando se acuerda.",
+          "after": "Cobro automático D-day vía gateway. Tarjeta guardada, sin fricción."
+        },
+        "lembrete": {
+          "topic": "Recordatorio de mensualidad",
+          "before": "La recepcionista llama o se olvida — alta fricción.",
+          "after": "Recordatorios escalonados WhatsApp + Email (7d, 3d, día, retry). Idempotente."
+        },
+        "mrr": {
+          "topic": "MRR previsible",
+          "before": "No sabes cuánto entra el mes que viene hasta el día 30.",
+          "after": "Dashboard muestra MRR proyectado, churn rate, retención 30/60/90d."
+        }
+      }
+    },
+    "faq": {
+      "eyebrow": "Sobre Automatizaciones",
+      "title": "Preguntas frecuentes",
+      "items": [
+        {
+          "q": "¿Qué gateways de pago están soportados?",
+          "a": "MercadoPago es el MVP actual, con cobertura en CL, BR, AR, MX, CO y PE. Webpay (Chile) y Stripe (US/global) están en el roadmap próximo. Configuras tus credenciales por organización — quedan cifradas (AES-256-GCM) en la base."
+        },
+        {
+          "q": "¿Cómo funciona el failover entre gateways?",
+          "a": "Soporta múltiples gateways por clínica con prioridad. Si MercadoPago falla (inestabilidad, etc.), el sistema intenta el siguiente gateway configurado. Webhook idempotente — no cobra duplicado aún si hay retry."
+        },
+        {
+          "q": "¿Comisión es por procedimiento o por período?",
+          "a": "Por período (mensual). Decisión arquitectural validada con socios — comisión por procedimiento genera complejidad desproporcional al valor (debate sobre quién 'hizo' la etapa, etc.). Configuras % por profesional o override por convenio. Liquidación cierra al mes."
+        },
+        {
+          "q": "¿Los recordatorios de cobro son spam?",
+          "a": "No. Cadencia: 7d antes (WhatsApp+Email), 3d antes (idem), el día (cobro automático). Post-cobro fallido: D+1, D+2 ... D+7 diarios, después W2, W3, W4 semanales, último admin_d30 (sin auto-cancel). Idempotente — no duplica envío si el webhook falla."
+        },
+        {
+          "q": "¿El paciente necesita registrar tarjeta en el tótem o en la recepción?",
+          "a": "Puede ser en la recepción (recepcionista) o en el portal del paciente (link enviado por WhatsApp). La tarjeta es tokenizada por el gateway — nunca pasa por nuestra base. PCI compliance vía gateway."
+        },
+        {
+          "q": "¿El cobro automático está en producción?",
+          "a": "En producción parcial. Está activo en STAGING para todas las clínicas. En producción, se activa por opt-in clínica por clínica mientras monitoreamos métricas iniciales. El trial da acceso completo en staging — puedes probar sin riesgo."
+        },
+        {
+          "q": "¿Puedo pausar o desactivar un cobro específico?",
+          "a": "Sí. Cada MembershipSubscription puede ser pausada (mantiene estado pero salta el próximo cobro) o cancelada (status = cancelled, mantiene acceso hasta fin del período pagado). Todo auditable."
+        },
+        {
+          "q": "¿Cómo funciona contablemente en redes multi-sucursal?",
+          "a": "Cada sucursal tiene su propia caja, pero Liquidaciones y Memberships pueden consolidarse a nivel Red para superadmin (network_finance). Centro de costo separado por sucursal, MRR consolidado para reporting ejecutivo."
+        }
+      ]
+    },
+    "ctaFinal": {
+      "title": "Tu clínica factura en piloto automático.",
+      "sub": "Trial 14 días con financiero completo activo en staging. Setup guiado por el equipo en 1 día hábil.",
+      "ctaPrimary": "Solicitar demo financiero",
+      "ctaSecondary": "Hablar con ventas"
+    }
   }
 }

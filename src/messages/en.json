@@ -1162,5 +1162,202 @@
       "ctaPrimary": "Request kiosk demo",
       "ctaSecondary": "Talk to sales"
     }
+  },
+  "automatizacoesPage": {
+    "meta": {
+      "title": "Automations — Cash close, payouts and recurring billing (MercadoPago)",
+      "description": "Daily cash closes itself via cron. Provider payouts calculated per period. Memberships with automatic recurring billing (MercadoPago) and escalated reminders. Sleeps when you sleep."
+    },
+    "hero": {
+      "badge": "Financial Automations",
+      "h1": "Your practice bills. While you sleep.",
+      "sub": "Daily cash closes itself. Provider payouts calculated per period. Memberships with automatic recurring billing via gateway. Escalated WhatsApp+Email reminders — no missed dues.",
+      "ctaPrimary": "Request finance demo",
+      "ctaSecondary": "See how it works",
+      "mockupLabels": {
+        "title": "Finance dashboard · Today",
+        "period": "Apr 30 → May 02",
+        "caixa": "Today's cash",
+        "mrr": "Membership MRR",
+        "pendente": "Pending charges",
+        "retencao": "90d retention",
+        "cronStatus": "Crons running · last run at 03:00"
+      }
+    },
+    "howItWorks": {
+      "eyebrow": "How it works",
+      "title": "Configure once. Runs every night.",
+      "steps": {
+        "1": { "title": "Set rates", "desc": "Provider commission %, membership plans, payment gateway (MercadoPago)." },
+        "2": { "title": "Treat and close cases", "desc": "Each progressed service updates cash, commission and receivables in real time." },
+        "3": { "title": "Cron runs overnight", "desc": "Cash closes at 11pm. Recurring billing at 3am. Reminders at 10am. All in UTC." },
+        "4": { "title": "You see the summary", "desc": "Morning: dashboard with closed cash, updated MRR, processed charges, failures with scheduled retry." }
+      }
+    },
+    "caixa": {
+      "eyebrow": "Auto Cash",
+      "title": "Daily cash closes itself. You just review.",
+      "description": "MovimentoCaixa logs each in (visit, wire, card) and out (supplier, payout) in real time. Closing cron runs at midnight — day's balance consolidated, ready to review in the morning.",
+      "bullets": [
+        "Movements logged in real time as services progress",
+        "Automatic closing cron (configurable per location)",
+        "Calculated balance: in - out - payroll = real cash",
+        "Multiple payment methods (PIX, card, wire, OXXO, PSE, Yape, Bizum)",
+        "Manual reopen allowed with logged reason",
+        "Closing history per month"
+      ],
+      "mockupLabels": {
+        "title": "Today's cash · Front desk",
+        "closed": "Closed",
+        "consulta": "Card visit",
+        "pix": "Wire received",
+        "fornecedor": "Supplier",
+        "cartao": "Credit card",
+        "balance": "Day's balance"
+      }
+    },
+    "liquidacao": {
+      "eyebrow": "Auto Payouts",
+      "title": "Each provider's commission calculated per period.",
+      "description": "Set commission % per provider (or override per insurance). Every progressed service generates a Liquidacao item automatically. End of month, you close the period and pay — no spreadsheet, no friction.",
+      "bullets": [
+        "Configurable % per provider or per insurance",
+        "Auto-upsert when progressing a treatment plan service",
+        "Payouts grouped by monthly period (or customizable)",
+        "Immutable history: who progressed, when, which procedure",
+        "Commission per period — not per procedure (validated architectural decision)",
+        "Exportable to payroll (CSV/PDF) or direct processing"
+      ],
+      "mockupLabels": {
+        "title": "Payouts · April 2026",
+        "period": "Monthly period",
+        "professional": "Provider",
+        "payout": "To pay",
+        "dentista": "General dentist",
+        "implantodontista": "Implant specialist",
+        "ortodontista": "Orthodontist",
+        "total": "Month total"
+      }
+    },
+    "membership": {
+      "eyebrow": "Memberships + Recurring Billing",
+      "title": "Predictable MRR. Automatic recurring billing.",
+      "description": "Patients subscribe to monthly/yearly plan. Recurring billing via MercadoPago (CL/BR/AR/MX/CO/PE) happens on its own. Pre-charge reminders (7d/3d/0d) + escalated post-charge retry (D+1..D+7 daily, then weekly). 4 visible badge states: active, due soon, overdue, cancelled.",
+      "bullets": [
+        "Monthly or yearly recurring billing (auto-renewal toggle)",
+        "MercadoPago MVP gateway — multi-gateway failover supported",
+        "Pre-charge reminders: WhatsApp + Email (7d / 3d / 0d)",
+        "Escalated post-charge retry: D+1, D+2, ... D+7, then W2/W3/W4",
+        "Idempotent webhook (no double charges)",
+        "AES-256-GCM encrypted credentials in the database",
+        "4 membership badge states: active / due soon / overdue / cancelled"
+      ],
+      "mockupLabels": {
+        "title": "Memberships · Status",
+        "active": "Active",
+        "dueSoon": "Due soon",
+        "overdue": "Overdue",
+        "cancelled": "Cancelled",
+        "timeline": "Reminder timeline (global config)"
+      }
+    },
+    "useCases": {
+      "eyebrow": "For your practice",
+      "title": "Who wins most with automations",
+      "cases": {
+        "solo": {
+          "persona": "Solo dentist",
+          "pain": "End of month: you spend Sunday closing cash, calculating assistant's commission, sending payment links for monthly fees.",
+          "benefit": "Cash closes itself. Assistant commission goes with it. Patient monthly fee charges automatically with saved card. Free Sunday."
+        },
+        "clinica": {
+          "persona": "3-8 chair practice",
+          "pain": "5 dentists with different commission. Calc error every 2 months. Forgotten membership fees.",
+          "benefit": "Auto payout per provider + retro-fix via audit. Membership charges automatically and reminds the patient — without you."
+        },
+        "rede": {
+          "persona": "Multi-location dental network",
+          "pain": "Consolidate finance across 5 sites. Each one its own way. Manual reconciliation takes 1 week.",
+          "benefit": "Each site's cash closes overnight. Dashboard consolidates MRR + payouts + charges in real time. Accounting reconciliation in hours."
+        }
+      }
+    },
+    "comparison": {
+      "eyebrow": "Before and after",
+      "title": "Manual vs automated finance",
+      "beforeHeader": "Manual / spreadsheet",
+      "afterHeader": "Automated SuperClini",
+      "rows": {
+        "fechamento": {
+          "topic": "Daily cash closing",
+          "before": "Receptionist sums it all in Excel at night (30-60min/day).",
+          "after": "Cron closes automatically at 11pm. You review balance in the morning."
+        },
+        "comissao": {
+          "topic": "Provider commissions",
+          "before": "Monthly spreadsheet with risk of error per calc.",
+          "after": "Auto-upsert as each service progresses. Immutable history."
+        },
+        "cobranca": {
+          "topic": "Membership billing",
+          "before": "Manual link or forgotten. Patient pays when remembers.",
+          "after": "Automatic D-day charge via gateway. Saved card, no friction."
+        },
+        "lembrete": {
+          "topic": "Monthly reminder",
+          "before": "Receptionist calls or forgets — high friction.",
+          "after": "Escalated WhatsApp + Email reminders (7d, 3d, day, retry). Idempotent."
+        },
+        "mrr": {
+          "topic": "Predictable MRR",
+          "before": "Don't know how much comes in next month until day 30.",
+          "after": "Dashboard shows projected MRR, churn rate, 30/60/90d retention."
+        }
+      }
+    },
+    "faq": {
+      "eyebrow": "About Automations",
+      "title": "Frequently asked questions",
+      "items": [
+        {
+          "q": "Which payment gateways are supported?",
+          "a": "MercadoPago is the current MVP, with coverage in CL, BR, AR, MX, CO and PE. Webpay (Chile) and Stripe (US/global) are on the near roadmap. You configure your credentials per organization — they're encrypted (AES-256-GCM) in the database."
+        },
+        {
+          "q": "How does failover between gateways work?",
+          "a": "Multi-gateway support per practice with priority. If MercadoPago fails (instability, etc.), the system tries the next configured gateway. Idempotent webhook — no double charges even on retry."
+        },
+        {
+          "q": "Is commission per procedure or per period?",
+          "a": "Per period (monthly). Architectural decision validated with founders — per-procedure commission creates complexity disproportionate to value (debate over who 'did' the step, etc.). You set % per provider or override per insurance. Payout closes monthly."
+        },
+        {
+          "q": "Are billing reminders spammy?",
+          "a": "No. Cadence: 7d before (WhatsApp+Email), 3d before (same), the day (auto charge). Post-charge failure: D+1, D+2 ... D+7 daily, then W2, W3, W4 weekly, last admin_d30 (no auto-cancel). Idempotent — no duplicate sends if webhook fails."
+        },
+        {
+          "q": "Does the patient register a card on the kiosk or at the front desk?",
+          "a": "Can be at the front desk (receptionist) or the patient portal (link sent via WhatsApp). Card is tokenized by the gateway — never touches our database. PCI compliance via gateway."
+        },
+        {
+          "q": "Is auto-billing in production?",
+          "a": "Partially in production. It's active in STAGING for all practices. In production, it's enabled opt-in per practice while we monitor early metrics. Trial gives full access in staging — you can test with no risk."
+        },
+        {
+          "q": "Can I pause or disable a specific charge?",
+          "a": "Yes. Each MembershipSubscription can be paused (keeps status but skips next charge) or cancelled (status = cancelled, keeps access until end of paid period). All auditable."
+        },
+        {
+          "q": "How does it work accounting-wise across multi-location networks?",
+          "a": "Each site has its own cash, but Payouts and Memberships can be consolidated at the Network level for super-admin (network_finance). Separate cost center per site, consolidated MRR for executive reporting."
+        }
+      ]
+    },
+    "ctaFinal": {
+      "title": "Your practice bills on autopilot.",
+      "sub": "14-day trial with full finance active in staging. Sales-led setup in 1 business day.",
+      "ctaPrimary": "Request finance demo",
+      "ctaSecondary": "Talk to sales"
+    }
   }
 }
