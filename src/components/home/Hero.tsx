@@ -1,181 +1,97 @@
 "use client";
 
-import { Check, ArrowRight, Bot, Sparkles, Scan } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
-import { ContactDialog } from "@/components/home/ContactDialog";
+import { ContactCTAButton } from "@/components/landing/ContactCTAButton";
+import { ShinyText } from "@/components/landing/ShinyText";
 import { SUPERCLINI_FACTS } from "@/lib/superclini.facts";
+
+const VIDEO_URL =
+  "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_105406_16f4600d-7a92-4292-b96e-b19156c7830a.mp4";
 
 export function Hero() {
   const t = useTranslations("hero");
 
   return (
-    <section className="relative overflow-hidden pb-20 pt-28 sm:pt-32 lg:pt-36">
+    <section className="relative isolate min-h-screen overflow-hidden bg-black">
+      {/* Video background — autoplay muted loop, decorativo */}
+      <video
+        className="absolute inset-0 -z-10 h-full w-full object-cover"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        poster=""
+        aria-hidden="true"
+      >
+        <source src={VIDEO_URL} type="video/mp4" />
+      </video>
+
+      {/* Overlay escuro para contraste do texto branco */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[800px] bg-ink-radial"
+        className="absolute inset-0 -z-10 bg-gradient-to-b from-black/60 via-black/40 to-black/70"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 opacity-[0.025] mix-blend-overlay bg-noise dark:opacity-[0.04]"
+        className="pointer-events-none absolute inset-0 -z-10 opacity-[0.06] mix-blend-overlay bg-noise"
       />
 
-      <Container>
-        <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-20 xl:gap-24">
-          {/* ─── Left: copy ─── */}
-          <div className="text-center lg:text-left">
-            <div className="flex flex-wrap items-center justify-center gap-2 lg:justify-start">
-              <Badge tone="brand">
-                <Sparkles className="h-3 w-3" aria-hidden />
-                {t("badge", { count: SUPERCLINI_FACTS.countriesCount })}
-              </Badge>
-            </div>
-
-            <h1 className="mt-6 font-display text-fluid-4xl font-extrabold leading-[1.05] tracking-tight text-ink-900 dark:text-ink-50">
-              <span className="block">{t("h1Line1")}</span>
-              <span className="block bg-brand-gradient bg-clip-text text-transparent">
-                {t("h1Line2")}
-              </span>
-              <span className="block">{t("h1Line3")}</span>
-            </h1>
-
-            <p className="mx-auto mt-6 max-w-xl text-fluid-base leading-relaxed text-ink-600 lg:mx-0 dark:text-ink-400">
-              {t("sub")}
-            </p>
-
-            <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row lg:justify-start">
-              <ContactDialog
-                defaultInteresse="trial_profesional"
-                trigger={({ onClick }) => (
-                  <Button size="lg" onClick={onClick}>
-                    {t("ctaPrimary")}
-                    <ArrowRight className="h-4 w-4" aria-hidden />
-                  </Button>
-                )}
-              />
-              <Button asChild variant="outline" size="lg">
-                <a href="#ai">{t("ctaSecondary")}</a>
-              </Button>
-            </div>
-
-            <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-ink-500 lg:justify-start dark:text-ink-400">
-              {(["noCard", "setup", "cancel"] as const).map((k) => (
-                <li key={k} className="flex items-center gap-1.5">
-                  <Check className="h-4 w-4 text-emerald-500" aria-hidden />
-                  {t(`trustItems.${k}`)}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* ─── Right: proof cards ─── */}
-          <HeroProofCards />
+      <Container className="relative z-10 flex min-h-screen max-w-7xl flex-col pb-16 pt-28 sm:pt-32 lg:pb-20 lg:pt-36">
+        {/* TOP SECTION — 2 colunas com pitch + stat */}
+        <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
+          <p className="max-w-md text-sm leading-relaxed text-white/80 lg:text-base">
+            {t("topPitch")}
+          </p>
+          <p className="max-w-md text-sm leading-relaxed text-white/80 lg:ml-auto lg:text-right lg:text-base">
+            {t("topStat", { count: SUPERCLINI_FACTS.countriesCount })}
+          </p>
         </div>
+
+        {/* HERO CENTER */}
+        <div className="flex flex-1 flex-col items-center justify-center text-center">
+          <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-white/80 sm:text-xs lg:text-sm">
+            {t("eyebrow")}
+          </span>
+
+          <h1 className="mt-6 font-display text-5xl font-medium leading-[0.85] tracking-tighter text-white sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">
+            <span className="block">{t("h1Line1")}</span>
+            <span className="mt-2 block">
+              <ShinyText speedSeconds={3} spreadDeg={100}>
+                {t("h1Line2")}
+              </ShinyText>
+            </span>
+          </h1>
+
+          <p className="mx-auto mt-8 max-w-2xl text-fluid-base leading-relaxed text-white/85">
+            {t("sub")}
+          </p>
+        </div>
+
+        {/* BOTTOM — CTAs */}
+        <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+          <ContactCTAButton defaultInteresse="trial_profesional" variant="primary" size="lg">
+            {t("ctaPrimary")}
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden />
+          </ContactCTAButton>
+          <Button asChild variant="outline" size="lg" className="border-white/40 text-white hover:border-white hover:text-white">
+            <a href="#ai">{t("ctaSecondary")}</a>
+          </Button>
+        </div>
+
+        {/* Trust items minimal abaixo dos CTAs */}
+        <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-white/70">
+          {(["noCard", "setup", "cancel"] as const).map((k) => (
+            <li key={k} className="flex items-center gap-1.5">
+              <span aria-hidden className="inline-block h-1 w-1 rounded-full bg-emerald-400" />
+              {t(`trustItems.${k}`)}
+            </li>
+          ))}
+        </ul>
       </Container>
     </section>
-  );
-}
-
-function HeroProofCards() {
-  const t = useTranslations("ai.cards");
-
-  return (
-    <div className="relative mx-auto w-full max-w-full sm:max-w-[520px] lg:max-w-none">
-      {/* Chat card (primary) */}
-      <div className="relative z-20 overflow-hidden rounded-3xl border border-ink-100 bg-white p-5 shadow-card-hover dark:border-ink-800 dark:bg-ink-900 sm:p-6">
-        <div className="flex items-center gap-3 border-b border-ink-100 pb-4 dark:border-ink-800">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-gradient">
-            <Bot className="h-5 w-5 text-white" aria-hidden />
-          </div>
-          <div className="flex-1">
-            <div className="flex items-center gap-1.5 text-sm font-semibold text-ink-900 dark:text-ink-50">
-              Sofía
-              <span
-                className="flex h-2 w-2 rounded-full bg-emerald-500"
-                role="img"
-                aria-label="Sofía online"
-              />
-              <span className="sr-only">Sofía está online</span>
-            </div>
-            <div className="text-xs text-ink-500 dark:text-ink-400">
-              {t("whatsapp.proofLabel")}
-            </div>
-          </div>
-        </div>
-
-        <div className="space-y-3 pt-4">
-          <ChatBubble side="user">{t("whatsapp.examples.user1")}</ChatBubble>
-          <ChatBubble side="bot">{t("whatsapp.examples.bot1")}</ChatBubble>
-          <ChatBubble side="user">{t("whatsapp.examples.user2")}</ChatBubble>
-          <ChatBubble side="bot">{t("whatsapp.examples.bot2")}</ChatBubble>
-        </div>
-      </div>
-
-      {/* Smile card (floating) — somente ≥2xl (1536px+) onde há espaço real */}
-      <div className="absolute -right-8 -top-10 z-10 hidden w-56 -rotate-6 rounded-2xl border border-ink-100 bg-white p-4 shadow-lg 2xl:block animate-float dark:border-ink-800 dark:bg-ink-900">
-        <div className="flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider text-violet-600 dark:text-violet-400">
-          <Sparkles className="h-3 w-3" aria-hidden /> AI Smile
-        </div>
-        <div className="mt-2 grid grid-cols-2 gap-2">
-          <div className="rounded-xl bg-gradient-to-br from-ink-200 to-ink-300" aria-hidden>
-            <div className="flex h-24 items-end justify-center rounded-xl pb-2 text-xs font-bold text-ink-700">
-              {t("smile.before")}
-            </div>
-          </div>
-          <div className="rounded-xl bg-gradient-to-br from-brand-200 to-accent-500" aria-hidden>
-            <div className="flex h-24 items-end justify-center rounded-xl pb-2 text-xs font-bold text-white">
-              {t("smile.after")}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Radiograph card (floating) — somente ≥2xl */}
-      <div className="absolute -bottom-12 -left-8 z-10 hidden w-52 rotate-3 rounded-2xl border border-ink-100 bg-white p-4 shadow-lg 2xl:block dark:border-ink-800 dark:bg-ink-900">
-        <div className="flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
-          <Scan className="h-3 w-3" aria-hidden /> AI Radio
-        </div>
-        <div className="mt-2 flex h-24 items-center justify-center rounded-xl bg-ink-900">
-          <svg viewBox="0 0 100 40" className="h-16 w-full" aria-hidden>
-            <defs>
-              <linearGradient id="rx-g" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#fbbf24" />
-                <stop offset="100%" stopColor="#ef4444" />
-              </linearGradient>
-            </defs>
-            <g fill="none" stroke="url(#rx-g)" strokeWidth="1.5">
-              <circle cx="25" cy="15" r="4" />
-              <circle cx="50" cy="20" r="5" />
-              <circle cx="75" cy="14" r="3" />
-            </g>
-            <g fill="#94a3b8" opacity="0.6">
-              {[10, 20, 30, 40, 50, 60, 70, 80, 90].map((x) => (
-                <rect key={x} x={x - 3} y={26} width={6} height={10} rx={1} />
-              ))}
-            </g>
-          </svg>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function ChatBubble({ side, children }: { side: "bot" | "user"; children: React.ReactNode }) {
-  return (
-    <div
-      className={`flex ${side === "user" ? "justify-end" : "justify-start"}`}
-    >
-      <div
-        className={
-          side === "user"
-            ? "max-w-[80%] rounded-2xl rounded-br-sm bg-brand-500 px-4 py-2.5 text-sm text-white"
-            : "max-w-[80%] rounded-2xl rounded-bl-sm bg-ink-100 px-4 py-2.5 text-sm text-ink-800 dark:bg-ink-800 dark:text-ink-100"
-        }
-      >
-        {children}
-      </div>
-    </div>
   );
 }
