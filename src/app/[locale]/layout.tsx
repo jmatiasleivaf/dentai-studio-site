@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { cookies } from "next/headers";
+import { Inter, Space_Grotesk } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { NavBar } from "@/components/layout/NavBar";
@@ -10,6 +11,19 @@ import { ThemeProvider } from "@/contexts/ThemeContext";
 import { routing, type Locale } from "@/i18n/routing";
 import { COUNTRIES, COUNTRY_LIST, type CountryCode } from "@/lib/countries";
 import { SUPERCLINI_FACTS } from "@/lib/superclini.facts";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  display: "swap",
+  variable: "--font-space",
+});
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -127,23 +141,31 @@ export default async function LocaleLayout({
       : "CL";
 
   return (
-    <NextIntlClientProvider locale={locale} messages={messages}>
-      <ThemeProvider>
-        <CountryProvider defaultCountry={defaultCountry}>
-          <div className="flex min-h-screen flex-col bg-white text-ink-900 transition-colors dark:bg-ink-950 dark:text-ink-50">
-            <NavBar />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </div>
-          {jsonLd.map((schema, idx) => (
-            <script
-              key={idx}
-              type="application/ld+json"
-              dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-            />
-          ))}
-        </CountryProvider>
-      </ThemeProvider>
-    </NextIntlClientProvider>
+    <html
+      lang={locale}
+      suppressHydrationWarning
+      className={`${inter.variable} ${spaceGrotesk.variable}`}
+    >
+      <body>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <ThemeProvider>
+            <CountryProvider defaultCountry={defaultCountry}>
+              <div className="flex min-h-screen flex-col bg-white text-ink-900 transition-colors dark:bg-ink-950 dark:text-ink-50">
+                <NavBar />
+                <main className="flex-1">{children}</main>
+                <Footer />
+              </div>
+              {jsonLd.map((schema, idx) => (
+                <script
+                  key={idx}
+                  type="application/ld+json"
+                  dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+                />
+              ))}
+            </CountryProvider>
+          </ThemeProvider>
+        </NextIntlClientProvider>
+      </body>
+    </html>
   );
 }

@@ -21,7 +21,7 @@
     "h1Line1": "Your dental practice answers on WhatsApp.",
     "h1Line2": "Diagnoses with AI.",
     "h1Line3": "Bills automatically.",
-    "sub": "SuperClini is the first dental platform with an AI agent on WhatsApp, smile simulation and a built-in DICOM 3D viewer — adapted to local currency and regulation in every country.",
+    "sub": "Sofía answers your WhatsApp 24/7, AI simulates smiles and reads radiographs in seconds, and the DICOM 3D viewer runs in your browser. One platform with local currency and compliance in every country.",
     "ctaPrimary": "Request 14-day trial",
     "ctaSecondary": "See how it works",
     "trustItems": {
@@ -41,8 +41,8 @@
   },
   "ai": {
     "eyebrow": "The difference is AI",
-    "title": "The AI your competitor doesn't have yet.",
-    "sub": "We don't tell you we have AI. We show it working.",
+    "title": "Sofía + visual AI: your clinic's AI team.",
+    "sub": "We don't tell you we have AI. We show it working — booking, simulating, reading radiographs.",
     "cards": {
       "whatsapp": {
         "title": "Sofía, your AI receptionist on WhatsApp",
@@ -485,6 +485,169 @@
     "dpo": {
       "title": "Data Protection Officer (DPO)",
       "body": "For specific data-protection queries, write to dpo@superclini.com."
+    }
+  },
+  "sofiaPage": {
+    "meta": {
+      "title": "Sofía — AI WhatsApp Assistant for Dental Practices",
+      "description": "Sofía answers, books and triages your WhatsApp 24/7. 12 AI functions wired to your real schedule. Stop losing leads at midnight and on weekends."
+    },
+    "hero": {
+      "badge": "AI Assistant · WhatsApp",
+      "h1": "Sofía answers your WhatsApp 24/7. You handle the patient.",
+      "sub": "AI agent with 12 real functions wired to your schedule. Books, confirms, reschedules and answers questions — in English, Spanish and Portuguese. Never miss a lead at 3 AM.",
+      "ctaPrimary": "Request 14-day trial",
+      "ctaSecondary": "See Sofía in action",
+      "chat": {
+        "proofLabel": "Real conversation (new patient booking)",
+        "messages": {
+          "user1": "Good evening, I'd like to book a cleaning for my son.",
+          "bot1": "Good evening, I'm Sofía from the practice. How old is the patient?",
+          "user2": "8 years old. Got anything Saturday morning?",
+          "bot2": "I have 9:00 and 10:30 with Dr. Carolina, our pediatric specialist. Which works for you?",
+          "user3": "10:30 is perfect",
+          "bot3": "Done. Booked for Saturday 10:30 with Dr. Carolina. I'll send a reminder Friday. ✨"
+        }
+      }
+    },
+    "howItWorks": {
+      "eyebrow": "How it works",
+      "title": "Zero to 24/7 in 4 steps",
+      "steps": {
+        "1": { "title": "Connect your WhatsApp Business", "desc": "Scan the QR once. No new number. No extra app." },
+        "2": { "title": "Sofía learns your schedule", "desc": "Imports providers, hours, specialties, plans. In seconds." },
+        "3": { "title": "Answers day, night and weekends", "desc": "Books, confirms, reschedules, answers. You just see the outcome." },
+        "4": { "title": "Hands off what needs you", "desc": "Clinical question, urgency, complaint — Sofía hands over with full context." }
+      }
+    },
+    "feature1": {
+      "eyebrow": "12 real functions",
+      "title": "Sofía isn't a chatbot. It's an agent with tools.",
+      "description": "Every interaction queries your real database and executes a concrete action. No generic answers, no 'one moment' that never ends.",
+      "bullets": [
+        "Look up patient by name or phone",
+        "List providers and specialties",
+        "Check available slots in real time",
+        "Create appointment with instant confirmation",
+        "Reschedule or cancel with reason",
+        "Same-day attendance confirmation",
+        "Answer about plans and payment methods",
+        "Register new patient (name, ID, age)",
+        "Look up practice info (address, hours)",
+        "List procedure catalog",
+        "Recognize patient by phone (WhatsApp LID)",
+        "Escalate to human on complex cases"
+      ]
+    },
+    "feature2": {
+      "eyebrow": "Real integration",
+      "title": "Knows your schedule in real time.",
+      "description": "Not a copy. Not a cache. Sofía hits your database every conversation. Conflicts are caught before they're problems.",
+      "bullets": [
+        "Instant sync: block in calendar → unavailable on WhatsApp",
+        "Respects practice timezone (configurable per location)",
+        "Multi-provider and multi-operatory support",
+        "Auto-language: patient writes EN → Sofía answers EN",
+        "WhatsApp LID (linked devices) support with smart fallback"
+      ]
+    },
+    "useCases": {
+      "eyebrow": "For your practice",
+      "title": "Who wins most with Sofía",
+      "cases": {
+        "solo": {
+          "persona": "Solo dentist",
+          "pain": "You treat and answer WhatsApp at the same time.",
+          "benefit": "Sofía answers while you're in the patient's mouth. You don't lose leads — and you don't interrupt the procedure."
+        },
+        "clinic": {
+          "persona": "3-8 chair practice",
+          "pain": "Your front desk answers 30 messages a day. When she's out, nobody sees WhatsApp.",
+          "benefit": "Sofía complements your team in hours and covers 100% off-hours. Filters simple questions before they become human tasks."
+        },
+        "network": {
+          "persona": "Dental network (3+ locations)",
+          "pain": "Each site has its own WhatsApp, no standard reply, no tracking.",
+          "benefit": "Sofía centralizes intake and routes per site, respecting local schedule. One standard, comparable metrics."
+        }
+      }
+    },
+    "comparison": {
+      "eyebrow": "Before and after",
+      "title": "Your WhatsApp with Sofía vs without",
+      "beforeHeader": "Personal/business WhatsApp without AI",
+      "afterHeader": "WhatsApp with Sofía",
+      "rows": {
+        "horario": {
+          "topic": "Hours of operation",
+          "before": "Business hours: 9-7. Closed weekends.",
+          "after": "24/7. Late nights, Sundays, holidays — never sleeps."
+        },
+        "resposta": {
+          "topic": "Response time",
+          "before": "5 min to 4 hours depending on workload.",
+          "after": "Instant. Always."
+        },
+        "agenda": {
+          "topic": "Booking",
+          "before": "You open the calendar, check, copy, paste, confirm.",
+          "after": "Sofía hits the real schedule, books and confirms. You just see the result."
+        },
+        "leads": {
+          "topic": "Leads lost off-hours",
+          "before": "30-50% of off-hour inquiries drop off.",
+          "after": "0%. Sofía books an appointment at 3 AM if needed."
+        },
+        "secretaria": {
+          "topic": "Front desk load",
+          "before": "WhatsApp eats 40% of their time.",
+          "after": "Drops to 10%. They focus on the people in front of them."
+        }
+      }
+    },
+    "faq": {
+      "eyebrow": "About Sofía",
+      "title": "Frequently asked questions",
+      "items": [
+        {
+          "q": "Does Sofía actually book in my schedule or just pretend?",
+          "a": "Books for real. Every appointment Sofía creates appears in your schedule immediately, with patient, provider, time and procedure. Conflicts are caught before saving."
+        },
+        {
+          "q": "Which languages does Sofía speak?",
+          "a": "Spanish (trained in neutral LATAM ES). Brazilian Portuguese automatically when the patient writes in PT. English also supported. Detection is per message — patient switches language and Sofía follows."
+        },
+        {
+          "q": "What if a patient asks a clinical question Sofía can't answer?",
+          "a": "Sofía recognizes the limit and escalates to human with full context. You configure a keyword (e.g. 'urgent') that triggers immediate handoff."
+        },
+        {
+          "q": "How does it work with new vs existing patients?",
+          "a": "Sofía looks up by phone (WhatsApp LID). Existing: addresses by name, knows history. New: registers on the spot — asks for name, ID, age. Appointment is created with a valid patient."
+        },
+        {
+          "q": "Can I turn Sofía off at specific times?",
+          "a": "Yes. You define hours where Sofía answers vs. hands off. Default is 24/7. Configurable per location."
+        },
+        {
+          "q": "How much per message?",
+          "a": "No per-message charge. Advanced plan includes 300 unique conversations/month (1 conversation = 1 unique patient interacting). Add-on packs available for higher volume."
+        },
+        {
+          "q": "Does Sofía recognize who's already in our system?",
+          "a": "Yes — looks up by WhatsApp phone and matches against your patient base. If recognized, addresses by name and has context. If new number, registers them."
+        },
+        {
+          "q": "How long does activation take?",
+          "a": "1 business day. Our team connects your WhatsApp Business, configures your schedule and hours, and tests with you before flipping the switch."
+        }
+      ]
+    },
+    "ctaFinal": {
+      "title": "Stop losing leads on WhatsApp.",
+      "sub": "Guided activation by our team in 1 business day. 14-day trial, no credit card.",
+      "ctaPrimary": "Request free trial",
+      "ctaSecondary": "Talk to sales"
     }
   }
 }

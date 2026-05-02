@@ -1,19 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter",
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  display: "swap",
-  variable: "--font-space",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://superclini.com"),
@@ -21,8 +7,6 @@ export const metadata: Metadata = {
     default: "SuperClini",
     template: "%s — SuperClini",
   },
-  description:
-    "La primera plataforma dental con IA en WhatsApp, simulación de sonrisa y visor DICOM 3D integrado.",
   icons: {
     icon: [{ url: "/icon-superclini.svg", type: "image/svg+xml" }],
   },
@@ -38,18 +22,9 @@ export const viewport: Viewport = {
   ],
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html
-      lang="es"
-      suppressHydrationWarning
-      className={`${inter.variable} ${spaceGrotesk.variable}`}
-    >
-      <body>{children}</body>
-    </html>
-  );
+// O <html> + <body> vivem em [locale]/layout.tsx para permitir lang={locale}
+// dinâmico (crítico para SEO multi-idioma — Google penaliza lang errado).
+// Padrão recomendado pelo next-intl 3.x.
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return children;
 }

@@ -21,7 +21,7 @@
     "h1Line1": "Tu clínica dental responde por WhatsApp.",
     "h1Line2": "Diagnostica con IA.",
     "h1Line3": "Cobra automáticamente.",
-    "sub": "SuperClini es la primera plataforma dental con asistente IA en WhatsApp, simulación de sonrisa y visor DICOM 3D integrado — y se adapta a la moneda y legislación de cada país.",
+    "sub": "Sofía atiende tu WhatsApp 24/7, la IA simula sonrisas y analiza radiografías en segundos, y el visor DICOM 3D vive en tu navegador. Una sola plataforma con moneda y fiscal de tu país.",
     "ctaPrimary": "Solicitar 14 días gratis",
     "ctaSecondary": "Ver cómo funciona",
     "trustItems": {
@@ -34,15 +34,15 @@
     "title": "Construido para ser confiable en el primer día",
     "items": {
       "tests": "{count} pruebas automatizadas",
-      "compliance": "Ley 20.584 · LGPD · GDPR",
+      "compliance": "LGPD · Ley 20.584 · GDPR",
       "countries": "{countries} países · {currencies} monedas",
       "uptime": "Infraestructura cloud 24/7"
     }
   },
   "ai": {
     "eyebrow": "La diferencia está en la IA",
-    "title": "La IA que tu competencia aún no tiene.",
-    "sub": "No te contamos que tenemos IA. Te mostramos funcionando.",
+    "title": "Sofía + IA visual: el equipo de IA de tu clínica.",
+    "sub": "No te contamos que tenemos IA. Te la mostramos funcionando — agendando, simulando, leyendo radiografías.",
     "cards": {
       "whatsapp": {
         "title": "Sofía, tu recepcionista con IA en WhatsApp",
@@ -524,6 +524,169 @@
     "dpo": {
       "title": "Encargado de Protección de Datos (DPO)",
       "body": "Para consultas específicas sobre protección de datos, escribe a dpo@superclini.com."
+    }
+  },
+  "sofiaPage": {
+    "meta": {
+      "title": "Sofía — Asistente IA en WhatsApp para clínicas dentales",
+      "description": "Sofía atiende, agenda y responde tu WhatsApp 24/7. 12 funciones IA conectadas a tu agenda real. Deja de perder leads de madrugada y fin de semana."
+    },
+    "hero": {
+      "badge": "Asistente IA · WhatsApp",
+      "h1": "Sofía atiende tu WhatsApp 24/7. Tú atiendes al paciente.",
+      "sub": "Agente IA con 12 funciones reales conectadas a tu agenda. Agenda, confirma, reagenda y responde dudas — en español, portugués e inglés. Sin perder un lead a las 3 AM.",
+      "ctaPrimary": "Solicitar trial 14 días",
+      "ctaSecondary": "Ver Sofía en acción",
+      "chat": {
+        "proofLabel": "Conversación real (paciente nuevo agendando)",
+        "messages": {
+          "user1": "Buenas noches, quiero agendar una limpieza para mi hijo.",
+          "bot1": "Buenas noches, soy Sofía, asistente de la clínica. ¿De qué edad es el paciente?",
+          "user2": "8 años. ¿Tienes hora el sábado en la mañana?",
+          "bot2": "Tengo a las 9:00 y 10:30 con la Dra. Carolina, especialista en odontopediatría. ¿Cuál prefieres?",
+          "user3": "10:30 está perfecto",
+          "bot3": "Listo. Cita agendada sábado 10:30 con Dra. Carolina. Te recordaré el viernes. ✨"
+        }
+      }
+    },
+    "howItWorks": {
+      "eyebrow": "Cómo funciona",
+      "title": "De cero a 24/7 en 4 pasos",
+      "steps": {
+        "1": { "title": "Conecta tu WhatsApp Business", "desc": "Escaneas el QR una vez. Sin cambiar de número. Sin app extra." },
+        "2": { "title": "Sofía aprende tu agenda", "desc": "Importa horarios, dentistas, especialidades y planes. En segundos." },
+        "3": { "title": "Atiende día, noche y fin de semana", "desc": "Agenda, confirma, reagenda, responde dudas. Tú solo ves el resultado." },
+        "4": { "title": "Te pasa lo que requiere humano", "desc": "Pregunta clínica, urgencia, reclamo — Sofía te transfiere con contexto completo." }
+      }
+    },
+    "feature1": {
+      "eyebrow": "12 funciones reales",
+      "title": "Sofía no es chatbot. Es un agente con función.",
+      "description": "Cada interacción consulta tu base real y ejecuta acción concreta. Sin respuestas genéricas, sin 'un momento' que no termina.",
+      "bullets": [
+        "Buscar paciente por nombre o teléfono",
+        "Listar dentistas y especialidades",
+        "Consultar horarios disponibles en tiempo real",
+        "Crear agendamiento con confirmación inmediata",
+        "Reagendar o cancelar con motivo",
+        "Confirmar asistencia el mismo día",
+        "Responder sobre planes y formas de pago",
+        "Registrar paciente nuevo (nombre, RUT/CPF, edad)",
+        "Consultar info de la clínica (dirección, horario)",
+        "Listar procedimientos del catálogo",
+        "Reconocer paciente por teléfono (LID WhatsApp)",
+        "Escalar a humano en casos complejos"
+      ]
+    },
+    "feature2": {
+      "eyebrow": "Integración real",
+      "title": "Conoce tu agenda en tiempo real.",
+      "description": "No es copia. No es caché. Sofía consulta tu base de datos en cada conversación. Conflictos detectados antes de que sean problema.",
+      "bullets": [
+        "Sincronización instantánea: bloqueo en agenda → no disponible en WhatsApp",
+        "Respeta zona horaria de la clínica (configurable por sucursal)",
+        "Soporta multi-dentista y multi-box",
+        "Idioma automático: paciente escribe en PT → Sofía responde en PT",
+        "Soporte a LID WhatsApp (linked devices) con fallback inteligente"
+      ]
+    },
+    "useCases": {
+      "eyebrow": "Para tu clínica",
+      "title": "Quiénes ganan más con Sofía",
+      "cases": {
+        "solo": {
+          "persona": "Dentista solo",
+          "pain": "Atiendes y respondes WhatsApp al mismo tiempo.",
+          "benefit": "Sofía atiende cuando estás con el paciente en el sillón. No pierdes lead — y no interrumpes procedimiento."
+        },
+        "clinic": {
+          "persona": "Clínica 3-8 sillones",
+          "pain": "Tu secretaria responde 30 mensajes al día. Cuando sale, nadie ve el WhatsApp.",
+          "benefit": "Sofía complementa a la secretaria en horario y cubre 100% fuera de él. Filtra dudas simples antes de generar tarea humana."
+        },
+        "network": {
+          "persona": "Red odontológica (3+ sucursales)",
+          "pain": "Cada sucursal con WhatsApp propio, sin estándar de respuesta, sin tracking.",
+          "benefit": "Sofía centraliza atención y rutea por sucursal respetando agenda local. Estándar único, métricas comparables."
+        }
+      }
+    },
+    "comparison": {
+      "eyebrow": "Antes y después",
+      "title": "Tu WhatsApp con Sofía vs sin Sofía",
+      "beforeHeader": "WhatsApp personal/business sin IA",
+      "afterHeader": "WhatsApp con Sofía",
+      "rows": {
+        "horario": {
+          "topic": "Horario de atención",
+          "before": "Comercial: 9-19h. Fin de semana cerrado.",
+          "after": "24/7. Madrugada, domingo, feriado — nunca para."
+        },
+        "resposta": {
+          "topic": "Tiempo de respuesta",
+          "before": "5min a 4h dependiendo de la carga.",
+          "after": "Instantáneo. Siempre."
+        },
+        "agenda": {
+          "topic": "Agendamiento",
+          "before": "Abres planilla, revisas, copias, pegas, confirmas.",
+          "after": "Sofía consulta tu agenda real, agenda y confirma. Tú solo ves el resultado."
+        },
+        "leads": {
+          "topic": "Leads perdidos fuera de horario",
+          "before": "30-50% de quien escribe fuera de horario desiste.",
+          "after": "0%. Sofía agenda cita a las 3 AM si hace falta."
+        },
+        "secretaria": {
+          "topic": "Carga de la secretaria",
+          "before": "WhatsApp consume el 40% de su tiempo.",
+          "after": "Cae a 10%. Se enfoca en quien está en recepción."
+        }
+      }
+    },
+    "faq": {
+      "eyebrow": "Sobre Sofía",
+      "title": "Preguntas frecuentes",
+      "items": [
+        {
+          "q": "¿Sofía agenda de verdad en mi agenda o solo finge?",
+          "a": "Agenda de verdad. Cada cita creada por Sofía aparece en tu agenda inmediatamente, con paciente, dentista, horario y procedimiento. Los conflictos se detectan antes de guardar."
+        },
+        {
+          "q": "¿En qué idiomas habla Sofía?",
+          "a": "Español nativo (entrenada en ES neutro LATAM). Portugués brasileño automático cuando el paciente escribe en PT. Inglés también soportado. La detección es por mensaje — el paciente cambia de idioma y Sofía acompaña."
+        },
+        {
+          "q": "¿Qué pasa si el paciente hace pregunta clínica que Sofía no puede responder?",
+          "a": "Sofía reconoce el límite y escala a humano con contexto completo. Configuras una palabra clave (ej: 'urgencia') que activa el handoff inmediato."
+        },
+        {
+          "q": "¿Cómo funciona con pacientes nuevos vs existentes?",
+          "a": "Sofía busca por teléfono (LID del WhatsApp). Existente: trata por nombre, conoce historial. Nuevo: registra al instante — pide nombre, RUT/CPF, edad. La cita se crea con paciente válido."
+        },
+        {
+          "q": "¿Puedo desactivar Sofía en momentos específicos?",
+          "a": "Sí. Defines horarios donde Sofía atiende vs. transfiere. Por defecto está 24/7. Configurable por sucursal."
+        },
+        {
+          "q": "¿Cuánto cuesta por mensaje?",
+          "a": "Sin cobro por mensaje. Plan Avanzado incluye 300 conversaciones únicas/mes (1 conversación = 1 paciente único interactuando). Pack adicional disponible para volumen mayor."
+        },
+        {
+          "q": "¿Sofía reconoce a quien ya está en nuestro sistema?",
+          "a": "Sí — busca por teléfono del WhatsApp y cruza con tu base de pacientes. Reconoce, trata por nombre y tiene contexto. Si es número nuevo, lo registra."
+        },
+        {
+          "q": "¿Cuánto tarda en activarse?",
+          "a": "1 día hábil. Nuestro equipo conecta tu WhatsApp Business, configura tu agenda y horario, y prueba contigo antes de activar."
+        }
+      ]
+    },
+    "ctaFinal": {
+      "title": "Tu clínica deja de perder leads en WhatsApp.",
+      "sub": "Activación guiada por nuestro equipo en 1 día hábil. Trial 14 días sin tarjeta.",
+      "ctaPrimary": "Solicitar trial gratis",
+      "ctaSecondary": "Hablar con ventas"
     }
   }
 }

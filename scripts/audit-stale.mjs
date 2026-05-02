@@ -53,6 +53,9 @@ const WHITELIST_KEYS = new Set([
   // FAQ resposta longa que enumera os 9 países por nome — refatorar em Wave 2
   // quando reescrever FAQ para consumir COUNTRY_LIST + facts dinamicamente.
   "faq.items.6.a",
+  // Landing /sofia: FAQ menciona "300 conversaciones" como label do plano,
+  // não como claim global do produto. Mesma justificativa de pricing.features.*.
+  "sofiaPage.faq.items.5.a",
 ]);
 
 /**

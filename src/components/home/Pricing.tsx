@@ -177,7 +177,7 @@ function PlanCard({
   const cardClass = isPopular
     ? "relative rounded-3xl border-2 border-brand-400/60 bg-gradient-to-br from-brand-500/15 via-accent-500/5 to-transparent p-7 shadow-brand"
     : isCorporativo
-      ? "relative rounded-3xl border border-violet-400/40 bg-gradient-to-br from-violet-500/10 via-transparent to-transparent p-7"
+      ? "relative rounded-3xl border border-violet-400/70 bg-gradient-to-br from-violet-500/15 via-transparent to-transparent p-7"
       : "relative rounded-3xl border border-white/10 bg-white/[0.03] p-7";
 
   // Mantém a chave `cotizacion_enterprise` no contact form para não quebrar integração de backend/CRM existente.

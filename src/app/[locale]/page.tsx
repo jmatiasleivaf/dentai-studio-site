@@ -9,6 +9,7 @@ import { Features } from "@/components/home/Features";
 import { Totem } from "@/components/home/Totem";
 import { Proof } from "@/components/home/Proof";
 import { FAQ } from "@/components/home/FAQ";
+import { FAQSchema } from "@/components/home/FAQSchema";
 import { CtaFinal } from "@/components/home/CtaFinal";
 
 export default async function HomePage({
@@ -31,6 +32,7 @@ export default async function HomePage({
       <Totem />
       <Proof />
       <FAQ />
+      <FAQSchema locale={locale} />
       <CtaFinal />
     </>
   );

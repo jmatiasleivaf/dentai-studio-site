@@ -92,7 +92,12 @@ function HeroProofCards() {
           <div className="flex-1">
             <div className="flex items-center gap-1.5 text-sm font-semibold text-ink-900 dark:text-ink-50">
               Sofía
-              <span className="flex h-2 w-2 rounded-full bg-emerald-500" aria-label="online" />
+              <span
+                className="flex h-2 w-2 rounded-full bg-emerald-500"
+                role="img"
+                aria-label="Sofía online"
+              />
+              <span className="sr-only">Sofía está online</span>
             </div>
             <div className="text-xs text-ink-500 dark:text-ink-400">
               {t("whatsapp.proofLabel")}
