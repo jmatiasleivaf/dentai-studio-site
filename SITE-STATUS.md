@@ -138,3 +138,30 @@
 |------|--------|--------|--------------------------|
 | 2026-05-01 | Wave 1 inicial — SSoT + drift fix | Criou facts.ts, migrou 6 strings stale (testes + módulos), criou SITE-STATUS.md | — / 5.6 |
 | 2026-05-01 | Wave 1 expandida — countries + Enterprise→Corporativo + audit-stale + Schema.org + hreflang multi-país + ESLint | Migrou 9 strings adicionais, criou audit script, adicionou Schema.org Organization+SoftwareApplication, hreflang 12+ variantes, corrigiu config ESLint | 5.6 / 6.3 |
+| 2026-05-02 | Deploy production + hotfix MISSING_MESSAGE | Primeiro deploy do Next.js 15 completo em superclini.com (commit c92e188 + e060b49). Fix PricingMatrix.tsx renderiza counts numéricos sem passar por i18n. 23 GB de build cache liberados na VPS. | 6.3 / 6.5 |
+
+---
+
+## Deploy log
+
+### 2026-05-02 02:07 UTC — Deploy inicial production
+- **Commit**: `c92e188` (Wave 1 expandida) merge fast-forward em `main`
+- **VPS**: Hostinger Ubuntu 24.04, `/opt/dentai-studio-site` (path canônico — `/root/dentai-studio-site` é duplicata legada)
+- **Container**: `dentai-site` (image `dentai-studio-site-site`), network external `dentai-studio_default`
+- **Build time**: 2m53s (cold cache — primeiro build com novo Dockerfile)
+- **Espaço liberado pré-build**: `docker builder prune -af` → 22.19 GB recuperados
+- **Validações pós-deploy**: HTTP/2 307 ✓, placeholders "1925 testes / 22 módulos / 9 países" ✓, JSON-LD x2 (Organization + SoftwareApplication) ✓
+- **Bug detectado em logs**: `MISSING_MESSAGE: pricing.matrix.values.{1,3}` (es) — counts numéricos literais caíam em lookup i18n inexistente
+
+### 2026-05-02 02:17 UTC — Hotfix re-deploy
+- **Commit**: `e060b49` `fix(pricing-matrix): MISSING_MESSAGE para counts numéricos`
+- **Build time**: 1m43s (warm cache — só re-executou `next build`)
+- **Métrica chave**: MISSING_MESSAGE no log = **0** (era dezenas/segundo)
+- **Matrix renderiza**: "20", "10", "10", "10", "10" (row professionals + outros counts) — visualmente correto
+
+### Lições do deploy
+- **`docker-compose.yml` da VPS não está no repo git** (untracked). Risco: se alguém rodar `git clean -fd` perde a infra. Ação: comitar como `docker-compose.example.yml` ou similar (próxima sessão).
+- **`/root/dentai-studio-site` é diretório legado duplicado** — pode ser arquivado/removido. Confirmar antes.
+- **Build cache Docker cresce ~25 GB rapidamente** — adicionar cron mensal `docker builder prune -af --filter "until=720h"` (30 dias) ou rodar manual a cada deploy.
+- **next-intl 3.x não throwa em chave faltante** — `try/catch` em torno de `t()` é inútil. Usar `t.has(key)` ou regex pré-check para counts numéricos.
+- **Sem CI/CD**: cada deploy precisa ação manual SSH + git pull + build + up. Próxima Wave 2/3: `.github/workflows/deploy.yml` com webhook → VPS via SSH key dedicada.
