@@ -12,7 +12,7 @@ import {
   Building2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ContactDialog } from "@/components/home/ContactDialog";
+import { ContactCTAButton } from "@/components/landing/ContactCTAButton";
 import { LandingHero } from "@/components/landing/LandingHero";
 import { HowItWorks } from "@/components/landing/HowItWorks";
 import { FeatureBlock } from "@/components/landing/FeatureBlock";
@@ -92,15 +92,10 @@ export default async function SofiaPage({
         title={t("hero.h1")}
         sub={t("hero.sub")}
         primaryCta={
-          <ContactDialog
-            defaultInteresse="trial_profesional"
-            trigger={({ onClick }) => (
-              <Button size="lg" onClick={onClick}>
-                {t("hero.ctaPrimary")}
-                <ArrowRight className="h-4 w-4" aria-hidden />
-              </Button>
-            )}
-          />
+          <ContactCTAButton defaultInteresse="trial_profesional">
+            {t("hero.ctaPrimary")}
+            <ArrowRight className="h-4 w-4" aria-hidden />
+          </ContactCTAButton>
         }
         secondaryCta={
           <Button asChild variant="outline" size="lg">
@@ -229,25 +224,16 @@ export default async function SofiaPage({
         title={t("ctaFinal.title")}
         sub={t("ctaFinal.sub")}
         primaryCta={
-          <ContactDialog
-            defaultInteresse="trial_profesional"
-            trigger={({ onClick }) => (
-              <Button size="lg" variant="secondary" onClick={onClick}>
-                {t("ctaFinal.ctaPrimary")}
-                <ArrowRight className="h-4 w-4" aria-hidden />
-              </Button>
-            )}
-          />
+          <ContactCTAButton defaultInteresse="trial_profesional" variant="secondary">
+            {t("ctaFinal.ctaPrimary")}
+            <ArrowRight className="h-4 w-4" aria-hidden />
+          </ContactCTAButton>
         }
         secondaryCta={
-          <ContactDialog
-            trigger={({ onClick }) => (
-              <Button size="lg" variant="dark" onClick={onClick}>
-                <MessageSquare className="h-4 w-4" aria-hidden />
-                {t("ctaFinal.ctaSecondary")}
-              </Button>
-            )}
-          />
+          <ContactCTAButton variant="dark">
+            <MessageSquare className="h-4 w-4" aria-hidden />
+            {t("ctaFinal.ctaSecondary")}
+          </ContactCTAButton>
         }
       />
     </>
