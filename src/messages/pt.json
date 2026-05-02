@@ -690,5 +690,155 @@
       "ctaPrimary": "Solicitar trial grátis",
       "ctaSecondary": "Falar com vendas"
     }
+  },
+  "iaClinicaPage": {
+    "meta": {
+      "title": "IA Clínica — Simulação de sorriso e análise de radiografias com IA",
+      "description": "IA visual integrada ao prontuário: simula sorrisos antes do tratamento e assiste a análise de radiografias panorâmicas, cefalométricas, bitewing e periapicais. Com auditoria legal completa."
+    },
+    "hero": {
+      "badge": "IA Visual · Clínica",
+      "h1": "A IA vê o que o dentista vê — e te ajuda a explicar.",
+      "sub": "Simulação de sorriso em segundos para fechar mais casos na primeira consulta. Análise assistida de radiografias com hot spots. Tudo dentro do prontuário, com auditoria legal.",
+      "ctaPrimary": "Solicitar demo da IA",
+      "ctaSecondary": "Ver como funciona"
+    },
+    "howItWorks": {
+      "eyebrow": "Como funciona",
+      "title": "Da foto ao plano em 4 cliques",
+      "steps": {
+        "1": { "title": "Faça upload", "desc": "Foto frontal do paciente para sorriso, ou radiografia (PNG/JPEG/WEBP) para análise." },
+        "2": { "title": "IA processa", "desc": "Gemini analisa a imagem em segundos. Multi-tratamento (facetas + clareamento + ortodontia) num único request." },
+        "3": { "title": "Você revisa", "desc": "Resultado dentro do prontuário, com confiança da IA e disclaimer médico-legal automático." },
+        "4": { "title": "Mostre ao paciente", "desc": "Exibição lado a lado, salva no caso e auditável. Aceitação digital opcional na hora." }
+      }
+    },
+    "smile": {
+      "eyebrow": "Simulação de Sorriso",
+      "title": "O paciente vê o resultado antes de aceitar.",
+      "description": "Aumenta drasticamente a taxa de aceitação na primeira consulta. Modelo Gemini Flash 3.1 com prompt dinâmico que combina múltiplos tratamentos (facetas, clareamento, ortodontia) em uma simulação coerente.",
+      "beforeLabel": "Antes",
+      "afterLabel": "Depois",
+      "bullets": [
+        "Multi-tratamento numa simulação só",
+        "Resultado em segundos (timeout 120s, retry automático)",
+        "Imagens 1024×1024 alta qualidade",
+        "Disclaimer médico-legal embutido (não promete resultado exato)",
+        "Salva no caso do paciente — visível no prontuário",
+        "Funciona em desktop, tablet e celular do dentista"
+      ]
+    },
+    "radio": {
+      "eyebrow": "Análise Radiográfica",
+      "title": "IA assiste o diagnóstico. Você decide.",
+      "description": "Detecção assistida em radiografias panorâmicas, cefalométricas, bitewing e periapicais. A IA aponta achados visíveis com transparência sobre confiança — a decisão clínica é sempre sua, com auditoria legal completa.",
+      "heroLabel": "Cáries · Lesões · Cefalo Ricketts/Steiner",
+      "bullets": [
+        "4 tipos: panorâmica, cefalométrica, bitewing, periapical",
+        "Cáries em 3 níveis (incipiente / moderada / avançada)",
+        "Lesões periapicais e estado periodontal",
+        "Cefalometria com Ricketts, Steiner e McNamara (valores vs normais)",
+        "PNG, JPEG e WEBP suportados",
+        "Trilha de auditoria — quem analisou, quando, com qual modelo"
+      ],
+      "detections": [
+        "Cárie moderada detectada (face oclusal)",
+        "Lesão periapical sugerida (apical inferior)",
+        "Restauração prévia íntegra"
+      ]
+    },
+    "useCases": {
+      "eyebrow": "Para sua clínica",
+      "title": "Quem ganha mais com IA visual",
+      "cases": {
+        "solo": {
+          "persona": "Dentista solo",
+          "pain": "Você gasta 20min explicando tratamento e o paciente decide depois.",
+          "benefit": "Mostra simulação na hora. Fecha mais casos na primeira consulta. Sem investimento em câmera intraoral."
+        },
+        "clinic": {
+          "persona": "Clínica 3-8 cadeiras",
+          "pain": "Cada dentista interpreta radiografia do seu jeito.",
+          "benefit": "IA padroniza o diagnóstico inicial. Auditoria legal de quem viu o quê. Casos compartilhados entre profissionais."
+        },
+        "network": {
+          "persona": "Rede odontológica",
+          "pain": "Sem padrão clínico entre filiais — cada lugar com sua qualidade.",
+          "benefit": "IA é o mesmo modelo em todas as filiais. Padrão único de simulação e análise. Métricas comparáveis de aceitação."
+        }
+      }
+    },
+    "comparison": {
+      "eyebrow": "Antes e depois",
+      "title": "Sua consulta com IA visual vs sem",
+      "beforeHeader": "Sem IA visual",
+      "afterHeader": "Com SuperClini IA",
+      "rows": {
+        "aceitacao": {
+          "topic": "Aceitação na 1ª consulta",
+          "before": "Paciente vai pensar e raramente volta.",
+          "after": "Paciente vê o resultado e decide na hora."
+        },
+        "tempo": {
+          "topic": "Tempo de explicação por caso",
+          "before": "15-25min com fotos genéricas e desenho na ficha.",
+          "after": "3min mostrando simulação personalizada."
+        },
+        "diagnostico": {
+          "topic": "Análise de radiografia",
+          "before": "Olho clínico isolado, sem segunda opinião.",
+          "after": "IA aponta achados visíveis, você decide com mais contexto."
+        },
+        "auditoria": {
+          "topic": "Auditoria legal",
+          "before": "Anotação manual no prontuário (quando lembra).",
+          "after": "Trilha automática: quem viu, quando, com qual modelo IA."
+        }
+      }
+    },
+    "faq": {
+      "eyebrow": "Sobre a IA Clínica",
+      "title": "Perguntas frequentes",
+      "items": [
+        {
+          "q": "A IA substitui o dentista no diagnóstico?",
+          "a": "Não. A IA assiste o diagnóstico apontando achados visíveis na imagem — cárie em estágio X, lesão sugerida em local Y. A decisão clínica é sempre do dentista. Cada análise é registrada com auditoria legal completa: quem viu, quando, com qual modelo IA."
+        },
+        {
+          "q": "Quais imagens a simulação de sorriso aceita?",
+          "a": "Foto frontal do paciente (sorrindo, boca aberta natural). PNG, JPEG ou WEBP. A IA gera uma imagem 1024×1024 mostrando o resultado simulado com os tratamentos selecionados (facetas, clareamento, ortodontia — combinados ou isolados)."
+        },
+        {
+          "q": "Quanto tempo leva uma simulação?",
+          "a": "Tipicamente 30-60 segundos. Timeout máximo 120s com 2 retries automáticos. Se o modelo está sob carga, espera-se uma fila pequena. Você não fica preso na tela — o resultado aparece quando pronto no caso do paciente."
+        },
+        {
+          "q": "Quais radiografias a IA analisa?",
+          "a": "Panorâmica, cefalométrica, bitewing e periapical. Formatos: PNG, JPEG, WEBP. Ainda não suporta DICOM nativo — para CBCT 3D, use o visor DICOM 3D integrado (que é manual, não usa IA)."
+        },
+        {
+          "q": "Os planos têm cota mensal de IA?",
+          "a": "Sim. Plano Profissional inclui cotas mensais de simulações e análises radiográficas. Plano Avançado tem cotas maiores. Plano Corporativo é personalizado. Packs adicionais disponíveis para volume maior."
+        },
+        {
+          "q": "A simulação garante o resultado real do tratamento?",
+          "a": "Não. Cada simulação inclui disclaimer médico-legal automático: 'Simulação educacional — resultado real depende de variáveis biológicas e técnicas'. Use para alinhar expectativa, nunca como contrato ou promessa clínica."
+        },
+        {
+          "q": "É seguro para LGPD/GDPR?",
+          "a": "Sim. Imagens são enviadas para processamento via API criptografada (TLS), não treinamos modelo público com seus dados, e ficam armazenadas isoladamente por organização. Auditoria legal completa por análise."
+        },
+        {
+          "q": "Funciona offline?",
+          "a": "Não. A IA precisa de conexão para processar. Mas o fluxo é assíncrono: você sobe a imagem, fecha a tela se quiser, e o resultado aparece no caso quando pronto."
+        }
+      ]
+    },
+    "ctaFinal": {
+      "title": "Sua clínica fecha mais casos com explicação visual e diagnóstico assistido.",
+      "sub": "Trial 14 dias com IA completa ativa. Setup guiado em 1 dia útil.",
+      "ctaPrimary": "Solicitar trial com IA",
+      "ctaSecondary": "Falar com vendas"
+    }
   }
 }

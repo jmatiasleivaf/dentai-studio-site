@@ -651,5 +651,155 @@
       "ctaPrimary": "Request free trial",
       "ctaSecondary": "Talk to sales"
     }
+  },
+  "iaClinicaPage": {
+    "meta": {
+      "title": "Clinical AI — Smile simulation and AI radiograph analysis",
+      "description": "Visual AI built into the patient chart: simulates smiles before treatment and assists analysis of panoramic, cephalometric, bitewing and periapical radiographs. Full legal audit trail."
+    },
+    "hero": {
+      "badge": "Visual AI · Clinical",
+      "h1": "Your AI sees what the dentist sees — and helps you explain.",
+      "sub": "Smile simulation in seconds to close more cases in the first visit. AI-assisted radiograph analysis with hot spots. All inside the chart, with full legal audit trail.",
+      "ctaPrimary": "Request AI demo",
+      "ctaSecondary": "See how it works"
+    },
+    "howItWorks": {
+      "eyebrow": "How it works",
+      "title": "From photo to plan in 4 clicks",
+      "steps": {
+        "1": { "title": "Upload the image", "desc": "Front photo of the patient for smile, or radiograph (PNG/JPEG/WEBP) for analysis." },
+        "2": { "title": "AI processes", "desc": "Gemini reads the image in seconds. Multi-treatment (veneers + whitening + orthodontics) in a single request." },
+        "3": { "title": "You review", "desc": "Result inside the chart, with AI confidence score and automatic medical-legal disclaimer." },
+        "4": { "title": "Show the patient", "desc": "Side-by-side display, saved in the case and auditable. Optional digital acceptance on the spot." }
+      }
+    },
+    "smile": {
+      "eyebrow": "Smile Simulation",
+      "title": "The patient sees the result before saying yes.",
+      "description": "Drastically increases first-visit case acceptance. Gemini Flash 3.1 model with dynamic prompt that combines multiple treatments (veneers, whitening, orthodontics) into a coherent simulation.",
+      "beforeLabel": "Before",
+      "afterLabel": "After",
+      "bullets": [
+        "Multi-treatment in one simulation",
+        "Result in seconds (120s timeout, automatic retry)",
+        "1024×1024 high-quality images",
+        "Built-in medical-legal disclaimer (doesn't promise exact result)",
+        "Saved on the patient case — visible in the chart",
+        "Works on desktop, tablet and dentist's phone"
+      ]
+    },
+    "radio": {
+      "eyebrow": "Radiograph Analysis",
+      "title": "AI assists diagnosis. You decide.",
+      "description": "Assisted detection on panoramic, cephalometric, bitewing and periapical radiographs. AI flags visible findings with transparency on confidence — clinical decision is always yours, with full legal audit trail.",
+      "heroLabel": "Caries · Lesions · Ceph Ricketts/Steiner",
+      "bullets": [
+        "4 types: panoramic, cephalometric, bitewing, periapical",
+        "Caries in 3 grades (incipient / moderate / advanced)",
+        "Periapical lesions and periodontal status",
+        "Cephalometry with Ricketts, Steiner and McNamara (values vs norms)",
+        "PNG, JPEG and WEBP supported",
+        "Audit trail — who analyzed, when, with which model"
+      ],
+      "detections": [
+        "Moderate caries detected (occlusal surface)",
+        "Suggested periapical lesion (lower apical)",
+        "Previous restoration intact"
+      ]
+    },
+    "useCases": {
+      "eyebrow": "For your practice",
+      "title": "Who wins most with visual AI",
+      "cases": {
+        "solo": {
+          "persona": "Solo dentist",
+          "pain": "You spend 20min explaining a treatment and the patient decides later.",
+          "benefit": "Show the simulation on the spot. Close more cases first visit. No need to invest in intraoral camera."
+        },
+        "clinic": {
+          "persona": "3-8 chair practice",
+          "pain": "Every dentist reads radiographs their own way.",
+          "benefit": "AI standardizes initial diagnosis. Legal audit of who saw what. Cases shared between providers."
+        },
+        "network": {
+          "persona": "Dental network",
+          "pain": "No clinical standard across sites — each location with its own quality.",
+          "benefit": "Same AI model across all locations. Single standard for simulation and analysis. Comparable acceptance metrics."
+        }
+      }
+    },
+    "comparison": {
+      "eyebrow": "Before and after",
+      "title": "Your visit with visual AI vs without",
+      "beforeHeader": "Without visual AI",
+      "afterHeader": "With SuperClini AI",
+      "rows": {
+        "aceitacao": {
+          "topic": "1st-visit acceptance rate",
+          "before": "Patient will think about it and rarely returns.",
+          "after": "Patient sees the result and decides on the spot."
+        },
+        "tempo": {
+          "topic": "Explanation time per case",
+          "before": "15-25min with generic photos and pen drawings on the chart.",
+          "after": "3min showing personalized simulation."
+        },
+        "diagnostico": {
+          "topic": "Radiograph analysis",
+          "before": "Isolated clinical eye, no second opinion.",
+          "after": "AI flags visible findings, you decide with more context."
+        },
+        "auditoria": {
+          "topic": "Legal audit",
+          "before": "Manual note in chart (when remembered).",
+          "after": "Automatic trail: who saw, when, with which AI model."
+        }
+      }
+    },
+    "faq": {
+      "eyebrow": "About Clinical AI",
+      "title": "Frequently asked questions",
+      "items": [
+        {
+          "q": "Does AI replace the dentist for diagnosis?",
+          "a": "No. AI assists diagnosis by flagging visible findings in the image — caries at stage X, suggested lesion at site Y. Clinical decision is always the dentist's. Every analysis is logged with full legal audit: who saw, when, with which AI model."
+        },
+        {
+          "q": "What images does the smile simulation accept?",
+          "a": "Front photo of the patient (smiling, natural open mouth). PNG, JPEG or WEBP. AI generates a 1024×1024 image showing the simulated result with selected treatments (veneers, whitening, orthodontics — combined or isolated)."
+        },
+        {
+          "q": "How long does a simulation take?",
+          "a": "Typically 30-60 seconds. Max 120s timeout with 2 automatic retries. If the model is under load, expect a small queue. You're not stuck on the screen — the result appears in the patient case when ready."
+        },
+        {
+          "q": "Which radiographs does AI analyze?",
+          "a": "Panoramic, cephalometric, bitewing and periapical. Formats: PNG, JPEG, WEBP. Native DICOM not yet supported — for CBCT 3D, use the integrated DICOM 3D viewer (which is manual, not AI-driven)."
+        },
+        {
+          "q": "Do plans have monthly AI quotas?",
+          "a": "Yes. Professional plan includes monthly quotas of simulations and radiograph analyses. Advanced plan has higher quotas. Corporate plan is custom. Add-on packs available for higher volume."
+        },
+        {
+          "q": "Does the simulation guarantee the real treatment result?",
+          "a": "No. Every simulation includes an automatic medical-legal disclaimer: 'Educational simulation — real result depends on biological and technical variables'. Use it to align expectations, never as a contract or clinical promise."
+        },
+        {
+          "q": "Is it safe for LGPD/GDPR?",
+          "a": "Yes. Images are sent for processing via encrypted API (TLS), we don't train public models on your data, and they're stored isolated per organization. Full legal audit per analysis."
+        },
+        {
+          "q": "Does it work offline?",
+          "a": "No. AI needs connection to process. But the flow is async: you upload the image, close the screen if you want, and the result appears in the case when ready."
+        }
+      ]
+    },
+    "ctaFinal": {
+      "title": "Your practice closes more cases with visual explanation and AI-assisted diagnosis.",
+      "sub": "14-day trial with full AI active. Sales-led setup in 1 business day.",
+      "ctaPrimary": "Request trial with AI",
+      "ctaSecondary": "Talk to sales"
+    }
   }
 }
