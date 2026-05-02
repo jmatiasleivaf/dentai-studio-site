@@ -39,13 +39,14 @@ export function PricingMatrix() {
     if (v === "no") {
       return <Minus className="mx-auto h-4 w-4 text-ink-300 dark:text-ink-700" aria-label="—" />;
     }
-    const resolved = (() => {
-      try {
-        return tValues(v as never);
-      } catch {
-        return v;
-      }
-    })();
+    // Counts numéricos (professionals "10", boxes "5", branches "3") renderizam direto.
+    // Labels (unlimited, 5gb, 30mo, custom, etc) vêm de pricing.matrix.values.* via i18n.
+    const isNumericLiteral = /^\d+$/.test(v);
+    const resolved = isNumericLiteral
+      ? v
+      : tValues.has(v as never)
+        ? tValues(v as never)
+        : v;
     return (
       <span
         className={
