@@ -10,11 +10,20 @@
     "whatsapp": "WhatsApp",
     "pricing": "Pricing",
     "clients": "Customers",
+    "resources": "Resources",
     "login": "Sign in",
     "demo": "Book a demo",
     "menuLabel": "Main menu",
     "openMenu": "Open menu",
-    "closeMenu": "Close menu"
+    "closeMenu": "Close menu",
+    "resourcesItems": {
+      "sofia": "Sofía on WhatsApp",
+      "iaClinica": "Clinical AI",
+      "clinico": "Clinical Module",
+      "totem": "Self-service Kiosk",
+      "automatizacoes": "Automations",
+      "comingSoon": "Coming soon"
+    }
   },
   "hero": {
     "badge": "Available in {count} countries",
@@ -799,6 +808,189 @@
       "title": "Your practice closes more cases with visual explanation and AI-assisted diagnosis.",
       "sub": "14-day trial with full AI active. Sales-led setup in 1 business day.",
       "ctaPrimary": "Request trial with AI",
+      "ctaSecondary": "Talk to sales"
+    }
+  },
+  "clinicoPage": {
+    "meta": {
+      "title": "Clinical Module — Tooth chart, immutable EHR, DICOM 3D and exams",
+      "description": "Everything your practice needs: interactive FDI tooth chart, immutable EHR (HIPAA-ready/LGPD), in-browser DICOM 3D viewer with 6 dental presets, 2D exams and aligners. All connected."
+    },
+    "hero": {
+      "badge": "Complete Clinical Module",
+      "h1": "Your practice in 1 tool. No spreadsheets. No paper.",
+      "sub": "Interactive FDI tooth chart, immutable EHR per regulation, in-browser DICOM 3D viewer, 2D exams and aligners. All connected, with prescription templates and full legal audit trail.",
+      "ctaPrimary": "Request module demo",
+      "ctaSecondary": "See clinical tour",
+      "mockupLabels": {
+        "fichaTitle": "Patient chart",
+        "patient": "Patient",
+        "lastVisit": "Last visit",
+        "odonto": "FDI tooth chart"
+      }
+    },
+    "howItWorks": {
+      "eyebrow": "How it works",
+      "title": "From registration to billing in 4 steps",
+      "steps": {
+        "1": { "title": "Register the patient", "desc": "Demographics + structured anamnesis (allergies, meds, conditions). Supports SSN/CPF/RUT per country." },
+        "2": { "title": "Treat with tooth chart + EHR", "desc": "32 teeth in FDI standard. Status per surface. Immutable clinical notes (HIPAA-ready/LGPD)." },
+        "3": { "title": "Attach exams", "desc": "Intraoral photos (9 standard slots), 2D radiographs, CBCT 3D via DICOM, aligner series." },
+        "4": { "title": "Bill with legal audit", "desc": "Prescription template with 11 variables. Audit trail of who saw/edited what, when." }
+      }
+    },
+    "odonto": {
+      "eyebrow": "Tooth chart + EHR",
+      "title": "International FDI standard. Legally immutable EHR.",
+      "description": "32 teeth in FDI system (11-48), interactive — click to change status. Clinical notes immutable per HIPAA-ready, LGPD and Ley 20.584 (Chile) — only super-admin can invalidate with logged reason.",
+      "bullets": [
+        "International FDI system (11-48), worldwide clinical standard",
+        "Status per tooth surface (V/P/L/D/O), zoom on mobile",
+        "Legally immutable notes — invalidation only by super-admin with reason",
+        "Structured anamnesis: allergies, meds, chronic conditions",
+        "Prescription template with 11 variables ({{patient_name}}, {{provider_id}} etc.)",
+        "Partial PATCH auto-save — nothing is lost"
+      ],
+      "statusLabels": {
+        "healthy": "Healthy",
+        "caries": "Caries",
+        "restored": "Restored",
+        "implant": "Implant",
+        "absent": "Missing"
+      }
+    },
+    "dicom": {
+      "eyebrow": "DICOM 3D",
+      "title": "CBCT viewer in your browser. Nothing to install.",
+      "description": "Native Cornerstone3D, WebGL GPU with 512MB cache. 6 dental presets (Hueso, Implante, Tejido, Endo, Estándar). 7 professional tools (measurements, ROI, HU Probe). Chunked upload for >50MB CBCTs.",
+      "viewerLabel": "DICOM 3D Viewer · Stack View",
+      "bullets": [
+        "6 W/L presets in Spanish (Hueso 500/2500, Implante 800/3500, Tejido, Endo)",
+        "7 tools: Length, Angle, EllipticalROI, RectangleROI, Bidirectional, ArrowAnnotate, HU Probe",
+        ">50MB chunked upload with automatic reassembly",
+        "SeriesInstanceUID + slice dimension validation",
+        "WebGL GPU + 512MB cache",
+        "Works on desktop, touch tablets"
+      ],
+      "presets": [
+        { "name": "Hueso", "values": "500/2500" },
+        { "name": "Implante", "values": "800/3500" },
+        { "name": "Tejido", "values": "50/400" },
+        { "name": "Endo", "values": "300/1500" },
+        { "name": "Estándar", "values": "400/2000" },
+        { "name": "Custom", "values": "W/L manual" }
+      ]
+    },
+    "exame": {
+      "eyebrow": "Exams + Aligners",
+      "title": "9-photo protocol + aligners connected to the lab.",
+      "description": "Standardized 9-slot intraoral protocol. Full aligner series with external lab integration. MIME validation per upload, storage per plan.",
+      "gridLabel": "Intraoral protocol · 9 slots",
+      "bullets": [
+        "9 intraoral photo types (intraorals, occlusals, profile)",
+        "Aligners: series, sessions, milestones",
+        "External lab integration via CasoAlineador.laboratorioId",
+        "MIME validation per upload (PNG/JPEG/WEBP)",
+        "Storage: 5GB Essential · 50GB Professional · 100GB Advanced · custom Corporate",
+        "All inside the patient case — search by exam or date"
+      ]
+    },
+    "useCases": {
+      "eyebrow": "For your reality",
+      "title": "Who wins most with the clinical module",
+      "cases": {
+        "solo": {
+          "persona": "Solo dentist",
+          "pain": "Paper piling up, EHR in Excel, exams in a phone folder.",
+          "benefit": "All in one place. Access from chair-side tablet, from your phone outside the practice. Automatic legal compliance."
+        },
+        "especialista": {
+          "persona": "Implant / Orthodontic specialist",
+          "pain": "You need DICOM 3D but Sidexis/Romexis costs $3-6k in licenses.",
+          "benefit": "Native DICOM 3D viewer in the browser, no extra license. 6 dental presets preconfigured. >50MB CBCT uploads via chunked upload."
+        },
+        "clinica": {
+          "persona": "Multi-specialty practice",
+          "pain": "Every specialist charts differently. Audit is fragmented.",
+          "benefit": "Single chart standard. Legally immutable notes. Centralized audit of who saw/edited."
+        }
+      }
+    },
+    "comparison": {
+      "eyebrow": "Before and after",
+      "title": "Traditional dental software vs SuperClini",
+      "beforeHeader": "Traditional dental software",
+      "afterHeader": "SuperClini Clinical Module",
+      "rows": {
+        "papel": {
+          "topic": "Where the chart lives",
+          "before": "Excel sheet, paper or installed desktop software.",
+          "after": "Multi-tenant cloud. Access from any device with login."
+        },
+        "dicom": {
+          "topic": "DICOM 3D viewer",
+          "before": "Separate software (Sidexis, Romexis) — $3-6k license.",
+          "after": "Built-in native browser viewer. Cornerstone3D + 6 dental presets."
+        },
+        "legal": {
+          "topic": "Legal compliance (HIPAA-ready/LGPD)",
+          "before": "Manual: you note what you can/should somewhere.",
+          "after": "Automatic immutability + audit trail by default."
+        },
+        "mobile": {
+          "topic": "Mobile",
+          "before": "Doesn't work or separate heavy app.",
+          "after": "Responsive PWA. Works on chair-side tablet, dentist's phone."
+        },
+        "custo": {
+          "topic": "Total cost",
+          "before": "Base software + DICOM viewer + extra modules = $200-500/mo.",
+          "after": "All in one plan. From $39/mo (USD)."
+        }
+      }
+    },
+    "faq": {
+      "eyebrow": "About the Clinical Module",
+      "title": "Frequently asked questions",
+      "items": [
+        {
+          "q": "Is there a periodontal chart?",
+          "a": "Not yet as a dedicated module. It's on the roadmap for next phases. As a workaround, use 'control note' templates that accept structured measurements (pocket depth, bleeding, plaque)."
+        },
+        {
+          "q": "Which CBCT brands does DICOM work with?",
+          "a": "Any equipment that exports standard DICOM (DICM magic): Carestream, Planmeca, Sirona, Vatech, Newtom, etc. We validate SeriesInstanceUID and slice dimensions on import."
+        },
+        {
+          "q": "Can I do MPR or Volume Rendering?",
+          "a": "Not in the current version. DICOM Viewer uses Stack Viewport (1 slice at a time, scroll to navigate). MPR and Volume Rendering are on the roadmap — depends on an open issue in Cornerstone3D v4."
+        },
+        {
+          "q": "How does clinical notes work legally?",
+          "a": "Immutable by default. Once saved, can't be edited — only a new note with reference to the previous one is allowed. Only super-admin can mark a note as invalid (with logged reason and timestamp). Per HIPAA-ready, LGPD and Ley 20.584 (CL)."
+        },
+        {
+          "q": "Does it work offline?",
+          "a": "No. The system is multi-tenant cloud — requires connection. In return: automatic backup, multi-device sync, zero risk of losing chart from a dead drive."
+        },
+        {
+          "q": "Does it work on iPad and Android tablets?",
+          "a": "Yes. Responsive PWA. The tooth chart has zoom and touch gestures optimized. DICOM Viewer works with pinch-to-zoom and pan on tablet."
+        },
+        {
+          "q": "Can I import from Dentalink or another system?",
+          "a": "Yes. We have 12 import adapters (patient, schedule, plan, receivable, notes, tooth chart, etc.). Legal immutability is preserved — imported notes keep original date and are flagged as migrated."
+        },
+        {
+          "q": "How many active patients per plan?",
+          "a": "Unlimited in all plans. What varies is storage (5GB Essential, 50GB Professional, 100GB Advanced, custom Corporate) and number of active providers."
+        }
+      ]
+    },
+    "ctaFinal": {
+      "title": "Everything you need to practice — without installing a thing.",
+      "sub": "14-day trial with full clinical module. Sales-led setup in 1 business day.",
+      "ctaPrimary": "Request module demo",
       "ctaSecondary": "Talk to sales"
     }
   }

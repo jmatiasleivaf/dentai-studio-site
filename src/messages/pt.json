@@ -10,11 +10,20 @@
     "whatsapp": "WhatsApp",
     "pricing": "Preços",
     "clients": "Clientes",
+    "resources": "Recursos",
     "login": "Entrar",
     "demo": "Agendar demo",
     "menuLabel": "Menu principal",
     "openMenu": "Abrir menu",
-    "closeMenu": "Fechar menu"
+    "closeMenu": "Fechar menu",
+    "resourcesItems": {
+      "sofia": "Sofía no WhatsApp",
+      "iaClinica": "IA Clínica",
+      "clinico": "Módulo Clínico",
+      "totem": "Totem Autoatendimento",
+      "automatizacoes": "Automatizações",
+      "comingSoon": "Em breve"
+    }
   },
   "hero": {
     "badge": "Disponível em {count} países",
@@ -838,6 +847,189 @@
       "title": "Sua clínica fecha mais casos com explicação visual e diagnóstico assistido.",
       "sub": "Trial 14 dias com IA completa ativa. Setup guiado em 1 dia útil.",
       "ctaPrimary": "Solicitar trial com IA",
+      "ctaSecondary": "Falar com vendas"
+    }
+  },
+  "clinicoPage": {
+    "meta": {
+      "title": "Módulo Clínico — Odontograma, ficha imutável, DICOM 3D e exames",
+      "description": "Tudo que sua clínica precisa: odontograma FDI interativo, ficha clínica imutável (LGPD/Ley 20.584), visor DICOM 3D no navegador com 6 presets dentais, exames 2D e alineadores. Tudo conectado."
+    },
+    "hero": {
+      "badge": "Módulo Clínico Completo",
+      "h1": "Sua clínica em 1 ferramenta. Sem planilhas. Sem papel.",
+      "sub": "Odontograma FDI interativo, ficha imutável conforme legislação, visor DICOM 3D no navegador, exames 2D e alineadores. Tudo conectado, com prescrição-template e auditoria legal completa.",
+      "ctaPrimary": "Solicitar demo do módulo",
+      "ctaSecondary": "Ver tour clínico",
+      "mockupLabels": {
+        "fichaTitle": "Ficha do paciente",
+        "patient": "Paciente",
+        "lastVisit": "Última visita",
+        "odonto": "Odontograma FDI"
+      }
+    },
+    "howItWorks": {
+      "eyebrow": "Como funciona",
+      "title": "Do cadastro à cobrança em 4 passos",
+      "steps": {
+        "1": { "title": "Cadastre o paciente", "desc": "Demografia + anamnese estruturada (alergias, medicamentos, condições). Suporta CPF/RUT/NIT por país." },
+        "2": { "title": "Atenda com odontograma + ficha", "desc": "32 dentes em padrão FDI. Status por face. Evolução clínica imutável (Ley 20.584/CFO/LGPD)." },
+        "3": { "title": "Anexe exames", "desc": "Fotos intraorais (9 slots padronizados), radiografias 2D, CBCT 3D via DICOM, séries de alineadores." },
+        "4": { "title": "Cobre com auditoria legal", "desc": "Prescrição template com 11 variáveis. Trilha de auditoria de quem viu/editou o quê, quando." }
+      }
+    },
+    "odonto": {
+      "eyebrow": "Odontograma + Ficha",
+      "title": "Padrão FDI internacional. Ficha imutável legal.",
+      "description": "32 dentes em sistema FDI (11-48), interativo com clique para trocar status. Evolução clínica imutável conforme Ley 20.584 (Chile), CFO (Brasil) e LGPD — só superadmin pode invalidar com motivo registrado.",
+      "bullets": [
+        "Sistema FDI internacional (11-48), padrão clínico mundial",
+        "Status por face do dente (V/P/L/D/O), zoom em mobile",
+        "Evolução imutável legal — invalidação só por superadmin com motivo",
+        "Anamnese estruturada: alergias, medicamentos, condições crônicas",
+        "Prescrição template com 11 variáveis ({{paciente_nome}}, {{dentista_cro}} etc.)",
+        "Auto-save em PATCH parcial — não perde nada"
+      ],
+      "statusLabels": {
+        "healthy": "Saudável",
+        "caries": "Cárie",
+        "restored": "Restaurado",
+        "implant": "Implante",
+        "absent": "Ausente"
+      }
+    },
+    "dicom": {
+      "eyebrow": "DICOM 3D",
+      "title": "Visor CBCT no navegador. Sem instalar nada.",
+      "description": "Cornerstone3D nativo, GPU WebGL com cache 512MB. 6 presets dentais (Hueso, Implante, Tejido, Endo, Estándar). 7 ferramentas profissionais (medições, ROI, Probe HU). Upload chunked para CBCTs >50MB.",
+      "viewerLabel": "DICOM 3D Viewer · Stack View",
+      "bullets": [
+        "6 presets W/L em espanhol (Hueso 500/2500, Implante 800/3500, Tejido, Endo)",
+        "7 ferramentas: Length, Angle, EllipticalROI, RectangleROI, Bidirectional, ArrowAnnotate, Probe HU",
+        "Upload chunked >50MB com reassembly automática",
+        "Validação SeriesInstanceUID + dimensões entre slices",
+        "WebGL GPU + cache 512MB",
+        "Funciona em desktop, tablet com touch"
+      ],
+      "presets": [
+        { "name": "Hueso", "values": "500/2500" },
+        { "name": "Implante", "values": "800/3500" },
+        { "name": "Tejido", "values": "50/400" },
+        { "name": "Endo", "values": "300/1500" },
+        { "name": "Estándar", "values": "400/2000" },
+        { "name": "Custom", "values": "W/L manual" }
+      ]
+    },
+    "exame": {
+      "eyebrow": "Exames + Alineadores",
+      "title": "9 fotos do protocolo + alineadores conectados ao laboratório.",
+      "description": "Protocolo intraoral padronizado em 9 slots. Séries completas de alineadores com integração ao laboratório externo. Validação MIME por upload, storage por plano.",
+      "gridLabel": "Protocolo intraoral · 9 slots",
+      "bullets": [
+        "9 tipos de fotografia intraoral (intraorais, oclusais, perfil)",
+        "Alineadores: séries, sessões, milestones",
+        "Integração com laboratório externo via CasoAlineador.laboratorioId",
+        "Validação MIME por upload (PNG/JPEG/WEBP)",
+        "Storage: 5GB Esencial · 50GB Profesional · 100GB Avanzado · custom Corporativo",
+        "Tudo dentro do caso do paciente — busca por exame ou data"
+      ]
+    },
+    "useCases": {
+      "eyebrow": "Para sua realidade",
+      "title": "Quem ganha mais com o módulo clínico",
+      "cases": {
+        "solo": {
+          "persona": "Dentista solo",
+          "pain": "Papel acumulando, ficha em planilha Excel, exames em pasta no celular.",
+          "benefit": "Tudo num lugar só. Acesso pelo tablet no box, pelo celular fora da clínica. Conformidade legal automática."
+        },
+        "especialista": {
+          "persona": "Implantodontista / Ortodontista",
+          "pain": "Precisa de DICOM 3D mas Sidexis/Romexis custa R$ 15-30k de licença.",
+          "benefit": "Visor DICOM 3D nativo no navegador, sem licença extra. 6 presets dentais já configurados. CBCT >50MB sobe via chunked upload."
+        },
+        "clinica": {
+          "persona": "Clínica multi-especialidade",
+          "pain": "Cada especialista com seu jeito de fazer ficha. Auditoria fragmentada.",
+          "benefit": "Padrão único de ficha. Evolução imutável legal. Auditoria centralizada de quem viu/editou."
+        }
+      }
+    },
+    "comparison": {
+      "eyebrow": "Antes e depois",
+      "title": "Software dental tradicional vs SuperClini",
+      "beforeHeader": "Software dental tradicional",
+      "afterHeader": "SuperClini Módulo Clínico",
+      "rows": {
+        "papel": {
+          "topic": "Onde mora a ficha",
+          "before": "Planilha Excel, papel ou software desktop instalado.",
+          "after": "Cloud multi-tenant. Acesso de qualquer device com login."
+        },
+        "dicom": {
+          "topic": "DICOM 3D viewer",
+          "before": "Software à parte (Sidexis, Romexis) — R$ 15-30k licença.",
+          "after": "Incluído nativo no navegador. Cornerstone3D + 6 presets dentais."
+        },
+        "legal": {
+          "topic": "Conformidade legal (LGPD/Ley 20.584)",
+          "before": "Manual: anota o que pode/deve em algum lugar.",
+          "after": "Imutabilidade automática + trilha de auditoria por padrão."
+        },
+        "mobile": {
+          "topic": "Mobile",
+          "before": "Não funciona ou app pesado separado.",
+          "after": "PWA web responsivo. Funciona no tablet do box, celular do dentista."
+        },
+        "custo": {
+          "topic": "Custo total",
+          "before": "Software base + DICOM viewer + módulos extras = R$ 800-2000/mês.",
+          "after": "Tudo num plano. A partir de R$ 149,90/mês (Brasil)."
+        }
+      }
+    },
+    "faq": {
+      "eyebrow": "Sobre o Módulo Clínico",
+      "title": "Perguntas frequentes",
+      "items": [
+        {
+          "q": "Tem periodontograma?",
+          "a": "Ainda não como módulo dedicado. Está no roadmap para próximas fases. Como workaround, use templates de 'evolução de controle' que aceitam medições estruturadas (profundidade de bolsa, sangramento, placa)."
+        },
+        {
+          "q": "O DICOM funciona com qual marca de equipamento CBCT?",
+          "a": "Qualquer equipamento que exporte DICOM padrão (DICM magic): Carestream, Planmeca, Sirona, Vatech, Newtom, etc. Validamos SeriesInstanceUID e dimensões entre slices ao importar."
+        },
+        {
+          "q": "Posso fazer MPR ou Volume Rendering?",
+          "a": "Não na versão atual. O DICOM Viewer usa Stack Viewport (1 slice por vez, scroll para navegar). MPR e Volume Rendering estão no roadmap — depende de uma issue aberta no Cornerstone3D v4."
+        },
+        {
+          "q": "Como funciona a evolução clínica do ponto de vista legal?",
+          "a": "Imutável por padrão. Uma vez salva, não pode ser editada — só uma nova evolução com referência à anterior é permitida. Apenas superadmin pode marcar uma evolução como inválida (com motivo registrado e timestamp). Conforme Ley 20.584 (CL), CFO (BR) e LGPD."
+        },
+        {
+          "q": "Funciona offline?",
+          "a": "Não. O sistema é cloud multi-tenant — requer conexão. Em compensação: backup automático, multi-device sync, zero risco de perder ficha por HD pifado."
+        },
+        {
+          "q": "Funciona no iPad e tablets Android?",
+          "a": "Sim. PWA responsivo. O odontograma tem zoom e gestos touch otimizados. DICOM Viewer funciona com pinch-to-zoom e pan no tablet."
+        },
+        {
+          "q": "Posso importar do Dentalink ou outro sistema?",
+          "a": "Sim. Temos 12 adaptadores de import (paciente, agenda, plano, conta a receber, evolução, odontograma, etc.). A imutabilidade legal é preservada — evoluções importadas mantêm data original e ficam marcadas como migradas."
+        },
+        {
+          "q": "Quantos pacientes ativos por plano?",
+          "a": "Ilimitado em todos os planos. O que varia é storage (5GB Esencial, 50GB Profesional, 100GB Avanzado, custom Corporativo) e número de profissionais ativos."
+        }
+      ]
+    },
+    "ctaFinal": {
+      "title": "Tudo que você precisa pro atendimento — sem instalar nada.",
+      "sub": "Trial 14 dias com módulo clínico completo. Setup guiado pelo nosso time em 1 dia útil.",
+      "ctaPrimary": "Solicitar demo do módulo",
       "ctaSecondary": "Falar com vendas"
     }
   }

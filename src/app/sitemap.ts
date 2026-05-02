@@ -15,6 +15,7 @@ const ROUTES: Array<{ path: string; priority: number; changeFrequency: "weekly" 
   { path: "", priority: 1.0, changeFrequency: "weekly" },
   { path: "/sofia", priority: 0.9, changeFrequency: "weekly" },
   { path: "/ia-clinica", priority: 0.9, changeFrequency: "weekly" },
+  { path: "/clinico", priority: 0.9, changeFrequency: "weekly" },
   { path: "/contato", priority: 0.7, changeFrequency: "monthly" },
   { path: "/privacidade", priority: 0.4, changeFrequency: "monthly" },
 ];

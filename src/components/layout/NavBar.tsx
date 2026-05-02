@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import { Link } from "@/i18n/navigation";
@@ -10,30 +10,26 @@ import { Container } from "@/components/ui/container";
 import { Logo } from "@/components/ui/logo";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { ContactDialog } from "@/components/home/ContactDialog";
+import { NAV_RESOURCES } from "@/lib/site-nav";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 
 const SECTIONS = [
   { href: "/#features", labelKey: "features" },
-  { href: "/#ai", labelKey: "ai" },
-  { href: "/#whatsapp", labelKey: "whatsapp" },
   { href: "/#pricing", labelKey: "pricing" },
 ] as const;
 
 /**
- * NavBar com 2 modos:
- * - Padrão: bg-white/80 backdrop blur (todas páginas exceto home topo)
- * - Transparent: aparece transparente no topo da home (Hero com video bg),
- *   ganha bg sólido ao scrollar > 80px.
- *
- * Detecta home via pathname (/{locale} sem path extra).
+ * NavBar com 2 modos visuais (transparent na home topo / sólido em scroll e
+ * outras pages) + dropdown "Recursos" vinculando as landings de feature.
  */
 export function NavBar() {
   const t = useTranslations("nav");
+  const tRes = useTranslations("nav.resourcesItems");
   const pathname = usePathname();
   const [open, setOpen] = React.useState(false);
+  const [resourcesOpen, setResourcesOpen] = React.useState(false);
   const [scrolled, setScrolled] = React.useState(false);
 
-  // Home = pathname é apenas /[locale] ou /[locale]/ — sem segmentos extras
   const isHome = /^\/[a-z]{2}\/?$/.test(pathname);
   const transparent = isHome && !scrolled;
 
@@ -70,6 +66,60 @@ export function NavBar() {
         </Link>
 
         <nav className="hidden items-center gap-6 lg:flex" aria-label={t("menuLabel")}>
+          {/* Dropdown Recursos */}
+          <div
+            className="relative"
+            onMouseEnter={() => setResourcesOpen(true)}
+            onMouseLeave={() => setResourcesOpen(false)}
+          >
+            <button
+              type="button"
+              onClick={() => setResourcesOpen((v) => !v)}
+              aria-haspopup="menu"
+              aria-expanded={resourcesOpen}
+              className={`inline-flex items-center gap-1 ${linkClass}`}
+            >
+              {t("resources")}
+              <ChevronDown
+                className={`h-3.5 w-3.5 transition-transform ${resourcesOpen ? "rotate-180" : ""}`}
+                aria-hidden
+              />
+            </button>
+            {resourcesOpen ? (
+              <div
+                role="menu"
+                className="absolute left-1/2 top-full w-72 -translate-x-1/2 pt-3"
+              >
+                <div className="overflow-hidden rounded-2xl border border-ink-100 bg-white py-2 shadow-2xl dark:border-ink-800 dark:bg-ink-900">
+                  {NAV_RESOURCES.map((r) =>
+                    r.available ? (
+                      <Link
+                        key={r.labelKey}
+                        href={r.href as never}
+                        role="menuitem"
+                        className="block px-4 py-2.5 text-sm font-medium text-ink-700 hover:bg-ink-50 hover:text-brand-700 dark:text-ink-200 dark:hover:bg-ink-800 dark:hover:text-brand-400"
+                        onClick={() => setResourcesOpen(false)}
+                      >
+                        {tRes(r.labelKey as never)}
+                      </Link>
+                    ) : (
+                      <div
+                        key={r.labelKey}
+                        className="flex items-center justify-between px-4 py-2.5 text-sm font-medium text-ink-400 dark:text-ink-600"
+                        aria-disabled
+                      >
+                        <span>{tRes(r.labelKey as never)}</span>
+                        <span className="rounded-full bg-ink-100 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-ink-500 dark:bg-ink-800 dark:text-ink-400">
+                          {tRes("comingSoon")}
+                        </span>
+                      </div>
+                    )
+                  )}
+                </div>
+              </div>
+            ) : null}
+          </div>
+
           {SECTIONS.map((s) => (
             <a key={s.href} href={s.href} className={linkClass}>
               {t(s.labelKey)}
@@ -125,6 +175,35 @@ export function NavBar() {
         <div className="lg:hidden">
           <div className="border-t border-ink-100 bg-white px-5 pb-6 pt-4 dark:border-ink-800 dark:bg-ink-950">
             <nav className="flex flex-col" aria-label={t("menuLabel")}>
+              {/* Recursos: lista expandida no mobile, sem dropdown */}
+              <div className="border-b border-ink-100 py-3 dark:border-ink-800">
+                <div className="text-[11px] font-extrabold uppercase tracking-wider text-ink-500 dark:text-ink-400">
+                  {t("resources")}
+                </div>
+                <ul className="mt-2 space-y-1">
+                  {NAV_RESOURCES.map((r) => (
+                    <li key={r.labelKey}>
+                      {r.available ? (
+                        <Link
+                          href={r.href as never}
+                          onClick={() => setOpen(false)}
+                          className="block rounded-lg px-3 py-2.5 text-base font-medium text-ink-800 hover:bg-ink-50 dark:text-ink-200 dark:hover:bg-ink-800"
+                        >
+                          {tRes(r.labelKey as never)}
+                        </Link>
+                      ) : (
+                        <div className="flex items-center justify-between px-3 py-2.5 text-base font-medium text-ink-400 dark:text-ink-600">
+                          <span>{tRes(r.labelKey as never)}</span>
+                          <span className="rounded-full bg-ink-100 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-ink-500 dark:bg-ink-800 dark:text-ink-400">
+                            {tRes("comingSoon")}
+                          </span>
+                        </div>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
               {SECTIONS.map((s) => (
                 <a
                   key={s.href}
