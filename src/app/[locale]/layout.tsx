@@ -73,7 +73,7 @@ function buildJsonLd(locale: string, description: string) {
     "@type": "Organization",
     name: "SuperClini",
     url: "https://superclini.com",
-    logo: "https://superclini.com/logo.png",
+    logo: "https://superclini.com/logo-superclini.svg",
     description,
     foundingDate: String(SUPERCLINI_FACTS.foundedYear),
     areaServed: COUNTRY_LIST.map((c) => c.code),

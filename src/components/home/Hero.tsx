@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
+import { ContactDialog } from "@/components/home/ContactDialog";
 import { SUPERCLINI_FACTS } from "@/lib/superclini.facts";
 
 export function Hero() {
@@ -45,12 +46,15 @@ export function Hero() {
             </p>
 
             <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row lg:justify-start">
-              <Button asChild size="lg">
-                <a href="https://app.superclini.com">
-                  {t("ctaPrimary")}
-                  <ArrowRight className="h-4 w-4" aria-hidden />
-                </a>
-              </Button>
+              <ContactDialog
+                defaultInteresse="trial_profesional"
+                trigger={({ onClick }) => (
+                  <Button size="lg" onClick={onClick}>
+                    {t("ctaPrimary")}
+                    <ArrowRight className="h-4 w-4" aria-hidden />
+                  </Button>
+                )}
+              />
               <Button asChild variant="outline" size="lg">
                 <a href="#ai">{t("ctaSecondary")}</a>
               </Button>

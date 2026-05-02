@@ -15,6 +15,20 @@ import {
   LEAD_INTERESSES,
 } from "@/lib/lead-schema";
 import { useCountry } from "@/contexts/CountryContext";
+import { COUNTRIES, type CountryCode } from "@/lib/countries";
+
+// Placeholder de telefone por país — formato local familiar reduz fricção.
+const PHONE_PLACEHOLDER: Record<CountryCode, string> = {
+  CL: "+56 9 1234 5678",
+  BR: "+55 11 91234-5678",
+  CO: "+57 300 123 4567",
+  AR: "+54 9 11 1234 5678",
+  MX: "+52 55 1234 5678",
+  PE: "+51 987 654 321",
+  US: "+1 415 555 1234",
+  ES: "+34 612 345 678",
+  PT: "+351 912 345 678",
+};
 
 const API_URL =
   process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, "") ?? "https://app.superclini.com";
@@ -162,7 +176,11 @@ export function ContactForm({ defaultInteresse, onSuccess, hideHeader }: Contact
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <Field label={tForm("name")} error={errors.nome && tErr(errors.nome.message ?? "required")}>
+        <Field
+          label={tForm("name")}
+          required
+          error={errors.nome && tErr(errors.nome.message ?? "required")}
+        >
           <input
             type="text"
             autoComplete="name"
@@ -188,7 +206,11 @@ export function ContactForm({ defaultInteresse, onSuccess, hideHeader }: Contact
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <Field label={tForm("email")} error={errors.email && tErr(errors.email.message ?? "email")}>
+        <Field
+          label={tForm("email")}
+          required
+          error={errors.email && tErr(errors.email.message ?? "email")}
+        >
           <input
             type="email"
             inputMode="email"
@@ -201,6 +223,7 @@ export function ContactForm({ defaultInteresse, onSuccess, hideHeader }: Contact
 
         <Field
           label={tForm("phone")}
+          required
           hint={tForm("phoneHint")}
           error={errors.telefone && tErr(errors.telefone.message ?? "tel")}
         >
@@ -208,7 +231,7 @@ export function ContactForm({ defaultInteresse, onSuccess, hideHeader }: Contact
             type="tel"
             inputMode="tel"
             autoComplete="tel"
-            placeholder="+56 9 1234 5678"
+            placeholder={PHONE_PLACEHOLDER[country.code] ?? PHONE_PLACEHOLDER.CL}
             enterKeyHint="next"
             {...register("telefone")}
             className={fieldClass}
@@ -217,11 +240,11 @@ export function ContactForm({ defaultInteresse, onSuccess, hideHeader }: Contact
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-        <Field label={tForm("country")}>
+        <Field label={tForm("country")} required>
           <select {...register("pais")} className={fieldClass}>
             {LEAD_PAISES.map((code) => (
               <option key={code} value={code}>
-                {tForm(`countries.${code}` as never)}
+                {COUNTRIES[code as CountryCode]?.flag} {tForm(`countries.${code}` as never)}
               </option>
             ))}
           </select>
@@ -254,6 +277,7 @@ export function ContactForm({ defaultInteresse, onSuccess, hideHeader }: Contact
         <textarea
           rows={4}
           maxLength={1000}
+          placeholder={tForm("messagePlaceholder")}
           {...register("mensagem")}
           className={`${fieldClass} resize-y`}
         />
@@ -290,7 +314,12 @@ export function ContactForm({ defaultInteresse, onSuccess, hideHeader }: Contact
         </div>
       ) : null}
 
-      <Button type="submit" size="lg" disabled={status === "submitting"} className="w-full">
+      <Button
+        type="submit"
+        size="lg"
+        disabled={status === "submitting"}
+        className="w-full bg-brand-gradient text-white shadow-brand hover:opacity-95"
+      >
         {status === "submitting" ? (
           <>
             <Loader2 className="h-4 w-4 animate-spin" aria-hidden />
@@ -303,6 +332,10 @@ export function ContactForm({ defaultInteresse, onSuccess, hideHeader }: Contact
           </>
         )}
       </Button>
+
+      <p className="pt-1 text-center text-xs text-ink-500 dark:text-ink-400">
+        {t("slaMicrocopy")}
+      </p>
     </form>
   );
 }
@@ -310,17 +343,19 @@ export function ContactForm({ defaultInteresse, onSuccess, hideHeader }: Contact
 // ─── Subcomponentes ─────────────────────────────────────────────────────────
 
 const fieldClass =
-  "w-full rounded-xl border border-ink-200 bg-white px-3.5 py-2.5 text-sm text-ink-900 placeholder:text-ink-400 focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-200/60 disabled:opacity-50 dark:border-ink-700 dark:bg-ink-900 dark:text-ink-50";
+  "w-full rounded-xl border border-ink-200 bg-white px-3.5 py-3 text-sm text-ink-900 transition-colors placeholder:text-ink-400 hover:border-ink-300 focus:border-brand-500 focus:outline-none focus:ring-4 focus:ring-brand-100 disabled:opacity-50 dark:border-ink-700 dark:bg-ink-900 dark:text-ink-50 dark:hover:border-ink-600 dark:focus:ring-brand-900/50";
 
 function Field({
   label,
   hint,
   error,
+  required,
   children,
 }: {
   label: string;
   hint?: string;
   error?: string;
+  required?: boolean;
   children: React.ReactNode;
 }) {
   return (
@@ -328,6 +363,11 @@ function Field({
       <span className="mb-1.5 flex items-baseline justify-between gap-2">
         <span className="text-xs font-semibold uppercase tracking-wider text-ink-700 dark:text-ink-300">
           {label}
+          {required ? (
+            <span className="ml-0.5 text-rose-500" aria-hidden>
+              *
+            </span>
+          ) : null}
         </span>
         {hint ? <span className="text-[10px] text-ink-400">{hint}</span> : null}
       </span>

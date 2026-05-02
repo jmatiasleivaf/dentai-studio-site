@@ -11,7 +11,7 @@
     "pricing": "Preços",
     "clients": "Clientes",
     "login": "Entrar",
-    "demo": "Ver demo",
+    "demo": "Agendar demo",
     "menuLabel": "Menu principal",
     "openMenu": "Abrir menu",
     "closeMenu": "Fechar menu"
@@ -22,7 +22,7 @@
     "h1Line2": "Diagnostica com IA.",
     "h1Line3": "Cobra automaticamente.",
     "sub": "SuperClini é a primeira plataforma dental com agente IA no WhatsApp, simulação de sorriso e visor DICOM 3D integrado — adaptada à moeda e legislação de cada país.",
-    "ctaPrimary": "Testar 14 dias grátis",
+    "ctaPrimary": "Solicitar 14 dias grátis",
     "ctaSecondary": "Ver como funciona",
     "trustItems": {
       "noCard": "Sem cartão de crédito",
@@ -101,17 +101,17 @@
       "esencial": {
         "name": "Essencial",
         "desc": "Para o dentista solo ou clínica 1-2 cadeiras começando agora.",
-        "cta": "Testar grátis"
+        "cta": "Falar com vendas"
       },
       "profesional": {
         "name": "Profissional",
         "desc": "A clínica consolidada de 3-8 cadeiras que quer fechar mais casos com IA.",
-        "cta": "Testar 14 dias grátis"
+        "cta": "Solicitar 14 dias grátis"
       },
       "avanzado": {
         "name": "Avançado",
         "desc": "Clínica de investimento ou rede odontológica de até 3 filiais com WhatsApp Sofía 24/7.",
-        "cta": "Testar grátis"
+        "cta": "Falar com vendas"
       },
       "corporativo": {
         "name": "Corporativo",
@@ -334,7 +334,7 @@
   "ctaFinal": {
     "title": "Comece hoje. 14 dias grátis.",
     "sub": "Sem cartão. Sem compromisso. Com nosso time no seu setup.",
-    "ctaPrimary": "Criar conta grátis",
+    "ctaPrimary": "Solicitar 14 dias grátis",
     "ctaSecondary": "Agendar demo com vendas"
   },
   "footer": {
@@ -412,6 +412,7 @@
     "dialogSubtitle": "Compartilhe seu contato e respondemos em até 24h úteis.",
     "submit": "Enviar solicitação",
     "submitting": "Enviando…",
+    "slaMicrocopy": "Nosso time comercial responde em até 24h úteis e libera com você o início do trial de 14 dias.",
     "successTitle": "Obrigado! Recebemos sua mensagem.",
     "successBody": "Entraremos em contato em até 24h úteis por email ou WhatsApp.",
     "sendAnother": "Enviar outra solicitação",
@@ -428,6 +429,7 @@
       "interest": "Como podemos ajudar?",
       "interestAny": "Selecione uma opção",
       "message": "Mensagem",
+      "messagePlaceholder": "Conte sobre sua clínica: quantas cadeiras, qual sistema usa hoje, o que gostaria de resolver primeiro…",
       "optional": "Opcional",
       "countries": {
         "CL": "Chile",

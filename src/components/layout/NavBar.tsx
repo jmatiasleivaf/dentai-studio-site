@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Logo } from "@/components/ui/logo";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { ContactDialog } from "@/components/home/ContactDialog";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 
 const SECTIONS = [
@@ -55,9 +56,13 @@ export function NavBar() {
           <Button asChild size="sm" variant="ghost" className="hidden md:inline-flex">
             <a href="https://app.superclini.com">{t("login")}</a>
           </Button>
-          <Button asChild size="sm" className="hidden md:inline-flex">
-            <a href="https://app.superclini.com">{t("demo")}</a>
-          </Button>
+          <ContactDialog
+            trigger={({ onClick }) => (
+              <Button size="sm" className="hidden md:inline-flex" onClick={onClick}>
+                {t("demo")}
+              </Button>
+            )}
+          />
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
@@ -89,9 +94,19 @@ export function NavBar() {
                 <Button asChild variant="outline" size="lg">
                   <a href="https://app.superclini.com">{t("login")}</a>
                 </Button>
-                <Button asChild size="lg">
-                  <a href="https://app.superclini.com">{t("demo")}</a>
-                </Button>
+                <ContactDialog
+                  trigger={({ onClick }) => (
+                    <Button
+                      size="lg"
+                      onClick={() => {
+                        onClick();
+                        setOpen(false);
+                      }}
+                    >
+                      {t("demo")}
+                    </Button>
+                  )}
+                />
               </div>
             </nav>
           </div>

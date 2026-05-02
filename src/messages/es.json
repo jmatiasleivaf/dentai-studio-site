@@ -11,7 +11,7 @@
     "pricing": "Precios",
     "clients": "Clientes",
     "login": "Ingresar",
-    "demo": "Ver demo",
+    "demo": "Agendar demo",
     "menuLabel": "Menú principal",
     "openMenu": "Abrir menú",
     "closeMenu": "Cerrar menú"
@@ -22,7 +22,7 @@
     "h1Line2": "Diagnostica con IA.",
     "h1Line3": "Cobra automáticamente.",
     "sub": "SuperClini es la primera plataforma dental con asistente IA en WhatsApp, simulación de sonrisa y visor DICOM 3D integrado — y se adapta a la moneda y legislación de cada país.",
-    "ctaPrimary": "Probar 14 días gratis",
+    "ctaPrimary": "Solicitar 14 días gratis",
     "ctaSecondary": "Ver cómo funciona",
     "trustItems": {
       "noCard": "Sin tarjeta de crédito",
@@ -101,17 +101,17 @@
       "esencial": {
         "name": "Esencial",
         "desc": "Para el dentista solo o clínica 1-2 sillones recién empezando.",
-        "cta": "Probar gratis"
+        "cta": "Hablar con ventas"
       },
       "profesional": {
         "name": "Profesional",
         "desc": "La clínica consolidada de 3-8 sillones que quiere cerrar más casos con IA.",
-        "cta": "Probar 14 días gratis"
+        "cta": "Solicitar 14 días gratis"
       },
       "avanzado": {
         "name": "Avanzado",
         "desc": "Clínica de inversión o red odontológica de hasta 3 sucursales con WhatsApp Sofía 24/7.",
-        "cta": "Probar gratis"
+        "cta": "Hablar con ventas"
       },
       "corporativo": {
         "name": "Corporativo",
@@ -334,7 +334,7 @@
   "ctaFinal": {
     "title": "Empieza hoy. 14 días gratis.",
     "sub": "Sin tarjeta. Sin compromiso. Con tu equipo acompañándote en el setup.",
-    "ctaPrimary": "Crear cuenta gratis",
+    "ctaPrimary": "Solicitar 14 días gratis",
     "ctaSecondary": "Agendar demo con ventas"
   },
   "footer": {
@@ -412,6 +412,7 @@
     "dialogSubtitle": "Compártenos tu contacto y te respondemos en menos de 24 horas hábiles.",
     "submit": "Enviar solicitud",
     "submitting": "Enviando…",
+    "slaMicrocopy": "Nuestro equipo comercial responde en menos de 24 horas hábiles y coordina contigo el inicio del trial de 14 días.",
     "successTitle": "¡Gracias! Recibimos tu mensaje.",
     "successBody": "Te contactaremos en menos de 24 horas hábiles por email o WhatsApp.",
     "sendAnother": "Enviar otra solicitud",
@@ -428,6 +429,7 @@
       "interest": "¿En qué te podemos ayudar?",
       "interestAny": "Selecciona una opción",
       "message": "Mensaje",
+      "messagePlaceholder": "Cuéntanos sobre tu clínica: cuántos sillones, qué sistema usas hoy, qué te gustaría resolver primero…",
       "optional": "Opcional",
       "countries": {
         "CL": "Chile",

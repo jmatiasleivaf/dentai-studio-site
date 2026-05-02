@@ -11,7 +11,7 @@
     "pricing": "Pricing",
     "clients": "Customers",
     "login": "Sign in",
-    "demo": "See demo",
+    "demo": "Book a demo",
     "menuLabel": "Main menu",
     "openMenu": "Open menu",
     "closeMenu": "Close menu"
@@ -22,7 +22,7 @@
     "h1Line2": "Diagnoses with AI.",
     "h1Line3": "Bills automatically.",
     "sub": "SuperClini is the first dental platform with an AI agent on WhatsApp, smile simulation and a built-in DICOM 3D viewer — adapted to local currency and regulation in every country.",
-    "ctaPrimary": "Try 14 days free",
+    "ctaPrimary": "Request 14-day trial",
     "ctaSecondary": "See how it works",
     "trustItems": {
       "noCard": "No credit card",
@@ -101,17 +101,17 @@
       "esencial": {
         "name": "Essential",
         "desc": "For the solo dentist or 1-2 chair practice just starting out.",
-        "cta": "Try free"
+        "cta": "Talk to sales"
       },
       "profesional": {
         "name": "Professional",
         "desc": "The established 3-8 chair practice that wants to close more cases with AI.",
-        "cta": "Try 14 days free"
+        "cta": "Request 14-day trial"
       },
       "avanzado": {
         "name": "Advanced",
         "desc": "Investment practice or small dental network up to 3 locations with WhatsApp Sofía 24/7.",
-        "cta": "Try free"
+        "cta": "Talk to sales"
       },
       "corporativo": {
         "name": "Corporate",
@@ -310,7 +310,7 @@
   "ctaFinal": {
     "title": "Start today. 14 days free.",
     "sub": "No card. No commitment. With our team alongside you in setup.",
-    "ctaPrimary": "Create free account",
+    "ctaPrimary": "Request 14-day trial",
     "ctaSecondary": "Book a demo"
   },
   "footer": {
@@ -373,6 +373,7 @@
     "dialogSubtitle": "Share your contact info and we'll get back within 24 business hours.",
     "submit": "Send request",
     "submitting": "Sending…",
+    "slaMicrocopy": "Our sales team replies within 24 business hours and walks you through enabling the 14-day trial.",
     "successTitle": "Thanks! We got your message.",
     "successBody": "We'll reply within 24 business hours by email or WhatsApp.",
     "sendAnother": "Send another request",
@@ -389,6 +390,7 @@
       "interest": "How can we help?",
       "interestAny": "Select an option",
       "message": "Message",
+      "messagePlaceholder": "Tell us about your practice: how many chairs, what system you use today, what you'd like to solve first…",
       "optional": "Optional",
       "countries": {
         "CL": "Chile",
