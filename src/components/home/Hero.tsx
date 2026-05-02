@@ -6,29 +6,16 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { ContactCTAButton } from "@/components/landing/ContactCTAButton";
 import { ShinyText } from "@/components/landing/ShinyText";
+import { HeroVideo } from "@/components/home/HeroVideo";
 import { SUPERCLINI_FACTS } from "@/lib/superclini.facts";
-
-const VIDEO_URL =
-  "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_105406_16f4600d-7a92-4292-b96e-b19156c7830a.mp4";
 
 export function Hero() {
   const t = useTranslations("hero");
 
   return (
-    <section className="relative isolate min-h-screen overflow-hidden bg-black">
-      {/* Video background — autoplay muted loop, decorativo */}
-      <video
-        className="absolute inset-0 -z-10 h-full w-full object-cover"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        poster=""
-        aria-hidden="true"
-      >
-        <source src={VIDEO_URL} type="video/mp4" />
-      </video>
+    <section className="relative isolate min-h-screen overflow-hidden bg-ink-950">
+      {/* Video background com perf best practices (mobile-off, save-data, reduced-motion, IntersectionObserver) */}
+      <HeroVideo />
 
       {/* Overlay escuro para contraste do texto branco */}
       <div

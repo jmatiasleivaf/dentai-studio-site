@@ -132,6 +132,41 @@
 
 ---
 
+## Roadmap — Assets do Hero (substituir video MotionSites)
+
+**Status atual**: Hero usa video MotionSites via CloudFront URL (genérico, abstrato). Aprovado pelo Matias substituir gradualmente por asset próprio.
+
+### Fase 1 — Mockup composto estático (próximos 7 dias)
+- Capturar screens reais do app via Playwright em `C:/Users/User/Documents/SuperClini/`
+- Compor PNG/WebP único com 3 devices em perspectiva isométrica:
+  - Tablet (iPad): dentista no box vendo agenda + ficha do paciente
+  - iPhone: WhatsApp Sofía respondendo conversa
+  - Laptop: secretária na recepção marcando agenda
+- Substitui video MotionSites por imagem + animação Framer Motion (parallax/fade)
+- Custo: ~zero ou R$ 200 designer freelancer
+- Output: `/public/hero-mockup-1080.webp` + `/public/hero-mockup-720.webp` + `/public/hero-mockup-mobile.webp`
+
+### Fase 2 — Video curto autêntico (4 semanas)
+- Guerrilla shoot em 1-2 clínicas piloto reais
+- Loop ~10s: Sofía respondendo → dentista no tablet → paciente sorrindo
+- H.264 1080p ~3MB + WebM fallback, self-hosted no VPS Hostinger ou Cloudflare Stream
+- Substitui mockup estático
+
+### Fase 3 — Cinematic (Q3/Q4 com receita)
+- Produção 30-60s estilo Apple/Linear, colorista, sound design
+- Trama: clínica caótica → caixa fechada → SuperClini → operação fluida
+
+## Roadmap — Performance Hero (implementado 2026-05-02)
+
+`HeroVideo.tsx` aplica best practices automáticas:
+- Mobile <768px: NÃO carrega video, usa gradient CSS dark fallback (~5MB economia)
+- Save-Data API on (Chrome/Android Data Saver): desliga video
+- `prefers-reduced-motion`: video pausa em primeiro frame
+- `effectiveType` 2g/3g: desliga video
+- IntersectionObserver: pausa quando scroll sai do hero (bateria)
+- `disablePictureInPicture` + `disableRemotePlayback`: UX limpa
+- `preload="metadata"`: TTI mais rápido
+
 ## Histórico de sessões
 
 | Data | Sessão | Resumo | Score médio antes/depois |
