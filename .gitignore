@@ -33,3 +33,7 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# Video source files (Runway originals) — only optimized exports go to git
+/public/videos/hero/runway-*.mp4
+/public/videos/hero/runway-*.mov

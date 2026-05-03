@@ -5,54 +5,55 @@ import * as React from "react";
 /**
  * Video background do hero com performance best practices:
  *
- * 1. Mobile (<768px): NÃO carrega video — só poster gradient via fallback
+ * 1. Mobile (<768px): NÃO carrega video — só poster image WebP (12 KB)
  * 2. Save-Data API: respeita Data Saver mode do Chrome/Android
  * 3. prefers-reduced-motion: video pausa em primeiro frame
- * 4. effectiveType 2g/3g: desliga em rede ruim
+ * 4. effectiveType 2g/3g: desliga em rede ruim (poster fallback)
  * 5. IntersectionObserver: pausa quando scroll sai do hero (bateria)
  * 6. preload="metadata": não baixa video até necessário
+ * 7. Dual codec: WebM VP9 (~1.9MB) preferido por Chrome/FF, MP4 H.264
+ *    (~4.1MB) fallback para Safari/legacy
  *
- * Resultado: mobile + redes ruins economizam ~5MB/visit. Desktop com fibra
- * vê o video completo. Acessibilidade respeitada.
- *
- * TODO: trocar VIDEO_URL por self-hosted quando tivermos asset próprio
- * (mockup app composto ou shoot real). Ver SITE-STATUS.md "hero-assets".
+ * Asset gerado por Runway Gen Kling 3.0 Pro, otimizado via ffmpeg
+ * (cross-fade in/out 0.3s pra suavizar loop).
  */
-const VIDEO_URL =
-  "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_105406_16f4600d-7a92-4292-b96e-b19156c7830a.mp4";
+const VIDEOS = {
+  posterDesktop: "/videos/hero/hero-poster-1080.webp",
+  posterMobile: "/videos/hero/hero-poster-mobile.webp",
+  webm: "/videos/hero/hero-1080.webm",
+  mp4: "/videos/hero/hero-1080.mp4",
+} as const;
 
 export function HeroVideo() {
   const videoRef = React.useRef<HTMLVideoElement>(null);
   const [shouldPlay, setShouldPlay] = React.useState(false);
 
   React.useEffect(() => {
-    // Decide UMA vez no mount se vamos carregar o video
     const decide = () => {
-      // Desktop only — abaixo de 768px nem montamos video
+      // Mobile <768px: NÃO carrega video — só poster
       if (window.matchMedia("(max-width: 767px)").matches) return false;
 
-      // Save-Data API (Chrome/Android com Data Saver)
       const conn = (
         navigator as Navigator & {
           connection?: { saveData?: boolean; effectiveType?: string };
         }
       ).connection;
-      if (conn?.saveData) return false;
 
-      // Conexões ruins (2G/3G)
-      if (conn?.effectiveType === "slow-2g" || conn?.effectiveType === "2g" || conn?.effectiveType === "3g") {
+      if (conn?.saveData) return false;
+      if (
+        conn?.effectiveType === "slow-2g" ||
+        conn?.effectiveType === "2g" ||
+        conn?.effectiveType === "3g"
+      ) {
         return false;
       }
 
-      // Reduced motion: ainda mostra video mas pausa em primeiro frame
-      // (não retornamos false aqui — tratado no autoPlay abaixo)
       return true;
     };
 
     setShouldPlay(decide());
   }, []);
 
-  // IntersectionObserver: pausa quando scroll sai do viewport (bateria mobile/laptop)
   React.useEffect(() => {
     if (!shouldPlay || !videoRef.current) return;
     const video = videoRef.current;
@@ -61,7 +62,7 @@ export function HeroVideo() {
       ([entry]) => {
         if (entry.isIntersecting) {
           video.play().catch(() => {
-            // autoplay bloqueado por browser — silently ignore
+            // autoplay bloqueado — silently ignore (poster continua visível)
           });
         } else {
           video.pause();
@@ -74,18 +75,23 @@ export function HeroVideo() {
     return () => observer.disconnect();
   }, [shouldPlay]);
 
-  // Reduced motion: pausa em primeiro frame
   const reducedMotion =
     typeof window !== "undefined" &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  // Mobile / save-data / 2-3G: poster image apenas (sem download de video)
   if (!shouldPlay) {
-    // Fallback: gradient escuro (poster image vai aqui quando tivermos asset)
     return (
-      <div
-        aria-hidden
-        className="absolute inset-0 -z-10 bg-gradient-to-br from-ink-950 via-brand-950 to-ink-900"
-      />
+      <picture aria-hidden="true">
+        <source media="(min-width: 768px)" srcSet={VIDEOS.posterDesktop} />
+        <img
+          src={VIDEOS.posterMobile}
+          alt=""
+          className="absolute inset-0 -z-10 h-full w-full object-cover"
+          loading="eager"
+          fetchPriority="high"
+        />
+      </picture>
     );
   }
 
@@ -98,11 +104,13 @@ export function HeroVideo() {
       loop
       playsInline
       preload="metadata"
+      poster={VIDEOS.posterDesktop}
       disablePictureInPicture
       disableRemotePlayback
       aria-hidden="true"
     >
-      <source src={VIDEO_URL} type="video/mp4" />
+      <source src={VIDEOS.webm} type="video/webm" />
+      <source src={VIDEOS.mp4} type="video/mp4" />
     </video>
   );
 }
