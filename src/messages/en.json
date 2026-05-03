@@ -269,17 +269,24 @@
     "cta": "See recommended plan"
   },
   "features": {
-    "eyebrow": "{count} operational modules",
+    "eyebrow": "{shown} highlights of {total} modules",
     "title": "Everything your practice needs.",
     "sub": "No hidden add-ons. No expensive third-party integrations.",
+    "spotlight": {
+      "title": "Sofía on WhatsApp",
+      "desc": "AI agent with function calling. Books, confirms, reschedules, answers — checking real availability and creating appointments straight in your calendar.",
+      "chatLabel": "Real conversation",
+      "chatQ": "I'd like to book a cleaning",
+      "chatA": "Thursday at 9am with Dr. Carolina works?",
+      "linkText": "See everything Sofía does"
+    },
     "items": {
       "agenda": { "title": "Multi-op scheduling", "desc": "Real-time availability by provider and op. Auto conflict detection." },
       "prontuario": { "title": "Digital EHR", "desc": "FDI tooth chart, periodontal chart, immutable progress notes (HIPAA-ready / LGPD / Ley 20.584)." },
+      "dicom": { "title": "DICOM 3D viewer", "desc": "Built-in CBCT with Cornerstone3D. Dental presets, W/L, ROI, measurements." },
       "planos": { "title": "Treatment plans", "desc": "Phases, sessions, digital acceptance and automatic settlement per service." },
       "financeiro": { "title": "Full financial module", "desc": "Receivables, installments, daily cashier, payroll settlements and reports." },
       "memberships": { "title": "Memberships", "desc": "Patient subscription plans with MRR, ARR and retention metrics." },
-      "dicom": { "title": "DICOM 3D viewer", "desc": "Built-in CBCT with Cornerstone3D. Dental presets, W/L, ROI, measurements." },
-      "whatsapp": { "title": "WhatsApp AI", "desc": "Sofía agent with function calling. Books, confirms, reschedules, answers." },
       "laboratory": { "title": "Lab portal", "desc": "Two-way orders with external labs. No financial data for technicians." },
       "totem": { "title": "Self-service kiosk", "desc": "Reception check-in + operatory panel. Digital consent signing." }
     },

@@ -269,17 +269,24 @@
     "cta": "Ver plano recomendado"
   },
   "features": {
-    "eyebrow": "{count} módulos operacionais",
+    "eyebrow": "{shown} destaques de {total} módulos",
     "title": "Tudo que sua clínica precisa.",
     "sub": "Sem add-ons escondidos. Sem integrações caras de terceiros.",
+    "spotlight": {
+      "title": "Sofía no WhatsApp",
+      "desc": "Agente IA com function calling. Agenda, confirma, remarca, responde — consultando horários reais e criando consultas direto na sua agenda.",
+      "chatLabel": "Conversa real",
+      "chatQ": "Quero marcar uma limpeza",
+      "chatA": "Quinta às 9h com a Dra. Carolina funciona?",
+      "linkText": "Ver tudo da Sofía"
+    },
     "items": {
       "agenda": { "title": "Agenda multi-box", "desc": "Disponibilidade em tempo real por profissional e box. Detecta conflitos automaticamente." },
       "prontuario": { "title": "Prontuário digital", "desc": "Odontograma FDI, periodontograma, evolução imutável (LGPD / CFO / Ley 20.584)." },
+      "dicom": { "title": "Visor DICOM 3D", "desc": "CBCT integrado com Cornerstone3D. Presets dentais, W/L, ROI, medidas." },
       "planos": { "title": "Planos de tratamento", "desc": "Com fases, sessões, aceite digital e liquidação automática por prestação." },
       "financeiro": { "title": "Financeiro completo", "desc": "Contas a receber, parcelas, caixa diário, liquidações e relatórios." },
       "memberships": { "title": "Memberships", "desc": "Planos de assinatura pra pacientes com MRR, ARR e métricas de retenção." },
-      "dicom": { "title": "Visor DICOM 3D", "desc": "CBCT integrado com Cornerstone3D. Presets dentais, W/L, ROI, medidas." },
-      "whatsapp": { "title": "WhatsApp IA", "desc": "Agente Sofía com function calling. Agenda, confirma, remarca, responde." },
       "laboratory": { "title": "Portal do laboratório", "desc": "Ordens bidirecionais com o lab externo. Sem dados financeiros para o técnico." },
       "totem": { "title": "Totem autoatendimento", "desc": "Check-in na recepção + painel pro box. Assinatura digital de consentimentos." }
     },

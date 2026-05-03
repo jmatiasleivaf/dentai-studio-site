@@ -269,17 +269,24 @@
     "cta": "Ver plan recomendado"
   },
   "features": {
-    "eyebrow": "{count} módulos operativos",
+    "eyebrow": "{shown} destacados de {total} módulos",
     "title": "Todo lo que tu clínica necesita.",
     "sub": "Sin add-ons ocultos. Sin integraciones costosas de terceros.",
+    "spotlight": {
+      "title": "Sofía en WhatsApp",
+      "desc": "Agente IA con function calling. Agenda, confirma, reagenda, responde — consultando horarios reales y creando citas directo en tu agenda.",
+      "chatLabel": "Conversación real",
+      "chatQ": "Quiero agendar una limpieza",
+      "chatA": "¿Te funciona el jueves a las 9:00 con la Dra. Carolina?",
+      "linkText": "Ver todo de Sofía"
+    },
     "items": {
       "agenda": { "title": "Agenda multi-box", "desc": "Disponibilidad en tiempo real por profesional y box. Detecta conflictos automáticamente." },
       "prontuario": { "title": "Ficha clínica digital", "desc": "Odontograma FDI, periodontograma, evolución inmutable (Ley 20.584 / CFO / LGPD)." },
+      "dicom": { "title": "Visor DICOM 3D", "desc": "CBCT integrado con Cornerstone3D. Presets dentales, W/L, ROI, mediciones." },
       "planos": { "title": "Planes de tratamiento", "desc": "Con fases, sesiones, aceptación digital y liquidación automática por prestación." },
       "financeiro": { "title": "Financiero completo", "desc": "Cuentas por cobrar, parcelas, caja diaria, liquidaciones y reportes." },
       "memberships": { "title": "Membresías", "desc": "Planes de suscripción para pacientes con MRR, ARR y métricas de retención." },
-      "dicom": { "title": "Visor DICOM 3D", "desc": "CBCT integrado con Cornerstone3D. Presets dentales, W/L, ROI, mediciones." },
-      "whatsapp": { "title": "WhatsApp IA", "desc": "Agente Sofía con function calling. Agenda, confirma, reagenda, responde." },
       "laboratory": { "title": "Portal del laboratorio", "desc": "Órdenes bidireccionales con el lab externo. Sin datos financieros para el técnico." },
       "totem": { "title": "Tótem autoatendimiento", "desc": "Check-in en recepción + panel para box. Firma digital de consentimientos." }
     },
