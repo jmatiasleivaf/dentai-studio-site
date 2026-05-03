@@ -148,10 +148,16 @@ export function Hero() {
       {/* Video background com perf best practices (mobile-off, save-data, reduced-motion, IntersectionObserver) */}
       <HeroVideo videoRef={videoRef} shouldPlay={shouldPlay} />
 
-      {/* Overlay escuro para contraste do texto branco */}
+      {/* Overlay escuro principal pra contraste geral do texto branco */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-gradient-to-b from-black/60 via-black/40 to-black/70"
+        className="absolute inset-0 -z-10 bg-gradient-to-b from-black/65 via-black/45 to-black/75"
+      />
+      {/* Top scrim — garante contraste do header + topPitch + topStat
+         independente da cena clara/escura do video Runway */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-56 bg-gradient-to-b from-black/85 via-black/60 to-transparent sm:h-64"
       />
       <div
         aria-hidden
@@ -161,11 +167,14 @@ export function Hero() {
       <Container className="relative z-10 flex min-h-screen max-w-7xl flex-col pb-16 pt-28 sm:pt-32 lg:pb-20 lg:pt-36">
         {/* TOP SECTION — 2 colunas com pitch + stat */}
         <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
-          <p className="max-w-md text-sm leading-relaxed text-white/80 lg:text-base">
+          <p className="max-w-md text-sm font-medium leading-relaxed text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)] lg:text-base">
             {t("topPitch")}
           </p>
-          <p className="max-w-md text-sm leading-relaxed text-white/80 lg:ml-auto lg:text-right lg:text-base">
-            {t("topStat", { count: SUPERCLINI_FACTS.countriesCount })}
+          <p className="max-w-md text-sm font-medium leading-relaxed text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)] lg:ml-auto lg:text-right lg:text-base">
+            {t("topStat", {
+              markets: SUPERCLINI_FACTS.countriesCount,
+              currencies: SUPERCLINI_FACTS.currenciesCount,
+            })}
           </p>
         </div>
 

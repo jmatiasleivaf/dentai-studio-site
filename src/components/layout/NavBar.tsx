@@ -52,16 +52,24 @@ export function NavBar() {
 
   const headerClass = transparent
     ? "sticky top-0 z-50 border-b border-transparent bg-transparent transition-colors duration-300"
-    : "sticky top-0 z-50 border-b border-ink-100/60 bg-white/80 backdrop-blur-xl transition-colors duration-300 dark:border-ink-800 dark:bg-ink-950/80";
+    : "sticky top-0 z-50 border-b border-ink-100/60 bg-white/95 backdrop-blur-xl transition-colors duration-300 dark:border-ink-800 dark:bg-ink-950/95";
 
   const linkClass = transparent
-    ? "text-sm font-medium text-white/85 transition-colors hover:text-white"
+    ? "text-sm font-medium text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)] transition-colors hover:text-white/90"
     : "text-sm font-medium text-ink-600 transition-colors hover:text-brand-600 dark:text-ink-300 dark:hover:text-brand-400";
 
   return (
     <header className={headerClass}>
       <Container className="flex min-h-[72px] items-center justify-between gap-4">
-        <Link href="/" className="flex items-center" aria-label="SuperClini">
+        <Link
+          href="/"
+          className={
+            transparent
+              ? "flex items-center drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]"
+              : "flex items-center"
+          }
+          aria-label="SuperClini"
+        >
           <Logo onDark={transparent} />
         </Link>
 
@@ -136,7 +144,7 @@ export function NavBar() {
             variant={transparent ? "outline" : "ghost"}
             className={
               transparent
-                ? "hidden border-white/40 text-white hover:border-white hover:text-white md:inline-flex"
+                ? "hidden border-white/60 text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)] hover:border-white hover:text-white md:inline-flex"
                 : "hidden md:inline-flex"
             }
           >
@@ -161,7 +169,7 @@ export function NavBar() {
             aria-expanded={open}
             className={
               transparent
-                ? "inline-flex h-touch-md w-touch-md items-center justify-center rounded-xl text-white hover:bg-white/10 lg:hidden"
+                ? "inline-flex h-touch-md w-touch-md items-center justify-center rounded-xl text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)] hover:bg-white/10 lg:hidden"
                 : "inline-flex h-touch-md w-touch-md items-center justify-center rounded-xl text-ink-700 hover:bg-ink-100 lg:hidden dark:text-ink-200 dark:hover:bg-ink-800"
             }
           >

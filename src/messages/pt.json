@@ -27,8 +27,8 @@
   },
   "hero": {
     "badge": "Disponível em {count} países",
-    "topPitch": "Plataforma dental com IA nativa para clínicas que querem atender 24/7 sem contratar mais gente.",
-    "topStat": "{count} países · LGPD · GDPR · HIPAA-ready",
+    "topPitch": "Atender 24/7. Fechar mais casos. Sem contratar mais ninguém.",
+    "topStat": "{markets} mercados. {currencies} moedas. Fiscal local.",
     "eyebrow": "Trial 14 dias · Setup guiado em 1 dia",
     "h1Line1": "Sua clínica",
     "h1Line2": "não dorme.",

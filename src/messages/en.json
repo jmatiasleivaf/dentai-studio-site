@@ -27,8 +27,8 @@
   },
   "hero": {
     "badge": "Available in {count} countries",
-    "topPitch": "Native-AI dental platform for practices that want to be open 24/7 without hiring more staff.",
-    "topStat": "{count} countries · LGPD · GDPR · HIPAA-ready",
+    "topPitch": "Open 24/7. Close more cases. Without hiring.",
+    "topStat": "{markets} markets. {currencies} currencies. Local tax & compliance.",
     "eyebrow": "14-day trial · Sales-led setup in 1 day",
     "h1Line1": "Your clinic",
     "h1Line2": "never sleeps.",
