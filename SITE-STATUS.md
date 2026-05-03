@@ -1,6 +1,43 @@
 # SuperClini Site — Status Vivo
 
-**Última atualização**: 2026-05-03 — sessão BRUTAL PREMIUM Waves 1-3 (Hero scene tracker + Proof concreto + Features bento)
+**Última atualização**: 2026-05-03 — sessão BRUTAL PREMIUM Wave 4 (Hero reconceito Linear/Stripe + Dashboard preview)
+
+## Wave 4 — Hero reconceito (2026-05-03 sessão tarde)
+
+**Inspiração**: reference Nexora (SaaS landing Apple/Linear/Stripe vibe) — adaptado pro branding SuperClini.
+
+**Decisões cravadas (não re-abrir)**:
+- Dark cinematográfico mantido (não trocou pra light/branco do Nexora — preserva identidade)
+- Space Grotesk + italic na palavra-destaque (não trocou pra Instrument Serif — mudaria identidade global)
+- Brand cyan #0ea5e9 + accent #06b6d4 (não trocou pro indigo #6366f1 do Nexora)
+- Tracker de cenas removido — só fazia sentido com video Runway narrativo de 4 cenas mapeadas
+- topPitch + topStat + h1Line1/Line2 + scenes.* removidos do i18n (info já vive no Proof section)
+- Mobile = só texto + CTAs (zero video, zero dashboard preview) — alinhado com "hero apenas desktop"
+- Dashboard preview desktop-only (`hidden md:block`), clipped por baixo via `overflow-hidden` da seção
+- Video atual (Runway local) mantido — trocar URL CloudFront sem self-host quebra LCP em produção; pipeline ffmpeg roda quando file local chegar
+
+**Mudanças de arquivo**:
+| Arquivo | Tipo | Mudança |
+|---------|------|---------|
+| [src/components/home/Hero.tsx](src/components/home/Hero.tsx) | refator | Removido tracker de cenas + 2 hooks complexos + top section. Adicionado eyebrow pill + headline 1-linha com italic+ShinyText + brand radial accent. Mobile-aware via `useVideoBgPolicy` simplificada |
+| [src/components/home/HeroDashboard.tsx](src/components/home/HeroDashboard.tsx) | novo | Glassmorphism wrapper + Image (Next.js otimizada) + glow ring brand atrás + framer fade-up. `hidden md:block` |
+| [public/showcase/hero-saas-placeholder.svg](public/showcase/hero-saas-placeholder.svg) | novo | SVG mock 1440×900 de agenda dental (sidebar + KPIs + grid de horários × 4 dentistas + card Sofía + chart). Substituível por screenshot real. ~10 KB |
+| [src/messages/{pt,es,en}.json](src/messages/) | refator | Chaves `hero.*` enxutas: `eyebrow`, `h1Prefix/Highlight/Suffix`, `sub` (com `{countries}`), `dashboardAlt`, mantidos `ctaPrimary/Secondary` + `trustItems` |
+
+**Métricas**:
+- Build: ✅ exit 0
+- audit-stale: ✅ zero drift em 3 files
+- First Load JS shared: **102 kB MANTIDO** (zero regressão do budget)
+- Home page-specific: 52.7 → **51.3 kB** (−1.4 kB pelo cleanup do tracker + hooks)
+
+**Pendências pra fechar a Wave 4**:
+1. **Screenshot real do SaaS** (você gera): 1440×900 lógico, ideal 2880×1800 retina, WebP qualidade 85, salvar em `public/showcase/hero-saas-1440.webp`. Depois troco `DEFAULT_SRC` em [HeroDashboard.tsx:26](src/components/home/HeroDashboard.tsx#L26). Conteúdo recomendado: Agenda diária com cards coloridos por dentista (alta densidade) ou Dashboard com KPIs.
+2. **Video novo** (você passa file ou autoriza download da URL CloudFront): rodo pipeline ffmpeg igual ao Runway atual (H.264 4MB + WebM 1.9MB + 720p tablet alt + posters WebP).
+3. Mobile: confirmado sem screenshot algum. Hero mobile = texto + CTAs centrados ocupando viewport.
+
+---
+
+
 
 > Este arquivo é o **diário operacional** do site institucional. Cada sessão deve ler este arquivo primeiro e atualizá-lo ao final. Convenção: scores 0-10 (10 = perfeito), tendência ↗︎ melhorou / → estável / ↘︎ piorou desde o último audit.
 

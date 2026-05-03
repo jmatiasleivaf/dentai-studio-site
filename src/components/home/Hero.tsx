@@ -1,31 +1,29 @@
 "use client";
 
 import * as React from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowRight, Sparkles, Play } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { ContactCTAButton } from "@/components/landing/ContactCTAButton";
 import { ShinyText } from "@/components/landing/ShinyText";
 import { HeroVideo } from "@/components/home/HeroVideo";
+import { HeroDashboard } from "@/components/home/HeroDashboard";
 import { SUPERCLINI_FACTS } from "@/lib/superclini.facts";
 
-// Cenas narrativas do video Runway (Kling 3.0 Pro · 15s · 4 cenas):
-// 0 = WhatsApp Sofía → 1 = Totem recepção → 2 = Secretária IA → 3 = Dentista no box
-const SCENE_KEYS = ["whatsapp", "totem", "sofia", "dentista"] as const;
-const SCENE_COUNT = SCENE_KEYS.length;
-const VIDEO_FALLBACK_DURATION_S = 15;
-const STATIC_CYCLE_INTERVAL_MS = 4000;
-
 /**
- * Decide se carrega video (desktop, sem save-data, rede OK) e expõe
- * o ref + estado de play pra que o Hero possa sincronizar copy.
+ * Política de carga do video bg — desktop only, save-data-aware.
+ *
+ * Mobile (<768px): nunca carrega video nem assets derivados. Hero vira
+ * texto + CTAs centrados sobre fundo dark gradient (sem dashboard preview).
+ *
+ * O `videoRef` e `shouldPlay` são consumidos pelo <HeroVideo>; o Hero não
+ * lê mais `currentTime` (tracker de cenas removido — ver SITE-STATUS Wave 4).
  */
 function useVideoBgPolicy() {
   const videoRef = React.useRef<HTMLVideoElement>(null);
   const [shouldPlay, setShouldPlay] = React.useState(false);
-  const [isPlaying, setIsPlaying] = React.useState(false);
 
   React.useEffect(() => {
     const decide = () => {
@@ -49,24 +47,14 @@ function useVideoBgPolicy() {
   }, []);
 
   React.useEffect(() => {
-    if (!shouldPlay) {
-      setIsPlaying(false);
-      return;
-    }
+    if (!shouldPlay) return;
     const video = videoRef.current;
     if (!video) return;
-
-    const onPlay = () => setIsPlaying(true);
-    const onPause = () => setIsPlaying(false);
-    video.addEventListener("play", onPlay);
-    video.addEventListener("pause", onPause);
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          video.play().catch(() => {
-            // autoplay bloqueado — silently ignore (poster continua visível)
-          });
+          video.play().catch(() => undefined);
         } else {
           video.pause();
         }
@@ -74,185 +62,97 @@ function useVideoBgPolicy() {
       { threshold: 0.1 }
     );
     observer.observe(video);
-
-    return () => {
-      observer.disconnect();
-      video.removeEventListener("play", onPlay);
-      video.removeEventListener("pause", onPause);
-    };
+    return () => observer.disconnect();
   }, [shouldPlay]);
 
-  return { videoRef, shouldPlay, isPlaying };
+  return { videoRef, shouldPlay };
 }
 
-/**
- * Mapeia o tempo atual do video pra cena 0–3.
- * Fallback: cycle a cada 4s quando video não toca (mobile, save-data, paused).
- * Reduced motion: trava na cena 0.
- */
-function useHeroScene(
-  videoRef: React.RefObject<HTMLVideoElement | null>,
-  isPlaying: boolean
-): number {
-  const reducedMotion = useReducedMotion();
-  const [scene, setScene] = React.useState(0);
-
-  React.useEffect(() => {
-    if (reducedMotion) {
-      setScene(0);
-      return;
-    }
-
-    if (isPlaying && videoRef.current) {
-      const video = videoRef.current;
-      let rafId = 0;
-      let lastIdx = -1;
-
-      const tick = () => {
-        if (!video.paused && !video.ended) {
-          const dur = video.duration || VIDEO_FALLBACK_DURATION_S;
-          const sceneDur = dur / SCENE_COUNT;
-          const idx =
-            Math.floor((video.currentTime % dur) / sceneDur) % SCENE_COUNT;
-          if (idx !== lastIdx) {
-            lastIdx = idx;
-            setScene(idx);
-          }
-        }
-        rafId = requestAnimationFrame(tick);
-      };
-      rafId = requestAnimationFrame(tick);
-      return () => cancelAnimationFrame(rafId);
-    }
-
-    const id = setInterval(
-      () => setScene((s) => (s + 1) % SCENE_COUNT),
-      STATIC_CYCLE_INTERVAL_MS
-    );
-    return () => clearInterval(id);
-  }, [reducedMotion, isPlaying, videoRef]);
-
-  return scene;
-}
-
-const SCENE_TRANSITION = { duration: 0.35, ease: [0.22, 1, 0.36, 1] as const };
+const FADE_TRANSITION = {
+  duration: 0.6,
+  ease: [0.22, 1, 0.36, 1] as const,
+};
 
 export function Hero() {
   const t = useTranslations("hero");
-  const { videoRef, shouldPlay, isPlaying } = useVideoBgPolicy();
-  const sceneIdx = useHeroScene(videoRef, isPlaying);
-  const sceneKey = SCENE_KEYS[sceneIdx];
+  const reducedMotion = useReducedMotion();
+  const { videoRef, shouldPlay } = useVideoBgPolicy();
+
+  const fade = (delay = 0) => ({
+    initial: reducedMotion ? false : { opacity: 0, y: 16 },
+    animate: { opacity: 1, y: 0 },
+    transition: { ...FADE_TRANSITION, delay },
+  });
 
   return (
-    <section className="relative isolate min-h-screen overflow-hidden bg-ink-950">
-      {/* Video background com perf best practices (mobile-off, save-data, reduced-motion, IntersectionObserver) */}
+    <section className="relative isolate overflow-hidden bg-ink-950">
+      {/* Background video — desktop only, mobile-off pela policy */}
       <HeroVideo videoRef={videoRef} shouldPlay={shouldPlay} />
 
-      {/* Overlay escuro principal pra contraste geral do texto branco */}
+      {/* Overlay principal: dark cinematográfico mantendo legibilidade */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-gradient-to-b from-black/65 via-black/45 to-black/75"
+        className="absolute inset-0 -z-10 bg-gradient-to-b from-ink-950/85 via-ink-950/65 to-ink-950/95"
       />
-      {/* Top scrim — garante contraste do header + topPitch + topStat
-         independente da cena clara/escura do video Runway */}
+      {/* Top scrim — protege o navbar de cenas claras do video */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-56 bg-gradient-to-b from-black/85 via-black/60 to-transparent sm:h-64"
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-48 bg-gradient-to-b from-ink-950 via-ink-950/70 to-transparent"
       />
+      {/* Brand radial accent — ciano sutil atrás do conteúdo central */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 opacity-[0.06] mix-blend-overlay bg-noise"
+        className="pointer-events-none absolute left-1/2 top-1/3 -z-10 h-[600px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-500/20 blur-[120px]"
+      />
+      {/* Noise texture pra quebrar bandinhas do gradient */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-10 bg-noise opacity-[0.04] mix-blend-overlay"
       />
 
-      <Container className="relative z-10 flex min-h-screen max-w-7xl flex-col pb-16 pt-28 sm:pt-32 lg:pb-20 lg:pt-36">
-        {/* TOP SECTION — 2 colunas com pitch + stat */}
-        <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
-          <p className="max-w-md text-sm font-medium leading-relaxed text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)] lg:text-base">
-            {t("topPitch")}
-          </p>
-          <p className="max-w-md text-sm font-medium leading-relaxed text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)] lg:ml-auto lg:text-right lg:text-base">
-            {t("topStat", {
-              markets: SUPERCLINI_FACTS.countriesCount,
-              currencies: SUPERCLINI_FACTS.currenciesCount,
-            })}
-          </p>
-        </div>
+      <Container className="relative z-10 flex min-h-screen max-w-6xl flex-col items-center justify-center pb-12 pt-28 text-center sm:pt-32 lg:pt-36">
+        {/* Eyebrow pill */}
+        <motion.div
+          {...fade(0)}
+          className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-4 py-1.5 text-xs font-medium text-white/85 backdrop-blur-md sm:text-sm"
+        >
+          <Sparkles
+            className="h-3.5 w-3.5 text-brand-400"
+            strokeWidth={2}
+            aria-hidden
+          />
+          <span>
+            {t("eyebrow", { countries: SUPERCLINI_FACTS.countriesCount })}
+          </span>
+        </motion.div>
 
-        {/* HERO CENTER */}
-        <div className="flex flex-1 flex-col items-center justify-center text-center">
-          {/* Eyebrow rotativo sincronizado com a narrativa do video */}
-          <div
-            aria-live="polite"
-            aria-atomic="true"
-            className="flex h-5 items-center justify-center gap-2 text-[10px] font-medium uppercase tracking-[0.18em] text-white/85 sm:h-6 sm:text-xs lg:text-sm"
-          >
-            <span className="font-mono tabular-nums text-white/55">
-              {String(sceneIdx + 1).padStart(2, "0")}/
-              {String(SCENE_COUNT).padStart(2, "0")}
-            </span>
-            <span aria-hidden className="text-white/30">
-              ·
-            </span>
-            <AnimatePresence mode="wait" initial={false}>
-              <motion.span
-                key={`label-${sceneKey}`}
-                initial={{ opacity: 0, y: 6 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -6 }}
-                transition={SCENE_TRANSITION}
-                className="inline-block whitespace-nowrap"
-              >
-                {t(`scenes.${sceneKey}.label`)}
-              </motion.span>
-            </AnimatePresence>
-            <span aria-hidden className="hidden text-white/30 sm:inline">
-              ·
-            </span>
-            <AnimatePresence mode="wait" initial={false}>
-              <motion.span
-                key={`metric-${sceneKey}`}
-                initial={{ opacity: 0, y: 6 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -6 }}
-                transition={SCENE_TRANSITION}
-                className="hidden whitespace-nowrap font-semibold text-white sm:inline-block"
-              >
-                {t(`scenes.${sceneKey}.metric`)}
-              </motion.span>
-            </AnimatePresence>
-          </div>
+        {/* Headline — 1 linha conceitual, palavra-destaque em italic + shine */}
+        <motion.h1
+          {...fade(0.1)}
+          className="mt-6 max-w-4xl font-display text-5xl font-medium leading-[0.95] tracking-tighter text-white sm:text-6xl md:text-7xl lg:text-[5.5rem]"
+        >
+          <span>{t("h1Prefix")} </span>
+          <span className="italic">
+            <ShinyText speedSeconds={4} spreadDeg={100}>
+              {t("h1Highlight")}
+            </ShinyText>
+          </span>
+          <span>{t("h1Suffix")}</span>
+        </motion.h1>
 
-          <h1 className="mt-6 font-display text-5xl font-medium leading-[0.85] tracking-tighter text-white sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">
-            <span className="block">{t("h1Line1")}</span>
-            <span className="mt-2 block">
-              <ShinyText speedSeconds={3} spreadDeg={100}>
-                {t("h1Line2")}
-              </ShinyText>
-            </span>
-          </h1>
+        {/* Subheadline */}
+        <motion.p
+          {...fade(0.2)}
+          className="mt-6 max-w-2xl text-base leading-relaxed text-white/75 md:text-lg"
+        >
+          {t("sub", { countries: SUPERCLINI_FACTS.countriesCount })}
+        </motion.p>
 
-          <p className="mx-auto mt-8 max-w-2xl text-fluid-base leading-relaxed text-white/85">
-            {t("sub")}
-          </p>
-
-          {/* Scene progress indicator — 4 barrinhas que pulsam pra cena ativa */}
-          <div className="mt-8 flex items-center gap-1.5" aria-hidden>
-            {SCENE_KEYS.map((key, idx) => {
-              const isActive = idx === sceneIdx;
-              return (
-                <span
-                  key={key}
-                  className={`h-[2px] rounded-full transition-all duration-500 ${
-                    isActive ? "w-8 bg-white" : "w-4 bg-white/30"
-                  }`}
-                />
-              );
-            })}
-          </div>
-        </div>
-
-        {/* BOTTOM — CTAs */}
-        <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+        {/* CTAs */}
+        <motion.div
+          {...fade(0.3)}
+          className="mt-8 flex flex-col items-center gap-3 sm:flex-row"
+        >
           <ContactCTAButton
             defaultInteresse="trial_profesional"
             variant="primary"
@@ -266,16 +166,27 @@ export function Hero() {
           </ContactCTAButton>
           <Button
             asChild
-            variant="outline"
+            variant="ghost"
             size="lg"
-            className="border-white/40 text-white hover:border-white hover:text-white"
+            className="group h-11 gap-2 rounded-full border border-white/15 bg-white/[0.04] px-5 text-white backdrop-blur-md hover:border-white/25 hover:bg-white/[0.08] hover:text-white"
           >
-            <a href="#ai">{t("ctaSecondary")}</a>
+            <a href="#ai">
+              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/90">
+                <Play
+                  className="h-3 w-3 translate-x-[1px] fill-ink-950 text-ink-950"
+                  aria-hidden
+                />
+              </span>
+              {t("ctaSecondary")}
+            </a>
           </Button>
-        </div>
+        </motion.div>
 
-        {/* Trust items minimal abaixo dos CTAs */}
-        <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-white/70">
+        {/* Trust items */}
+        <motion.ul
+          {...fade(0.4)}
+          className="mt-7 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-white/60"
+        >
           {(["noCard", "setup", "cancel"] as const).map((k) => (
             <li key={k} className="flex items-center gap-1.5">
               <span
@@ -285,7 +196,10 @@ export function Hero() {
               {t(`trustItems.${k}`)}
             </li>
           ))}
-        </ul>
+        </motion.ul>
+
+        {/* Dashboard preview — desktop only, clipped por baixo via section overflow-hidden */}
+        <HeroDashboard alt={t("dashboardAlt")} />
       </Container>
     </section>
   );

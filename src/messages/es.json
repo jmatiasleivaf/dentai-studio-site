@@ -27,24 +27,18 @@
   },
   "hero": {
     "badge": "Disponible en {count} países",
-    "topPitch": "Atender 24/7. Cerrar más casos. Sin contratar más gente.",
-    "topStat": "{markets} mercados. {currencies} monedas. Fiscal local.",
-    "eyebrow": "Trial 14 días · Setup guiado en 1 día",
-    "h1Line1": "Tu clínica",
-    "h1Line2": "no duerme.",
-    "sub": "Sofía atiende WhatsApp 24/7. La IA simula sonrisas y analiza radiografías en segundos. Visor DICOM 3D en el navegador. Todo con moneda y fiscal de tu país.",
+    "eyebrow": "Software dental con IA · {countries} mercados LATAM",
+    "h1Prefix": "Software dental que ",
+    "h1Highlight": "atiende solo",
+    "h1Suffix": ".",
+    "sub": "Sofía en WhatsApp 24/7. IA que simula sonrisas, lee radiografías y cierra agenda. DICOM 3D en el navegador. Todo en {countries} mercados, con moneda y fiscal de tu país.",
     "ctaPrimary": "Solicitar trial 14 días",
     "ctaSecondary": "Ver Sofía en acción",
+    "dashboardAlt": "Panel SuperClini — agenda del día, KPIs y Sofía en tiempo real",
     "trustItems": {
       "noCard": "Sin tarjeta de crédito",
       "setup": "Setup guiado en 1 día",
       "cancel": "Cancela cuando quieras"
-    },
-    "scenes": {
-      "whatsapp": { "label": "Sofía en WhatsApp", "metric": "24/7" },
-      "totem":    { "label": "Tótem en recepción", "metric": "Check-in 90s" },
-      "sofia":    { "label": "Secretaria con IA", "metric": "Agenda autónoma" },
-      "dentista": { "label": "Diagnóstico en el box", "metric": "DICOM 3D + IA" }
     }
   },
   "trustStrip": {
