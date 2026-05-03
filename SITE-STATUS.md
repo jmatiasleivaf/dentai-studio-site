@@ -1,25 +1,25 @@
 # SuperClini Site — Status Vivo
 
-**Última atualização**: 2026-05-01 por sessão Wave 1 expandida (SSoT + drift fix + audit-stale + Schema.org + hreflang multi-país + ESLint config fix)
+**Última atualização**: 2026-05-02 — sessão MEGA ENTREGA (5 landings + Hero MotionSites adapt + video Runway próprio + NavBar mega-menu + Footer cross-linking)
 
 > Este arquivo é o **diário operacional** do site institucional. Cada sessão deve ler este arquivo primeiro e atualizá-lo ao final. Convenção: scores 0-10 (10 = perfeito), tendência ↗︎ melhorou / → estável / ↘︎ piorou desde o último audit.
 
 ---
 
-## Scores (audit 2026-05-01 — Wave 1 expandida)
+## Scores (audit 2026-05-02 — pós mega entrega)
 
 | Eixo | Score | Tendência | Próxima ação proposta |
 |------|:-----:|:---------:|------------------------|
-| Conteúdo (truth) | 8/10 | ↗︎ (era 6) | Refatorar `pricing.features.casos*/radiograph*/whatsappConv*` para gerar dinâmico em Pricing.tsx (eliminar duplicação i18n × pricing.ts), refatorar `faq.items.6.a` para enumerar via COUNTRY_LIST |
-| SEO técnico | 6/10 | ↗︎ (era 4) | OG images por idioma (1200×630, hoje sem image), meta description única por rota, FAQPage Schema.org inline, BreadcrumbList em sub-páginas, validar com [Rich Results Test](https://search.google.com/test/rich-results) |
-| UX | 7/10 | → | Sem mudanças; pendente audit em mobile real + tap targets + dark mode |
-| Performance | 7/10 | → | First Load JS 102KB shared (estável), landing +0.3KB (de JSON-LD) — instalar Lighthouse CI |
-| Infra | 5/10 | ↗︎ (era 4) | DNS confirmado: superclini.com em produção (Cloudflare, headers OK). Staging www-staging.superclini.com não responde (DNS não aponta). Pipeline deploy a confirmar com humano. |
-| Acessibilidade | 6/10 | → | Sem mudanças; pendente axe-core baseline |
-| Compliance | 7/10 | → | Sem mudanças; termos de uso ainda ausentes |
-| CRO | 4/10 | → | Sem mudanças; case studies + WhatsApp Business pendentes |
+| Conteúdo (truth) | 9/10 | ↗︎ (era 8) | Refatorar `pricing.features.casos*/radiograph*/whatsappConv*` dinâmico, `faq.items.6.a` enumerar via COUNTRY_LIST |
+| SEO técnico | 8/10 | ↗︎ (era 6) | OG images por landing (1200×630, hoje só Org Schema), BreadcrumbList em sub-páginas, sitemap pings |
+| UX | 8/10 | ↗︎ (era 7) | NavBar mega-menu + Footer cross-linking entregues. Pendente: tap targets mobile real, dark mode polish |
+| Performance | 8/10 | ↗︎ (era 7) | Video hero otimizado (4MB H.264 / 1.9MB WebM / 12KB poster mobile). First Load JS shared 102KB estável. Pendente Lighthouse CI |
+| Infra | 6/10 | ↗︎ (era 5) | superclini.com production no ar (Cloudflare). Pipeline manual SSH funcionando. Pendente CI/CD GitHub Actions |
+| Acessibilidade | 7/10 | ↗︎ (era 6) | a11y do Sofia label + violet contrast fix entregues. Pendente axe-core CI |
+| Compliance | 7/10 | → | Termos de uso ainda ausentes |
+| CRO | 6/10 | ↗︎ (era 4) | 5 landings completas com FAQ Schema + UseCases + Comparison + dual CTA. Pendente case studies reais + WhatsApp Business channel |
 
-**Score médio**: 6.3/10 (era 5.6) — +0.7 pela limpeza de drift, SSoT, Schema.org básico e hreflang multi-país.
+**Score médio: 7.4/10** (era 6.3, +1.1) — pelos 5 landings completas, hero cinematográfico próprio, NavBar+Footer cross-linking SEO, performance otimizada.
 
 ---
 
@@ -174,6 +174,7 @@
 | 2026-05-01 | Wave 1 inicial — SSoT + drift fix | Criou facts.ts, migrou 6 strings stale (testes + módulos), criou SITE-STATUS.md | — / 5.6 |
 | 2026-05-01 | Wave 1 expandida — countries + Enterprise→Corporativo + audit-stale + Schema.org + hreflang multi-país + ESLint | Migrou 9 strings adicionais, criou audit script, adicionou Schema.org Organization+SoftwareApplication, hreflang 12+ variantes, corrigiu config ESLint | 5.6 / 6.3 |
 | 2026-05-02 | Deploy production + hotfix MISSING_MESSAGE | Primeiro deploy do Next.js 15 completo em superclini.com (commit c92e188 + e060b49). Fix PricingMatrix.tsx renderiza counts numéricos sem passar por i18n. 23 GB de build cache liberados na VPS. | 6.3 / 6.5 |
+| 2026-05-02 | MEGA SESSÃO — 5 landings + Hero MotionSites + Video Runway próprio + NavBar mega-menu + Footer SEO | Entregou em sequência: (1) landing /sofia + 7 componentes reutilizáveis em components/landing/; (2) landing /ia-clinica; (3) landing /clinico + NavBar dropdown "Recursos" + site-nav.ts SSoT; (4) landing /totem + Footer com cross-linking de todas landings; (5) landing /automatizacoes; (6) Hero refeito MotionSites Apple-style com ShinyText framer-motion + NavBar transparent topo da home; (7) HeroVideo com perf best practices (mobile-off, save-data, IntersectionObserver, reduced-motion); (8) Video Runway próprio (Kling 3.0 Pro, 15s, 4 cenas: WhatsApp → totem → secretária IA → dentista) com 6 otimizações ffmpeg (H.264 + WebM dual-codec + 720p tablet + posters WebP + cross-fade loop). Sitemap final: 24 URLs (5 landings × 3 locales + home + contato + privacidade + sitemap/robots). | 6.5 / 7.4 |
 
 ---
 
