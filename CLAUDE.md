@@ -248,3 +248,32 @@ curl -sI https://superclini.com/videos/hero/hero-1080.webm | head -1
 5. **Toda mudança em facts**: rodar `npm run audit-stale` antes de commit
 6. **Toda landing nova**: adicionar em `lib/site-nav.ts` (`available: true`) + `app/sitemap.ts`
 7. **Final da sessão**: atualizar `SITE-STATUS.md` com tudo entregue + scores + próximas prioridades
+
+---
+
+## 9. 🤝 Divisão de responsabilidades — Matias só VPS, Claude todo o resto
+
+**TRANSVERSAL** a este projeto e qualquer outro. Cravado 2026-05-03.
+
+**Matias executa APENAS:**
+- Comandos na VPS Hostinger via console SSH (cam.hostingervps.com) — só ele tem acesso físico
+- Decisões de produto/copy/visual que precisam aprovação dele
+- Cliques em UI quando exigem credenciais físicas (login OAuth, 2FA, re-auth bcrypt)
+
+**Claude executa TUDO o resto sozinho — NUNCA pedir pra Matias:**
+
+| Tarefa | Como Claude faz |
+|--------|-----------------|
+| `npm run dev` local | `Bash run_in_background` + curl localhost:3000 pra validar |
+| `npm run build` / `npm run lint` / `npm run audit-stale` | `Bash` direto |
+| Capturar screenshot de página | Playwright headless (instalado em `C:/Users/User/Documents/SuperClini/`) — salva em path destino, converte pra WebP via sharp |
+| Otimizar imagem (resize, WebP, AVIF) | `sharp` CLI ou `npx @squoosh/cli` |
+| Pipeline de vídeo (H.264, WebM, posters WebP, 720p alt) | `ffmpeg` direto via Bash |
+| Baixar URL CloudFront/S3 | `curl -O` |
+| Push pra GitHub, criar PR, comentar | Git local + GitHub API com PAT cacheado (Git Credential Manager) |
+| Validar deploy do site | curl externo `https://superclini.com/{es,pt,en}` + grep `MISSING_MESSAGE` |
+| Ler logs do container `dentai-site` | precisa Matias: `docker logs dentai-site --tail 100` (VPS-only) |
+
+**Quando precisar de algo da VPS:** Claude manda **UM** bloco copia-cola completo, com saída esperada. Tmux obrigatório se >10s.
+
+**Memória**: ver `~/.claude/projects/.../memory/feedback_responsabilidades_deploy.md` (transversal a todos projetos).
