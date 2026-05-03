@@ -39,6 +39,12 @@
       "noCard": "Sin tarjeta de crédito",
       "setup": "Setup guiado en 1 día",
       "cancel": "Cancela cuando quieras"
+    },
+    "scenes": {
+      "whatsapp": { "label": "Sofía en WhatsApp", "metric": "24/7" },
+      "totem":    { "label": "Tótem en recepción", "metric": "Check-in 90s" },
+      "sofia":    { "label": "Secretaria con IA", "metric": "Agenda autónoma" },
+      "dentista": { "label": "Diagnóstico en el box", "metric": "DICOM 3D + IA" }
     }
   },
   "trustStrip": {

@@ -14,8 +14,8 @@ import * as React from "react";
  * 7. Dual codec: WebM VP9 (~1.9MB) preferido por Chrome/FF, MP4 H.264
  *    (~4.1MB) fallback para Safari/legacy
  *
- * Asset gerado por Runway Gen Kling 3.0 Pro, otimizado via ffmpeg
- * (cross-fade in/out 0.3s pra suavizar loop).
+ * O `videoRef` e `shouldPlay` vêm do parent (Hero) via `useVideoBgPolicy`,
+ * permitindo que o Hero leia `currentTime` do video pra sincronizar copy.
  */
 const VIDEOS = {
   posterDesktop: "/videos/hero/hero-poster-1080.webp",
@@ -24,62 +24,16 @@ const VIDEOS = {
   mp4: "/videos/hero/hero-1080.mp4",
 } as const;
 
-export function HeroVideo() {
-  const videoRef = React.useRef<HTMLVideoElement>(null);
-  const [shouldPlay, setShouldPlay] = React.useState(false);
+type Props = {
+  videoRef: React.RefObject<HTMLVideoElement | null>;
+  shouldPlay: boolean;
+};
 
-  React.useEffect(() => {
-    const decide = () => {
-      // Mobile <768px: NÃO carrega video — só poster
-      if (window.matchMedia("(max-width: 767px)").matches) return false;
-
-      const conn = (
-        navigator as Navigator & {
-          connection?: { saveData?: boolean; effectiveType?: string };
-        }
-      ).connection;
-
-      if (conn?.saveData) return false;
-      if (
-        conn?.effectiveType === "slow-2g" ||
-        conn?.effectiveType === "2g" ||
-        conn?.effectiveType === "3g"
-      ) {
-        return false;
-      }
-
-      return true;
-    };
-
-    setShouldPlay(decide());
-  }, []);
-
-  React.useEffect(() => {
-    if (!shouldPlay || !videoRef.current) return;
-    const video = videoRef.current;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          video.play().catch(() => {
-            // autoplay bloqueado — silently ignore (poster continua visível)
-          });
-        } else {
-          video.pause();
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    observer.observe(video);
-    return () => observer.disconnect();
-  }, [shouldPlay]);
-
+export function HeroVideo({ videoRef, shouldPlay }: Props) {
   const reducedMotion =
     typeof window !== "undefined" &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // Mobile / save-data / 2-3G: poster image apenas (sem download de video)
   if (!shouldPlay) {
     return (
       <picture aria-hidden="true">
