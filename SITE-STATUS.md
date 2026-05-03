@@ -1,25 +1,25 @@
 # SuperClini Site — Status Vivo
 
-**Última atualização**: 2026-05-02 — sessão MEGA ENTREGA (5 landings + Hero MotionSites adapt + video Runway próprio + NavBar mega-menu + Footer cross-linking)
+**Última atualização**: 2026-05-03 — sessão BRUTAL PREMIUM Waves 1-3 (Hero scene tracker + Proof concreto + Features bento)
 
 > Este arquivo é o **diário operacional** do site institucional. Cada sessão deve ler este arquivo primeiro e atualizá-lo ao final. Convenção: scores 0-10 (10 = perfeito), tendência ↗︎ melhorou / → estável / ↘︎ piorou desde o último audit.
 
 ---
 
-## Scores (audit 2026-05-02 — pós mega entrega)
+## Scores (audit 2026-05-03 — pós Waves 1-3 brutal premium)
 
 | Eixo | Score | Tendência | Próxima ação proposta |
 |------|:-----:|:---------:|------------------------|
-| Conteúdo (truth) | 9/10 | ↗︎ (era 8) | Refatorar `pricing.features.casos*/radiograph*/whatsappConv*` dinâmico, `faq.items.6.a` enumerar via COUNTRY_LIST |
-| SEO técnico | 8/10 | ↗︎ (era 6) | OG images por landing (1200×630, hoje só Org Schema), BreadcrumbList em sub-páginas, sitemap pings |
-| UX | 8/10 | ↗︎ (era 7) | NavBar mega-menu + Footer cross-linking entregues. Pendente: tap targets mobile real, dark mode polish |
-| Performance | 8/10 | ↗︎ (era 7) | Video hero otimizado (4MB H.264 / 1.9MB WebM / 12KB poster mobile). First Load JS shared 102KB estável. Pendente Lighthouse CI |
-| Infra | 6/10 | ↗︎ (era 5) | superclini.com production no ar (Cloudflare). Pipeline manual SSH funcionando. Pendente CI/CD GitHub Actions |
-| Acessibilidade | 7/10 | ↗︎ (era 6) | a11y do Sofia label + violet contrast fix entregues. Pendente axe-core CI |
+| Conteúdo (truth) | 9/10 | → (era 9) | Refatorar `pricing.features.casos*/radiograph*/whatsappConv*` dinâmico, `faq.items.6.a` enumerar via COUNTRY_LIST |
+| SEO técnico | 8/10 | → (era 8) | OG images por landing (1200×630), BreadcrumbList em sub-páginas, sitemap pings |
+| UX | 9/10 | ↗︎ (era 8) | Hero scene tracker + bento Features + Proof tile entregues. Pendente: AISection / Personas / FAQ / CtaFinal premium pass |
+| Performance | 8/10 | → (era 8) | First Load JS shared **102KB MANTIDO** após 3 waves. Home page-specific 51.7→52.7kB (+1kB pelo bento). Pendente Lighthouse CI |
+| Infra | 6/10 | → (era 6) | superclini.com production no ar. Pipeline manual SSH OK. Pendente CI/CD GitHub Actions |
+| Acessibilidade | 8/10 | ↗︎ (era 7) | aria-live + aria-atomic no scene tracker, dl/dt/dd semântico em Proof, reduced-motion fallback robusto. Pendente axe-core CI |
 | Compliance | 7/10 | → | Termos de uso ainda ausentes |
-| CRO | 6/10 | ↗︎ (era 4) | 5 landings completas com FAQ Schema + UseCases + Comparison + dual CTA. Pendente case studies reais + WhatsApp Business channel |
+| CRO | 7/10 | ↗︎ (era 6) | Proof concreto com 4 stats SUPERCLINI_FACTS + spotlight Sofía com chat preview na home (conversion lift esperado). Pendente case studies reais + WhatsApp channel |
 
-**Score médio: 7.4/10** (era 6.3, +1.1) — pelos 5 landings completas, hero cinematográfico próprio, NavBar+Footer cross-linking SEO, performance otimizada.
+**Score médio: 7.75/10** (era 7.4, +0.35) — alvo §15 era 8.5+. Falta AISection/Personas/FAQ/CtaFinal/landings polish + Lighthouse CI + OG images pra fechar gap. Brutal Premium Waves 1-3 entregaram a hierarquia visual da home (Hero cinematic + Proof tangível + Features showcase).
 
 ---
 
@@ -62,56 +62,61 @@
 
 ---
 
-## Decisões tomadas nesta sessão
+## Decisões tomadas nesta sessão (Brutal Premium Waves 1-3 · 2026-05-03)
 
-1. **`SUPERCLINI_FACTS` é a SSoT canônica** para fatos quantitativos do produto. Toda string i18n com número de produto deve ser placeholder + consumir daqui.
-2. **`countriesCount` derivado de `COUNTRY_LIST.length`** — não hardcoded em facts.ts; muda automaticamente quando adicionarmos/removermos país.
-3. **Hreflang multi-país por geração**: `buildLanguageAlternates()` no layout deriva 12+ variantes a partir de `COUNTRY_LIST` — adicionar país é zero-touch para hreflang.
-4. **Schema.org pragmático**: Organization + SoftwareApplication com AggregateOffer simples (lowPrice/highPrice em USD). Quando tivermos AggregateRating de casos reais, expandimos.
-5. **`pricing.features.*` cotas mantidas como i18n strings**: refatorar para gerar dinâmicas é Wave 2/3. Por agora, whitelistadas no audit + TODO documentado.
-6. **ESLint warning silenciado** trocando `FlatCompat` por import direto — `eslint-config-next` v16 é flat config nativo. Erros pré-existentes virados warnings (regras novas do v7) com TODO de refatoração.
-7. **Não tocar nos 7 arquivos modificados WIP de pricing** — preservados intactos, devem ser commit separado pelo humano.
+1. **Hero não é só pano de fundo cinematográfico — é narrativa sincronizada.** O video Runway/Kling 3.0 Pro (15s · 4 cenas) agora dirige o copy via `requestAnimationFrame` que lê `video.currentTime` e mapeia pra cena 0-3. Eyebrow rotativo formato "01/04 · Sofía no WhatsApp · 24/7" trocando a cada 3.75s.
+2. **Decoplagem `useVideoBgPolicy` + `useHeroScene` no Hero**: dois hooks inline isolam (a) política de carga do video (mobile/save-data/2-3G/reduced-motion) e (b) scene tracker. HeroVideo virou componente "burro" que recebe `videoRef` + `shouldPlay` via props. Permite Hero ler `currentTime` sem RefForward complexo.
+3. **Fallback robusto no scene tracker**: quando video não toca (mobile, save-data, autoplay bloqueado), entra cycle estático 4s. Quando `prefers-reduced-motion`, trava na cena 0 e zero animação. `aria-live="polite"` + `aria-atomic` no rotator.
+4. **Proof reescrito como trust block tangível.** O componente antigo (1 ícone heart + texto vago + CTA `href="#"` morto) foi substituído por grid de 4 telemetry tiles (1.925 testes · 9 países · 8 moedas · 3 providers IA) consumindo `SUPERCLINI_FACTS`. Eliminou link quebrado, adicionou cifras verificáveis. Provider list (Anthropic/Google/OpenAI) e compliance (LGPD/Ley/GDPR/HIPAA) listados em `dl/dt/dd` semântico.
+5. **Features virou bento grid com hierarquia visual**, não mais grid plano de 9 cards iguais. Spotlight Sofía 2×2 desktop (gradient brand + chat preview de 2 bubbles + CTA pra /sofia) + 8 tiles regulares 1×1. Removido `items.whatsapp` (subsumido pela spotlight). Eyebrow honesto: "9 destaques de 22 módulos" via interpolação dupla `{shown}/{total}`.
+6. **Performance budget mantido**: First Load JS shared **102 KB intacto** após 3 waves. Home page-specific subiu 51.7→52.7 kB (+1 kB pelo markup do bento spotlight) — aceitável pelo design upgrade. Proof e Features são Server Components (zero peso client adicional).
+7. **i18n: 18 chaves novas em PT/ES/EN** distribuídas em `hero.scenes.*`, `proof.stats|providersLabel|complianceLabel|founded`, `features.spotlight.*`. Removidas: `proof.sub`, `proof.ctaStory`, `features.items.whatsapp`. Audit-stale: zero drift através das 3 waves.
 
 ---
 
-## Arquivos modificados nesta sessão (14 arquivos)
-
-### Novos
-| Arquivo | Propósito |
-|---------|-----------|
-| [src/lib/superclini.facts.ts](src/lib/superclini.facts.ts) | SSoT de fatos quantitativos (testsCount, modulesCount, countriesCount derivado, currenciesCount, tiersCount, trialDays, aiQuotas, compliance, foundedYear, aiProviders) |
-| [scripts/audit-stale.mjs](scripts/audit-stale.mjs) | Detector automático de drift em messages/*.json (7 padrões + whitelist) |
-| [SITE-STATUS.md](SITE-STATUS.md) | Diário operacional |
+## Arquivos modificados nesta sessão (5 arquivos · 3 commits)
 
 ### Modificados
-| Arquivo | Mudança |
-|---------|---------|
-| [package.json](package.json) | Adicionado script `audit-stale` |
-| [eslint.config.mjs](eslint.config.mjs) | Migrado `FlatCompat` → imports diretos; warnings de regras `react-hooks` v7 |
-| [src/messages/es.json](src/messages/es.json) | 5 placeholders + correção "Enterprise"→"Corporativo" |
-| [src/messages/pt.json](src/messages/pt.json) | 5 placeholders + correção "Enterprise"→"Corporativo" |
-| [src/messages/en.json](src/messages/en.json) | 5 placeholders + correção "Enterprise"→"Corporate" |
-| [src/components/home/Hero.tsx](src/components/home/Hero.tsx) | Consome `SUPERCLINI_FACTS.countriesCount` em hero.badge |
-| [src/components/home/TrustStrip.tsx](src/components/home/TrustStrip.tsx) | Consome `SUPERCLINI_FACTS.testsCount` + `countriesCount` + `currenciesCount` |
-| [src/components/home/Features.tsx](src/components/home/Features.tsx) | Consome `SUPERCLINI_FACTS.modulesCount` |
-| [src/app/[locale]/layout.tsx](src/app/[locale]/layout.tsx) | Hreflang multi-país (`buildLanguageAlternates`) + Schema.org JSON-LD (Organization + SoftwareApplication) + meta.description com placeholder `{countries}` |
+| Arquivo | Wave | Mudança |
+|---------|:---:|---------|
+| [src/components/home/Hero.tsx](src/components/home/Hero.tsx) | 1 | Eyebrow rotativo sincronizado + 2 hooks inline (`useVideoBgPolicy`, `useHeroScene`) + AnimatePresence crossfade + scene progress indicator (4 barrinhas) |
+| [src/components/home/HeroVideo.tsx](src/components/home/HeroVideo.tsx) | 1 | Refactor: aceita `videoRef` + `shouldPlay` via props (lógica de policy movida pro Hero) |
+| [src/components/home/Proof.tsx](src/components/home/Proof.tsx) | 2 | Reescrito: 4 stat tiles (`useFormatter` + SUPERCLINI_FACTS) + AI providers list + compliance list + founded year. Removido link `href="#"` morto |
+| [src/components/home/Features.tsx](src/components/home/Features.tsx) | 3 | Bento grid: spotlight Sofía 2×2 (chat preview + CTA /sofia) + 8 tiles regulares. Eyebrow honesto "9 de 22" |
+| [src/messages/pt.json](src/messages/pt.json) | 1+2+3 | +18 chaves (hero.scenes, proof.stats/labels/founded, features.spotlight). Removido proof.sub/ctaStory + features.items.whatsapp |
+| [src/messages/es.json](src/messages/es.json) | 1+2+3 | idem PT |
+| [src/messages/en.json](src/messages/en.json) | 1+2+3 | idem PT |
+| [SITE-STATUS.md](SITE-STATUS.md) | meta | Scores recalculados, decisões e histórico atualizados |
 
-**Build local**: ✅ exit 0 — compiled em 10s · 14 páginas SSG · **First Load JS 102 KB shared** (zero regressão) · landing 25.8 KB (+0.3 KB do JSON-LD inline) · middleware 53.2 KB · ESLint sem warning de circular structure (legados como warnings)
+### Commits desta sessão
+- `8793f8a` Wave 1 — feat(hero): copy sincronizado às 4 cenas do video Runway
+- `f401ea3` Wave 2 — feat(proof): trust block concreto consumindo SUPERCLINI_FACTS
+- `95a2b0b` Wave 3 — feat(features): bento grid com spotlight Sofía
 
-**audit-stale**: ✅ zero drift em 3 files
+**Build local**: ✅ exit 0 · 29 páginas SSG · **First Load JS 102 KB shared MANTIDO** (zero regressão do budget crítico) · Home `/[locale]` 51.7→52.7 kB (+1 kB pelo bento spotlight)
+
+**audit-stale**: ✅ zero drift em 3 files através das 3 waves
 
 ---
 
-## Próximas prioridades (próxima sessão)
+## Próximas prioridades (próxima sessão · alvo §15 score 8.5+)
 
-1. **Refatorar `pricing.features.*` cotas** — gerar dinâmicas em Pricing.tsx via `SUPERCLINI_FACTS.aiQuotas` (elimina duplicação i18n × pricing.ts)
-2. **Refatorar `faq.items.6.a`** — enumerar países via `COUNTRY_LIST.map(c => c.name[locale])`
-3. **Sitemap expandido** — incluir todas as rotas (não só landing)
-4. **OG images por idioma** (1200×630) — design e adicionar `og:image` no metadata
-5. **FAQPage Schema.org inline** + BreadcrumbList em sub-páginas
-6. **Lighthouse CI** + bundle analyzer no PR
-7. **Resolver lint debt** — refatorar 4 componentes flagados (LocaleSwitcher, CountryContext, ThemeContext, fade-in-section)
-8. **GitHub Actions deploy pipeline** — depende de respostas humano §10
+Score atual: **7.75/10** · Alvo: 8.5/10 · Gap: 0.75
+
+Pra fechar o gap de "brutal premium" no resto da home + landings:
+
+1. **AISection premium pass** — title "Sofía + IA visual: o time de IA da sua clínica" é forte mas o layout de 3 cards pode virar showcase mais cinematográfico (talvez tabs interativas + mockups upgradados das 3 funções IA)
+2. **Personas BAB** — copy "Para sua realidade" vira "Este é você, hoje" com framework Before-After-Bridge (pain mais visceral, benefit mais quantificado)
+3. **CtaFinal memorável** — bg gradient brand-950, h2 maior, micro-copy específico ("Profesional · 14 dias · sem cartão · cancele em 1 click"), peso visual maior nos botões
+4. **TrustStrip Bloomberg Terminal** — densidade de info, métricas vivas (já tem cifras via FACTS, falta densidade visual)
+5. **FAQ reorganizado por intent** (tech / legal / pricing / onboarding) com tabs
+6. **5 landings polish wave** — cada uma com mini-hero video opcional ou ilustração isométrica
+7. **Refatorar `pricing.features.*` cotas** — gerar dinâmicas em Pricing.tsx via `SUPERCLINI_FACTS.aiQuotas` (elimina duplicação i18n × pricing.ts) — débito SSoT pendente
+8. **Refatorar `faq.items.6.a`** — enumerar países via `COUNTRY_LIST.map(c => c.name[locale])`
+9. **Sitemap expandido** + OG images por idioma (1200×630) + FAQPage Schema.org inline + BreadcrumbList sub-páginas
+10. **Lighthouse CI** + bundle analyzer no PR (target ≥90)
+11. **Resolver lint debt** — 4 componentes flagados (LocaleSwitcher, CountryContext, ThemeContext, fade-in-section)
+12. **GitHub Actions deploy pipeline** — depende de respostas humano §10
 
 ---
 
@@ -175,6 +180,7 @@
 | 2026-05-01 | Wave 1 expandida — countries + Enterprise→Corporativo + audit-stale + Schema.org + hreflang multi-país + ESLint | Migrou 9 strings adicionais, criou audit script, adicionou Schema.org Organization+SoftwareApplication, hreflang 12+ variantes, corrigiu config ESLint | 5.6 / 6.3 |
 | 2026-05-02 | Deploy production + hotfix MISSING_MESSAGE | Primeiro deploy do Next.js 15 completo em superclini.com (commit c92e188 + e060b49). Fix PricingMatrix.tsx renderiza counts numéricos sem passar por i18n. 23 GB de build cache liberados na VPS. | 6.3 / 6.5 |
 | 2026-05-02 | MEGA SESSÃO — 5 landings + Hero MotionSites + Video Runway próprio + NavBar mega-menu + Footer SEO | Entregou em sequência: (1) landing /sofia + 7 componentes reutilizáveis em components/landing/; (2) landing /ia-clinica; (3) landing /clinico + NavBar dropdown "Recursos" + site-nav.ts SSoT; (4) landing /totem + Footer com cross-linking de todas landings; (5) landing /automatizacoes; (6) Hero refeito MotionSites Apple-style com ShinyText framer-motion + NavBar transparent topo da home; (7) HeroVideo com perf best practices (mobile-off, save-data, IntersectionObserver, reduced-motion); (8) Video Runway próprio (Kling 3.0 Pro, 15s, 4 cenas: WhatsApp → totem → secretária IA → dentista) com 6 otimizações ffmpeg (H.264 + WebM dual-codec + 720p tablet + posters WebP + cross-fade loop). Sitemap final: 24 URLs (5 landings × 3 locales + home + contato + privacidade + sitemap/robots). | 6.5 / 7.4 |
+| 2026-05-03 | BRUTAL PREMIUM Waves 1-3 — Hero scene tracker + Proof concreto + Features bento | (1) Hero ESPECTACULAR: copy sincronizado ao video Runway via requestAnimationFrame, eyebrow rotativo formato "01/04 · Sofía no WhatsApp · 24/7" trocando a cada 3.75s, AnimatePresence crossfade 350ms, scene progress indicator 4 barrinhas, fallback cycle 4s mobile/save-data, reduced-motion trava em cena 0, aria-live polite. Refator HeroVideo aceita videoRef+shouldPlay via props. (2) Proof rebuild: substituiu "1 ícone heart + texto vago + link href=# morto" por trust block com 4 telemetry tiles consumindo SUPERCLINI_FACTS (1.925 testes / 9 países / 8 moedas / 3 providers IA) + lista AI providers + lista compliance + linha founded year. Server Component, dl/dt/dd semântico. (3) Features bento grid: spotlight Sofía 2×2 desktop com chat preview de 2 bubbles + CTA /sofia, 8 tiles regulares 1×1, removido items.whatsapp (subsumido), eyebrow honesto "9 destaques de 22 módulos". 3 commits sequenciais (8793f8a, f401ea3, 95a2b0b). First Load JS shared 102 KB MANTIDO, home +1 kB. 18 chaves i18n novas em PT/ES/EN, audit zero drift. | 7.4 / 7.75 |
 
 ---
 
