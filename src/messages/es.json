@@ -306,9 +306,16 @@
   },
   "proof": {
     "eyebrow": "La historia detrás",
-    "title": "Construido junto a dentistas, no para ellos.",
-    "sub": "SuperClini nació de la frustración de un equipo que escuchó a decenas de clínicas antes de escribir la primera línea de código. Nuestra promesa: si tu rutina mejora, la nuestra también.",
-    "ctaStory": "Conocer al equipo"
+    "title": "Construido con clínicas, no para ellas.",
+    "stats": {
+      "tests": "pruebas automáticas",
+      "countries": "países en operación",
+      "currencies": "monedas y fiscal local",
+      "ai": "providers de IA"
+    },
+    "providersLabel": "IA",
+    "complianceLabel": "Compliance",
+    "founded": "Fundado en {year} — decenas de entrevistas con dentistas antes de la primera línea de código."
   },
   "faq": {
     "eyebrow": "Preguntas frecuentes",

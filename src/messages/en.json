@@ -306,9 +306,16 @@
   },
   "proof": {
     "eyebrow": "The story behind",
-    "title": "Built with dentists, not for them.",
-    "sub": "SuperClini was born from the frustration of a team that listened to dozens of clinics before writing the first line of code. Our promise: if your routine improves, ours does too.",
-    "ctaStory": "Meet the team"
+    "title": "Built with clinics, not for them.",
+    "stats": {
+      "tests": "automated tests",
+      "countries": "countries in production",
+      "currencies": "currencies & local tax",
+      "ai": "AI providers"
+    },
+    "providersLabel": "AI",
+    "complianceLabel": "Compliance",
+    "founded": "Founded in {year} — dozens of interviews with dentists before the first line of code."
   },
   "faq": {
     "eyebrow": "FAQ",
