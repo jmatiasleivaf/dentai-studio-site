@@ -51,8 +51,8 @@ export function NavBar() {
   }, [open]);
 
   const headerClass = transparent
-    ? "sticky top-0 z-50 border-b border-transparent bg-transparent transition-colors duration-300"
-    : "sticky top-0 z-50 border-b border-ink-100/60 bg-white/95 backdrop-blur-xl transition-colors duration-300 dark:border-ink-800 dark:bg-ink-950/95";
+    ? "sticky top-0 z-50 border-b border-transparent bg-transparent transition-all duration-300"
+    : "sticky top-0 z-50 border-b border-ink-200/70 bg-white/85 shadow-[0_1px_0_rgba(15,23,42,0.04),0_8px_24px_-12px_rgba(15,23,42,0.15)] backdrop-blur-xl transition-all duration-300 dark:border-white/10 dark:bg-ink-900/80 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_8px_24px_-12px_rgba(0,0,0,0.6)]";
 
   const linkClass = transparent
     ? "text-sm font-medium text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)] transition-colors hover:text-white/90"

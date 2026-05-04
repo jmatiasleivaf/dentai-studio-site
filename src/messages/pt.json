@@ -28,10 +28,10 @@
   "hero": {
     "badge": "Disponível em {count} países",
     "eyebrow": "Software dental com IA · {countries} mercados LATAM",
-    "h1Prefix": "Software dental que ",
-    "h1Highlight": "atende sozinho",
+    "h1Prefix": "Sua agenda ",
+    "h1Highlight": "se enche sozinha",
     "h1Suffix": ".",
-    "sub": "Sofía no WhatsApp 24/7. IA que simula sorrisos, lê radiografias e fecha agenda. DICOM 3D no navegador. Tudo em {countries} mercados, com moeda e fiscal do seu país.",
+    "sub": "Sofía atende WhatsApp e agenda. A IA visual assiste seus diagnósticos. Você decide, sempre. Em {countries} mercados, com sua moeda e fiscal.",
     "ctaPrimary": "Solicitar trial 14 dias",
     "ctaSecondary": "Ver Sofía em ação",
     "dashboardAlt": "Painel SuperClini — agenda do dia, KPIs e Sofía em tempo real",
