@@ -27,8 +27,67 @@
       "totem_desc": "Front desk and check-in, no queues.",
       "automatizacoes": "Automations",
       "automatizacoes_desc": "Cash, billing and payouts on autopilot.",
+      "ayuda": "Help Center",
+      "ayuda_desc": "Guides, tutorials and step-by-step answers.",
       "comingSoon": "Coming soon"
     }
+  },
+  "help": {
+    "meta": {
+      "title": "Help Center — SuperClini",
+      "description": "Guides, tutorials and answers to get the most out of SuperClini: scheduling, Sofía, clinical chart, payments and your country's tax invoicing."
+    },
+    "hero": {
+      "eyebrow": "Help Center · {countries} markets",
+      "q1": "How can we",
+      "qHi": "help",
+      "sub": "Guides, tutorials and answers to get the most out of SuperClini — from scheduling to your country's tax invoicing.",
+      "searchPlaceholder": "Search by topic, feature or question…",
+      "searchAria": "Search the help center",
+      "searchButton": "Search",
+      "noResults": "No results found. Try another word or talk to support.",
+      "popular": ["Set up Sofía", "Import patients", "SII receipts Chile", "Payments & cash", "Public agenda"]
+    },
+    "collections": {
+      "eyebrow": "Browse by topic",
+      "title": "Collections",
+      "sub": "Eight areas cover the whole product. Each with step-by-step guides and didactic illustrations."
+    },
+    "featured": {
+      "eyebrow": "Most read",
+      "title": "Featured articles"
+    },
+    "novedades": {
+      "eyebrow": "Release notes",
+      "title": "Product updates",
+      "sub": "Every improvement that ships to production, explained for your team."
+    },
+    "support": {
+      "title": "Didn't find what you were looking for?",
+      "sub": "Talk to Sofía or our support team. We reply in your language and your country's hours.",
+      "whatsapp": "Message us on WhatsApp",
+      "ticket": "Submit a ticket"
+    },
+    "article": {
+      "count": "{count, plural, one {# article} other {# articles}}",
+      "reading": "{count} min",
+      "updated": "Updated",
+      "author": "SuperClini Team",
+      "toc": "In this guide",
+      "related": "Related articles",
+      "feedbackQuestion": "Was this article helpful?",
+      "feedbackYes": "Yes",
+      "feedbackNo": "No",
+      "feedbackThanks": "Thanks for your feedback!",
+      "stillTitle": "Still stuck?",
+      "stillSub": "Our team replies in minutes."
+    },
+    "breadcrumb": {
+      "recursos": "Resources",
+      "home": "Help Center"
+    },
+    "viewAll": "View all",
+    "inCollection": "Articles in this collection"
   },
   "hero": {
     "badge": "Available in {count} countries",

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { LOCALES } from "@/i18n/routing";
+import { getCategories, getAllArticlePaths } from "@/lib/help";
 
 const BASE = "https://superclini.com";
 
@@ -20,6 +21,18 @@ const ROUTES: Array<{ path: string; priority: number; changeFrequency: "weekly" 
   { path: "/automatizacoes", priority: 0.9, changeFrequency: "weekly" },
   { path: "/contato", priority: 0.7, changeFrequency: "monthly" },
   { path: "/privacidade", priority: 0.4, changeFrequency: "monthly" },
+  // Centro de Ayuda
+  { path: "/ayuda", priority: 0.8, changeFrequency: "weekly" },
+  ...getCategories().map((c) => ({
+    path: `/ayuda/${c.slug}`,
+    priority: 0.6,
+    changeFrequency: "weekly" as const,
+  })),
+  ...getAllArticlePaths().map(({ categorySlug, articleSlug }) => ({
+    path: `/ayuda/${categorySlug}/${articleSlug}`,
+    priority: 0.6,
+    changeFrequency: "monthly" as const,
+  })),
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

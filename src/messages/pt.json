@@ -27,8 +27,67 @@
       "totem_desc": "Recepção e check-in sem filas.",
       "automatizacoes": "Automatizações",
       "automatizacoes_desc": "Caixa, cobranças e repasses no piloto automático.",
+      "ayuda": "Central de Ajuda",
+      "ayuda_desc": "Guias, tutoriais e respostas passo a passo.",
       "comingSoon": "Em breve"
     }
+  },
+  "help": {
+    "meta": {
+      "title": "Central de Ajuda — SuperClini",
+      "description": "Guias, tutoriais e respostas para extrair o máximo do SuperClini: agenda, Sofía, ficha clínica, cobranças e faturamento fiscal do seu país."
+    },
+    "hero": {
+      "eyebrow": "Central de Ajuda · {countries} mercados",
+      "q1": "Em que podemos",
+      "qHi": "ajudar",
+      "sub": "Guias, tutoriais e respostas para extrair o máximo do SuperClini — da agenda ao faturamento fiscal do seu país.",
+      "searchPlaceholder": "Busque por tema, função ou dúvida…",
+      "searchAria": "Buscar na central de ajuda",
+      "searchButton": "Buscar",
+      "noResults": "Não encontramos resultados. Tente outra palavra ou fale com o suporte.",
+      "popular": ["Configurar Sofía", "Importar pacientes", "Boleta SII Chile", "Cobranças e caixa", "Agenda pública"]
+    },
+    "collections": {
+      "eyebrow": "Explore por tema",
+      "title": "Coleções",
+      "sub": "Oito áreas cobrem todo o produto. Cada uma com guias passo a passo e ilustrações didáticas."
+    },
+    "featured": {
+      "eyebrow": "Os mais lidos",
+      "title": "Artigos em destaque"
+    },
+    "novedades": {
+      "eyebrow": "Release notes",
+      "title": "Novidades do produto",
+      "sub": "Cada melhoria que sobe para produção, explicada para o seu time."
+    },
+    "support": {
+      "title": "Não encontrou o que procurava?",
+      "sub": "Fale com a Sofía ou com nosso time de suporte. Respondemos no seu idioma e no horário do seu país.",
+      "whatsapp": "Falar no WhatsApp",
+      "ticket": "Abrir um chamado"
+    },
+    "article": {
+      "count": "{count, plural, one {# artigo} other {# artigos}}",
+      "reading": "{count} min",
+      "updated": "Atualizado",
+      "author": "Equipe SuperClini",
+      "toc": "Neste guia",
+      "related": "Artigos relacionados",
+      "feedbackQuestion": "Este artigo foi útil?",
+      "feedbackYes": "Sim",
+      "feedbackNo": "Não",
+      "feedbackThanks": "Obrigado pelo feedback!",
+      "stillTitle": "Ainda com dúvidas?",
+      "stillSub": "Nosso time responde em minutos."
+    },
+    "breadcrumb": {
+      "recursos": "Recursos",
+      "home": "Central de Ajuda"
+    },
+    "viewAll": "Ver todos",
+    "inCollection": "Artigos nesta coleção"
   },
   "hero": {
     "badge": "Disponível em {count} países",

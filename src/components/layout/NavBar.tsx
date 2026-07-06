@@ -11,6 +11,7 @@ import {
   Stethoscope,
   Tablet,
   Workflow,
+  LifeBuoy,
   Sparkles,
   type LucideIcon,
 } from "lucide-react";
@@ -39,6 +40,7 @@ const RESOURCE_ICONS: Record<string, LucideIcon> = {
   clinico: Stethoscope,
   totem: Tablet,
   automatizacoes: Workflow,
+  ayuda: LifeBuoy,
 };
 
 const PANEL_EASE = [0.22, 1, 0.36, 1] as const;

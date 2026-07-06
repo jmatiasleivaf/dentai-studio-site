@@ -50,7 +50,7 @@ export function Footer() {
           <FooterCol title={t("companyTitle")}>
             <FooterLink href={`/${locale}/contato`}>{t("company.contact")}</FooterLink>
             <FooterLink href="#">{t("company.about")}</FooterLink>
-            <FooterLink href="#">{t("company.help")}</FooterLink>
+            <FooterLink href={`/${locale}/ayuda`}>{t("company.help")}</FooterLink>
           </FooterCol>
 
           <FooterCol title={t("legalTitle")}>
