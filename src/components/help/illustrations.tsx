@@ -125,6 +125,15 @@ export function CategoryIllustration({
           <path d="M18 24l4 4 8-9" stroke="#06b6d4" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       );
+    case "imagenes":
+      return (
+        <svg {...common}>
+          <rect x="7" y="9" width="34" height="26" rx="5" stroke={g} strokeWidth="2.5" />
+          <circle cx="16" cy="18" r="3" stroke={g} strokeWidth="2.2" />
+          <path d="M11 33l9-9 6 5 5-4 6 6" stroke={g} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M34 7l1.4 3.1L38.5 11l-3.1 1.4L34 15l-1.4-2.6L29.5 11l3.1-.9L34 7Z" fill="#7c3aed" />
+        </svg>
+      );
     default:
       return null;
   }

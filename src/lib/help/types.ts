@@ -13,6 +13,7 @@ export type IllustrationKey =
   | "fiscal"
   | "totem"
   | "cuenta"
+  | "imagenes"
   | "flujo-sofia"
   | "flujo-migracion"
   | "pantalla-caja";

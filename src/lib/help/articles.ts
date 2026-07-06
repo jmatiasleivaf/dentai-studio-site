@@ -1,37 +1,40 @@
 import type { Article } from "./types";
 
 /**
- * Seed tri-língue (ES/PT/EN) do Centro de Ayuda. Cada artigo é um objeto tipado;
- * o corpo é um Block[] renderizado por ArticleBody. Adicionar artigo = adicionar
- * um objeto aqui (+ rodar `npm run build` pra validar tipos e i18n).
+ * Conteúdo do Centro de Ayuda — ALTA FIDELIDADE, aterrado no estado real da
+ * plataforma (specs + ~2.434 testes + código, análise jul/2026). Cada artigo é
+ * um objeto tipado; o corpo é um Block[] renderizado por ArticleBody.
+ *
+ * Ola 1 (núcleo, reescrito com fonte): Sofía · Agenda · Ficha clínica · Caja.
+ * Demais coleções: 1 artigo fiel cada (ampliação na Ola 2).
+ * Regra: NUNCA descrever função inexistente (ver plano de conteúdo).
  */
 export const HELP_ARTICLES: readonly Article[] = [
-  // ─────────────────────────── PRIMEROS PASOS ───────────────────────────
+  // ═══════════════════════════ PRIMEROS PASOS ═══════════════════════════
   {
     slug: "migrar-desde-dentalink",
     categoryId: "primeros-pasos",
     updated: "2026-07-01",
-    readingMinutes: 8,
-    featured: true,
-    keywords: ["dentalink", "migracion", "migração", "importar", "traspaso", "cambio"],
-    related: ["configurar-tu-clinica", "activar-agenda-publica"],
+    readingMinutes: 6,
+    keywords: ["dentalink", "migracion", "migração", "importar", "traspaso", "datos"],
+    related: ["configurar-tu-clinica"],
     title: {
-      es: "Migrar desde Dentalink en 5 pasos",
-      pt: "Migrar do Dentalink em 5 passos",
-      en: "Migrate from Dentalink in 5 steps",
+      es: "¿Vienes de Dentalink? Así migramos tus datos",
+      pt: "Vem do Dentalink? Assim migramos seus dados",
+      en: "Coming from Dentalink? How we migrate your data",
     },
     excerpt: {
-      es: "Trae pacientes, historia y agenda desde Dentalink sin perder información ni tiempo de atención.",
-      pt: "Traga pacientes, histórico e agenda do Dentalink sem perder informação nem tempo de atendimento.",
-      en: "Bring patients, history and schedule from Dentalink without losing data or clinic time.",
+      es: "El equipo de SuperClini traspasa tus pacientes, fichas y agenda desde Dentalink. Tú solo revisas.",
+      pt: "A equipe da SuperClini transfere seus pacientes, fichas e agenda do Dentalink. Você só revisa.",
+      en: "The SuperClini team moves your patients, charts and schedule from Dentalink. You just review.",
     },
     body: [
       {
         type: "p",
         text: {
-          es: "Cambiar de sistema asusta, pero la migración desde Dentalink está pensada para que no pierdas nada: pacientes, fichas, tratamientos y agenda llegan a SuperClini listos para usar. Este es el camino completo.",
-          pt: "Trocar de sistema assusta, mas a migração do Dentalink foi pensada para você não perder nada: pacientes, fichas, tratamentos e agenda chegam ao SuperClini prontos para usar. Este é o caminho completo.",
-          en: "Switching systems is scary, but migrating from Dentalink is built so you lose nothing: patients, charts, treatments and schedule arrive in SuperClini ready to use. Here's the full path.",
+          es: "La migración desde Dentalink la realiza el equipo de SuperClini por ti: no es algo que configures sola. Nosotros procesamos tus datos exportados y creamos tu clínica ya lista para trabajar.",
+          pt: "A migração do Dentalink é feita pela equipe da SuperClini para você: não é algo que você configura sozinha. Nós processamos seus dados exportados e criamos sua clínica já pronta para trabalhar.",
+          en: "The migration from Dentalink is done by the SuperClini team for you — it isn't something you set up yourself. We process your exported data and create your clinic ready to work.",
         },
       },
       {
@@ -45,65 +48,40 @@ export const HELP_ARTICLES: readonly Article[] = [
       },
       {
         type: "h2",
-        text: { es: "Antes de empezar", pt: "Antes de começar", en: "Before you start" },
+        text: { es: "Qué se migra", pt: "O que é migrado", en: "What gets migrated" },
       },
       {
         type: "list",
         items: [
           {
-            es: "Ten a mano el usuario administrador de tu Dentalink actual.",
-            pt: "Tenha em mãos o usuário administrador do seu Dentalink atual.",
-            en: "Have the administrator user of your current Dentalink at hand.",
+            es: "Pacientes, fichas clínicas, odontograma, agenda, planes y cuentas por cobrar.",
+            pt: "Pacientes, fichas clínicas, odontograma, agenda, planos e contas a receber.",
+            en: "Patients, clinical charts, odontogram, schedule, plans and receivables.",
           },
           {
-            es: "Define una fecha de corte: hasta ese día se factura en Dentalink, desde el siguiente en SuperClini.",
-            pt: "Defina uma data de corte: até esse dia fatura no Dentalink, a partir do seguinte no SuperClini.",
-            en: "Set a cutover date: bill in Dentalink until that day, in SuperClini from the next one.",
-          },
-        ],
-      },
-      {
-        type: "h2",
-        text: { es: "El proceso", pt: "O processo", en: "The process" },
-      },
-      {
-        type: "steps",
-        items: [
-          {
-            es: "Solicita la exportación de datos en Dentalink (pacientes, historia y agenda).",
-            pt: "Solicite a exportação de dados no Dentalink (pacientes, histórico e agenda).",
-            en: "Request the data export in Dentalink (patients, history and schedule).",
-          },
-          {
-            es: "Súbela en Ajustes → Migración. Detectamos el formato automáticamente.",
-            pt: "Envie em Ajustes → Migração. Detectamos o formato automaticamente.",
-            en: "Upload it under Settings → Migration. We detect the format automatically.",
-          },
-          {
-            es: "Revisa el resumen: cuántos pacientes, fichas y citas se van a importar.",
-            pt: "Revise o resumo: quantos pacientes, fichas e consultas serão importados.",
-            en: "Review the summary: how many patients, charts and appointments will be imported.",
-          },
-          {
-            es: "Confirma. La importación corre en segundo plano y te avisa al terminar.",
-            pt: "Confirme. A importação roda em segundo plano e avisa ao terminar.",
-            en: "Confirm. The import runs in the background and notifies you when done.",
-          },
-          {
-            es: "Valida una muestra de pacientes y activa tu agenda pública.",
-            pt: "Valide uma amostra de pacientes e ative sua agenda pública.",
-            en: "Validate a sample of patients and turn on your public agenda.",
+            es: "Antecedentes médicos (alergias, medicamentos) que Dentalink no exporta en bloque, cuando es posible recuperarlos.",
+            pt: "Antecedentes médicos (alergias, medicamentos) que o Dentalink não exporta em bloco, quando é possível recuperá-los.",
+            en: "Medical history (allergies, medications) that Dentalink doesn't bulk-export, when it can be recovered.",
           },
         ],
       },
       {
         type: "callout",
-        tone: "info",
-        title: { es: "Sin doble carga", pt: "Sem carga dupla", en: "No double entry" },
+        tone: "warn",
+        title: { es: "Todavía no migran las imágenes", pt: "Ainda não migram as imagens", en: "Images don't migrate yet" },
         text: {
-          es: "Durante la migración no necesitas registrar nada dos veces: trabaja normal en Dentalink hasta la fecha de corte.",
-          pt: "Durante a migração você não precisa registrar nada duas vezes: trabalhe normal no Dentalink até a data de corte.",
-          en: "During migration you never enter anything twice: keep working normally in Dentalink until the cutover date.",
+          es: "Radiografías, DICOM y archivos de examen aún no se traspasan automáticamente. Se cargan después, dentro de SuperClini.",
+          pt: "Radiografias, DICOM e arquivos de exame ainda não são transferidos automaticamente. São carregados depois, dentro do SuperClini.",
+          en: "Radiographs, DICOM and exam files aren't transferred automatically yet. They're uploaded afterwards, inside SuperClini.",
+        },
+      },
+      {
+        type: "callout",
+        tone: "info",
+        text: {
+          es: "Hoy migramos desde Dentalink (Chile), una sucursal por vez. Tras la migración, el administrador entra con una contraseña provisional y la cambia en el primer acceso.",
+          pt: "Hoje migramos do Dentalink (Chile), uma filial por vez. Após a migração, o administrador entra com uma senha provisória e a troca no primeiro acesso.",
+          en: "Today we migrate from Dentalink (Chile), one branch at a time. After migration, the admin signs in with a temporary password and changes it on first login.",
         },
       },
     ],
@@ -113,222 +91,105 @@ export const HELP_ARTICLES: readonly Article[] = [
     categoryId: "primeros-pasos",
     updated: "2026-06-20",
     readingMinutes: 5,
-    keywords: ["configuracion", "clinica", "clínica", "setup", "zona horaria", "sucursal"],
-    related: ["migrar-desde-dentalink", "usuarios-y-permisos"],
+    keywords: ["configuracion", "clinica", "horario", "zona horaria", "logo", "region"],
+    related: ["migrar-desde-dentalink", "usuarios-y-roles"],
     title: {
-      es: "Configura tu clínica en 10 minutos",
-      pt: "Configure sua clínica em 10 minutos",
-      en: "Set up your clinic in 10 minutes",
+      es: "Configurar tu clínica: datos, horario y zona horaria",
+      pt: "Configurar sua clínica: dados, horário e fuso",
+      en: "Set up your clinic: details, hours and time zone",
     },
     excerpt: {
-      es: "Datos, horario de atención, zona horaria y profesionales: lo mínimo para empezar a agendar.",
-      pt: "Dados, horário de atendimento, fuso horário e profissionais: o mínimo para começar a agendar.",
-      en: "Details, opening hours, time zone and professionals: the minimum to start booking.",
+      es: "Todo lo esencial vive en Configuraciones, organizado en pestañas. Empieza por aquí.",
+      pt: "Tudo o essencial vive em Configurações, organizado em abas. Comece por aqui.",
+      en: "Everything essential lives in Settings, organized in tabs. Start here.",
     },
     body: [
       {
         type: "p",
         text: {
-          es: "La configuración inicial define cómo funciona todo lo demás. Vale la pena dedicarle diez minutos bien puestos.",
-          pt: "A configuração inicial define como tudo o resto funciona. Vale a pena dedicar dez minutos bem gastos.",
-          en: "The initial setup defines how everything else works. It's worth ten well-spent minutes.",
+          es: "En el menú Configuraciones encuentras todo lo de tu clínica, repartido en pestañas. Estas son las que usarás al empezar.",
+          pt: "No menu Configurações você encontra tudo da sua clínica, dividido em abas. Estas são as que você usará ao começar.",
+          en: "In the Settings menu you'll find everything about your clinic, split into tabs. These are the ones you'll use to start.",
         },
       },
       {
         type: "steps",
         items: [
           {
-            es: "En Ajustes → Clínica, completa nombre, dirección y logo.",
-            pt: "Em Ajustes → Clínica, preencha nome, endereço e logo.",
-            en: "Under Settings → Clinic, fill in name, address and logo.",
+            es: "Clínica: carga tu logo y completa nombre, dirección, teléfono y datos de contacto.",
+            pt: "Clínica: envie seu logo e preencha nome, endereço, telefone e dados de contato.",
+            en: "Clinic: upload your logo and fill in name, address, phone and contact details.",
           },
           {
-            es: "Define la zona horaria de tu país: de ella dependen agenda, recordatorios y reportes.",
-            pt: "Defina o fuso horário do seu país: dele dependem agenda, lembretes e relatórios.",
-            en: "Set your country's time zone: agenda, reminders and reports all depend on it.",
+            es: "Agenda: define el horario de apertura y cierre, los días laborales y la duración de la consulta.",
+            pt: "Agenda: defina o horário de abertura e fechamento, os dias úteis e a duração da consulta.",
+            en: "Agenda: set opening and closing hours, working days and the appointment duration.",
           },
           {
-            es: "Configura el horario de atención por día de la semana.",
-            pt: "Configure o horário de atendimento por dia da semana.",
-            en: "Configure opening hours per weekday.",
-          },
-          {
-            es: "Agrega a tus profesionales e invita al equipo.",
-            pt: "Adicione seus profissionais e convide a equipe.",
-            en: "Add your professionals and invite the team.",
+            es: "Región: revisa país, moneda y zona horaria. Agrega a tus profesionales desde Administración.",
+            pt: "Região: revise país, moeda e fuso. Adicione seus profissionais em Administração.",
+            en: "Region: check country, currency and time zone. Add your professionals from Administration.",
           },
         ],
       },
       {
         type: "callout",
-        tone: "warn",
-        title: { es: "La zona horaria primero", pt: "O fuso horário primeiro", en: "Time zone first" },
+        tone: "info",
+        title: { es: "País y moneda los define la plataforma", pt: "País e moeda são definidos pela plataforma", en: "Country and currency are set by the platform" },
         text: {
-          es: "Configúrala antes de crear citas. Si la cambias después, revisa que los horarios existentes queden correctos.",
-          pt: "Configure-o antes de criar consultas. Se mudar depois, confira se os horários existentes ficam corretos.",
-          en: "Set it before creating appointments. If you change it later, check that existing times stay correct.",
+          es: "En la pestaña Región, el país, la moneda y el idioma son de solo lectura. La zona horaria solo se puede cambiar en países con más de un huso (como Brasil o Chile).",
+          pt: "Na aba Região, o país, a moeda e o idioma são somente leitura. O fuso só pode ser alterado em países com mais de um fuso (como Brasil ou Chile).",
+          en: "In the Region tab, country, currency and language are read-only. The time zone can only be changed in countries with more than one zone (like Brazil or Chile).",
         },
       },
     ],
   },
 
-  // ─────────────────────────────── SOFÍA ───────────────────────────────
+  // ══════════════════════════════ AGENDA ══════════════════════════════
   {
-    slug: "configurar-sofia-whatsapp",
-    categoryId: "sofia",
-    updated: "2026-07-01",
-    readingMinutes: 6,
+    slug: "agendar-una-cita",
+    categoryId: "agenda",
+    updated: "2026-06-25",
+    readingMinutes: 5,
     featured: true,
-    keywords: ["sofia", "whatsapp", "ia", "bot", "agente", "qr", "conectar", "evolution"],
-    related: ["definir-allowlist-sofia", "activar-agenda-publica"],
+    keywords: ["agenda", "cita", "consulta", "agendar", "vista", "lista", "dia", "semana"],
+    related: ["mover-una-cita", "estados-y-check-in", "activar-agenda-publica"],
     title: {
-      es: "Cómo configurar a Sofía para responder en WhatsApp",
-      pt: "Como configurar a Sofía para responder no WhatsApp",
-      en: "How to set up Sofía to reply on WhatsApp",
+      es: "Agendar una cita y las vistas de agenda",
+      pt: "Agendar uma consulta e as vistas da agenda",
+      en: "Book an appointment and the agenda views",
     },
     excerpt: {
-      es: "Deja a tu asistente de IA atendiendo WhatsApp y agendando citas en menos de 10 minutos.",
-      pt: "Deixe seu assistente de IA atendendo o WhatsApp e agendando consultas em menos de 10 minutos.",
-      en: "Get your AI assistant answering WhatsApp and booking appointments in under 10 minutes.",
+      es: "Crea citas en segundos y alterna entre las vistas Lista, Día y Semana.",
+      pt: "Crie consultas em segundos e alterne entre as vistas Lista, Dia e Semana.",
+      en: "Create appointments in seconds and switch between List, Day and Week views.",
     },
     body: [
       {
         type: "p",
         text: {
-          es: "Sofía es tu asistente de IA que atiende WhatsApp, agenda citas y responde dudas frecuentes las 24 horas. En esta guía la dejas funcionando rápido, tú siempre con el control.",
-          pt: "Sofía é seu assistente de IA que atende o WhatsApp, agenda consultas e responde dúvidas frequentes 24 horas. Neste guia você a deixa funcionando rápido, você sempre no controle.",
-          en: "Sofía is your AI assistant that answers WhatsApp, books appointments and handles FAQs 24/7. In this guide you get her running fast, with you always in control.",
-        },
-      },
-      {
-        type: "h2",
-        text: { es: "Antes de empezar", pt: "Antes de começar", en: "Before you start" },
-      },
-      {
-        type: "p",
-        text: {
-          es: "Necesitas un número de WhatsApp dedicado a la clínica y el rol de administrador en SuperClini.",
-          pt: "Você precisa de um número de WhatsApp dedicado à clínica e o papel de administrador no SuperClini.",
-          en: "You need a WhatsApp number dedicated to the clinic and the administrator role in SuperClini.",
-        },
-      },
-      {
-        type: "illustration",
-        illustration: "flujo-sofia",
-        caption: {
-          es: "El paciente escribe, Sofía responde y agenda, tu equipo confirma en la agenda.",
-          pt: "O paciente escreve, Sofía responde e agenda, sua equipe confirma na agenda.",
-          en: "The patient writes, Sofía replies and books, your team confirms in the agenda.",
-        },
-      },
-      {
-        type: "h2",
-        text: { es: "Conectar WhatsApp", pt: "Conectar o WhatsApp", en: "Connect WhatsApp" },
-      },
-      {
-        type: "steps",
-        items: [
-          {
-            es: "Entra en Ajustes → Sofía y pulsa «Conectar número».",
-            pt: "Entre em Ajustes → Sofía e clique em «Conectar número».",
-            en: "Go to Settings → Sofía and click “Connect number”.",
-          },
-          {
-            es: "Escanea el código QR con el WhatsApp de la clínica.",
-            pt: "Escaneie o código QR com o WhatsApp da clínica.",
-            en: "Scan the QR code with the clinic's WhatsApp.",
-          },
-          {
-            es: "Espera el estado «Conectado» en verde. Listo: Sofía ya escucha.",
-            pt: "Aguarde o status «Conectado» em verde. Pronto: a Sofía já escuta.",
-            en: "Wait for the green “Connected” status. Done: Sofía is now listening.",
-          },
-        ],
-      },
-      {
-        type: "callout",
-        tone: "success",
-        title: { es: "Tú decides, siempre", pt: "Você decide, sempre", en: "You decide, always" },
-        text: {
-          es: "Sofía nunca cierra una cita fuera de las reglas que definiste. Puedes pausarla con un toque y retomar cuando quieras.",
-          pt: "A Sofía nunca fecha uma consulta fora das regras que você definiu. Você pode pausá-la com um toque e retomar quando quiser.",
-          en: "Sofía never books outside the rules you set. You can pause her with one tap and resume whenever you want.",
-        },
-      },
-      {
-        type: "faq",
-        items: [
-          {
-            q: {
-              es: "¿Puedo usar mi número personal?",
-              pt: "Posso usar meu número pessoal?",
-              en: "Can I use my personal number?",
-            },
-            a: {
-              es: "Recomendamos un número dedicado a la clínica para separar la atención de tu vida personal.",
-              pt: "Recomendamos um número dedicado à clínica para separar o atendimento da sua vida pessoal.",
-              en: "We recommend a number dedicated to the clinic to keep patient care separate from your personal life.",
-            },
-          },
-          {
-            q: {
-              es: "¿Sofía responde de madrugada?",
-              pt: "A Sofía responde de madrugada?",
-              en: "Does Sofía reply at night?",
-            },
-            a: {
-              es: "Sí, atiende 24/7. Puedes definir un mensaje distinto para el horario en que la clínica está cerrada.",
-              pt: "Sim, atende 24/7. Você pode definir uma mensagem diferente para o horário em que a clínica está fechada.",
-              en: "Yes, she works 24/7. You can set a different message for hours when the clinic is closed.",
-            },
-          },
-        ],
-      },
-    ],
-  },
-  {
-    slug: "definir-allowlist-sofia",
-    categoryId: "sofia",
-    updated: "2026-06-18",
-    readingMinutes: 4,
-    keywords: ["allowlist", "numeros", "números", "permitir", "grupos", "spam", "seguridad"],
-    related: ["configurar-sofia-whatsapp"],
-    title: {
-      es: "Controlar a quién responde Sofía (allowlist)",
-      pt: "Controlar para quem a Sofía responde (allowlist)",
-      en: "Control who Sofía replies to (allowlist)",
-    },
-    excerpt: {
-      es: "Define qué números o grupos puede atender Sofía para evitar respuestas no deseadas.",
-      pt: "Defina quais números ou grupos a Sofía pode atender para evitar respostas indesejadas.",
-      en: "Define which numbers or groups Sofía can handle to avoid unwanted replies.",
-    },
-    body: [
-      {
-        type: "p",
-        text: {
-          es: "La allowlist es tu filtro de seguridad: decide en qué conversaciones participa Sofía y en cuáles se mantiene en silencio.",
-          pt: "A allowlist é seu filtro de segurança: decide em quais conversas a Sofía participa e em quais fica em silêncio.",
-          en: "The allowlist is your safety filter: it decides which conversations Sofía joins and which she stays silent in.",
+          es: "La agenda vive en el menú Agenda. Tiene tres vistas que cambias en la parte superior: Lista, Día y Semana. Navegas con Anterior, Hoy y Siguiente.",
+          pt: "A agenda vive no menu Agenda. Tem três vistas que você troca no topo: Lista, Dia e Semana. Você navega com Anterior, Hoje e Seguinte.",
+          en: "The agenda lives in the Agenda menu. It has three views you switch at the top: List, Day and Week. Navigate with Previous, Today and Next.",
         },
       },
       {
         type: "steps",
         items: [
           {
-            es: "Abre Ajustes → Sofía → Allowlist.",
-            pt: "Abra Ajustes → Sofía → Allowlist.",
-            en: "Open Settings → Sofía → Allowlist.",
+            es: "Pulsa el botón + o haz clic en un espacio libre del calendario.",
+            pt: "Clique no botão + ou clique em um espaço livre do calendário.",
+            en: "Click the + button or click an empty slot in the calendar.",
           },
           {
-            es: "Elige el modo: responder a todos, o solo a la lista permitida.",
-            pt: "Escolha o modo: responder a todos, ou só à lista permitida.",
-            en: "Choose the mode: reply to everyone, or only to the allowed list.",
+            es: "Elige el paciente y el profesional, y ajusta la hora de inicio y fin.",
+            pt: "Escolha o paciente e o profissional, e ajuste a hora de início e fim.",
+            en: "Choose the patient and professional, and set the start and end time.",
           },
           {
-            es: "Agrega números o grupos y guarda.",
-            pt: "Adicione números ou grupos e salve.",
-            en: "Add numbers or groups and save.",
+            es: "Guarda. La cita aparece en la agenda con el color del profesional.",
+            pt: "Salve. A consulta aparece na agenda com a cor do profissional.",
+            en: "Save. The appointment shows on the agenda in the professional's color.",
           },
         ],
       },
@@ -336,27 +197,233 @@ export const HELP_ARTICLES: readonly Article[] = [
         type: "callout",
         tone: "info",
         text: {
-          es: "En grupos, Sofía solo responde si la mencionan. Así no interrumpe conversaciones internas del equipo.",
-          pt: "Em grupos, a Sofía só responde se for mencionada. Assim não interrompe conversas internas da equipe.",
-          en: "In groups, Sofía only replies when mentioned. That way she never interrupts internal team chats.",
+          es: "Si el paciente tiene deuda o su registro está incompleto, la cita muestra un aviso para que lo resuelvas antes de la atención.",
+          pt: "Se o paciente tem débito ou o cadastro está incompleto, a consulta mostra um aviso para você resolver antes do atendimento.",
+          en: "If the patient has debt or an incomplete record, the appointment shows a warning so you can fix it before the visit.",
         },
       },
     ],
   },
-
-  // ─────────────────────────────── AGENDA ───────────────────────────────
+  {
+    slug: "mover-una-cita",
+    categoryId: "agenda",
+    updated: "2026-06-25",
+    readingMinutes: 3,
+    keywords: ["mover", "arrastrar", "drag", "duracion", "reprogramar", "granularidad"],
+    related: ["agendar-una-cita"],
+    title: {
+      es: "Mover una cita y cambiar su duración",
+      pt: "Mover uma consulta e mudar a duração",
+      en: "Move an appointment and change its duration",
+    },
+    excerpt: {
+      es: "Arrastra para reprogramar y estira el borde para cambiar la duración.",
+      pt: "Arraste para reprogramar e estique a borda para mudar a duração.",
+      en: "Drag to reschedule and stretch the edge to change the duration.",
+    },
+    body: [
+      {
+        type: "p",
+        text: {
+          es: "En las vistas Día y Semana puedes reorganizar la agenda directamente con el mouse o el dedo.",
+          pt: "Nas vistas Dia e Semana você reorganiza a agenda direto com o mouse ou o dedo.",
+          en: "In Day and Week views you can rearrange the agenda directly with the mouse or your finger.",
+        },
+      },
+      {
+        type: "list",
+        items: [
+          {
+            es: "Arrastra la cita a otro horario: se actualiza al instante y avisa si algo falla.",
+            pt: "Arraste a consulta para outro horário: atualiza na hora e avisa se algo falhar.",
+            en: "Drag the appointment to another time: it updates instantly and warns you if something fails.",
+          },
+          {
+            es: "Estira el borde inferior para alargar o acortar la duración.",
+            pt: "Estique a borda inferior para alongar ou encurtar a duração.",
+            en: "Stretch the bottom edge to lengthen or shorten the duration.",
+          },
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        text: {
+          es: "La rejilla se ajusta a bloques de 15 minutos y el arrastre se acomoda a la duración de consulta que configuraste en tu clínica.",
+          pt: "A grade trabalha em blocos de 15 minutos e o arrasto se acomoda à duração de consulta configurada na sua clínica.",
+          en: "The grid works in 15-minute blocks and dragging snaps to the appointment duration you configured for your clinic.",
+        },
+      },
+    ],
+  },
+  {
+    slug: "estados-y-check-in",
+    categoryId: "agenda",
+    updated: "2026-06-04",
+    readingMinutes: 4,
+    keywords: ["estado", "confirmado", "realizado", "falto", "check-in", "atencion", "iniciar"],
+    related: ["agendar-una-cita"],
+    title: {
+      es: "Estados de la cita e inicio de atención",
+      pt: "Estados da consulta e início do atendimento",
+      en: "Appointment states and starting the visit",
+    },
+    excerpt: {
+      es: "De agendado a realizado: cómo avanza una cita y cómo marcas el check-in.",
+      pt: "De agendado a realizado: como uma consulta avança e como marcar o check-in.",
+      en: "From booked to done: how an appointment progresses and how you mark check-in.",
+    },
+    body: [
+      {
+        type: "p",
+        text: {
+          es: "Cada cita tiene un estado que refleja en qué punto está la atención. Los cambias desde la propia cita.",
+          pt: "Cada consulta tem um estado que reflete em que ponto está o atendimento. Você os muda na própria consulta.",
+          en: "Each appointment has a state that reflects where the visit stands. You change it from the appointment itself.",
+        },
+      },
+      {
+        type: "list",
+        items: [
+          {
+            es: "Estados: agendado, confirmado, realizado, cancelado y no asistió (faltó). Tu clínica puede tener estados propios.",
+            pt: "Estados: agendado, confirmado, realizado, cancelado e não compareceu (faltou). Sua clínica pode ter estados próprios.",
+            en: "States: booked, confirmed, done, cancelled and no-show. Your clinic can have custom states.",
+          },
+          {
+            es: "Al iniciar la atención, la cita pasa a confirmado y entra en curso; al finalizar, queda como realizado.",
+            pt: "Ao iniciar o atendimento, a consulta vira confirmado e entra em curso; ao finalizar, fica como realizado.",
+            en: "When you start the visit, the appointment turns confirmed and goes in progress; when you finish, it becomes done.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "bloquear-horarios",
+    categoryId: "agenda",
+    updated: "2026-06-04",
+    readingMinutes: 3,
+    keywords: ["bloqueo", "bloquear", "vacaciones", "almuerzo", "ausencia", "candado"],
+    related: ["agendar-una-cita", "activar-agenda-publica"],
+    title: {
+      es: "Bloquear horarios en la agenda",
+      pt: "Bloquear horários na agenda",
+      en: "Block times on the agenda",
+    },
+    excerpt: {
+      es: "Vacaciones, almuerzo o ausencias: reserva franjas para que nadie agende encima.",
+      pt: "Férias, almoço ou ausências: reserve faixas para ninguém agendar por cima.",
+      en: "Holidays, lunch or absences: reserve slots so no one books over them.",
+    },
+    body: [
+      {
+        type: "p",
+        text: {
+          es: "Los bloqueos marcan una franja como no disponible. Se crean desde la propia agenda con el botón Bloquear (el candado).",
+          pt: "Os bloqueios marcam uma faixa como indisponível. São criados na própria agenda com o botão Bloquear (o cadeado).",
+          en: "Blocks mark a slot as unavailable. You create them from the agenda with the Block button (the padlock).",
+        },
+      },
+      {
+        type: "steps",
+        items: [
+          {
+            es: "Pulsa Bloquear y elige el profesional, el inicio, el fin y el motivo (ej.: almuerzo, vacaciones).",
+            pt: "Clique em Bloquear e escolha o profissional, o início, o fim e o motivo (ex.: almoço, férias).",
+            en: "Click Block and choose the professional, start, end and reason (e.g. lunch, holidays).",
+          },
+          {
+            es: "Guarda. Ese horario queda cerrado para nuevas citas.",
+            pt: "Salve. Esse horário fica fechado para novas consultas.",
+            en: "Save. That time is now closed to new appointments.",
+          },
+        ],
+      },
+      {
+        type: "callout",
+        tone: "success",
+        text: {
+          es: "Los bloqueos se respetan en todo: al agendar manualmente aparece un aviso, y la agenda pública nunca ofrece un horario bloqueado.",
+          pt: "Os bloqueios são respeitados em tudo: ao agendar manualmente aparece um aviso, e a agenda pública nunca oferece um horário bloqueado.",
+          en: "Blocks are respected everywhere: booking manually shows a warning, and the public agenda never offers a blocked slot.",
+        },
+      },
+      {
+        type: "callout",
+        tone: "info",
+        text: {
+          es: "Un profesional bloquea solo su propia agenda; un administrador puede bloquear la de cualquiera.",
+          pt: "Um profissional bloqueia só a própria agenda; um administrador pode bloquear a de qualquer um.",
+          en: "A professional blocks only their own agenda; an administrator can block anyone's.",
+        },
+      },
+    ],
+  },
+  {
+    slug: "recordatorios-de-citas",
+    categoryId: "agenda",
+    updated: "2026-06-01",
+    readingMinutes: 3,
+    keywords: ["recordatorio", "aviso", "email", "correo", "notificacion", "confirmacion"],
+    related: ["agendar-una-cita"],
+    title: {
+      es: "Recordatorios y confirmaciones de cita",
+      pt: "Lembretes e confirmações de consulta",
+      en: "Appointment reminders and confirmations",
+    },
+    excerpt: {
+      es: "Qué aviso sale por email, qué sale por WhatsApp y cuándo.",
+      pt: "Qual aviso sai por email, qual sai por WhatsApp e quando.",
+      en: "Which notice goes by email, which goes by WhatsApp, and when.",
+    },
+    body: [
+      {
+        type: "p",
+        text: {
+          es: "Los avisos se configuran en Configuraciones, sección Notificaciones. Hay dos momentos distintos: la confirmación al agendar y el recordatorio del día anterior.",
+          pt: "Os avisos são configurados em Configurações, seção Notificações. Há dois momentos distintos: a confirmação ao agendar e o lembrete do dia anterior.",
+          en: "Notices are set in Settings, Notifications section. There are two distinct moments: the confirmation at booking and the day-before reminder.",
+        },
+      },
+      {
+        type: "list",
+        items: [
+          {
+            es: "Recordatorio automático del día anterior: se envía por e-mail (si el paciente tiene correo).",
+            pt: "Lembrete automático do dia anterior: enviado por e-mail (se o paciente tiver e-mail).",
+            en: "Automatic day-before reminder: sent by e-mail (if the patient has an email).",
+          },
+          {
+            es: "Confirmación al agendar: puede salir por e-mail y, opcionalmente, por WhatsApp.",
+            pt: "Confirmação ao agendar: pode sair por e-mail e, opcionalmente, por WhatsApp.",
+            en: "Confirmation at booking: can go by e-mail and, optionally, by WhatsApp.",
+          },
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        text: {
+          es: "El recordatorio recurrente es del día anterior por correo. Para conversación y agendamiento por WhatsApp 24/7, esa es la función de Sofía.",
+          pt: "O lembrete recorrente é do dia anterior por e-mail. Para conversa e agendamento por WhatsApp 24/7, essa é a função da Sofía.",
+          en: "The recurring reminder is day-before by email. For 24/7 WhatsApp conversation and booking, that's Sofía's job.",
+        },
+      },
+    ],
+  },
   {
     slug: "activar-agenda-publica",
     categoryId: "agenda",
     updated: "2026-06-25",
-    readingMinutes: 6,
+    readingMinutes: 5,
     featured: true,
-    keywords: ["agenda publica", "agenda pública", "reservas online", "link", "horizonte", "bloqueos"],
-    related: ["configurar-sofia-whatsapp", "configurar-tu-clinica"],
+    keywords: ["agenda publica", "reservas online", "link", "horizonte", "reserva", "online"],
+    related: ["agendar-una-cita", "que-hace-sofia"],
     title: {
-      es: "Activar la agenda pública de reservas",
-      pt: "Ativar a agenda pública de reservas",
-      en: "Turn on the public booking agenda",
+      es: "Activar la agenda pública (reservas online)",
+      pt: "Ativar a agenda pública (reservas online)",
+      en: "Turn on the public agenda (online booking)",
     },
     excerpt: {
       es: "Un enlace para que tus pacientes reserven solos, respetando tus horarios y bloqueos.",
@@ -367,33 +434,28 @@ export const HELP_ARTICLES: readonly Article[] = [
       {
         type: "p",
         text: {
-          es: "La agenda pública es un enlace que compartes en tu Instagram, web o WhatsApp. El paciente ve tus horarios reales y reserva sin llamar.",
-          pt: "A agenda pública é um link que você compartilha no Instagram, site ou WhatsApp. O paciente vê seus horários reais e reserva sem ligar.",
-          en: "The public agenda is a link you share on Instagram, your site or WhatsApp. Patients see your real availability and book without calling.",
+          es: "La agenda pública se activa en Configuraciones, en la pestaña de agendamiento Online. Es un interruptor maestro: mientras esté apagado, los enlaces no funcionan.",
+          pt: "A agenda pública é ativada em Configurações, na aba de agendamento Online. É um interruptor mestre: enquanto estiver desligado, os links não funcionam.",
+          en: "The public agenda is enabled in Settings, in the Online booking tab. It's a master switch: while it's off, the links don't work.",
         },
       },
       {
         type: "steps",
         items: [
           {
-            es: "Ve a Ajustes → Agenda pública y actívala.",
-            pt: "Vá em Ajustes → Agenda pública e ative-a.",
-            en: "Go to Settings → Public agenda and enable it.",
+            es: "Activa el agendamiento online y define el horizonte de reserva (cuántos días hacia adelante, de 1 a 365; por defecto 60).",
+            pt: "Ative o agendamento online e defina o horizonte de reserva (quantos dias à frente, de 1 a 365; padrão 60).",
+            en: "Turn on online booking and set the booking horizon (how many days ahead, from 1 to 365; default 60).",
           },
           {
-            es: "Define el horizonte de reserva (por ejemplo, hasta 60 días adelante).",
-            pt: "Defina o horizonte de reserva (por exemplo, até 60 dias à frente).",
-            en: "Set the booking horizon (for example, up to 60 days ahead).",
+            es: "Crea el link general de la clínica (solo administradores) y compártelo en tus redes o web.",
+            pt: "Crie o link geral da clínica (só administradores) e compartilhe nas suas redes ou site.",
+            en: "Create the clinic's general link (admins only) and share it on your social media or website.",
           },
           {
-            es: "Elige qué profesionales y servicios se pueden reservar en línea.",
-            pt: "Escolha quais profissionais e serviços podem ser reservados online.",
-            en: "Choose which professionals and services can be booked online.",
-          },
-          {
-            es: "Copia el enlace y compártelo donde están tus pacientes.",
-            pt: "Copie o link e compartilhe onde estão seus pacientes.",
-            en: "Copy the link and share it where your patients are.",
+            es: "Para un paciente puntual, genera un link personal desde su ficha: caduca en 7 días y es de un solo uso.",
+            pt: "Para um paciente específico, gere um link pessoal na ficha dele: expira em 7 dias e é de uso único.",
+            en: "For a specific patient, generate a personal link from their chart: it expires in 7 days and is single-use.",
           },
         ],
       },
@@ -402,350 +464,918 @@ export const HELP_ARTICLES: readonly Article[] = [
         tone: "success",
         title: { es: "Tus bloqueos se respetan", pt: "Seus bloqueios são respeitados", en: "Your blocks are respected" },
         text: {
-          es: "La agenda pública nunca ofrece un horario bloqueado ni superpone citas: lee tu disponibilidad real en tiempo real.",
-          pt: "A agenda pública nunca oferece um horário bloqueado nem sobrepõe consultas: lê sua disponibilidade real em tempo real.",
-          en: "The public agenda never offers a blocked slot or overlaps appointments: it reads your real availability in real time.",
+          es: "La agenda pública nunca ofrece un horario bloqueado ni superpone citas, y lee tu disponibilidad en tu zona horaria. Un paciente con una cita futura no puede reservar otra por error.",
+          pt: "A agenda pública nunca oferece um horário bloqueado nem sobrepõe consultas, e lê sua disponibilidade no seu fuso. Um paciente com consulta futura não pode reservar outra por engano.",
+          en: "The public agenda never offers a blocked slot or overlaps appointments, and reads your availability in your time zone. A patient with a future appointment can't accidentally book another.",
         },
       },
     ],
   },
 
-  // ────────────────────────────── FINANZAS ──────────────────────────────
+  // ══════════════════════════════ SOFÍA ══════════════════════════════
   {
-    slug: "abrir-y-cerrar-caja",
-    categoryId: "finanzas",
-    updated: "2026-06-15",
+    slug: "conectar-whatsapp",
+    categoryId: "sofia",
+    updated: "2026-07-01",
     readingMinutes: 5,
-    featured: true,
-    keywords: ["caja", "caixa", "cierre", "arqueo", "efectivo", "cobros", "cobranças"],
-    related: ["activar-boleta-sii-chile"],
+    keywords: ["whatsapp", "conectar", "qr", "codigo", "vincular", "numero", "evolution"],
+    related: ["que-hace-sofia", "asumir-conversacion"],
     title: {
-      es: "Abrir y cerrar caja: el flujo diario",
-      pt: "Abrir e fechar o caixa: o fluxo diário",
-      en: "Opening and closing the cash drawer: the daily flow",
+      es: "Conectar el WhatsApp de tu clínica (código QR)",
+      pt: "Conectar o WhatsApp da sua clínica (código QR)",
+      en: "Connect your clinic's WhatsApp (QR code)",
     },
     excerpt: {
-      es: "Cómo funciona la caja por usuario, el cierre del día y el arqueo sin sorpresas.",
-      pt: "Como funciona o caixa por usuário, o fechamento do dia e a conferência sem surpresas.",
-      en: "How the per-user cash drawer works, the daily close and reconciliation without surprises.",
+      es: "Vincula tu número escaneando un QR, igual que WhatsApp Web. Todo desde el menú WhatsApp.",
+      pt: "Vincule seu número escaneando um QR, igual ao WhatsApp Web. Tudo no menu WhatsApp.",
+      en: "Link your number by scanning a QR, just like WhatsApp Web. All from the WhatsApp menu.",
     },
     body: [
       {
         type: "p",
         text: {
-          es: "Cada usuario tiene su propia caja. Se abre al empezar el día y se cierra al terminar, dejando un registro claro de todo lo cobrado.",
-          pt: "Cada usuário tem seu próprio caixa. Abre ao começar o dia e fecha ao terminar, deixando um registro claro de tudo o que foi cobrado.",
-          en: "Each user has their own drawer. It opens at the start of the day and closes at the end, leaving a clear record of everything collected.",
-        },
-      },
-      {
-        type: "illustration",
-        illustration: "pantalla-caja",
-        caption: {
-          es: "El cierre compara lo esperado con lo contado y muestra la diferencia.",
-          pt: "O fechamento compara o esperado com o contado e mostra a diferença.",
-          en: "The close compares expected vs. counted and shows the difference.",
+          es: "Todo lo de Sofía vive en el menú WhatsApp. Lo primero es vincular el número de la clínica escaneando un código QR (el mismo mecanismo de WhatsApp Web).",
+          pt: "Tudo da Sofía vive no menu WhatsApp. O primeiro passo é vincular o número da clínica escaneando um código QR (o mesmo mecanismo do WhatsApp Web).",
+          en: "Everything about Sofía lives in the WhatsApp menu. The first step is to link the clinic's number by scanning a QR code (the same mechanism as WhatsApp Web).",
         },
       },
       {
         type: "steps",
         items: [
           {
-            es: "Al primer cobro del día, la caja se abre automáticamente a tu nombre.",
-            pt: "No primeiro recebimento do dia, o caixa abre automaticamente no seu nome.",
-            en: "On the first payment of the day, the drawer opens automatically under your name.",
+            es: "En el menú WhatsApp, pulsa «Configurar WhatsApp». Aparecerá un código QR.",
+            pt: "No menu WhatsApp, clique em «Configurar WhatsApp». Aparecerá um código QR.",
+            en: "In the WhatsApp menu, click “Set up WhatsApp”. A QR code will appear.",
           },
           {
-            es: "Registra los cobros normalmente; cada uno queda ligado a tu caja.",
-            pt: "Registre os recebimentos normalmente; cada um fica ligado ao seu caixa.",
-            en: "Record payments as usual; each one is tied to your drawer.",
+            es: "En el celular de la clínica, abre WhatsApp → Dispositivos vinculados → Vincular un dispositivo, y escanea.",
+            pt: "No celular da clínica, abra WhatsApp → Aparelhos conectados → Conectar um aparelho, e escaneie.",
+            en: "On the clinic's phone, open WhatsApp → Linked devices → Link a device, and scan.",
           },
           {
-            es: "Al final del día, pulsa «Cerrar caja» y cuenta el efectivo.",
-            pt: "No fim do dia, clique em «Fechar caixa» e conte o dinheiro.",
-            en: "At the end of the day, click “Close drawer” and count the cash.",
-          },
-          {
-            es: "Revisa la diferencia entre lo esperado y lo contado, y confirma.",
-            pt: "Revise a diferença entre o esperado e o contado, e confirme.",
-            en: "Review the difference between expected and counted, and confirm.",
-          },
-        ],
-      },
-      {
-        type: "callout",
-        tone: "info",
-        text: {
-          es: "Si olvidas cerrar la caja, se cierra sola a medianoche para no arrastrar movimientos al día siguiente.",
-          pt: "Se você esquecer de fechar o caixa, ele fecha sozinho à meia-noite para não arrastar movimentos ao dia seguinte.",
-          en: "If you forget to close the drawer, it closes itself at midnight so movements don't carry into the next day.",
-        },
-      },
-    ],
-  },
-
-  // ──────────────────────────────── FISCAL ───────────────────────────────
-  {
-    slug: "activar-boleta-sii-chile",
-    categoryId: "fiscal",
-    updated: "2026-06-10",
-    readingMinutes: 7,
-    featured: true,
-    keywords: ["sii", "chile", "boleta", "dte", "documento tributario", "factura electronica", "impuestos"],
-    related: ["abrir-y-cerrar-caja"],
-    title: {
-      es: "Activar la boleta electrónica del SII (Chile)",
-      pt: "Ativar a boleta eletrônica do SII (Chile)",
-      en: "Enable SII electronic receipts (Chile)",
-    },
-    excerpt: {
-      es: "Conecta SuperClini con el SII y emite boletas electrónicas directo desde cada cobro.",
-      pt: "Conecte o SuperClini ao SII e emita boletas eletrônicas direto de cada cobrança.",
-      en: "Connect SuperClini to the SII and issue electronic receipts straight from each payment.",
-    },
-    body: [
-      {
-        type: "p",
-        text: {
-          es: "Si atiendes en Chile, puedes emitir boletas electrónicas del SII sin salir de SuperClini. La configuración es de una sola vez.",
-          pt: "Se você atende no Chile, pode emitir boletas eletrônicas do SII sem sair do SuperClini. A configuração é feita uma única vez.",
-          en: "If you operate in Chile, you can issue SII electronic receipts without leaving SuperClini. It's a one-time setup.",
-        },
-      },
-      {
-        type: "h2",
-        text: { es: "Lo que necesitas", pt: "O que você precisa", en: "What you need" },
-      },
-      {
-        type: "list",
-        items: [
-          {
-            es: "Tu certificado digital vigente (.pfx) y su clave.",
-            pt: "Seu certificado digital vigente (.pfx) e a senha dele.",
-            en: "Your valid digital certificate (.pfx) and its password.",
-          },
-          {
-            es: "Estar habilitado como emisor de documentos electrónicos en el SII.",
-            pt: "Estar habilitado como emissor de documentos eletrônicos no SII.",
-            en: "Being enabled as an electronic document issuer at the SII.",
-          },
-        ],
-      },
-      {
-        type: "steps",
-        items: [
-          {
-            es: "Entra en Ajustes → Facturación → Chile (SII).",
-            pt: "Entre em Ajustes → Faturamento → Chile (SII).",
-            en: "Go to Settings → Invoicing → Chile (SII).",
-          },
-          {
-            es: "Sube tu certificado .pfx e ingresa la clave.",
-            pt: "Envie seu certificado .pfx e digite a senha.",
-            en: "Upload your .pfx certificate and enter the password.",
-          },
-          {
-            es: "Carga el folio (CAF) de boletas descargado del SII.",
-            pt: "Carregue o folio (CAF) de boletas baixado do SII.",
-            en: "Load the receipt folio (CAF) downloaded from the SII.",
-          },
-          {
-            es: "Emite una boleta de prueba y verifica que el SII la acepte.",
-            pt: "Emita uma boleta de teste e verifique que o SII a aceite.",
-            en: "Issue a test receipt and check the SII accepts it.",
+            es: "Espera el estado «Conectado» en verde con tu número. Listo.",
+            pt: "Aguarde o status «Conectado» em verde com seu número. Pronto.",
+            en: "Wait for the green “Connected” status with your number. Done.",
           },
         ],
       },
       {
         type: "callout",
         tone: "warn",
-        title: { es: "Cuida los folios (CAF)", pt: "Cuide dos folios (CAF)", en: "Mind your folios (CAF)" },
+        title: { es: "El QR caduca en 90 segundos", pt: "O QR expira em 90 segundos", en: "The QR expires in 90 seconds" },
         text: {
-          es: "Los folios se agotan. SuperClini te avisa cuando quedan pocos para que cargues nuevos antes de quedarte sin emitir.",
-          pt: "Os folios se esgotam. O SuperClini avisa quando restam poucos para você carregar novos antes de ficar sem emitir.",
-          en: "Folios run out. SuperClini warns you when few remain so you load new ones before you can't issue.",
+          es: "Si no alcanzas a escanearlo, pulsa Regenerar y aparecerá uno nuevo. Escanéalo con calma dentro de ese tiempo.",
+          pt: "Se você não conseguir escanear, clique em Regenerar e aparecerá um novo. Escaneie com calma dentro desse tempo.",
+          en: "If you don't scan it in time, click Regenerate for a new one. Scan it calmly within that window.",
+        },
+      },
+      {
+        type: "callout",
+        tone: "info",
+        text: {
+          es: "Desconectar mantiene la configuración y el historial. «Quitar y recrear» borra la sesión y el historial de mensajes: úsalo solo si el número quedó en mal estado.",
+          pt: "Desconectar mantém a configuração e o histórico. «Remover e recriar» apaga a sessão e o histórico de mensagens: use só se o número ficou travado.",
+          en: "Disconnect keeps your settings and history. “Remove and recreate” wipes the session and message history: use it only if the number is stuck.",
         },
       },
     ],
   },
-
-  // ──────────────────────────────── CUENTA ───────────────────────────────
   {
-    slug: "usuarios-y-permisos",
-    categoryId: "cuenta",
-    updated: "2026-06-12",
+    slug: "que-hace-sofia",
+    categoryId: "sofia",
+    updated: "2026-07-01",
     readingMinutes: 5,
-    keywords: ["usuarios", "permisos", "roles", "rbac", "equipo", "acceso", "seguridad"],
-    related: ["configurar-tu-clinica"],
+    featured: true,
+    keywords: ["sofia", "ia", "agente", "agenda", "responde", "que hace", "capacidades"],
+    related: ["conectar-whatsapp", "personalizar-sofia", "asumir-conversacion"],
     title: {
-      es: "Usuarios y permisos: dar acceso a tu equipo",
-      pt: "Usuários e permissões: dar acesso à sua equipe",
-      en: "Users and permissions: giving your team access",
+      es: "Qué hace Sofía por ti",
+      pt: "O que a Sofía faz por você",
+      en: "What Sofía does for you",
     },
     excerpt: {
-      es: "Invita al equipo y define qué puede ver y hacer cada persona según su rol.",
-      pt: "Convide a equipe e defina o que cada pessoa pode ver e fazer conforme o papel.",
-      en: "Invite the team and define what each person can see and do based on their role.",
+      es: "Tu asistente de IA atiende WhatsApp, agenda, registra pacientes y responde dudas frecuentes.",
+      pt: "Seu assistente de IA atende o WhatsApp, agenda, cadastra pacientes e responde dúvidas frequentes.",
+      en: "Your AI assistant answers WhatsApp, books, registers patients and handles FAQs.",
     },
     body: [
       {
         type: "p",
         text: {
-          es: "No todos necesitan ver todo. Los permisos por rol protegen la información sensible y simplifican el día a día de cada persona.",
-          pt: "Nem todos precisam ver tudo. As permissões por papel protegem a informação sensível e simplificam o dia a dia de cada pessoa.",
-          en: "Not everyone needs to see everything. Role-based permissions protect sensitive data and simplify each person's day.",
+          es: "Sofía es una recepcionista virtual con IA que atiende tu WhatsApp las 24 horas. Reconoce al paciente por su número y actúa sobre datos reales de tu clínica.",
+          pt: "Sofía é uma recepcionista virtual com IA que atende seu WhatsApp 24 horas. Reconhece o paciente pelo número e age sobre dados reais da sua clínica.",
+          en: "Sofía is an AI virtual receptionist that answers your WhatsApp around the clock. She recognizes the patient by their number and acts on your clinic's real data.",
         },
       },
       {
-        type: "steps",
+        type: "illustration",
+        illustration: "flujo-sofia",
+        caption: {
+          es: "El paciente escribe, Sofía responde y agenda, tu equipo confirma.",
+          pt: "O paciente escreve, Sofía responde e agenda, sua equipe confirma.",
+          en: "The patient writes, Sofía replies and books, your team confirms.",
+        },
+      },
+      {
+        type: "list",
         items: [
           {
-            es: "Ve a Ajustes → Usuarios y pulsa «Invitar».",
-            pt: "Vá em Ajustes → Usuários e clique em «Convidar».",
-            en: "Go to Settings → Users and click “Invite”.",
+            es: "Agenda de verdad: consulta horarios disponibles, crea, cancela, reagenda y confirma citas.",
+            pt: "Agenda de verdade: consulta horários disponíveis, cria, cancela, reagenda e confirma consultas.",
+            en: "Really books: checks available slots, creates, cancels, reschedules and confirms appointments.",
           },
           {
-            es: "Ingresa el correo y elige un rol (recepción, profesional, administrador…).",
-            pt: "Digite o e-mail e escolha um papel (recepção, profissional, administrador…).",
-            en: "Enter the email and pick a role (front desk, professional, administrator…).",
+            es: "Registra pacientes nuevos y los busca por nombre o documento (RUT/CPF/DNI).",
+            pt: "Cadastra pacientes novos e os busca por nome ou documento (RUT/CPF/DNI).",
+            en: "Registers new patients and finds them by name or document (RUT/CPF/DNI).",
           },
           {
-            es: "Ajusta permisos finos si necesitas algo distinto al rol base.",
-            pt: "Ajuste permissões finas se precisar de algo diferente do papel base.",
-            en: "Fine-tune permissions if you need something beyond the base role.",
-          },
-        ],
-      },
-      {
-        type: "callout",
-        tone: "info",
-        text: {
-          es: "Cada acción importante queda registrada con autor y fecha, para que siempre sepas quién hizo qué.",
-          pt: "Cada ação importante fica registrada com autor e data, para você sempre saber quem fez o quê.",
-          en: "Every important action is logged with author and date, so you always know who did what.",
-        },
-      },
-    ],
-  },
-
-  // ─────────────────────────────── CLÍNICO ───────────────────────────────
-  {
-    slug: "registrar-en-odontograma",
-    categoryId: "clinico",
-    updated: "2026-06-08",
-    readingMinutes: 6,
-    keywords: ["odontograma", "ficha", "dientes", "dentes", "piezas", "tratamiento", "hallazgos"],
-    related: ["configurar-tu-clinica"],
-    title: {
-      es: "Registrar hallazgos en el odontograma",
-      pt: "Registrar achados no odontograma",
-      en: "Recording findings on the odontogram",
-    },
-    excerpt: {
-      es: "Marca caries, restauraciones y tratamientos pieza por pieza, con historial por diente.",
-      pt: "Marque cáries, restaurações e tratamentos dente por dente, com histórico por dente.",
-      en: "Mark caries, restorations and treatments tooth by tooth, with per-tooth history.",
-    },
-    body: [
-      {
-        type: "p",
-        text: {
-          es: "El odontograma es el corazón de la ficha clínica: refleja el estado de cada pieza y guarda el historial de todo lo que hiciste.",
-          pt: "O odontograma é o coração da ficha clínica: reflete o estado de cada dente e guarda o histórico de tudo o que você fez.",
-          en: "The odontogram is the heart of the clinical chart: it reflects the state of each tooth and keeps the history of everything you did.",
-        },
-      },
-      {
-        type: "steps",
-        items: [
-          {
-            es: "Abre la ficha del paciente y entra en la pestaña Odontograma.",
-            pt: "Abra a ficha do paciente e entre na aba Odontograma.",
-            en: "Open the patient's chart and go to the Odontogram tab.",
+            es: "Responde precios de procedimientos, dirección, horario y datos de la clínica.",
+            pt: "Responde preços de procedimentos, endereço, horário e dados da clínica.",
+            en: "Answers procedure prices, address, hours and clinic details.",
           },
           {
-            es: "Selecciona la pieza y elige el hallazgo o tratamiento.",
-            pt: "Selecione o dente e escolha o achado ou tratamento.",
-            en: "Select the tooth and choose the finding or treatment.",
-          },
-          {
-            es: "Indica si es un estado actual o un tratamiento a realizar.",
-            pt: "Indique se é um estado atual ou um tratamento a realizar.",
-            en: "Indicate whether it's a current state or a treatment to be done.",
-          },
-          {
-            es: "Guarda: el cambio queda con fecha y autor en el historial.",
-            pt: "Salve: a alteração fica com data e autor no histórico.",
-            en: "Save: the change is stored with date and author in the history.",
-          },
-        ],
-      },
-      {
-        type: "callout",
-        tone: "info",
-        text: {
-          es: "Los tratamientos a realizar se conectan con el presupuesto y el cobro, sin recargar la información dos veces.",
-          pt: "Os tratamentos a realizar se conectam ao orçamento e à cobrança, sem recarregar a informação duas vezes.",
-          en: "Planned treatments connect to the quote and the payment, without entering the information twice.",
-        },
-      },
-    ],
-  },
-
-  // ──────────────────────────────── TÓTEM ────────────────────────────────
-  {
-    slug: "check-in-por-documento",
-    categoryId: "totem",
-    updated: "2026-06-14",
-    readingMinutes: 4,
-    keywords: ["totem", "tótem", "check-in", "recepcion", "recepção", "documento", "rut", "autoatencion"],
-    related: ["activar-agenda-publica"],
-    title: {
-      es: "Check-in por documento en el tótem",
-      pt: "Check-in por documento no totem",
-      en: "Document check-in at the kiosk",
-    },
-    excerpt: {
-      es: "El paciente confirma su llegada solo, ingresando su documento en la pantalla de recepción.",
-      pt: "O paciente confirma sua chegada sozinho, informando o documento na tela de recepção.",
-      en: "Patients confirm arrival on their own by entering their document on the front-desk screen.",
-    },
-    body: [
-      {
-        type: "p",
-        text: {
-          es: "El tótem descongestiona la recepción: el paciente llega, ingresa su documento y su cita queda confirmada sin pasar por el mostrador.",
-          pt: "O totem desafoga a recepção: o paciente chega, informa o documento e sua consulta fica confirmada sem passar pelo balcão.",
-          en: "The kiosk unclogs the front desk: the patient arrives, enters their document and their appointment is confirmed without stopping at the counter.",
-        },
-      },
-      {
-        type: "steps",
-        items: [
-          {
-            es: "Abre SuperClini en modo tótem en la pantalla de recepción.",
-            pt: "Abra o SuperClini em modo totem na tela de recepção.",
-            en: "Open SuperClini in kiosk mode on the front-desk screen.",
-          },
-          {
-            es: "El paciente ingresa su documento (RUT, DNI o el de tu país).",
-            pt: "O paciente informa o documento (CPF, RUT ou o do seu país).",
-            en: "The patient enters their document (national ID for your country).",
-          },
-          {
-            es: "El sistema encuentra su cita del día y la marca como «llegó».",
-            pt: "O sistema encontra a consulta do dia e a marca como «chegou».",
-            en: "The system finds their appointment for the day and marks it “arrived”.",
+            es: "Transfiere a una persona del equipo cuando hace falta.",
+            pt: "Transfere para uma pessoa da equipe quando é preciso.",
+            en: "Hands off to a team member when needed.",
           },
         ],
       },
       {
         type: "callout",
         tone: "success",
+        title: { es: "Tú decides, siempre", pt: "Você decide, sempre", en: "You decide, always" },
         text: {
-          es: "La agenda del profesional se actualiza al instante, para que sepa quién ya está en la sala de espera.",
-          pt: "A agenda do profissional se atualiza na hora, para saber quem já está na sala de espera.",
-          en: "The professional's agenda updates instantly, so they know who's already in the waiting room.",
+          es: "Sofía nunca da diagnósticos ni inventa horarios, y por privacidad nunca dice si un profesional está o no en la clínica.",
+          pt: "Sofía nunca dá diagnósticos nem inventa horários, e por privacidade nunca diz se um profissional está ou não na clínica.",
+          en: "Sofía never gives diagnoses or invents times, and for privacy she never says whether a professional is at the clinic.",
+        },
+      },
+      {
+        type: "callout",
+        tone: "info",
+        text: {
+          es: "Sofía trabaja con texto. Todavía no procesa audios ni imágenes: cuando llegan, pide amablemente un mensaje de texto o una visita.",
+          pt: "Sofía trabalha com texto. Ainda não processa áudios nem imagens: quando chegam, pede gentilmente uma mensagem de texto ou uma visita.",
+          en: "Sofía works with text. She doesn't process audio or images yet: when they arrive, she kindly asks for a text message or a visit.",
+        },
+      },
+    ],
+  },
+  {
+    slug: "personalizar-sofia",
+    categoryId: "sofia",
+    updated: "2026-06-18",
+    readingMinutes: 4,
+    keywords: ["personalizar", "instrucciones", "activar", "pausar", "horario", "configurar sofia"],
+    related: ["que-hace-sofia", "asumir-conversacion"],
+    title: {
+      es: "Activar, pausar y personalizar a Sofía",
+      pt: "Ativar, pausar e personalizar a Sofía",
+      en: "Enable, pause and personalize Sofía",
+    },
+    excerpt: {
+      es: "Ajusta su tono, sus horarios y las instrucciones propias de tu clínica.",
+      pt: "Ajuste o tom, os horários e as instruções próprias da sua clínica.",
+      en: "Adjust her tone, her hours and your clinic's own instructions.",
+    },
+    body: [
+      {
+        type: "p",
+        text: {
+          es: "Con el WhatsApp conectado aparece la tarjeta «Agente Sofía» en el menú WhatsApp. Ahí controlas cómo se comporta.",
+          pt: "Com o WhatsApp conectado, aparece o cartão «Agente Sofía» no menu WhatsApp. Ali você controla como ela se comporta.",
+          en: "With WhatsApp connected, the “Sofía Agent” card appears in the WhatsApp menu. That's where you control how she behaves.",
+        },
+      },
+      {
+        type: "list",
+        items: [
+          {
+            es: "Interruptor «Sofía activa»: enciéndelo o apágalo para que responda o guarde silencio.",
+            pt: "Interruptor «Sofía ativa»: ligue ou desligue para ela responder ou ficar em silêncio.",
+            en: "“Sofía active” switch: turn it on or off so she replies or stays silent.",
+          },
+          {
+            es: "Instrucciones de tu clínica: un texto libre que complementa su forma de responder (promociones, tono, reglas).",
+            pt: "Instruções da sua clínica: um texto livre que complementa a forma de responder (promoções, tom, regras).",
+            en: "Your clinic's instructions: free text that complements how she replies (promotions, tone, rules).",
+          },
+          {
+            es: "Horario comercial y «solo conversaciones nuevas» para que no entre en chats anteriores a su activación.",
+            pt: "Horário comercial e «só conversas novas» para não entrar em chats anteriores à ativação.",
+            en: "Business hours and “new conversations only” so she doesn't jump into chats older than her activation.",
+          },
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        text: {
+          es: "Para pausar todo al instante, apaga «Sofía activa». Desconectar el número también detiene la atención.",
+          pt: "Para pausar tudo na hora, desligue «Sofía ativa». Desconectar o número também para o atendimento.",
+          en: "To pause everything instantly, turn off “Sofía active”. Disconnecting the number also stops replies.",
+        },
+      },
+    ],
+  },
+  {
+    slug: "asumir-conversacion",
+    categoryId: "sofia",
+    updated: "2026-06-18",
+    readingMinutes: 4,
+    keywords: ["asumir", "conversaciones", "control", "atendente", "asumir sofia", "devolver"],
+    related: ["que-hace-sofia", "personalizar-sofia"],
+    title: {
+      es: "Asumir una conversación (que Sofía se detenga)",
+      pt: "Assumir uma conversa (fazer a Sofía parar)",
+      en: "Take over a conversation (pause Sofía on it)",
+    },
+    excerpt: {
+      es: "Entra tú a un chat cuando quieras: Sofía se detiene solo en esa conversación.",
+      pt: "Entre você num chat quando quiser: a Sofía para só naquela conversa.",
+      en: "Step into a chat whenever you want: Sofía pauses only on that conversation.",
+    },
+    body: [
+      {
+        type: "p",
+        text: {
+          es: "En el menú WhatsApp, la tarjeta «Conversaciones» muestra el historial de cada chat. Puedes tomar el control de uno sin apagar a Sofía en los demás.",
+          pt: "No menu WhatsApp, o cartão «Conversas» mostra o histórico de cada chat. Você pode assumir o controle de um sem desligar a Sofía nos outros.",
+          en: "In the WhatsApp menu, the “Conversations” card shows each chat's history. You can take control of one without turning Sofía off elsewhere.",
+        },
+      },
+      {
+        type: "list",
+        items: [
+          {
+            es: "Desde el panel: abre la conversación y pulsa «Asumir». Sofía se pausa ahí; para devolverle el control, pulsa «Devolver a Sofía».",
+            pt: "Pelo painel: abra a conversa e clique em «Assumir». A Sofía pausa ali; para devolver o controle, clique em «Devolver à Sofía».",
+            en: "From the panel: open the conversation and click “Take over”. Sofía pauses there; to hand it back, click “Give back to Sofía”.",
+          },
+          {
+            es: "Desde el propio WhatsApp: escribe #asumir en el chat para pausarla, y #sofia para devolverle el control.",
+            pt: "Pelo próprio WhatsApp: escreva #asumir no chat para pausá-la, e #sofia para devolver o controle.",
+            en: "From WhatsApp itself: type #asumir in the chat to pause her, and #sofia to hand control back.",
+          },
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        text: {
+          es: "Si el paciente pide un humano, Sofía transfiere y se queda en pausa hasta que la recepción retome la conversación.",
+          pt: "Se o paciente pede um humano, a Sofía transfere e fica em pausa até a recepção retomar a conversa.",
+          en: "If the patient asks for a human, Sofía transfers and stays paused until the front desk resumes the chat.",
+        },
+      },
+    ],
+  },
+
+  // ══════════════════════════ FICHA CLÍNICA ══════════════════════════
+  {
+    slug: "marcar-el-odontograma",
+    categoryId: "clinico",
+    updated: "2026-06-10",
+    readingMinutes: 5,
+    featured: true,
+    keywords: ["odontograma", "diente", "cara", "cara", "condicion", "arcada", "sextante", "fdi"],
+    related: ["registrar-evolucion", "crear-plan-tratamiento"],
+    title: {
+      es: "Marcar el odontograma (por pieza y por cara)",
+      pt: "Marcar o odontograma (por dente e por face)",
+      en: "Mark the odontogram (by tooth and by surface)",
+    },
+    excerpt: {
+      es: "Registra caries, restauraciones y tratamientos cara por cara, con dentición permanente y temporal.",
+      pt: "Registre cáries, restaurações e tratamentos face por face, com dentição permanente e temporária.",
+      en: "Record caries, restorations and treatments surface by surface, in permanent and primary dentition.",
+    },
+    body: [
+      {
+        type: "p",
+        text: {
+          es: "El odontograma vive dentro de la ficha del paciente, en la sección Clínico. Usa notación FDI e incluye dentición permanente y temporal.",
+          pt: "O odontograma vive dentro da ficha do paciente, na seção Clínico. Usa notação FDI e inclui dentição permanente e temporária.",
+          en: "The odontogram lives inside the patient's chart, in the Clinical section. It uses FDI notation and includes permanent and primary dentition.",
+        },
+      },
+      {
+        type: "steps",
+        items: [
+          {
+            es: "En la barra de herramientas, elige la condición activa (caries, restaurado, corona, implante, ausente, conducto…).",
+            pt: "Na barra de ferramentas, escolha a condição ativa (cárie, restaurado, coroa, implante, ausente, canal…).",
+            en: "In the toolbar, pick the active condition (caries, filled, crown, implant, missing, root canal…).",
+          },
+          {
+            es: "Haz clic en la cara del diente (vestibular, mesial, distal, lingual u oclusal). Cada clic se guarda al instante.",
+            pt: "Clique na face do dente (vestibular, mesial, distal, lingual ou oclusal). Cada clique é salvo na hora.",
+            en: "Click the tooth surface (buccal, mesial, distal, lingual or occlusal). Each click saves instantly.",
+          },
+          {
+            es: "Para condiciones de diente entero (ausente, implante, corona), se pinta la pieza completa.",
+            pt: "Para condições de dente inteiro (ausente, implante, coroa), pinta-se o dente todo.",
+            en: "For whole-tooth conditions (missing, implant, crown), the entire tooth is painted.",
+          },
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        text: {
+          es: "Puedes aplicar una condición a una arcada completa o a un sextante de una sola vez. Para deshacer, usa «Limpiar marcación» en el diente.",
+          pt: "Você pode aplicar uma condição a uma arcada inteira ou a um sextante de uma vez. Para desfazer, use «Limpar marcação» no dente.",
+          en: "You can apply a condition to a whole arch or a sextant at once. To undo, use “Clear marking” on the tooth.",
+        },
+      },
+      {
+        type: "callout",
+        tone: "info",
+        title: { es: "Odontograma vs. evolución", pt: "Odontograma vs. evolução", en: "Odontogram vs. evolution" },
+        text: {
+          es: "El odontograma es un estado actual editable: lo corriges libremente. Las evoluciones clínicas, en cambio, son inmutables (ver el artículo siguiente).",
+          pt: "O odontograma é um estado atual editável: você corrige livremente. As evoluções clínicas, por outro lado, são imutáveis (ver o próximo artigo).",
+          en: "The odontogram is an editable current state: you correct it freely. Clinical evolutions, on the other hand, are immutable (see the next article).",
+        },
+      },
+    ],
+  },
+  {
+    slug: "registrar-evolucion",
+    categoryId: "clinico",
+    updated: "2026-06-10",
+    readingMinutes: 5,
+    keywords: ["evolucion", "inmutable", "ley 20584", "enmienda", "invalidar", "historia clinica"],
+    related: ["marcar-el-odontograma", "crear-plan-tratamiento"],
+    title: {
+      es: "Evoluciones: por qué no se editan ni se borran",
+      pt: "Evoluções: por que não se editam nem se apagam",
+      en: "Evolutions: why they can't be edited or deleted",
+    },
+    excerpt: {
+      es: "La evolución clínica es un registro legal inmutable. Se corrige con enmienda, no borrando.",
+      pt: "A evolução clínica é um registro legal imutável. Corrige-se com emenda, não apagando.",
+      en: "The clinical evolution is an immutable legal record. You correct it with an amendment, not by deleting.",
+    },
+    body: [
+      {
+        type: "p",
+        text: {
+          es: "Cada evolución que registras en la ficha queda fija. No se puede editar ni borrar: es una exigencia legal de la historia clínica (ej.: Ley 20.584 en Chile).",
+          pt: "Cada evolução que você registra na ficha fica fixa. Não pode ser editada nem apagada: é uma exigência legal do prontuário (ex.: Ley 20.584 no Chile).",
+          en: "Every evolution you record in the chart is fixed. It can't be edited or deleted: it's a legal requirement for the medical record (e.g. Law 20.584 in Chile).",
+        },
+      },
+      {
+        type: "h2",
+        text: { es: "Cómo corregir un error", pt: "Como corrigir um erro", en: "How to fix a mistake" },
+      },
+      {
+        type: "list",
+        items: [
+          {
+            es: "Enmienda: agrega un nuevo registro encadenado al original, con la corrección. El texto original permanece visible.",
+            pt: "Emenda: adiciona um novo registro encadeado ao original, com a correção. O texto original permanece visível.",
+            en: "Amendment: adds a new record chained to the original, with the correction. The original text stays visible.",
+          },
+          {
+            es: "Invalidar (anular): marca la evolución como inválida con un motivo. Solo un superadministrador puede hacerlo.",
+            pt: "Invalidar (anular): marca a evolução como inválida com um motivo. Só um superadministrador pode fazer isso.",
+            en: "Invalidate: marks the evolution as void with a reason. Only a super-administrator can do this.",
+          },
+        ],
+      },
+      {
+        type: "callout",
+        tone: "warn",
+        text: {
+          es: "Las evoluciones migradas desde otro sistema tienen blindaje extra: no se enmiendan, ni siquiera por un superadministrador.",
+          pt: "As evoluções migradas de outro sistema têm blindagem extra: não se emendam, nem por um superadministrador.",
+          en: "Evolutions migrated from another system have extra protection: they can't be amended, not even by a super-administrator.",
+        },
+      },
+    ],
+  },
+  {
+    slug: "crear-plan-tratamiento",
+    categoryId: "clinico",
+    updated: "2026-05-22",
+    readingMinutes: 5,
+    keywords: ["plan", "tratamiento", "presupuesto", "aceptar", "realizar", "avance", "procedimiento"],
+    related: ["marcar-el-odontograma"],
+    title: {
+      es: "Crear y aceptar un plan de tratamiento",
+      pt: "Criar e aceitar um plano de tratamento",
+      en: "Create and accept a treatment plan",
+    },
+    excerpt: {
+      es: "Arma el plan por piezas, acéptalo para generar la cuenta y registra el avance de cada procedimiento.",
+      pt: "Monte o plano por dentes, aceite para gerar a conta e registre o avanço de cada procedimento.",
+      en: "Build the plan by teeth, accept it to generate the account and record each procedure's progress.",
+    },
+    body: [
+      {
+        type: "p",
+        text: {
+          es: "Los planes se crean desde la ficha del paciente. Empiezas con un borrador y agregas procedimientos por diente; el total se recalcula solo.",
+          pt: "Os planos são criados na ficha do paciente. Você começa com um rascunho e adiciona procedimentos por dente; o total é recalculado sozinho.",
+          en: "Plans are created from the patient's chart. You start with a draft and add procedures per tooth; the total recalculates automatically.",
+        },
+      },
+      {
+        type: "steps",
+        items: [
+          {
+            es: "Agrega procedimientos (por pieza, con cantidad, precio y descuento opcional).",
+            pt: "Adicione procedimentos (por dente, com quantidade, preço e desconto opcional).",
+            en: "Add procedures (per tooth, with quantity, price and optional discount).",
+          },
+          {
+            es: "Acepta el plan: se genera la cuenta por cobrar con sus cuotas.",
+            pt: "Aceite o plano: gera-se a conta a receber com suas parcelas.",
+            en: "Accept the plan: the receivable account with its instalments is generated.",
+          },
+          {
+            es: "A medida que atiendes, registra el avance del procedimiento (25 %, 50 %, 75 %, 100 %).",
+            pt: "Conforme atende, registre o avanço do procedimento (25 %, 50 %, 75 %, 100 %).",
+            en: "As you treat, record the procedure's progress (25%, 50%, 75%, 100%).",
+          },
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        text: {
+          es: "Registrar avance crea una evolución en la ficha y, si el procedimiento define un resultado, actualiza el odontograma. También alimenta la liquidación del profesional. Una vez con cuenta por cobrar, el plan se bloquea para edición.",
+          pt: "Registrar avanço cria uma evolução na ficha e, se o procedimento define um resultado, atualiza o odontograma. Também alimenta o repasse do profissional. Uma vez com conta a receber, o plano trava para edição.",
+          en: "Recording progress creates an evolution in the chart and, if the procedure defines a result, updates the odontogram. It also feeds the professional's payout. Once it has a receivable, the plan locks for editing.",
+        },
+      },
+    ],
+  },
+
+  // ═══════════════════════ IMÁGENES E IA CLÍNICA ═══════════════════════
+  {
+    slug: "casos-con-ia",
+    categoryId: "imagenes",
+    updated: "2026-06-01",
+    readingMinutes: 6,
+    featured: true,
+    keywords: ["caso", "ia", "simulacion", "sonrisa", "foto", "diagnostico", "plan ia"],
+    related: ["crear-plan-tratamiento"],
+    title: {
+      es: "Crear un caso con IA y simular la sonrisa",
+      pt: "Criar um caso com IA e simular o sorriso",
+      en: "Create an AI case and simulate the smile",
+    },
+    excerpt: {
+      es: "A partir de una foto, la IA analiza, propone un plan y genera una simulación visual del resultado.",
+      pt: "A partir de uma foto, a IA analisa, propõe um plano e gera uma simulação visual do resultado.",
+      en: "From a photo, the AI analyzes, proposes a plan and generates a visual simulation of the result.",
+    },
+    body: [
+      {
+        type: "p",
+        text: {
+          es: "Los casos con IA se crean en el menú Casos IA, con un asistente paso a paso. Es una herramienta de apoyo profesional, no un diagnóstico definitivo.",
+          pt: "Os casos com IA são criados no menu Casos IA, com um assistente passo a passo. É uma ferramenta de apoio profissional, não um diagnóstico definitivo.",
+          en: "AI cases are created in the AI Cases menu, with a step-by-step wizard. It's a professional support tool, not a definitive diagnosis.",
+        },
+      },
+      {
+        type: "steps",
+        items: [
+          {
+            es: "Elige o crea el paciente y selecciona el modo: sugerencia con IA, definición manual o un tratamiento específico.",
+            pt: "Escolha ou crie o paciente e selecione o modo: sugestão com IA, definição manual ou um tratamento específico.",
+            en: "Choose or create the patient and select the mode: AI suggestion, manual definition or a specific treatment.",
+          },
+          {
+            es: "Sube una foto de la sonrisa y pulsa «Analizar con IA».",
+            pt: "Envie uma foto do sorriso e clique em «Analisar com IA».",
+            en: "Upload a photo of the smile and click “Analyze with AI”.",
+          },
+          {
+            es: "La IA devuelve un análisis y un plan sugerido; puedes generar además una simulación visual (antes/después).",
+            pt: "A IA devolve uma análise e um plano sugerido; você pode gerar ainda uma simulação visual (antes/depois).",
+            en: "The AI returns an analysis and a suggested plan; you can also generate a visual simulation (before/after).",
+          },
+          {
+            es: "Convierte el plan sugerido en un plan de tratamiento real con los precios de tu catálogo.",
+            pt: "Converta o plano sugerido em um plano de tratamento real com os preços do seu catálogo.",
+            en: "Convert the suggested plan into a real treatment plan with your catalog's prices.",
+          },
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        text: {
+          es: "Para que el plan de la IA tenga valores, tu clínica debe tener los procedimientos cargados. Si no, la IA propone el tratamiento pero sin precios.",
+          pt: "Para o plano da IA ter valores, sua clínica precisa ter os procedimentos cadastrados. Se não, a IA propõe o tratamento mas sem preços.",
+          en: "For the AI plan to have values, your clinic must have its procedures loaded. Otherwise the AI proposes the treatment but without prices.",
+        },
+      },
+    ],
+  },
+
+  // ═══════════════════════════ CAJA Y COBROS ═══════════════════════════
+  {
+    slug: "abrir-y-cerrar-caja",
+    categoryId: "finanzas",
+    updated: "2026-06-15",
+    readingMinutes: 5,
+    featured: true,
+    keywords: ["caja", "caixa", "abrir", "cerrar", "cierre", "saldo", "medianoche", "movimiento"],
+    related: ["registrar-un-cobro", "estornar-un-cobro"],
+    title: {
+      es: "Abrir y cerrar caja",
+      pt: "Abrir e fechar o caixa",
+      en: "Open and close the cash drawer",
+    },
+    excerpt: {
+      es: "Cada operador tiene su caja. Así se abre, se registra y se cierra al final del día.",
+      pt: "Cada operador tem seu caixa. Assim se abre, registra e fecha no fim do dia.",
+      en: "Each operator has their own drawer. Here's how to open, record and close it.",
+    },
+    body: [
+      {
+        type: "p",
+        text: {
+          es: "Las cajas viven en Financiero → Cajas. Cada operador puede tener una caja abierta a la vez; un administrador puede abrir una para otra persona.",
+          pt: "Os caixas ficam em Financeiro → Caixas. Cada operador pode ter um caixa aberto por vez; um administrador pode abrir para outra pessoa.",
+          en: "Cash drawers live in Finance → Cash. Each operator can have one open drawer at a time; an admin can open one for someone else.",
+        },
+      },
+      {
+        type: "illustration",
+        illustration: "pantalla-caja",
+        caption: {
+          es: "Al cerrar, ves el saldo calculado; el contado es opcional.",
+          pt: "Ao fechar, você vê o saldo calculado; o contado é opcional.",
+          en: "On close, you see the calculated balance; counting is optional.",
+        },
+      },
+      {
+        type: "steps",
+        items: [
+          {
+            es: "Abre tu caja: verás el saldo de la caja anterior y confirmas el saldo de apertura (el efectivo inicial).",
+            pt: "Abra seu caixa: você verá o saldo do caixa anterior e confirma o saldo de abertura (o troco inicial).",
+            en: "Open your drawer: you'll see the previous drawer's balance and confirm the opening balance (starting cash).",
+          },
+          {
+            es: "Durante el día, los cobros entran solos. También puedes lanzar movimientos manuales: entrada, salida, sangría o suprimento.",
+            pt: "Durante o dia, os recebimentos entram sozinhos. Você também pode lançar movimentos manuais: entrada, saída, sangria ou suprimento.",
+            en: "During the day, payments come in automatically. You can also add manual movements: cash in, cash out, withdrawal or top-up.",
+          },
+          {
+            es: "Al terminar, pulsa Cerrar caja. Se muestra el saldo calculado (inicial + entradas − salidas); si quieres, escribes el contado y una observación.",
+            pt: "Ao terminar, clique em Fechar caixa. Mostra-se o saldo calculado (inicial + entradas − saídas); se quiser, escreve o contado e uma observação.",
+            en: "When done, click Close drawer. The calculated balance is shown (opening + in − out); optionally you enter the counted amount and a note.",
+          },
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        title: { es: "Cierre automático a medianoche", pt: "Fechamento automático à meia-noite", en: "Automatic midnight close" },
+        text: {
+          es: "Si olvidas cerrar, la caja se cierra sola a medianoche en la zona horaria de tu clínica, con el saldo calculado, y abre una nueva para el día siguiente.",
+          pt: "Se você esquecer de fechar, o caixa fecha sozinho à meia-noite no fuso da sua clínica, com o saldo calculado, e abre um novo para o dia seguinte.",
+          en: "If you forget to close, the drawer closes itself at midnight in your clinic's time zone, with the calculated balance, and opens a new one for the next day.",
+        },
+      },
+    ],
+  },
+  {
+    slug: "registrar-un-cobro",
+    categoryId: "finanzas",
+    updated: "2026-05-23",
+    readingMinutes: 4,
+    keywords: ["cobro", "pago", "split", "efectivo", "tarjeta", "medios de pago", "parcela"],
+    related: ["abrir-y-cerrar-caja", "estornar-un-cobro"],
+    title: {
+      es: "Registrar un cobro con varios medios de pago",
+      pt: "Registrar uma cobrança com vários meios de pagamento",
+      en: "Record a payment with several payment methods",
+    },
+    excerpt: {
+      es: "Divide una cuota entre efectivo, tarjeta y más, en un solo registro.",
+      pt: "Divida uma parcela entre dinheiro, cartão e mais, num só registro.",
+      en: "Split an instalment across cash, card and more, in a single record.",
+    },
+    body: [
+      {
+        type: "p",
+        text: {
+          es: "Registras un cobro desde la cuenta o el plan del paciente. Puedes combinar varios medios de pago para una misma cuota.",
+          pt: "Você registra uma cobrança na conta ou no plano do paciente. Dá para combinar vários meios de pagamento para uma mesma parcela.",
+          en: "You record a payment from the patient's account or plan. You can combine several payment methods for the same instalment.",
+        },
+      },
+      {
+        type: "steps",
+        items: [
+          {
+            es: "En la cuota, pulsa «Registrar pago». La primera línea viene con el saldo.",
+            pt: "Na parcela, clique em «Registrar pagamento». A primeira linha vem com o saldo.",
+            en: "On the instalment, click “Record payment”. The first line comes with the balance.",
+          },
+          {
+            es: "Añade métodos (ej.: mitad en efectivo, mitad en tarjeta) mientras quede saldo por cubrir.",
+            pt: "Adicione métodos (ex.: metade em dinheiro, metade no cartão) enquanto restar saldo a cobrir.",
+            en: "Add methods (e.g. half in cash, half by card) while there's balance to cover.",
+          },
+          {
+            es: "Confirma. Si el paciente tiene saldo a favor, puedes usarlo como medio de pago.",
+            pt: "Confirme. Se o paciente tem saldo a favor, você pode usá-lo como meio de pagamento.",
+            en: "Confirm. If the patient has a credit balance, you can use it as a payment method.",
+          },
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        text: {
+          es: "El sistema no te deja cobrar más que el saldo de la cuota. Al quedar saldada, el paciente recibe un correo de confirmación.",
+          pt: "O sistema não deixa cobrar mais que o saldo da parcela. Ao ser quitada, o paciente recebe um e-mail de confirmação.",
+          en: "The system won't let you charge more than the instalment's balance. Once settled, the patient gets a confirmation email.",
+        },
+      },
+    ],
+  },
+  {
+    slug: "estornar-un-cobro",
+    categoryId: "finanzas",
+    updated: "2026-05-23",
+    readingMinutes: 3,
+    keywords: ["estorno", "reverso", "anular pago", "motivo", "administrador", "error"],
+    related: ["registrar-un-cobro"],
+    title: {
+      es: "Estornar un cobro registrado por error",
+      pt: "Estornar uma cobrança registrada por engano",
+      en: "Reverse a payment recorded by mistake",
+    },
+    excerpt: {
+      es: "Solo administradores, siempre con motivo, y sin borrar el registro original.",
+      pt: "Só administradores, sempre com motivo, e sem apagar o registro original.",
+      en: "Admins only, always with a reason, and without deleting the original record.",
+    },
+    body: [
+      {
+        type: "p",
+        text: {
+          es: "El estorno revierte un pago mal ingresado dejando rastro completo. Por separación de funciones, solo un administrador puede hacerlo.",
+          pt: "O estorno reverte um pagamento lançado errado deixando rastro completo. Por separação de funções, só um administrador pode fazer isso.",
+          en: "A reversal undoes a wrongly entered payment leaving a full trail. For separation of duties, only an administrator can do it.",
+        },
+      },
+      {
+        type: "steps",
+        items: [
+          {
+            es: "Como administrador, abre el pago registrado y pulsa «Estornar».",
+            pt: "Como administrador, abra o pagamento registrado e clique em «Estornar».",
+            en: "As an administrator, open the recorded payment and click “Reverse”.",
+          },
+          {
+            es: "Escribe el motivo (obligatorio). Confirma.",
+            pt: "Escreva o motivo (obrigatório). Confirme.",
+            en: "Write the reason (required). Confirm.",
+          },
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        text: {
+          es: "El pago original nunca se borra: queda marcado como estornado y se genera una salida de caja trazable. Si era saldo a favor, el crédito se devuelve al paciente.",
+          pt: "O pagamento original nunca é apagado: fica marcado como estornado e gera uma saída de caixa rastreável. Se era saldo a favor, o crédito volta ao paciente.",
+          en: "The original payment is never deleted: it's marked as reversed and a traceable cash-out is created. If it was a credit balance, the credit returns to the patient.",
+        },
+      },
+    ],
+  },
+  {
+    slug: "liquidaciones-profesionales",
+    categoryId: "finanzas",
+    updated: "2026-07-02",
+    readingMinutes: 5,
+    keywords: ["liquidacion", "comision", "profesional", "produccion", "periodo", "retencion", "pagar"],
+    related: ["registrar-un-cobro"],
+    title: {
+      es: "Liquidaciones a profesionales",
+      pt: "Repasses a profissionais",
+      en: "Professional payouts",
+    },
+    excerpt: {
+      es: "Calcula la comisión de cada profesional por semana, mes o rango libre.",
+      pt: "Calcule a comissão de cada profissional por semana, mês ou intervalo livre.",
+      en: "Calculate each professional's commission by week, month or free range.",
+    },
+    body: [
+      {
+        type: "p",
+        text: {
+          es: "Las liquidaciones viven en Financiero → Liquidaciones. El dentista ve solo su propia producción; el administrador, la de cualquiera.",
+          pt: "Os repasses ficam em Financeiro → Liquidações. O dentista vê só a própria produção; o administrador, a de qualquer um.",
+          en: "Payouts live in Finance → Payouts. The dentist sees only their own production; the admin, anyone's.",
+        },
+      },
+      {
+        type: "steps",
+        items: [
+          {
+            es: "Elige el profesional y el período (preset de semana/mes/año o un rango de fechas libre) y pulsa Calcular.",
+            pt: "Escolha o profissional e o período (preset de semana/mês/ano ou um intervalo de datas livre) e clique em Calcular.",
+            en: "Choose the professional and the period (week/month/year preset or a free date range) and click Calculate.",
+          },
+          {
+            es: "Revisa el detalle ítem por ítem (paciente, procedimiento, valor, comisión) y el neto a pagar. Crea la liquidación.",
+            pt: "Revise o detalhe item a item (paciente, procedimento, valor, comissão) e o líquido a pagar. Crie o repasse.",
+            en: "Review the item-by-item detail (patient, procedure, value, commission) and the net to pay. Create the payout.",
+          },
+          {
+            es: "Al marcarla como pagada, se crea automáticamente un gasto de nómina por ese valor.",
+            pt: "Ao marcar como paga, cria-se automaticamente uma despesa de folha por esse valor.",
+            en: "When you mark it paid, a payroll expense for that amount is created automatically.",
+          },
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        text: {
+          es: "La comisión sale del cobro recibido (no de concluir el procedimiento). En Argentina, si el paciente tiene convenio con retención, esta reduce la producción antes de la comisión.",
+          pt: "A comissão sai do recebimento (não de concluir o procedimento). Na Argentina, se o paciente tem convênio com retención, ela reduz a produção antes da comissão.",
+          en: "Commission comes from the payment received (not from finishing the procedure). In Argentina, if the patient has an insurer with withholding, it reduces production before commission.",
+        },
+      },
+    ],
+  },
+  {
+    slug: "cobro-automatico-membresias",
+    categoryId: "finanzas",
+    updated: "2026-05-30",
+    readingMinutes: 4,
+    keywords: ["membresia", "suscripcion", "recurrente", "automatico", "mercadopago", "pasarela"],
+    related: ["registrar-un-cobro"],
+    title: {
+      es: "Cobro automático de membresías",
+      pt: "Cobrança automática de mensalidades",
+      en: "Automatic membership billing",
+    },
+    excerpt: {
+      es: "Suscripciones de pacientes que se cobran solas con recordatorios por WhatsApp y email.",
+      pt: "Assinaturas de pacientes que se cobram sozinhas com lembretes por WhatsApp e e-mail.",
+      en: "Patient subscriptions that bill themselves with WhatsApp and email reminders.",
+    },
+    body: [
+      {
+        type: "p",
+        text: {
+          es: "Las membresías permiten cobrar a un paciente de forma recurrente. El cobro puede ser automático mediante una pasarela de pago.",
+          pt: "As mensalidades permitem cobrar um paciente de forma recorrente. A cobrança pode ser automática por uma pasarela de pagamento.",
+          en: "Memberships let you charge a patient on a recurring basis. Billing can be automatic through a payment gateway.",
+        },
+      },
+      {
+        type: "steps",
+        items: [
+          {
+            es: "Configura la pasarela de pago de tu clínica en Configuraciones (Pasarelas de pago).",
+            pt: "Configure a pasarela de pagamento da sua clínica em Configurações (Pasarelas de pagamento).",
+            en: "Set up your clinic's payment gateway in Settings (Payment gateways).",
+          },
+          {
+            es: "Crea la suscripción del paciente (paciente + plan + fecha de inicio) y activa el cobro automático.",
+            pt: "Crie a assinatura do paciente (paciente + plano + data de início) e ative a cobrança automática.",
+            en: "Create the patient's subscription (patient + plan + start date) and enable automatic billing.",
+          },
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        text: {
+          es: "Con el cobro automático activo, el sistema genera cada período el enlace de pago y envía recordatorios por WhatsApp y correo. Apagar el interruptor pausa todo al instante.",
+          pt: "Com a cobrança automática ativa, o sistema gera a cada período o link de pagamento e envia lembretes por WhatsApp e e-mail. Desligar o interruptor pausa tudo na hora.",
+          en: "With automatic billing on, the system generates the payment link each period and sends WhatsApp and email reminders. Turning off the switch pauses everything instantly.",
+        },
+      },
+    ],
+  },
+
+  // ══════════════════════════════ TÓTEM ══════════════════════════════
+  {
+    slug: "check-in-en-el-totem",
+    categoryId: "totem",
+    updated: "2026-06-14",
+    readingMinutes: 4,
+    keywords: ["totem", "autoatencion", "check-in", "recepcion", "documento", "fila", "box"],
+    related: ["activar-agenda-publica"],
+    title: {
+      es: "Los tótems y el check-in del paciente",
+      pt: "Os totens e o check-in do paciente",
+      en: "The kiosks and patient check-in",
+    },
+    excerpt: {
+      es: "Autoatención en la sala de espera: el paciente confirma su llegada con su documento.",
+      pt: "Autoatendimento na sala de espera: o paciente confirma a chegada com o documento.",
+      en: "Waiting-room self-service: the patient confirms arrival with their document.",
+    },
+    body: [
+      {
+        type: "p",
+        text: {
+          es: "Desde el menú Autoatención abres los tótems, que corren en el navegador de un tablet o pantalla: Recepción, Panel de Fila y Box del consultorio.",
+          pt: "No menu Autoatendimento você abre os totens, que rodam no navegador de um tablet ou tela: Recepção, Painel de Fila e Box do consultório.",
+          en: "From the Self-service menu you open the kiosks, which run in a tablet or screen browser: Reception, Queue panel and consulting-room Box.",
+        },
+      },
+      {
+        type: "steps",
+        items: [
+          {
+            es: "El paciente ingresa su documento en el tótem de Recepción. El teclado se adapta a tu país (RUT en Chile, CPF, DNI, CURP…).",
+            pt: "O paciente digita o documento no totem de Recepção. O teclado se adapta ao seu país (RUT no Chile, CPF, DNI, CURP…).",
+            en: "The patient enters their document on the Reception kiosk. The keypad adapts to your country (RUT in Chile, CPF, DNI, CURP…).",
+          },
+          {
+            es: "Si no está registrado, hace un registro rápido ahí mismo. Luego confirma sus datos y su cita del día.",
+            pt: "Se não estiver cadastrado, faz um cadastro rápido ali mesmo. Depois confirma seus dados e a consulta do dia.",
+            en: "If not registered, they do a quick sign-up right there. Then they confirm their details and today's appointment.",
+          },
+          {
+            es: "Si hay consentimientos pendientes, los firma en pantalla (es opcional). Al terminar, ve su posición en la fila.",
+            pt: "Se houver consentimentos pendentes, assina na tela (é opcional). Ao terminar, vê sua posição na fila.",
+            en: "If there are pending consents, they sign on screen (optional). When done, they see their place in the queue.",
+          },
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        text: {
+          es: "Desde el Box, el profesional llama al paciente e inicia y finaliza la atención, y la fila se actualiza para la sala de espera.",
+          pt: "No Box, o profissional chama o paciente e inicia e finaliza o atendimento, e a fila se atualiza para a sala de espera.",
+          en: "From the Box, the professional calls the patient and starts and ends the visit, and the queue updates for the waiting room.",
+        },
+      },
+    ],
+  },
+
+  // ═══════════════════════ CUENTA Y SEGURIDAD ═══════════════════════
+  {
+    slug: "usuarios-y-roles",
+    categoryId: "cuenta",
+    updated: "2026-06-12",
+    readingMinutes: 5,
+    keywords: ["usuarios", "roles", "permisos", "equipo", "crear usuario", "acceso", "modulos"],
+    related: ["configurar-tu-clinica"],
+    title: {
+      es: "Usuarios, roles y permisos del equipo",
+      pt: "Usuários, papéis e permissões da equipe",
+      en: "Users, roles and team permissions",
+    },
+    excerpt: {
+      es: "Crea cuentas para tu equipo y define qué puede ver y hacer cada persona.",
+      pt: "Crie contas para sua equipe e defina o que cada pessoa pode ver e fazer.",
+      en: "Create accounts for your team and define what each person can see and do.",
+    },
+    body: [
+      {
+        type: "p",
+        text: {
+          es: "Los usuarios se gestionan en Administración → Profesionales. Ahí creas cuentas, asignas roles y ajustas permisos.",
+          pt: "Os usuários são geridos em Administração → Profissionais. Ali você cria contas, atribui papéis e ajusta permissões.",
+          en: "Users are managed in Administration → Professionals. There you create accounts, assign roles and adjust permissions.",
+        },
+      },
+      {
+        type: "steps",
+        items: [
+          {
+            es: "Pulsa «+», ingresa nombre, email, una contraseña temporal y el rol (dentista, secretaria, asistente dental, laboratorio o administrador).",
+            pt: "Clique em «+», informe nome, e-mail, uma senha temporária e o papel (dentista, secretária, auxiliar, laboratório ou administrador).",
+            en: "Click “+”, enter name, email, a temporary password and the role (dentist, front desk, dental assistant, lab or admin).",
+          },
+          {
+            es: "Desde «Perfil» del usuario puedes cambiar su rol, ajustar el acceso a módulos, restablecer su contraseña o bloquearlo.",
+            pt: "No «Perfil» do usuário você pode mudar o papel, ajustar o acesso a módulos, redefinir a senha ou bloqueá-lo.",
+            en: "From the user's “Profile” you can change their role, adjust module access, reset their password or block them.",
+          },
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        text: {
+          es: "Cada rol trae un acceso base y puedes afinarlo por módulo. Solo el rol Dentista cuenta como asiento de cobro de tu plan: dar módulos a una secretaria no cambia lo que pagas.",
+          pt: "Cada papel traz um acesso base e você pode afiná-lo por módulo. Só o papel Dentista conta como assento de cobrança do seu plano: dar módulos a uma secretária não muda o que você paga.",
+          en: "Each role has a base access and you can fine-tune it per module. Only the Dentist role counts as a billable seat on your plan: giving modules to a front-desk user doesn't change what you pay.",
         },
       },
     ],

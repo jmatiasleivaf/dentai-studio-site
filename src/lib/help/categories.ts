@@ -2,6 +2,7 @@ import type { Category } from "./types";
 
 /**
  * As 8 coleções do Centro de Ayuda. SSoT da arquitetura de informação.
+ * Ancorada no estado REAL da plataforma (specs + testes + código, jul/2026).
  * Adicionar coleção nova? Adicionar aqui + ilustração em components/help/illustrations.tsx.
  */
 export const HELP_CATEGORIES: readonly Category[] = [
@@ -17,9 +18,9 @@ export const HELP_CATEGORIES: readonly Category[] = [
       en: "Getting started",
     },
     description: {
-      es: "Configura tu clínica, importa pacientes y migra desde Dentalink sin perder nada.",
-      pt: "Configure sua clínica, importe pacientes e migre do Dentalink sem perder nada.",
-      en: "Set up your clinic, import patients and migrate from Dentalink without losing a thing.",
+      es: "Migración desde Dentalink, configuración de tu clínica, profesionales y horarios.",
+      pt: "Migração do Dentalink, configuração da sua clínica, profissionais e horários.",
+      en: "Migration from Dentalink, clinic setup, professionals and working hours.",
     },
   },
   {
@@ -34,9 +35,9 @@ export const HELP_CATEGORIES: readonly Category[] = [
       en: "Scheduling",
     },
     description: {
-      es: "Turnos, bloqueos, recordatorios automáticos y la agenda pública para que se llene sola.",
-      pt: "Horários, bloqueios, lembretes automáticos e a agenda pública para encher sozinha.",
-      en: "Slots, blocks, automatic reminders and the public agenda that fills itself.",
+      es: "Citas, arrastrar y soltar, bloqueos, recordatorios y la agenda pública de reservas.",
+      pt: "Consultas, arrastar e soltar, bloqueios, lembretes e a agenda pública de reservas.",
+      en: "Appointments, drag & drop, blocks, reminders and the public booking agenda.",
     },
   },
   {
@@ -51,9 +52,9 @@ export const HELP_CATEGORIES: readonly Category[] = [
       en: "Sofía & WhatsApp",
     },
     description: {
-      es: "Configura tu agente de IA, allowlist, respuestas y la integración con WhatsApp 24/7.",
-      pt: "Configure seu agente de IA, allowlist, respostas e a integração com o WhatsApp 24/7.",
-      en: "Configure your AI agent, allowlist, replies and the 24/7 WhatsApp integration.",
+      es: "Conecta tu WhatsApp por QR, define qué hace Sofía y asume conversaciones cuando quieras.",
+      pt: "Conecte seu WhatsApp por QR, defina o que a Sofía faz e assuma conversas quando quiser.",
+      en: "Connect your WhatsApp via QR, set what Sofía does and take over chats whenever you want.",
     },
   },
   {
@@ -68,15 +69,32 @@ export const HELP_CATEGORIES: readonly Category[] = [
       en: "Clinical chart & odontogram",
     },
     description: {
-      es: "Historia del paciente, odontograma, visor DICOM 3D, exámenes y la IA que asiste el diagnóstico.",
-      pt: "Histórico do paciente, odontograma, visor DICOM 3D, exames e a IA que assiste o diagnóstico.",
-      en: "Patient history, odontogram, 3D DICOM viewer, exams and AI-assisted diagnosis.",
+      es: "Odontograma por cara, anamnesis, evoluciones inmutables y planes de tratamiento.",
+      pt: "Odontograma por face, anamnese, evoluções imutáveis e planos de tratamento.",
+      en: "Per-surface odontogram, anamnesis, immutable evolutions and treatment plans.",
+    },
+  },
+  {
+    id: "imagenes",
+    slug: "imagenes-ia",
+    order: 5,
+    accent: "violet",
+    illustration: "imagenes",
+    name: {
+      es: "Imágenes e IA clínica",
+      pt: "Imagens e IA clínica",
+      en: "Imaging & clinical AI",
+    },
+    description: {
+      es: "Casos con IA y simulación de sonrisa, fotos clínicas, radiografías con informe IA y visor DICOM 3D.",
+      pt: "Casos com IA e simulação de sorriso, fotos clínicas, radiografias com laudo IA e visor DICOM 3D.",
+      en: "AI cases and smile simulation, clinical photos, AI radiograph reports and the 3D DICOM viewer.",
     },
   },
   {
     id: "finanzas",
     slug: "caja-y-cobros",
-    order: 5,
+    order: 6,
     accent: "brand",
     illustration: "finanzas",
     name: {
@@ -85,26 +103,9 @@ export const HELP_CATEGORIES: readonly Category[] = [
       en: "Cash, billing & finances",
     },
     description: {
-      es: "Caja por usuario, cobros con split, liquidaciones a profesionales y control de membresías.",
-      pt: "Caixa por usuário, cobranças com split, repasses a profissionais e controle de mensalidades.",
-      en: "Per-user cash drawer, split payments, professional payouts and membership control.",
-    },
-  },
-  {
-    id: "fiscal",
-    slug: "facturacion-fiscal",
-    order: 6,
-    accent: "violet",
-    illustration: "fiscal",
-    name: {
-      es: "Facturación y fiscal por país",
-      pt: "Faturamento e fiscal por país",
-      en: "Invoicing & tax by country",
-    },
-    description: {
-      es: "Documentos tributarios de cada mercado: SII, AFIP, NF-e y más. Configura una vez, factura tranquilo.",
-      pt: "Documentos fiscais de cada mercado: SII, AFIP, NF-e e mais. Configure uma vez, fature tranquilo.",
-      en: "Tax documents for each market: SII, AFIP, NF-e and more. Set it up once, invoice with peace of mind.",
+      es: "Caja por operador, cobros con varios medios, estornos, liquidaciones, membresías y saldos.",
+      pt: "Caixa por operador, cobranças com vários meios, estornos, repasses, mensalidades e saldos.",
+      en: "Per-operator cash drawer, multi-method payments, reversals, payouts, memberships and balances.",
     },
   },
   {
@@ -119,9 +120,9 @@ export const HELP_CATEGORIES: readonly Category[] = [
       en: "Kiosk & front desk",
     },
     description: {
-      es: "Autoatención en sala de espera: check-in por documento, confirmación de citas y menos filas.",
-      pt: "Autoatendimento na sala de espera: check-in por documento, confirmação de consultas e menos filas.",
-      en: "Waiting-room self-service: document check-in, appointment confirmation and shorter queues.",
+      es: "Autoatención en sala de espera: check-in por documento, consentimientos y fila.",
+      pt: "Autoatendimento na sala de espera: check-in por documento, consentimentos e fila.",
+      en: "Waiting-room self-service: document check-in, consents and queue.",
     },
   },
   {
@@ -136,9 +137,9 @@ export const HELP_CATEGORIES: readonly Category[] = [
       en: "Account, plans & security",
     },
     description: {
-      es: "Usuarios y permisos, tu plan y suscripción, respaldos y cómo cuidamos los datos.",
-      pt: "Usuários e permissões, seu plano e assinatura, backups e como cuidamos dos dados.",
-      en: "Users and permissions, your plan and subscription, backups and how we protect your data.",
+      es: "Usuarios y permisos, tu plan y cuotas, visión de red y verificación en dos pasos.",
+      pt: "Usuários e permissões, seu plano e cotas, visão de rede e verificação em duas etapas.",
+      en: "Users and permissions, your plan and quotas, network view and two-factor authentication.",
     },
   },
 ] as const;
