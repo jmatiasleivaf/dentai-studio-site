@@ -66,6 +66,10 @@ const config: Config = {
         "touch-md": "48px",
       },
       spacing: {
+        // Altura do NavBar. SSoT: usado em `h-nav` (altura do header) e em
+        // `-mt-nav` no Hero (overlay do header transparente sobre o hero escuro).
+        // Mantê-los travados no MESMO token evita o bug de "faixa branca" no topo.
+        nav: "4.5rem",
         "safe-t": "env(safe-area-inset-top)",
         "safe-b": "env(safe-area-inset-bottom)",
         "safe-l": "env(safe-area-inset-left)",

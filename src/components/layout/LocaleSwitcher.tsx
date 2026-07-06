@@ -5,6 +5,7 @@ import { Globe } from "lucide-react";
 import { useLocale } from "next-intl";
 import { useRouter, usePathname } from "@/i18n/navigation";
 import { LOCALES, type Locale } from "@/i18n/routing";
+import { cn } from "@/lib/utils";
 
 const LABEL: Record<Locale, string> = {
   es: "ES",
@@ -12,7 +13,7 @@ const LABEL: Record<Locale, string> = {
   en: "EN",
 };
 
-export function LocaleSwitcher() {
+export function LocaleSwitcher({ onDark = false }: { onDark?: boolean }) {
   const locale = useLocale() as Locale;
   const router = useRouter();
   const pathname = usePathname();
@@ -43,7 +44,12 @@ export function LocaleSwitcher() {
         onClick={() => setOpen((v) => !v)}
         aria-haspopup="listbox"
         aria-expanded={open}
-        className="inline-flex h-touch-md items-center gap-1.5 rounded-xl px-3 text-sm font-semibold text-ink-700 hover:bg-ink-100 dark:text-ink-200 dark:hover:bg-ink-800"
+        className={cn(
+          "inline-flex h-touch-md items-center gap-1.5 rounded-xl px-3 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400",
+          onDark
+            ? "text-white/85 hover:bg-white/10 hover:text-white"
+            : "text-ink-700 hover:bg-ink-100 dark:text-ink-200 dark:hover:bg-ink-800"
+        )}
       >
         <Globe className="h-4 w-4" aria-hidden />
         {LABEL[locale]}

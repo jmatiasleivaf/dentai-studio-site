@@ -18,10 +18,15 @@
     "closeMenu": "Fechar menu",
     "resourcesItems": {
       "sofia": "Sofía no WhatsApp",
+      "sofia_desc": "Agenda e responde no WhatsApp, 24/7.",
       "iaClinica": "IA Clínica",
+      "iaClinica_desc": "Diagnóstico assistido e análise radiográfica.",
       "clinico": "Módulo Clínico",
+      "clinico_desc": "Odontograma, DICOM e ficha clínica.",
       "totem": "Totem Autoatendimento",
+      "totem_desc": "Recepção e check-in sem filas.",
       "automatizacoes": "Automatizações",
+      "automatizacoes_desc": "Caixa, cobranças e repasses no piloto automático.",
       "comingSoon": "Em breve"
     }
   },

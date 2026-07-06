@@ -85,7 +85,7 @@ export function Hero() {
   });
 
   return (
-    <section className="relative isolate overflow-hidden bg-ink-950">
+    <section className="relative isolate -mt-nav overflow-hidden bg-ink-950">
       {/* Background video — desktop only, mobile-off pela policy */}
       <HeroVideo videoRef={videoRef} shouldPlay={shouldPlay} />
 

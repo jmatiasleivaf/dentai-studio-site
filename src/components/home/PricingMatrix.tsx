@@ -1,5 +1,6 @@
 "use client";
 
+import { Fragment } from "react";
 import { Check, Minus } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/container";
@@ -101,9 +102,9 @@ export function PricingMatrix() {
 
             <tbody>
               {PLAN_MATRIX.map((row) => (
-                <>
+                <Fragment key={row.key}>
                   {row.groupKey ? (
-                    <tr key={`group-${row.groupKey}`} className="border-t border-ink-100 dark:border-ink-800">
+                    <tr className="border-t border-ink-100 dark:border-ink-800">
                       <td
                         colSpan={5}
                         className="sticky left-0 bg-ink-50 px-5 py-2.5 text-xs font-extrabold uppercase tracking-[0.15em] text-ink-500 dark:bg-ink-950 dark:text-ink-400"
@@ -112,10 +113,7 @@ export function PricingMatrix() {
                       </td>
                     </tr>
                   ) : null}
-                  <tr
-                    key={row.key}
-                    className="border-t border-ink-50 transition-colors hover:bg-ink-50/50 dark:border-ink-900 dark:hover:bg-ink-800/30"
-                  >
+                  <tr className="border-t border-ink-50 transition-colors hover:bg-ink-50/50 dark:border-ink-900 dark:hover:bg-ink-800/30">
                     <th
                       scope="row"
                       className="sticky left-0 z-10 bg-white px-5 py-3 text-left text-sm font-medium text-ink-800 dark:bg-ink-900 dark:text-ink-200"
@@ -131,7 +129,7 @@ export function PricingMatrix() {
                       </td>
                     ))}
                   </tr>
-                </>
+                </Fragment>
               ))}
             </tbody>
           </table>

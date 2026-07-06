@@ -18,10 +18,15 @@
     "closeMenu": "Close menu",
     "resourcesItems": {
       "sofia": "Sofía on WhatsApp",
+      "sofia_desc": "Books and replies on WhatsApp, 24/7.",
       "iaClinica": "Clinical AI",
+      "iaClinica_desc": "Assisted diagnosis and radiographic analysis.",
       "clinico": "Clinical Module",
+      "clinico_desc": "Odontogram, DICOM and clinical chart.",
       "totem": "Self-service Kiosk",
+      "totem_desc": "Front desk and check-in, no queues.",
       "automatizacoes": "Automations",
+      "automatizacoes_desc": "Cash, billing and payouts on autopilot.",
       "comingSoon": "Coming soon"
     }
   },
