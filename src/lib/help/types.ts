@@ -14,6 +14,9 @@ export type IllustrationKey =
   | "totem"
   | "cuenta"
   | "imagenes"
+  | "crm"
+  | "informes"
+  | "inventario"
   | "flujo-sofia"
   | "flujo-migracion"
   | "pantalla-caja";

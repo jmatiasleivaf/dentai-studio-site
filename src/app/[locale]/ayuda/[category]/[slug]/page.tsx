@@ -164,6 +164,9 @@ export default async function ArticlePage({
               yes={t("article.feedbackYes")}
               no={t("article.feedbackNo")}
               thanks={t("article.feedbackThanks")}
+              slug={article.slug}
+              category={cat.slug}
+              locale={loc}
             />
           </article>
 

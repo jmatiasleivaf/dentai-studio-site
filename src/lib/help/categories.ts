@@ -109,9 +109,60 @@ export const HELP_CATEGORIES: readonly Category[] = [
     },
   },
   {
+    id: "crm",
+    slug: "crm-y-campanas",
+    order: 7,
+    accent: "violet",
+    illustration: "crm",
+    name: {
+      es: "CRM y campañas",
+      pt: "CRM e campanhas",
+      en: "CRM & campaigns",
+    },
+    description: {
+      es: "Tareas de seguimiento de pacientes generadas por IA, plantillas y campañas por segmento.",
+      pt: "Tarefas de acompanhamento de pacientes geradas por IA, modelos e campanhas por segmento.",
+      en: "AI-generated patient follow-up tasks, templates and segmented campaigns.",
+    },
+  },
+  {
+    id: "informes",
+    slug: "informes-y-metricas",
+    order: 8,
+    accent: "brand",
+    illustration: "informes",
+    name: {
+      es: "Informes y métricas",
+      pt: "Relatórios e métricas",
+      en: "Reports & metrics",
+    },
+    description: {
+      es: "El panel inicial, los informes de gestión y el desempeño personal de cada dentista.",
+      pt: "O painel inicial, os relatórios de gestão e o desempenho pessoal de cada dentista.",
+      en: "The home dashboard, management reports and each dentist's personal performance.",
+    },
+  },
+  {
+    id: "inventario",
+    slug: "inventario-y-laboratorio",
+    order: 9,
+    accent: "brand",
+    illustration: "inventario",
+    name: {
+      es: "Inventario y laboratorio",
+      pt: "Estoque e laboratório",
+      en: "Inventory & lab",
+    },
+    description: {
+      es: "Control de stock con alertas y las órdenes de laboratorio, con portal para el lab externo.",
+      pt: "Controle de estoque com alertas e as ordens de laboratório, com portal para o lab externo.",
+      en: "Stock control with alerts and lab orders, with a portal for the external lab.",
+    },
+  },
+  {
     id: "totem",
     slug: "totem-y-recepcion",
-    order: 7,
+    order: 10,
     accent: "brand",
     illustration: "totem",
     name: {
@@ -128,7 +179,7 @@ export const HELP_CATEGORIES: readonly Category[] = [
   {
     id: "cuenta",
     slug: "cuenta-y-seguridad",
-    order: 8,
+    order: 11,
     accent: "brand",
     illustration: "cuenta",
     name: {

@@ -4,21 +4,43 @@ import * as React from "react";
 import { ThumbsUp, ThumbsDown } from "lucide-react";
 
 /**
- * "¿Te resultó útil?" — feedback local do artigo. Fase 1: estado visual + agradecimento.
- * Fase 2: persistir o voto (endpoint/analytics) para medir qualidade do conteúdo.
+ * "¿Te resultó útil?" — feedback do artigo. Mostra o agradecimento e envia o
+ * voto (anônimo, sem PII) para /api/help-feedback como métrica de qualidade.
+ * O envio é fire-and-forget: nunca bloqueia nem quebra a UI.
  */
 export function Feedback({
   question,
   yes,
   no,
   thanks,
+  slug,
+  category,
+  locale,
 }: {
   question: string;
   yes: string;
   no: string;
   thanks: string;
+  slug: string;
+  category: string;
+  locale: string;
 }) {
   const [voted, setVoted] = React.useState<"yes" | "no" | null>(null);
+
+  const vote = (value: "yes" | "no") => {
+    if (voted) return;
+    setVoted(value);
+    try {
+      void fetch("/api/help-feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ slug, category, locale, helpful: value === "yes" }),
+        keepalive: true,
+      }).catch(() => {});
+    } catch {
+      /* nunca quebra a UI */
+    }
+  };
 
   return (
     <div className="mt-9 flex flex-wrap items-center gap-4 rounded-2xl border border-ink-200 bg-ink-50 px-6 py-5 dark:border-ink-800 dark:bg-ink-900">

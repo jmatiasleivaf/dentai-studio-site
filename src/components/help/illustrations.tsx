@@ -134,6 +134,31 @@ export function CategoryIllustration({
           <path d="M34 7l1.4 3.1L38.5 11l-3.1 1.4L34 15l-1.4-2.6L29.5 11l3.1-.9L34 7Z" fill="#7c3aed" />
         </svg>
       );
+    case "crm":
+      return (
+        <svg {...common}>
+          <path d="M9 12h30a3 3 0 0 1 3 3v13a3 3 0 0 1-3 3H21l-7 6v-6h-5a3 3 0 0 1-3-3V15a3 3 0 0 1 3-3Z" stroke={g} strokeWidth="2.5" />
+          <path d="M14 19h20M14 25h12" stroke="#7c3aed" strokeWidth="2.2" strokeLinecap="round" />
+          <circle cx="36" cy="12" r="5" fill="#7c3aed" />
+        </svg>
+      );
+    case "informes":
+      return (
+        <svg {...common}>
+          <path d="M8 8v30a2 2 0 0 0 2 2h30" stroke={g} strokeWidth="2.5" strokeLinecap="round" />
+          <rect x="15" y="24" width="6" height="10" rx="1.5" fill="#0ea5e9" opacity=".9" />
+          <rect x="25" y="18" width="6" height="16" rx="1.5" stroke={g} strokeWidth="2.2" />
+          <rect x="35" y="12" width="6" height="22" rx="1.5" fill="#06b6d4" opacity=".9" />
+        </svg>
+      );
+    case "inventario":
+      return (
+        <svg {...common}>
+          <path d="M8 16l16-8 16 8-16 8-16-8Z" stroke={g} strokeWidth="2.5" strokeLinejoin="round" />
+          <path d="M8 16v16l16 8 16-8V16" stroke={g} strokeWidth="2.5" strokeLinejoin="round" />
+          <path d="M24 24v16" stroke="#06b6d4" strokeWidth="2.2" />
+        </svg>
+      );
     default:
       return null;
   }
