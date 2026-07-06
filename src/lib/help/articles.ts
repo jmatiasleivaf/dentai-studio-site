@@ -1380,4 +1380,627 @@ export const HELP_ARTICLES: readonly Article[] = [
       },
     ],
   },
+
+  // ─── Ola 2 ───
+
+  // PRIMEROS PASOS
+  {
+    slug: "profesionales-y-especialidades",
+    categoryId: "primeros-pasos",
+    updated: "2026-05-30",
+    readingMinutes: 4,
+    keywords: ["profesional", "profissional", "especialidad", "especialidade", "color", "agenda", "comision"],
+    related: ["configurar-tu-clinica", "usuarios-y-roles"],
+    title: {
+      es: "Agregar profesionales y sus especialidades",
+      pt: "Adicionar profissionais e suas especialidades",
+      en: "Add professionals and their specialties",
+    },
+    excerpt: {
+      es: "Cada profesional con su color de agenda, sus especialidades y su comisión.",
+      pt: "Cada profissional com sua cor de agenda, suas especialidades e sua comissão.",
+      en: "Each professional with their agenda color, specialties and commission.",
+    },
+    body: [
+      {
+        type: "p",
+        text: {
+          es: "Los profesionales y las especialidades que ofrece tu clínica se gestionan en Administración, en sus pestañas correspondientes.",
+          pt: "Os profissionais e as especialidades que sua clínica oferece são geridos em Administração, nas abas correspondentes.",
+          en: "The professionals and specialties your clinic offers are managed under Administration, in their respective tabs.",
+        },
+      },
+      {
+        type: "steps",
+        items: [
+          {
+            es: "En la pestaña Profesionales, agrega a cada uno con su nombre, apodo, color de agenda y especialidades.",
+            pt: "Na aba Profissionais, adicione cada um com nome, apelido, cor de agenda e especialidades.",
+            en: "In the Professionals tab, add each one with their name, nickname, agenda color and specialties.",
+          },
+          {
+            es: "Define su comisión (%): es la que usará el sistema al calcular las liquidaciones.",
+            pt: "Defina a comissão (%): é a que o sistema usará ao calcular os repasses.",
+            en: "Set their commission (%): it's what the system uses when calculating payouts.",
+          },
+          {
+            es: "En la pestaña Especialidades, activa las que ofreces con un clic o crea una personalizada.",
+            pt: "Na aba Especialidades, ative as que você oferece com um clique ou crie uma personalizada.",
+            en: "In the Specialties tab, turn on the ones you offer with one click or create a custom one.",
+          },
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        text: {
+          es: "El color de agenda distingue visualmente a cada profesional en el calendario. Las especialidades del catálogo se pueden desactivar; solo las personalizadas se eliminan.",
+          pt: "A cor de agenda distingue visualmente cada profissional no calendário. As especialidades do catálogo podem ser desativadas; só as personalizadas são excluídas.",
+          en: "The agenda color visually distinguishes each professional on the calendar. Catalog specialties can be deactivated; only custom ones can be deleted.",
+        },
+      },
+    ],
+  },
+
+  // IMÁGENES E IA CLÍNICA
+  {
+    slug: "sesion-de-fotos",
+    categoryId: "imagenes",
+    updated: "2026-05-24",
+    readingMinutes: 4,
+    keywords: ["fotos", "foto", "clinica", "protocolo", "9 tomas", "comparacion", "intraoral"],
+    related: ["casos-con-ia", "radiografia-informe-ia"],
+    title: {
+      es: "Sesión de fotos clínicas (protocolo de 9 tomas)",
+      pt: "Sessão de fotos clínicas (protocolo de 9 tomas)",
+      en: "Clinical photo session (9-shot protocol)",
+    },
+    excerpt: {
+      es: "Documenta el caso con un protocolo fotográfico estándar y compara la evolución.",
+      pt: "Documente o caso com um protocolo fotográfico padrão e compare a evolução.",
+      en: "Document the case with a standard photo protocol and compare progress.",
+    },
+    body: [
+      {
+        type: "p",
+        text: {
+          es: "En el menú Exámenes, la pestaña Fotos organiza cada sesión en un protocolo de 9 tomas (3 extraorales y 6 intraorales).",
+          pt: "No menu Exames, a aba Fotos organiza cada sessão em um protocolo de 9 tomas (3 extraorais e 6 intraorais).",
+          en: "In the Exams menu, the Photos tab organizes each session into a 9-shot protocol (3 extraoral and 6 intraoral).",
+        },
+      },
+      {
+        type: "steps",
+        items: [
+          {
+            es: "Abre la ficha de exámenes del paciente y crea una sesión de fotos.",
+            pt: "Abra a ficha de exames do paciente e crie uma sessão de fotos.",
+            en: "Open the patient's exam record and create a photo session.",
+          },
+          {
+            es: "Sube cada toma en su lugar. Una sesión completa muestra 9 de 9.",
+            pt: "Envie cada tomada no seu lugar. Uma sessão completa mostra 9 de 9.",
+            en: "Upload each shot in its slot. A complete session shows 9 of 9.",
+          },
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        text: {
+          es: "Con dos o más sesiones, el modo comparación las muestra lado a lado para ver la evolución del tratamiento.",
+          pt: "Com duas ou mais sessões, o modo comparação as mostra lado a lado para ver a evolução do tratamento.",
+          en: "With two or more sessions, comparison mode shows them side by side to see the treatment's progress.",
+        },
+      },
+    ],
+  },
+  {
+    slug: "radiografia-informe-ia",
+    categoryId: "imagenes",
+    updated: "2026-06-01",
+    readingMinutes: 4,
+    keywords: ["radiografia", "radiografía", "informe", "ia", "panoramica", "cefalometrica", "bitewing"],
+    related: ["casos-con-ia", "visor-dicom-3d"],
+    title: {
+      es: "Subir una radiografía y generar informe con IA",
+      pt: "Enviar uma radiografia e gerar laudo com IA",
+      en: "Upload a radiograph and generate an AI report",
+    },
+    excerpt: {
+      es: "Sube la placa y obtén un informe estructurado de apoyo, generado por IA.",
+      pt: "Envie a placa e obtenha um laudo estruturado de apoio, gerado por IA.",
+      en: "Upload the film and get a structured support report, generated by AI.",
+    },
+    body: [
+      {
+        type: "p",
+        text: {
+          es: "En Exámenes, la pestaña Radiografías te deja subir la imagen y pedir un informe de apoyo a la IA. Es una ayuda, no reemplaza tu lectura profesional.",
+          pt: "Em Exames, a aba Radiografias permite enviar a imagem e pedir um laudo de apoio à IA. É uma ajuda, não substitui sua leitura profissional.",
+          en: "In Exams, the Radiographs tab lets you upload the image and request an AI support report. It's an aid, not a replacement for your professional reading.",
+        },
+      },
+      {
+        type: "steps",
+        items: [
+          {
+            es: "Sube la radiografía (arrastrar y soltar) e indica su tipo.",
+            pt: "Envie a radiografia (arrastar e soltar) e indique o tipo.",
+            en: "Upload the radiograph (drag & drop) and set its type.",
+          },
+          {
+            es: "Pulsa «Analizar con IA». El informe aparece para copiar o imprimir.",
+            pt: "Clique em «Analisar com IA». O laudo aparece para copiar ou imprimir.",
+            en: "Click “Analyze with AI”. The report appears to copy or print.",
+          },
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        text: {
+          es: "El análisis por IA está disponible para panorámicas, cefalométricas y bitewing. El informe se genera a pedido y no queda guardado como parte de la ficha.",
+          pt: "A análise por IA está disponível para panorâmicas, cefalométricas e bitewing. O laudo é gerado sob demanda e não fica salvo como parte da ficha.",
+          en: "AI analysis is available for panoramic, cephalometric and bitewing images. The report is generated on demand and isn't saved as part of the chart.",
+        },
+      },
+    ],
+  },
+  {
+    slug: "visor-dicom-3d",
+    categoryId: "imagenes",
+    updated: "2026-05-27",
+    readingMinutes: 5,
+    keywords: ["dicom", "3d", "cbct", "visor", "tomografia", "zip", "medicion", "preset"],
+    related: ["radiografia-informe-ia"],
+    title: {
+      es: "Visor DICOM 3D: cargar y medir un estudio",
+      pt: "Visor DICOM 3D: carregar e medir um estudo",
+      en: "3D DICOM viewer: load and measure a study",
+    },
+    excerpt: {
+      es: "Sube un CBCT desde un ZIP y explóralo con herramientas de medición y presets dentales.",
+      pt: "Envie um CBCT a partir de um ZIP e explore-o com ferramentas de medição e presets dentais.",
+      en: "Upload a CBCT from a ZIP and explore it with measurement tools and dental presets.",
+    },
+    body: [
+      {
+        type: "p",
+        text: {
+          es: "El visor 3D vive en el menú Imágenes 3D. Carga estudios DICOM (CBCT) y los explora corte a corte en el navegador, sin instalar nada.",
+          pt: "O visor 3D vive no menu Imagens 3D. Carrega estudos DICOM (CBCT) e os explora corte a corte no navegador, sem instalar nada.",
+          en: "The 3D viewer lives in the 3D Images menu. It loads DICOM (CBCT) studies and explores them slice by slice in the browser, with nothing to install.",
+        },
+      },
+      {
+        type: "steps",
+        items: [
+          {
+            es: "Sube el estudio como un archivo ZIP con los .dcm. El sistema los procesa por lotes.",
+            pt: "Envie o estudo como um arquivo ZIP com os .dcm. O sistema os processa em lotes.",
+            en: "Upload the study as a ZIP with the .dcm files. The system processes them in batches.",
+          },
+          {
+            es: "En el visor, navega los cortes y usa las herramientas de medición (longitud, ángulo, áreas, HU) y los presets dentales (hueso, implante, tejido, endo).",
+            pt: "No visor, navegue pelos cortes e use as ferramentas de medição (comprimento, ângulo, áreas, HU) e os presets dentais (osso, implante, tecido, endo).",
+            en: "In the viewer, navigate the slices and use the measurement tools (length, angle, areas, HU) and dental presets (bone, implant, tissue, endo).",
+          },
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        text: {
+          es: "Puedes restringir un estudio para que solo lo vea quien lo subió y los administradores. Por ahora el visor trabaja con vista única (aún no reconstrucción multiplanar de tres vistas).",
+          pt: "Você pode restringir um estudo para que só o veja quem o enviou e os administradores. Por ora o visor trabalha com vista única (ainda não reconstrução multiplanar de três vistas).",
+          en: "You can restrict a study so only the uploader and admins can see it. For now the viewer works with a single view (no three-view multiplanar reconstruction yet).",
+        },
+      },
+    ],
+  },
+  {
+    slug: "ortodoncia-casos",
+    categoryId: "imagenes",
+    updated: "2026-05-31",
+    readingMinutes: 5,
+    keywords: ["ortodoncia", "alineadores", "brackets", "invisalign", "control", "sesion", "panel"],
+    related: ["activar-agenda-publica"],
+    title: {
+      es: "Ortodoncia: alineadores, brackets y panel de control",
+      pt: "Ortodontia: alinhadores, brackets e painel de controle",
+      en: "Orthodontics: aligners, brackets and control panel",
+    },
+    excerpt: {
+      es: "Gestiona casos de alineadores o brackets, sus sesiones y el control de pacientes activos.",
+      pt: "Gerencie casos de alinhadores ou brackets, suas sessões e o controle de pacientes ativos.",
+      en: "Manage aligner or bracket cases, their sessions and the control of active patients.",
+    },
+    body: [
+      {
+        type: "p",
+        text: {
+          es: "El módulo de ortodoncia (menú Alineadores) maneja las dos modalidades: alineadores (Invisalign, ClearCorrect y otros) y brackets.",
+          pt: "O módulo de ortodontia (menu Alinhadores) trata as duas modalidades: alinhadores (Invisalign, ClearCorrect e outros) e brackets.",
+          en: "The orthodontics module (Aligners menu) handles both modalities: aligners (Invisalign, ClearCorrect and others) and brackets.",
+        },
+      },
+      {
+        type: "steps",
+        items: [
+          {
+            es: "Crea el caso eligiendo la modalidad y sus datos (sistema, arcadas, totales o fase).",
+            pt: "Crie o caso escolhendo a modalidade e seus dados (sistema, arcadas, totais ou fase).",
+            en: "Create the case choosing the modality and its data (system, arches, totals or phase).",
+          },
+          {
+            es: "Registra las sesiones clínicas a medida que avanza el tratamiento.",
+            pt: "Registre as sessões clínicas conforme o tratamento avança.",
+            en: "Record clinical sessions as the treatment progresses.",
+          },
+          {
+            es: "El panel de control clasifica los casos activos: vencidos, sin retorno y por vencer.",
+            pt: "O painel de controle classifica os casos ativos: vencidos, sem retorno e a vencer.",
+            en: "The control panel classifies active cases: overdue, no-show and due soon.",
+          },
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        text: {
+          es: "Desde el panel puedes enviar al paciente una invitación para que agende su control solo. Para eso, la agenda pública de tu clínica debe estar activa.",
+          pt: "Do painel você pode enviar ao paciente um convite para ele agendar o controle sozinho. Para isso, a agenda pública da sua clínica precisa estar ativa.",
+          en: "From the panel you can send the patient an invitation to book their check-up themselves. For that, your clinic's public agenda must be active.",
+        },
+      },
+    ],
+  },
+
+  // FINANZAS — convenios y saldos
+  {
+    slug: "saldo-a-favor",
+    categoryId: "finanzas",
+    updated: "2026-07-02",
+    readingMinutes: 3,
+    keywords: ["saldo", "favor", "anticipo", "cuenta corriente", "credito", "prepago"],
+    related: ["registrar-un-cobro"],
+    title: {
+      es: "Saldo a favor y cuenta corriente del paciente",
+      pt: "Saldo a favor e conta corrente do paciente",
+      en: "Patient credit balance and running account",
+    },
+    excerpt: {
+      es: "Registra anticipos y úsalos después para pagar cuotas.",
+      pt: "Registre adiantamentos e use-os depois para pagar parcelas.",
+      en: "Record advances and use them later to pay instalments.",
+    },
+    body: [
+      {
+        type: "p",
+        text: {
+          es: "Un paciente puede dejar dinero a cuenta (un anticipo) y usarlo más adelante. Ese saldo a favor se gestiona en el panel financiero de su ficha.",
+          pt: "Um paciente pode deixar dinheiro em conta (um adiantamento) e usá-lo mais adiante. Esse saldo a favor é gerido no painel financeiro da ficha dele.",
+          en: "A patient can leave money on account (an advance) and use it later. That credit balance is managed in their chart's financial panel.",
+        },
+      },
+      {
+        type: "list",
+        items: [
+          {
+            es: "Registrar anticipo: entra como saldo a favor y como entrada de caja.",
+            pt: "Registrar adiantamento: entra como saldo a favor e como entrada de caixa.",
+            en: "Record advance: it enters as credit balance and as a cash-in.",
+          },
+          {
+            es: "Al cobrar, elige «Usar saldo a favor» como medio de pago.",
+            pt: "Ao cobrar, escolha «Usar saldo a favor» como meio de pagamento.",
+            en: "When charging, choose “Use credit balance” as the payment method.",
+          },
+          {
+            es: "Un anticipo no usado se puede estornar (genera una salida de caja trazable).",
+            pt: "Um adiantamento não usado pode ser estornado (gera uma saída de caixa rastreável).",
+            en: "An unused advance can be reversed (it generates a traceable cash-out).",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "convenios-y-retencion",
+    categoryId: "finanzas",
+    updated: "2026-07-02",
+    readingMinutes: 4,
+    keywords: ["convenio", "obra social", "financiador", "retencion", "coseguro", "argentina"],
+    related: ["liquidaciones-profesionales"],
+    title: {
+      es: "Convenios, obras sociales y retención",
+      pt: "Convênios, obras sociais e retención",
+      en: "Insurers, health plans and withholding",
+    },
+    excerpt: {
+      es: "Cadastra un financiador con su retención y así impacta la liquidación del profesional.",
+      pt: "Cadastre um financiador com sua retención e veja como impacta o repasse do profissional.",
+      en: "Register a payer with its withholding and how it affects the professional's payout.",
+    },
+    body: [
+      {
+        type: "p",
+        text: {
+          es: "Los convenios (obras sociales, financiadores) se cadastran en Administración, en la pestaña Convenios. Se vinculan al paciente desde su ficha.",
+          pt: "Os convênios (obras sociais, financiadores) são cadastrados em Administração, na aba Convênios. São vinculados ao paciente na ficha dele.",
+          en: "Insurers (health plans, payers) are registered under Administration, in the Insurers tab. They're linked to the patient from their chart.",
+        },
+      },
+      {
+        type: "steps",
+        items: [
+          {
+            es: "Crea el convenio con su nombre, tipo y el porcentaje de retención, si aplica.",
+            pt: "Crie o convênio com nome, tipo e o percentual de retención, se aplicável.",
+            en: "Create the insurer with its name, type and withholding percentage, if applicable.",
+          },
+          {
+            es: "Vincula el convenio al paciente en su ficha.",
+            pt: "Vincule o convênio ao paciente na ficha dele.",
+            en: "Link the insurer to the patient in their chart.",
+          },
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        text: {
+          es: "Al liquidar a un profesional, si el paciente tiene un convenio con retención (habitual en Argentina), esa retención reduce la producción antes de aplicar la comisión.",
+          pt: "Ao liquidar um profissional, se o paciente tem um convênio com retención (comum na Argentina), essa retención reduz a produção antes de aplicar a comissão.",
+          en: "When paying out a professional, if the patient has an insurer with withholding (common in Argentina), that withholding reduces production before applying the commission.",
+        },
+      },
+    ],
+  },
+
+  // TÓTEM
+  {
+    slug: "totem-por-pais",
+    categoryId: "totem",
+    updated: "2026-05-16",
+    readingMinutes: 3,
+    keywords: ["totem", "documento", "rut", "cpf", "dni", "curp", "teclado", "pais"],
+    related: ["check-in-en-el-totem"],
+    title: {
+      es: "El tótem por país: RUT, CPF, DNI y más",
+      pt: "O totem por país: RUT, CPF, DNI e mais",
+      en: "The kiosk by country: RUT, CPF, DNI and more",
+    },
+    excerpt: {
+      es: "El teclado del tótem se adapta al documento de identidad de tu país.",
+      pt: "O teclado do totem se adapta ao documento de identidade do seu país.",
+      en: "The kiosk keypad adapts to your country's identity document.",
+    },
+    body: [
+      {
+        type: "p",
+        text: {
+          es: "El check-in del tótem identifica al paciente por su documento, y el teclado cambia según el país de tu clínica.",
+          pt: "O check-in do totem identifica o paciente pelo documento, e o teclado muda conforme o país da sua clínica.",
+          en: "The kiosk check-in identifies the patient by their document, and the keypad changes according to your clinic's country.",
+        },
+      },
+      {
+        type: "list",
+        items: [
+          {
+            es: "Chile (RUT): teclado numérico con tecla K, formato automático y validación del dígito verificador.",
+            pt: "Chile (RUT): teclado numérico com tecla K, formato automático e validação do dígito verificador.",
+            en: "Chile (RUT): numeric keypad with a K key, auto formatting and check-digit validation.",
+          },
+          {
+            es: "CPF (Brasil), DNI (Argentina/Perú), Cédula (Colombia): teclado numérico simple.",
+            pt: "CPF (Brasil), DNI (Argentina/Peru), Cédula (Colômbia): teclado numérico simples.",
+            en: "CPF (Brazil), DNI (Argentina/Peru), Cédula (Colombia): plain numeric keypad.",
+          },
+          {
+            es: "CURP (México), NIE/DNI (España): teclado alfanumérico.",
+            pt: "CURP (México), NIE/DNI (Espanha): teclado alfanumérico.",
+            en: "CURP (Mexico), NIE/DNI (Spain): alphanumeric keypad.",
+          },
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        text: {
+          es: "El sistema reconoce el documento aunque esté guardado con o sin puntos y guiones, así que el paciente puede escribirlo como prefiera.",
+          pt: "O sistema reconhece o documento mesmo que esteja salvo com ou sem pontos e traços, então o paciente pode digitá-lo como preferir.",
+          en: "The system recognizes the document whether it's stored with or without dots and dashes, so the patient can type it however they like.",
+        },
+      },
+    ],
+  },
+
+  // CUENTA Y SEGURIDAD
+  {
+    slug: "acceso-a-modulos",
+    categoryId: "cuenta",
+    updated: "2026-05-18",
+    readingMinutes: 4,
+    keywords: ["modulos", "permisos", "acceso", "granular", "plan", "rol", "candado"],
+    related: ["usuarios-y-roles", "tu-plan-y-cuotas"],
+    title: {
+      es: "Ajustar el acceso a módulos de un usuario",
+      pt: "Ajustar o acesso a módulos de um usuário",
+      en: "Adjust a user's module access",
+    },
+    excerpt: {
+      es: "Cada usuario ve solo lo que necesita. Afina el acceso módulo por módulo.",
+      pt: "Cada usuário vê só o que precisa. Ajuste o acesso módulo por módulo.",
+      en: "Each user sees only what they need. Fine-tune access module by module.",
+    },
+    body: [
+      {
+        type: "p",
+        text: {
+          es: "Desde el perfil de un usuario (Administración → Profesionales) puedes activar o desactivar el acceso a cada módulo, más allá de lo que trae su rol.",
+          pt: "No perfil de um usuário (Administração → Profissionais) você pode ativar ou desativar o acesso a cada módulo, além do que o papel dele traz.",
+          en: "From a user's profile (Administration → Professionals) you can turn each module's access on or off, beyond what their role brings.",
+        },
+      },
+      {
+        type: "callout",
+        tone: "info",
+        text: {
+          es: "Hay dos tipos de candado distintos: un módulo puede estar bloqueado por tu plan (lo desbloquea un upgrade) o gobernado por el rol (como Configuraciones o Administración). Ajustar módulos nunca cambia el rol ni lo que pagas.",
+          pt: "Há dois tipos de cadeado distintos: um módulo pode estar bloqueado pelo seu plano (um upgrade desbloqueia) ou governado pelo papel (como Configurações ou Administração). Ajustar módulos nunca muda o papel nem o que você paga.",
+          en: "There are two different locks: a module can be blocked by your plan (an upgrade unlocks it) or governed by the role (like Settings or Administration). Adjusting modules never changes the role or what you pay.",
+        },
+      },
+    ],
+  },
+  {
+    slug: "tu-plan-y-cuotas",
+    categoryId: "cuenta",
+    updated: "2026-06-01",
+    readingMinutes: 4,
+    keywords: ["plan", "suscripcion", "cuota", "cuotas ia", "upgrade", "fundador", "corporativo"],
+    related: ["acceso-a-modulos"],
+    title: {
+      es: "Tu plan, tus cuotas de IA y el upgrade",
+      pt: "Seu plano, suas cotas de IA e o upgrade",
+      en: "Your plan, your AI quotas and upgrading",
+    },
+    excerpt: {
+      es: "Consulta tu plan actual, cuánto usaste de IA y cómo subir de nivel.",
+      pt: "Veja seu plano atual, quanto usou de IA e como subir de nível.",
+      en: "Check your current plan, how much AI you've used and how to upgrade.",
+    },
+    body: [
+      {
+        type: "p",
+        text: {
+          es: "En «Mi plan» ves tu suscripción actual, los límites (profesionales, almacenamiento) y el uso de tus cuotas de IA con barras de progreso.",
+          pt: "Em «Meu plano» você vê a assinatura atual, os limites (profissionais, armazenamento) e o uso das cotas de IA com barras de progresso.",
+          en: "In “My plan” you see your current subscription, the limits (professionals, storage) and your AI quota usage with progress bars.",
+        },
+      },
+      {
+        type: "list",
+        items: [
+          {
+            es: "Planes: Esencial, Profesional, Avanzado y Corporativo (este último, a medida).",
+            pt: "Planos: Essencial, Profissional, Avançado e Corporativo (este último, sob medida).",
+            en: "Plans: Essential, Professional, Advanced and Corporate (the last one, tailored).",
+          },
+          {
+            es: "Cuotas de IA: simulaciones de sonrisa, informes de radiografía y WhatsApp.",
+            pt: "Cotas de IA: simulações de sorriso, laudos de radiografia e WhatsApp.",
+            en: "AI quotas: smile simulations, radiograph reports and WhatsApp.",
+          },
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        text: {
+          es: "Para cambiar de plan, la opción de upgrade te pone en contacto con nuestro equipo. Si eres de los primeros clientes, puedes tener el Plan Fundador con descuento vitalicio.",
+          pt: "Para mudar de plano, a opção de upgrade coloca você em contato com nosso time. Se você é dos primeiros clientes, pode ter o Plano Fundador com desconto vitalício.",
+          en: "To change plans, the upgrade option puts you in touch with our team. If you're an early customer, you may have the Founder Plan with a lifetime discount.",
+        },
+      },
+    ],
+  },
+  {
+    slug: "vision-de-red",
+    categoryId: "cuenta",
+    updated: "2026-06-04",
+    readingMinutes: 3,
+    keywords: ["red", "network", "multi clinica", "sucursal", "dashboard", "cambiar clinica"],
+    related: ["usuarios-y-roles"],
+    title: {
+      es: "Visión de Red: varias clínicas en un panel",
+      pt: "Visão de Rede: várias clínicas num painel",
+      en: "Network view: several clinics in one panel",
+    },
+    excerpt: {
+      es: "Si tienes una red de clínicas, mira sus indicadores consolidados y cambia entre ellas.",
+      pt: "Se você tem uma rede de clínicas, veja os indicadores consolidados e alterne entre elas.",
+      en: "If you have a network of clinics, view their consolidated metrics and switch between them.",
+    },
+    body: [
+      {
+        type: "p",
+        text: {
+          es: "La Visión de Red aparece para quienes administran más de una clínica. Muestra un dashboard con los indicadores agregados de toda la red.",
+          pt: "A Visão de Rede aparece para quem administra mais de uma clínica. Mostra um dashboard com os indicadores agregados de toda a rede.",
+          en: "The Network view appears for those who manage more than one clinic. It shows a dashboard with the network's aggregated metrics.",
+        },
+      },
+      {
+        type: "list",
+        items: [
+          {
+            es: "Ves totales de pacientes, citas y facturación por clínica y de la red completa.",
+            pt: "Você vê totais de pacientes, consultas e faturamento por clínica e da rede completa.",
+            en: "You see totals of patients, appointments and revenue per clinic and for the whole network.",
+          },
+          {
+            es: "Si perteneces a varias clínicas, cambias de una a otra con un clic.",
+            pt: "Se você pertence a várias clínicas, muda de uma para outra com um clique.",
+            en: "If you belong to several clinics, you switch from one to another with a click.",
+          },
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        text: {
+          es: "Por privacidad de los pacientes, la vista de red muestra indicadores, no fichas clínicas: para abrir una ficha entras a la clínica correspondiente.",
+          pt: "Por privacidade dos pacientes, a visão de rede mostra indicadores, não fichas clínicas: para abrir uma ficha você entra na clínica correspondente.",
+          en: "For patient privacy, the network view shows metrics, not clinical charts: to open a chart you enter the corresponding clinic.",
+        },
+      },
+    ],
+  },
+  {
+    slug: "verificacion-en-dos-pasos",
+    categoryId: "cuenta",
+    updated: "2026-06-04",
+    readingMinutes: 3,
+    keywords: ["2fa", "seguridad", "verificacion", "dos pasos", "totp", "privacidad", "datos"],
+    related: ["usuarios-y-roles"],
+    title: {
+      es: "Verificación en dos pasos y seguridad de tus datos",
+      pt: "Verificação em duas etapas e segurança dos seus dados",
+      en: "Two-factor authentication and your data's security",
+    },
+    excerpt: {
+      es: "Protege tu cuenta con 2FA y entiende cómo cuidamos la información de tu clínica.",
+      pt: "Proteja sua conta com 2FA e entenda como cuidamos da informação da sua clínica.",
+      en: "Protect your account with 2FA and understand how we look after your clinic's data.",
+    },
+    body: [
+      {
+        type: "p",
+        text: {
+          es: "Cada usuario puede activar la verificación en dos pasos (2FA) para agregar una capa extra a su inicio de sesión, con una app de autenticación.",
+          pt: "Cada usuário pode ativar a verificação em duas etapas (2FA) para adicionar uma camada extra ao login, com um app de autenticação.",
+          en: "Each user can enable two-factor authentication (2FA) to add an extra layer to their sign-in, using an authenticator app.",
+        },
+      },
+      {
+        type: "list",
+        items: [
+          {
+            es: "Los datos de cada clínica están aislados: nadie de otra clínica accede a los tuyos.",
+            pt: "Os dados de cada clínica são isolados: ninguém de outra clínica acessa os seus.",
+            en: "Each clinic's data is isolated: no one from another clinic can access yours.",
+          },
+          {
+            es: "Las evoluciones clínicas son inmutables por ley, y las acciones importantes quedan registradas con autor y fecha.",
+            pt: "As evoluções clínicas são imutáveis por lei, e as ações importantes ficam registradas com autor e data.",
+            en: "Clinical evolutions are immutable by law, and important actions are logged with author and date.",
+          },
+        ],
+      },
+    ],
+  },
 ] as const;
