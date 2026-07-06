@@ -17,6 +17,31 @@
 
 ---
 
+## 0.1 Centro de Ayuda (`/ayuda`) — módulo de conteúdo
+
+Knowledge base tri-língue (ES/PT/EN) em `/ayuda`. **54 artigos, 11 coleções, EM PROD.**
+
+- **Conteúdo = blocos TS tipados** (NÃO MDX, NÃO i18n JSON): `src/lib/help/`
+  (`types.ts`, `categories.ts`, `articles.ts`, `index.ts` API+busca, `normalize.ts`).
+  Adicionar artigo = 1 objeto tipado em `articles.ts` + `npm run build`.
+- Páginas em `src/app/[locale]/ayuda/` (home · `[category]` · `[category]/[slug]`);
+  componentes em `src/components/help/` (ilustrações procedurais SVG, busca client, ArticleBody, Feedback).
+- **Fidelidade inviolável**: todo artigo reflete o app REAL (`dentai-studio`), aterrado
+  em specs+testes+código (só leitura do app). NUNCA descrever função inexistente
+  (ex.: emissão fiscal eletrônica, allowlist da Sofía — NÃO existem).
+
+### Métricas de qualidade ("¿fue útil?")
+- Endpoint `src/app/api/help-feedback/route.ts`. POST registra o voto **anônimo**
+  (sem PII, LGPD-safe): SEMPRE em stdout (`[help-feedback] {json}` — `docker logs dentai-site`)
+  e, se houver volume, em `/data/help-feedback.jsonl`.
+- GET agregado por artigo, protegido: `GET /api/help-feedback?token=$HELP_FEEDBACK_TOKEN`
+  (sem env → 404). **Token vive só na VPS** (compose untracked), nunca no git.
+- Infra: ver `docker-compose.example.yml` (volume `./data:/data` + env). ⚠️ o container
+  roda como uid **1001** — o dir do host precisa `chown 1001:65533 data`, senão a escrita
+  falha em silêncio (fica só o stdout).
+
+---
+
 ## 1. Comandos essenciais
 
 ```bash

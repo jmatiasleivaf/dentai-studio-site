@@ -1,6 +1,34 @@
 # SuperClini Site — Status Vivo
 
-**Última atualização**: 2026-05-03 — sessão BRUTAL PREMIUM Wave 4 (Hero reconceito Linear/Stripe + Dashboard preview)
+**Última atualização**: 2026-07-06 — Centro de Ayuda completo + header elite + métricas de feedback
+
+## 2026-07-06 — Centro de Ayuda (`/ayuda`) EM PROD + header elite + métricas
+
+**Header elite + fix overlay** (commit `a4be3c0`): corrigido o "desbotado" no topo da
+home (header `sticky` não sobrepunha o hero → token `nav` trava `h-nav`+`-mt-nav`);
+dropdown Recursos rico, mobile com safe-area, item "Centro de Ayuda".
+
+**Centro de Ayuda** — knowledge base tri-língue em `/ayuda`. **54 artigos · 11 coleções ·
+224 páginas estáticas.** Conteúdo em blocos TS tipados (`src/lib/help/`), ilustrações
+procedurais, busca client-side, SEO (JSON-LD + hreflang + sitemap dinâmico).
+Construído em 3 olas, 100% aterrado no app real (`dentai-studio`) via análise read-only de
+specs+testes+código (12 dossiês). **Zero conteúdo inventado** — funções inexistentes
+(boleta fiscal SII, allowlist da Sofía) foram explicitamente excluídas.
+
+Coleções: Primeros pasos · Agenda · Sofía y WhatsApp · Ficha clínica · Imágenes e IA
+clínica · Caja y finanzas · CRM y campañas · Informes y métricas · Inventario y
+laboratorio · Tótem · Cuenta y seguridad.
+
+**Métricas de qualidade** (commit `7402bb9` + infra VPS): endpoint `/api/help-feedback`
+registra o voto "¿fue útil?" anônimo (LGPD-safe). Ativado volume `./data` + `HELP_FEEDBACK_TOKEN`
+no compose da VPS → agregado legível em `GET /api/help-feedback?token=…`. ⚠️ dir do host precisa
+`chown 1001:65533` (uid do container). Ver `CLAUDE.md §0.1`.
+
+**Pendente (opcional):** feed de Novedades vivo (hoje 3 itens hardcoded na home); busca
+com realce; vídeos; status page.
+
+---
+
 
 ## Wave 4 — Hero reconceito (2026-05-03 sessão tarde)
 
