@@ -241,6 +241,15 @@ export const HELP_ARTICLES: readonly Article[] = [
     },
     body: [
       {
+        type: "mockup",
+        screen: "agenda-dia",
+        caption: {
+          es: "Arrastras la cita en la grilla para moverla de hora.",
+          pt: "Você arrasta a consulta na grade para mudá-la de horário.",
+          en: "Drag the appointment on the grid to move it to another time.",
+        },
+      },
+      {
         type: "p",
         text: {
           es: "En las vistas Día y Semana puedes reorganizar la agenda directamente con el mouse o el dedo.",
@@ -293,6 +302,15 @@ export const HELP_ARTICLES: readonly Article[] = [
     },
     body: [
       {
+        type: "mockup",
+        screen: "agenda-dia",
+        caption: {
+          es: "El color de cada cita muestra su estado — confirmada, realizada, falta…",
+          pt: "A cor de cada consulta mostra seu estado — confirmada, realizada, falta…",
+          en: "Each appointment's color shows its status — confirmed, done, no-show…",
+        },
+      },
+      {
         type: "p",
         text: {
           es: "Cada cita tiene un estado que refleja en qué punto está la atención. Los cambias desde la propia cita.",
@@ -335,6 +353,15 @@ export const HELP_ARTICLES: readonly Article[] = [
       en: "Holidays, lunch or absences: reserve slots so no one books over them.",
     },
     body: [
+      {
+        type: "mockup",
+        screen: "agenda-dia",
+        caption: {
+          es: "Los bloqueos y las citas conviven en la misma grilla del día.",
+          pt: "Os bloqueios e as consultas convivem na mesma grade do dia.",
+          en: "Blocks and appointments live together on the same day grid.",
+        },
+      },
       {
         type: "p",
         text: {
@@ -396,6 +423,15 @@ export const HELP_ARTICLES: readonly Article[] = [
       en: "Which notice goes by email, which goes by WhatsApp, and when.",
     },
     body: [
+      {
+        type: "mockup",
+        screen: "recordatorio",
+        caption: {
+          es: "El recordatorio sale solo antes de la cita; el paciente confirma respondiendo.",
+          pt: "O lembrete sai sozinho antes da consulta; o paciente confirma respondendo.",
+          en: "The reminder goes out automatically before the visit; the patient confirms by replying.",
+        },
+      },
       {
         type: "p",
         text: {
@@ -742,6 +778,15 @@ export const HELP_ARTICLES: readonly Article[] = [
       en: "Step into a chat whenever you want: Sofía pauses only on that conversation.",
     },
     body: [
+      {
+        type: "mockup",
+        screen: "chat-sofia",
+        caption: {
+          es: "Con el botón Tomar asumes una conversación sin apagar a Sofía en las demás.",
+          pt: "Com o botão Assumir você assume uma conversa sem desligar a Sofía nas outras.",
+          en: "With the Take over button you take one conversation without turning Sofía off in the rest.",
+        },
+      },
       {
         type: "p",
         text: {
@@ -1224,6 +1269,15 @@ export const HELP_ARTICLES: readonly Article[] = [
     },
     body: [
       {
+        type: "mockup",
+        screen: "caja-detalle",
+        caption: {
+          es: "El estorno deja rastro: aparece como un movimiento en la caja.",
+          pt: "O estorno deixa rastro: aparece como um movimento no caixa.",
+          en: "The reversal leaves a trail: it shows up as a movement in the register.",
+        },
+      },
+      {
         type: "p",
         text: {
           es: "El estorno revierte un pago mal ingresado dejando rastro completo. Por separación de funciones, solo un administrador puede hacerlo.",
@@ -1341,6 +1395,15 @@ export const HELP_ARTICLES: readonly Article[] = [
       en: "Patient subscriptions that bill themselves with WhatsApp and email reminders.",
     },
     body: [
+      {
+        type: "mockup",
+        screen: "membresias",
+        caption: {
+          es: "Cada suscriptor con su plan, su valor mensual y su estado de pago.",
+          pt: "Cada assinante com seu plano, seu valor mensal e seu estado de pagamento.",
+          en: "Each subscriber with their plan, monthly value and payment status.",
+        },
+      },
       {
         type: "p",
         text: {
@@ -1529,6 +1592,15 @@ export const HELP_ARTICLES: readonly Article[] = [
     },
     body: [
       {
+        type: "mockup",
+        screen: "usuarios-roles",
+        caption: {
+          es: "Cada profesional con su rol, su registro (CRO) y sus especialidades.",
+          pt: "Cada profissional com seu papel, seu registro (CRO) e suas especialidades.",
+          en: "Each professional with their role, license (CRO) and specialties.",
+        },
+      },
+      {
         type: "p",
         text: {
           es: "Los profesionales y las especialidades que ofrece tu clínica se gestionan en Administración, en sus pestañas correspondientes.",
@@ -1587,6 +1659,15 @@ export const HELP_ARTICLES: readonly Article[] = [
       en: "Document the case with a standard photo protocol and compare progress.",
     },
     body: [
+      {
+        type: "mockup",
+        screen: "sesion-fotos",
+        caption: {
+          es: "La sesión organiza las 9 tomas; los espacios vacíos esperan su foto.",
+          pt: "A sessão organiza as 9 tomadas; os espaços vazios esperam sua foto.",
+          en: "The session lays out the 9 shots; empty slots wait for their photo.",
+        },
+      },
       {
         type: "p",
         text: {
@@ -1701,6 +1782,15 @@ export const HELP_ARTICLES: readonly Article[] = [
     },
     body: [
       {
+        type: "mockup",
+        screen: "dicom-3d",
+        caption: {
+          es: "El estudio DICOM se explora corte a corte en el navegador, con herramientas de medición.",
+          pt: "O estudo DICOM se explora corte a corte no navegador, com ferramentas de medição.",
+          en: "The DICOM study is explored slice by slice in the browser, with measurement tools.",
+        },
+      },
+      {
         type: "p",
         text: {
           es: "El visor 3D vive en el menú Imágenes 3D. Carga estudios DICOM (CBCT) y los explora corte a corte en el navegador, sin instalar nada.",
@@ -1752,6 +1842,15 @@ export const HELP_ARTICLES: readonly Article[] = [
       en: "Manage aligner or bracket cases, their sessions and the control of active patients.",
     },
     body: [
+      {
+        type: "mockup",
+        screen: "ortodoncia",
+        caption: {
+          es: "El caso muestra el alineador actual sobre el total y la próxima consulta.",
+          pt: "O caso mostra o alinhador atual sobre o total e a próxima consulta.",
+          en: "The case shows the current aligner out of the total and the next visit.",
+        },
+      },
       {
         type: "p",
         text: {
@@ -1812,6 +1911,15 @@ export const HELP_ARTICLES: readonly Article[] = [
     },
     body: [
       {
+        type: "mockup",
+        screen: "cobro-split",
+        caption: {
+          es: "El saldo a favor del paciente se puede usar como medio de pago en un cobro.",
+          pt: "O saldo a favor do paciente pode ser usado como meio de pagamento numa cobrança.",
+          en: "The patient's credit balance can be used as a payment method in a charge.",
+        },
+      },
+      {
         type: "p",
         text: {
           es: "Un paciente puede dejar dinero a cuenta (un anticipo) y usarlo más adelante. Ese saldo a favor se gestiona en el panel financiero de su ficha.",
@@ -1859,6 +1967,15 @@ export const HELP_ARTICLES: readonly Article[] = [
       en: "Register a payer with its withholding and how it affects the professional's payout.",
     },
     body: [
+      {
+        type: "mockup",
+        screen: "cobro-split",
+        caption: {
+          es: "El convenio aplica su cobertura o retención al registrar el cobro.",
+          pt: "O convênio aplica sua cobertura ou retenção ao registrar a cobrança.",
+          en: "The agreement applies its coverage or withholding when the charge is recorded.",
+        },
+      },
       {
         type: "p",
         text: {
@@ -1913,6 +2030,15 @@ export const HELP_ARTICLES: readonly Article[] = [
       en: "The kiosk keypad adapts to your country's identity document.",
     },
     body: [
+      {
+        type: "mockup",
+        screen: "totem-teclado",
+        caption: {
+          es: "El teclado del documento cambia según el país: RUT en Chile, CPF en Brasil…",
+          pt: "O teclado do documento muda conforme o país: RUT no Chile, CPF no Brasil…",
+          en: "The document keypad changes by country: RUT in Chile, CPF in Brazil…",
+        },
+      },
       {
         type: "p",
         text: {
@@ -1972,6 +2098,15 @@ export const HELP_ARTICLES: readonly Article[] = [
       en: "Each user sees only what they need. Fine-tune access module by module.",
     },
     body: [
+      {
+        type: "mockup",
+        screen: "usuarios-roles",
+        caption: {
+          es: "Desde el perfil activas o desactivas el acceso de cada persona a los módulos.",
+          pt: "No perfil você ativa ou desativa o acesso de cada pessoa aos módulos.",
+          en: "From the profile you enable or disable each person's access to the modules.",
+        },
+      },
       {
         type: "p",
         text: {
@@ -2071,6 +2206,15 @@ export const HELP_ARTICLES: readonly Article[] = [
     },
     body: [
       {
+        type: "mockup",
+        screen: "red",
+        caption: {
+          es: "El dashboard de red reúne los indicadores de todas tus sucursales.",
+          pt: "O dashboard de rede reúne os indicadores de todas as suas unidades.",
+          en: "The network dashboard brings together the metrics of all your branches.",
+        },
+      },
+      {
         type: "p",
         text: {
           es: "La Visión de Red aparece para quienes administran más de una clínica. Muestra un dashboard con los indicadores agregados de toda la red.",
@@ -2123,6 +2267,15 @@ export const HELP_ARTICLES: readonly Article[] = [
     },
     body: [
       {
+        type: "mockup",
+        screen: "dos-pasos",
+        caption: {
+          es: "Escaneas el QR con tu app y confirmas con el código de 6 dígitos.",
+          pt: "Você escaneia o QR com seu app e confirma com o código de 6 dígitos.",
+          en: "You scan the QR with your app and confirm with the 6-digit code.",
+        },
+      },
+      {
         type: "p",
         text: {
           es: "Cada usuario puede activar la verificación en dos pasos (2FA) para agregar una capa extra a su inicio de sesión, con una app de autenticación.",
@@ -2169,6 +2322,15 @@ export const HELP_ARTICLES: readonly Article[] = [
       en: "A queue of patient follow-up tasks, generated by AI or created by your team.",
     },
     body: [
+      {
+        type: "mockup",
+        screen: "crm-inbox",
+        caption: {
+          es: "El CRM es una bandeja de tareas de seguimiento, no un chat.",
+          pt: "O CRM é uma bandeja de tarefas de acompanhamento, não um chat.",
+          en: "The CRM is an inbox of follow-up tasks, not a chat.",
+        },
+      },
       {
         type: "p",
         text: {
@@ -2288,6 +2450,15 @@ export const HELP_ARTICLES: readonly Article[] = [
     },
     body: [
       {
+        type: "mockup",
+        screen: "crm-plantillas",
+        caption: {
+          es: "Plantillas globales y de la clínica, con variables {{…}} que se completan solas.",
+          pt: "Templates globais e da clínica, com variáveis {{…}} que se preenchem sozinhas.",
+          en: "Global and clinic templates, with {{…}} variables that fill in automatically.",
+        },
+      },
+      {
         type: "p",
         text: {
           es: "Las plantillas te ahorran escribir lo mismo cada vez. Hay plantillas globales (listas para usar) y las que crea tu clínica.",
@@ -2330,6 +2501,15 @@ export const HELP_ARTICLES: readonly Article[] = [
       en: "Generate tasks for many patients at once, filtering by AI tags.",
     },
     body: [
+      {
+        type: "mockup",
+        screen: "crm-inbox",
+        caption: {
+          es: "Una campaña genera tareas para un grupo de pacientes, que caen en la bandeja.",
+          pt: "Uma campanha gera tarefas para um grupo de pacientes, que caem na bandeja.",
+          en: "A campaign generates tasks for a group of patients that land in the inbox.",
+        },
+      },
       {
         type: "p",
         text: {
@@ -2387,6 +2567,15 @@ export const HELP_ARTICLES: readonly Article[] = [
       en: "Measure how many tasks are sent and how many patients reply.",
     },
     body: [
+      {
+        type: "mockup",
+        screen: "informe-gestion",
+        caption: {
+          es: "Los reportes miden el rendimiento: tareas enviadas, respondidas y la tasa de respuesta.",
+          pt: "Os relatórios medem o desempenho: tarefas enviadas, respondidas e a taxa de resposta.",
+          en: "Reports measure performance: tasks sent, answered and the response rate.",
+        },
+      },
       {
         type: "p",
         text: {
@@ -2551,6 +2740,15 @@ export const HELP_ARTICLES: readonly Article[] = [
     },
     body: [
       {
+        type: "mockup",
+        screen: "mi-desempeno",
+        caption: {
+          es: "Tus números personales: cierre, producción y asistencia — nunca los de un colega.",
+          pt: "Seus números pessoais: fechamento, produção e comparecimento — nunca os de um colega.",
+          en: "Your personal numbers: close rate, production and attendance — never a colleague's.",
+        },
+      },
+      {
         type: "p",
         text: {
           es: "Mi desempeño es el panel personal del dentista. Siempre muestra tus propios números, nunca los de un colega.",
@@ -2662,6 +2860,15 @@ export const HELP_ARTICLES: readonly Article[] = [
     },
     body: [
       {
+        type: "mockup",
+        screen: "orden-lab",
+        caption: {
+          es: "Cada orden queda ligada a un laboratorio y a un paciente, con su estado y plazo.",
+          pt: "Cada ordem fica ligada a um laboratório e a um paciente, com seu status e prazo.",
+          en: "Each order is tied to a lab and a patient, with its status and due date.",
+        },
+      },
+      {
         type: "p",
         text: {
           es: "Los laboratorios se registran en Administración → Laboratorio. Cada uno puede tener sus servicios con dos precios.",
@@ -2771,6 +2978,15 @@ export const HELP_ARTICLES: readonly Article[] = [
     },
     body: [
       {
+        type: "mockup",
+        screen: "orden-lab",
+        caption: {
+          es: "El laboratorio ve sus órdenes con el mismo código de estados.",
+          pt: "O laboratório vê suas ordens com o mesmo código de status.",
+          en: "The lab sees its orders with the same status coding.",
+        },
+      },
+      {
         type: "p",
         text: {
           es: "Si tu laboratorio es externo, puede tener un acceso propio (rol laboratorio) que abre solo su portal.",
@@ -2815,6 +3031,15 @@ export const HELP_ARTICLES: readonly Article[] = [
       en: "Build your procedures list with prices: import from the global catalog or create your own.",
     },
     body: [
+      {
+        type: "mockup",
+        screen: "procedimientos",
+        caption: {
+          es: "El arancel: cada procedimiento con su categoría, duración y precio.",
+          pt: "A tabela: cada procedimento com sua categoria, duração e preço.",
+          en: "The price list: each procedure with its category, duration and price.",
+        },
+      },
       {
         type: "p",
         text: {
@@ -2929,6 +3154,15 @@ export const HELP_ARTICLES: readonly Article[] = [
     },
     body: [
       {
+        type: "mockup",
+        screen: "soporte-chat",
+        caption: {
+          es: "El botón Ayuda abre un asistente que conoce el software y responde tus dudas.",
+          pt: "O botão Ajuda abre um assistente que conhece o software e responde suas dúvidas.",
+          en: "The Help button opens an assistant that knows the software and answers your questions.",
+        },
+      },
+      {
         type: "p",
         text: {
           es: "Dentro del sistema hay un botón «Ayuda» (esquina inferior). Abre un asistente de soporte que conoce las pantallas y flujos del software y responde tus dudas.",
@@ -2983,6 +3217,15 @@ export const HELP_ARTICLES: readonly Article[] = [
     },
     body: [
       {
+        type: "mockup",
+        screen: "documento-clinico",
+        caption: {
+          es: "Cada documento se emite con un folio interno DOC-AAAA-NNNN, listo para imprimir.",
+          pt: "Cada documento é emitido com um folio interno DOC-AAAA-NNNN, pronto para imprimir.",
+          en: "Each document is issued with an internal folio DOC-YYYY-NNNN, ready to print.",
+        },
+      },
+      {
         type: "p",
         text: {
           es: "Desde la sección Documentos de la ficha del paciente emites documentos clínicos a partir de plantillas (receta, consentimiento, certificado, laudo y más).",
@@ -3035,6 +3278,15 @@ export const HELP_ARTICLES: readonly Article[] = [
     },
     body: [
       {
+        type: "mockup",
+        screen: "protocolo",
+        caption: {
+          es: "El protocolo es una checklist: marcas cada paso y ves el avance en %.",
+          pt: "O protocolo é uma checklist: você marca cada passo e vê o avanço em %.",
+          en: "The protocol is a checklist: you tick each step and see progress in %.",
+        },
+      },
+      {
         type: "p",
         text: {
           es: "En la ficha del paciente, la sección Protocolos deja vincular protocolos clínicos de referencia (los que siempre deben aplicarse a ese paciente).",
@@ -3083,6 +3335,15 @@ export const HELP_ARTICLES: readonly Article[] = [
       en: "Link patients to a company that covers their care or to an agreement with a discount.",
     },
     body: [
+      {
+        type: "mockup",
+        screen: "convenio-b2b",
+        caption: {
+          es: "Cada empresa con su convenio, sus pacientes y el saldo por cobrar.",
+          pt: "Cada empresa com seu convênio, seus pacientes e o saldo a receber.",
+          en: "Each company with its agreement, its patients and the receivable balance.",
+        },
+      },
       {
         type: "p",
         text: {

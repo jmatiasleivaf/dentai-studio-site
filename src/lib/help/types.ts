@@ -49,7 +49,22 @@ export type MockupKey =
   | "usuarios-roles"
   | "plan-cuotas"
   | "config-clinica"
-  | "paciente-buscar";
+  | "paciente-buscar"
+  | "procedimientos"
+  | "soporte-chat"
+  | "documento-clinico"
+  | "protocolo"
+  | "sesion-fotos"
+  | "dicom-3d"
+  | "ortodoncia"
+  | "membresias"
+  | "crm-plantillas"
+  | "mi-desempeno"
+  | "totem-teclado"
+  | "recordatorio"
+  | "dos-pasos"
+  | "red"
+  | "convenio-b2b";
 
 export type Accent = "brand" | "green" | "violet";
 
