@@ -21,6 +21,36 @@ export type IllustrationKey =
   | "flujo-migracion"
   | "pantalla-caja";
 
+/**
+ * Chave de mockup — reconstrução HTML/CSS fiel de uma tela real do app
+ * (dados fictícios, theme-aware). Ver components/help/mockups.tsx.
+ */
+export type MockupKey =
+  | "agenda-dia"
+  | "agenda-publica"
+  | "chat-sofia"
+  | "sofia-qr"
+  | "sofia-config"
+  | "odontograma"
+  | "ficha-evolucion"
+  | "plan-tratamiento"
+  | "caso-ia"
+  | "radiografia-ia"
+  | "caja-detalle"
+  | "cierre-caja"
+  | "cobro-split"
+  | "liquidacion"
+  | "panel-kpis"
+  | "informe-gestion"
+  | "crm-inbox"
+  | "stock"
+  | "orden-lab"
+  | "totem-checkin"
+  | "usuarios-roles"
+  | "plan-cuotas"
+  | "config-clinica"
+  | "paciente-buscar";
+
 export type Accent = "brand" | "green" | "violet";
 
 /**
@@ -40,6 +70,7 @@ export type Block =
       text: Localized;
     }
   | { type: "illustration"; illustration: IllustrationKey; caption?: Localized }
+  | { type: "mockup"; screen: MockupKey; caption?: Localized }
   | { type: "faq"; items: Array<{ q: Localized; a: Localized }> };
 
 export type Category = {

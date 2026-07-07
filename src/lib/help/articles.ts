@@ -105,6 +105,15 @@ export const HELP_ARTICLES: readonly Article[] = [
     },
     body: [
       {
+        type: "mockup",
+        screen: "config-clinica",
+        caption: {
+          es: "La pestaña Clínica: tu logo y los datos que aparecen en documentos y recibos.",
+          pt: "A aba Clínica: seu logo e os dados que aparecem em documentos e recibos.",
+          en: "The Clinic tab: your logo and the details shown on documents and receipts.",
+        },
+      },
+      {
         type: "p",
         text: {
           es: "En el menú Configuraciones encuentras todo lo de tu clínica, repartido en pestañas. Estas son las que usarás al empezar.",
@@ -171,6 +180,15 @@ export const HELP_ARTICLES: readonly Article[] = [
           es: "La agenda vive en el menú Agenda. Tiene tres vistas que cambias en la parte superior: Lista, Día y Semana. Navegas con Anterior, Hoy y Siguiente.",
           pt: "A agenda vive no menu Agenda. Tem três vistas que você troca no topo: Lista, Dia e Semana. Você navega com Anterior, Hoje e Seguinte.",
           en: "The agenda lives in the Agenda menu. It has three views you switch at the top: List, Day and Week. Navigate with Previous, Today and Next.",
+        },
+      },
+      {
+        type: "mockup",
+        screen: "agenda-dia",
+        caption: {
+          es: "Vista Día: cada cita muestra su color de estado — confirmada, agendada, realizada o falta.",
+          pt: "Vista Dia: cada consulta mostra a cor do seu estado — confirmada, agendada, realizada ou falta.",
+          en: "Day view: each appointment shows its status color — confirmed, booked, done or no-show.",
         },
       },
       {
@@ -432,6 +450,15 @@ export const HELP_ARTICLES: readonly Article[] = [
     },
     body: [
       {
+        type: "mockup",
+        screen: "agenda-publica",
+        caption: {
+          es: "Así lo ve tu paciente: elige el horario solo, desde el enlace público.",
+          pt: "É assim que seu paciente vê: escolhe o horário sozinho, pelo link público.",
+          en: "This is what your patient sees: they pick a time on their own, from the public link.",
+        },
+      },
+      {
         type: "p",
         text: {
           es: "La agenda pública se activa en Configuraciones, en la pestaña de agendamiento Online. Es un interruptor maestro: mientras esté apagado, los enlaces no funcionan.",
@@ -491,6 +518,15 @@ export const HELP_ARTICLES: readonly Article[] = [
       en: "Link your number by scanning a QR, just like WhatsApp Web. All from the WhatsApp menu.",
     },
     body: [
+      {
+        type: "mockup",
+        screen: "sofia-qr",
+        caption: {
+          es: "Escaneas el QR una vez, igual que WhatsApp Web, y tu número queda vinculado.",
+          pt: "Você escaneia o QR uma vez, igual ao WhatsApp Web, e seu número fica vinculado.",
+          en: "You scan the QR once, just like WhatsApp Web, and your number is linked.",
+        },
+      },
       {
         type: "p",
         text: {
@@ -568,12 +604,12 @@ export const HELP_ARTICLES: readonly Article[] = [
         },
       },
       {
-        type: "illustration",
-        illustration: "flujo-sofia",
+        type: "mockup",
+        screen: "chat-sofia",
         caption: {
-          es: "El paciente escribe, Sofía responde y agenda, tu equipo confirma.",
-          pt: "O paciente escreve, Sofía responde e agenda, sua equipe confirma.",
-          en: "The patient writes, Sofía replies and books, your team confirms.",
+          es: "Una conversación real: Sofía responde y agenda; tú puedes tomar el control con el botón Tomar.",
+          pt: "Uma conversa real: Sofía responde e agenda; você pode assumir o controle com o botão Assumir.",
+          en: "A real conversation: Sofía replies and books; you can take over with the Take over button.",
         },
       },
       {
@@ -640,6 +676,15 @@ export const HELP_ARTICLES: readonly Article[] = [
       en: "Adjust her tone, her hours and your clinic's own instructions.",
     },
     body: [
+      {
+        type: "mockup",
+        screen: "sofia-config",
+        caption: {
+          es: "La tarjeta del Agente IA: actívalo, dale instrucciones y define las palabras de control.",
+          pt: "O cartão do Agente IA: ative, dê instruções e defina as palavras de controle.",
+          en: "The AI agent card: enable it, give instructions and set the control keywords.",
+        },
+      },
       {
         type: "p",
         text: {
@@ -753,6 +798,15 @@ export const HELP_ARTICLES: readonly Article[] = [
     },
     body: [
       {
+        type: "mockup",
+        screen: "odontograma",
+        caption: {
+          es: "Eliges la condición activa y marcas cada diente; el color la identifica al instante.",
+          pt: "Você escolhe a condição ativa e marca cada dente; a cor identifica na hora.",
+          en: "You pick the active condition and mark each tooth; the color identifies it at a glance.",
+        },
+      },
+      {
         type: "p",
         text: {
           es: "El odontograma vive dentro de la ficha del paciente, en la sección Clínico. Usa notación FDI e incluye dentición permanente y temporal.",
@@ -820,6 +874,15 @@ export const HELP_ARTICLES: readonly Article[] = [
     },
     body: [
       {
+        type: "mockup",
+        screen: "ficha-evolucion",
+        caption: {
+          es: "Cada atención queda en una línea de tiempo, con fecha y profesional. No se edita ni se borra.",
+          pt: "Cada atendimento fica numa linha do tempo, com data e profissional. Não se edita nem se apaga.",
+          en: "Every visit stays on a timeline, with date and professional. It can't be edited or deleted.",
+        },
+      },
+      {
         type: "p",
         text: {
           es: "Cada evolución que registras en la ficha queda fija. No se puede editar ni borrar: es una exigencia legal de la historia clínica (ej.: Ley 20.584 en Chile).",
@@ -875,6 +938,15 @@ export const HELP_ARTICLES: readonly Article[] = [
       en: "Build the plan by teeth, accept it to generate the account and record each procedure's progress.",
     },
     body: [
+      {
+        type: "mockup",
+        screen: "plan-tratamiento",
+        caption: {
+          es: "El plan lista los procedimientos por diente, con su avance y el total con descuento.",
+          pt: "O plano lista os procedimentos por dente, com o avanço e o total com desconto.",
+          en: "The plan lists procedures by tooth, with progress and the discounted total.",
+        },
+      },
       {
         type: "p",
         text: {
@@ -935,6 +1007,15 @@ export const HELP_ARTICLES: readonly Article[] = [
       en: "From a photo, the AI analyzes, proposes a plan and generates a visual simulation of the result.",
     },
     body: [
+      {
+        type: "mockup",
+        screen: "caso-ia",
+        caption: {
+          es: "La IA genera un antes/después y una puntuación estética con los tratamientos sugeridos.",
+          pt: "A IA gera um antes/depois e uma pontuação estética com os tratamentos sugeridos.",
+          en: "The AI generates a before/after and an aesthetic score with suggested treatments.",
+        },
+      },
       {
         type: "p",
         text: {
@@ -1009,12 +1090,12 @@ export const HELP_ARTICLES: readonly Article[] = [
         },
       },
       {
-        type: "illustration",
-        illustration: "pantalla-caja",
+        type: "mockup",
+        screen: "caja-detalle",
         caption: {
-          es: "Al cerrar, ves el saldo calculado; el contado es opcional.",
-          pt: "Ao fechar, você vê o saldo calculado; o contado é opcional.",
-          en: "On close, you see the calculated balance; counting is optional.",
+          es: "Tu caja del día: saldo inicial, entradas, salidas y saldo final, con cada movimiento detallado.",
+          pt: "Seu caixa do dia: saldo inicial, entradas, saídas e saldo final, com cada movimento detalhado.",
+          en: "Your day's register: opening, cash in, cash out and balance, with every movement detailed.",
         },
       },
       {
@@ -1036,6 +1117,15 @@ export const HELP_ARTICLES: readonly Article[] = [
             en: "When done, click Close drawer. The calculated balance is shown (opening + in − out); optionally you enter the counted amount and a note.",
           },
         ],
+      },
+      {
+        type: "mockup",
+        screen: "cierre-caja",
+        caption: {
+          es: "Al cerrar, ves el saldo calculado; el contado es opcional (déjalo en blanco para usar el calculado).",
+          pt: "Ao fechar, você vê o saldo calculado; o contado é opcional (deixe em branco para usar o calculado).",
+          en: "On close, you see the calculated balance; counting is optional (leave blank to use the calculated one).",
+        },
       },
       {
         type: "callout",
@@ -1067,6 +1157,15 @@ export const HELP_ARTICLES: readonly Article[] = [
       en: "Split an instalment across cash, card and more, in a single record.",
     },
     body: [
+      {
+        type: "mockup",
+        screen: "cobro-split",
+        caption: {
+          es: "Divides el pago entre efectivo, tarjeta y más; el saldo se ajusta solo y en verde cuando cuadra.",
+          pt: "Você divide o pagamento entre dinheiro, cartão e mais; o saldo se ajusta e fica verde quando fecha.",
+          en: "Split the payment across cash, card and more; the balance adjusts and turns green when it matches.",
+        },
+      },
       {
         type: "p",
         text: {
@@ -1176,6 +1275,15 @@ export const HELP_ARTICLES: readonly Article[] = [
       en: "Calculate each professional's commission by week, month or free range.",
     },
     body: [
+      {
+        type: "mockup",
+        screen: "liquidacion",
+        caption: {
+          es: "Cada procedimiento con su comisión; abajo, el líquido a pagar al profesional.",
+          pt: "Cada procedimento com sua comissão; embaixo, o líquido a pagar ao profissional.",
+          en: "Each procedure with its commission; at the bottom, the net to pay the professional.",
+        },
+      },
       {
         type: "p",
         text: {
@@ -1288,6 +1396,15 @@ export const HELP_ARTICLES: readonly Article[] = [
     },
     body: [
       {
+        type: "mockup",
+        screen: "totem-checkin",
+        caption: {
+          es: "Al confirmar, el paciente ve su check-in listo y su posición en la fila.",
+          pt: "Ao confirmar, o paciente vê o check-in pronto e sua posição na fila.",
+          en: "On confirming, the patient sees their check-in done and their queue position.",
+        },
+      },
+      {
         type: "p",
         text: {
           es: "Desde el menú Autoatención abres los tótems, que corren en el navegador de un tablet o pantalla: Recepción, Panel de Fila y Box del consultorio.",
@@ -1346,6 +1463,15 @@ export const HELP_ARTICLES: readonly Article[] = [
       en: "Create accounts for your team and define what each person can see and do.",
     },
     body: [
+      {
+        type: "mockup",
+        screen: "usuarios-roles",
+        caption: {
+          es: "Cada miembro con su rol y acceso; los bloqueados quedan marcados en rojo.",
+          pt: "Cada membro com seu papel e acesso; os bloqueados ficam marcados em vermelho.",
+          en: "Each member with their role and access; blocked ones are flagged in red.",
+        },
+      },
       {
         type: "p",
         text: {
@@ -1513,6 +1639,15 @@ export const HELP_ARTICLES: readonly Article[] = [
       en: "Upload the film and get a structured support report, generated by AI.",
     },
     body: [
+      {
+        type: "mockup",
+        screen: "radiografia-ia",
+        caption: {
+          es: "El informe de apoyo lista los hallazgos con su severidad. Es una ayuda, no reemplaza tu diagnóstico.",
+          pt: "O laudo de apoio lista os achados com a severidade. É uma ajuda, não substitui seu diagnóstico.",
+          en: "The support report lists findings with their severity. It's an aid, not a replacement for your diagnosis.",
+        },
+      },
       {
         type: "p",
         text: {
@@ -1875,6 +2010,15 @@ export const HELP_ARTICLES: readonly Article[] = [
     },
     body: [
       {
+        type: "mockup",
+        screen: "plan-cuotas",
+        caption: {
+          es: "Tu plan actual y el uso de las cuotas de IA del mes, con barras de progreso.",
+          pt: "Seu plano atual e o uso das cotas de IA do mês, com barras de progresso.",
+          en: "Your current plan and this month's AI quota usage, with progress bars.",
+        },
+      },
+      {
         type: "p",
         text: {
           es: "En «Mi plan» ves tu suscripción actual, los límites (profesionales, almacenamiento) y el uso de tus cuotas de IA con barras de progreso.",
@@ -2078,6 +2222,15 @@ export const HELP_ARTICLES: readonly Article[] = [
     },
     body: [
       {
+        type: "mockup",
+        screen: "crm-inbox",
+        caption: {
+          es: "Cada tarea con su paciente, canal y estado; las de IA llevan el sello ✨.",
+          pt: "Cada tarefa com seu paciente, canal e estado; as de IA levam o selo ✨.",
+          en: "Each task with its patient, channel and status; AI ones carry the ✨ mark.",
+        },
+      },
+      {
         type: "p",
         text: {
           es: "La bandeja (Inbox) muestra todas las tareas con contadores por estado: pendientes, agendadas, enviadas y respondidas. Puedes filtrar por tema, canal y origen (IA o manual).",
@@ -2276,6 +2429,15 @@ export const HELP_ARTICLES: readonly Article[] = [
     },
     body: [
       {
+        type: "mockup",
+        screen: "panel-kpis",
+        caption: {
+          es: "Los números del día arriba, la agenda y la tasa de asistencia debajo.",
+          pt: "Os números do dia em cima, a agenda e a taxa de comparecimento embaixo.",
+          en: "The day's numbers up top, the schedule and attendance rate below.",
+        },
+      },
+      {
         type: "p",
         text: {
           es: "El panel inicial es la primera pantalla al entrar. Reúne los indicadores clave y la agenda del día.",
@@ -2327,6 +2489,15 @@ export const HELP_ARTICLES: readonly Article[] = [
       en: "A BI panel with twelve views: revenue, agenda, conversion, occupancy and more.",
     },
     body: [
+      {
+        type: "mockup",
+        screen: "informe-gestion",
+        caption: {
+          es: "KPIs, gráficos e rankings por período — una vista de doce disponibles.",
+          pt: "KPIs, gráficos e rankings por período — uma vista de doze disponíveis.",
+          en: "KPIs, charts and rankings by period — one of twelve available views.",
+        },
+      },
       {
         type: "p",
         text: {
@@ -2429,6 +2600,15 @@ export const HELP_ARTICLES: readonly Article[] = [
       en: "Register your supplies, set minimums and get alerted when something is running low.",
     },
     body: [
+      {
+        type: "mockup",
+        screen: "stock",
+        caption: {
+          es: "Cada insumo con su cantidad y mínimo; lo que está bajo el mínimo se marca en rojo.",
+          pt: "Cada insumo com sua quantidade e mínimo; o que está abaixo do mínimo fica em vermelho.",
+          en: "Each supply with its quantity and minimum; anything below minimum is flagged red.",
+        },
+      },
       {
         type: "p",
         text: {
@@ -2533,6 +2713,15 @@ export const HELP_ARTICLES: readonly Article[] = [
       en: "Create a work order, track its status, print it or email it to the lab.",
     },
     body: [
+      {
+        type: "mockup",
+        screen: "orden-lab",
+        caption: {
+          es: "Cada orden con su estado — enviado, en producción, listo o entregado — y su plazo.",
+          pt: "Cada ordem com seu status — enviado, em produção, pronto ou entregue — e seu prazo.",
+          en: "Each order with its status — sent, in production, ready or delivered — and its due date.",
+        },
+      },
       {
         type: "p",
         text: {
@@ -2678,6 +2867,15 @@ export const HELP_ARTICLES: readonly Article[] = [
       en: "Search your base and register a new patient; their chart is created automatically.",
     },
     body: [
+      {
+        type: "mockup",
+        screen: "paciente-buscar",
+        caption: {
+          es: "Buscas por nombre, email o teléfono y filtras por chips; cada fila resume al paciente.",
+          pt: "Você busca por nome, e-mail ou telefone e filtra por chips; cada linha resume o paciente.",
+          en: "Search by name, email or phone and filter by chips; each row summarizes the patient.",
+        },
+      },
       {
         type: "p",
         text: {

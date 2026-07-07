@@ -4,6 +4,7 @@ import type { Locale } from "@/i18n/routing";
 import type { Block } from "@/lib/help/types";
 import { slugify } from "@/lib/help";
 import { BodyIllustration } from "./illustrations";
+import { Mockup } from "./mockups";
 
 const CALLOUT_STYLES = {
   info: {
@@ -103,6 +104,16 @@ export function ArticleBody({ blocks, locale }: { blocks: Block[]; locale: Local
                   <figcaption className="border-t border-ink-200 bg-white px-4 py-2.5 text-xs text-ink-500 dark:border-ink-800 dark:bg-ink-900 dark:text-ink-400">
                     {block.caption[locale]}
                   </figcaption>
+                ) : null}
+              </figure>
+            );
+
+          case "mockup":
+            return (
+              <figure key={i} data-mockup={block.screen} className="mb-6">
+                <Mockup screen={block.screen} locale={locale} />
+                {block.caption ? (
+                  <figcaption className="mt-2 px-1 text-xs text-ink-500 dark:text-ink-400">{block.caption[locale]}</figcaption>
                 ) : null}
               </figure>
             );
