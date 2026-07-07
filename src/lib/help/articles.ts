@@ -68,11 +68,11 @@ export const HELP_ARTICLES: readonly Article[] = [
       {
         type: "callout",
         tone: "warn",
-        title: { es: "Todavía no migran las imágenes", pt: "Ainda não migram as imagens", en: "Images don't migrate yet" },
+        title: { es: "Qué no migra automáticamente", pt: "O que não migra automaticamente", en: "What doesn't migrate automatically" },
         text: {
-          es: "Radiografías, DICOM y archivos de examen aún no se traspasan automáticamente. Se cargan después, dentro de SuperClini.",
-          pt: "Radiografias, DICOM e arquivos de exame ainda não são transferidos automaticamente. São carregados depois, dentro do SuperClini.",
-          en: "Radiographs, DICOM and exam files aren't transferred automatically yet. They're uploaded afterwards, inside SuperClini.",
+          es: "Aún no se traspasan: radiografías, DICOM y archivos de examen; consentimientos firmados (se conserva el texto, no la firma); recetas y documentos clínicos emitidos; órdenes de laboratorio; y membresías. Se cargan o rehacen después, dentro de SuperClini.",
+          pt: "Ainda não são transferidos: radiografias, DICOM e arquivos de exame; consentimentos assinados (mantém-se o texto, não a assinatura); receitas e documentos clínicos emitidos; ordens de laboratório; e mensalidades. São carregados ou refeitos depois, dentro do SuperClini.",
+          en: "Not transferred yet: radiographs, DICOM and exam files; signed consents (the text is kept, not the signature); issued prescriptions and clinical documents; lab orders; and memberships. They're uploaded or redone afterwards, inside SuperClini.",
         },
       },
       {
@@ -205,9 +205,9 @@ export const HELP_ARTICLES: readonly Article[] = [
             en: "Choose the patient and professional, and set the start and end time.",
           },
           {
-            es: "Guarda. La cita aparece en la agenda con el color del profesional.",
-            pt: "Salve. A consulta aparece na agenda com a cor do profissional.",
-            en: "Save. The appointment shows on the agenda in the professional's color.",
+            es: "Guarda. La cita aparece en la agenda con el color de su estado (agendada, confirmada, realizada…).",
+            pt: "Salve. A consulta aparece na agenda com a cor do seu estado (agendada, confirmada, realizada…).",
+            en: "Save. The appointment shows on the agenda in its status color (booked, confirmed, done…).",
           },
         ],
       },
@@ -449,9 +449,9 @@ export const HELP_ARTICLES: readonly Article[] = [
             en: "Automatic day-before reminder: sent by e-mail (if the patient has an email).",
           },
           {
-            es: "Confirmación al agendar: puede salir por e-mail y, opcionalmente, por WhatsApp.",
-            pt: "Confirmação ao agendar: pode sair por e-mail e, opcionalmente, por WhatsApp.",
-            en: "Confirmation at booking: can go by e-mail and, optionally, by WhatsApp.",
+            es: "Confirmación al agendar: sale por e-mail. La confirmación por WhatsApp solo aplica a las reservas de la agenda pública, no a las citas creadas en recepción.",
+            pt: "Confirmação ao agendar: sai por e-mail. A confirmação por WhatsApp só vale para as reservas da agenda pública, não para as consultas criadas na recepção.",
+            en: "Confirmation at booking: goes by e-mail. WhatsApp confirmation only applies to public-agenda bookings, not to appointments created at the front desk.",
           },
         ],
       },
@@ -634,9 +634,9 @@ export const HELP_ARTICLES: readonly Article[] = [
       {
         type: "p",
         text: {
-          es: "Sofía es una recepcionista virtual con IA que atiende tu WhatsApp las 24 horas. Reconoce al paciente por su número y actúa sobre datos reales de tu clínica.",
-          pt: "Sofía é uma recepcionista virtual com IA que atende seu WhatsApp 24 horas. Reconhece o paciente pelo número e age sobre dados reais da sua clínica.",
-          en: "Sofía is an AI virtual receptionist that answers your WhatsApp around the clock. She recognizes the patient by their number and acts on your clinic's real data.",
+          es: "Sofía es una recepcionista virtual con IA que atiende tu WhatsApp. Reconoce al paciente por su número y actúa sobre datos reales de tu clínica. Puedes dejarla activa 24/7 o limitarla a tu horario comercial (fuera de él responde un aviso y no atiende).",
+          pt: "Sofía é uma recepcionista virtual com IA que atende seu WhatsApp. Reconhece o paciente pelo número e age sobre dados reais da sua clínica. Você pode deixá-la ativa 24/7 ou limitá-la ao seu horário comercial (fora dele ela responde um aviso e não atende).",
+          en: "Sofía is an AI virtual receptionist that answers your WhatsApp. She recognizes the patient by their number and acts on your clinic's real data. You can keep her active 24/7 or limit her to your business hours (outside them she replies a notice and doesn't attend).",
         },
       },
       {
@@ -873,9 +873,9 @@ export const HELP_ARTICLES: readonly Article[] = [
             en: "Click the tooth surface (buccal, mesial, distal, lingual or occlusal). Each click saves instantly.",
           },
           {
-            es: "Para condiciones de diente entero (ausente, implante, corona), se pinta la pieza completa.",
-            pt: "Para condições de dente inteiro (ausente, implante, coroa), pinta-se o dente todo.",
-            en: "For whole-tooth conditions (missing, implant, crown), the entire tooth is painted.",
+            es: "Para condiciones de diente entero (ausente, implante, corona, conducto, fracturado, extracción), se pinta la pieza completa.",
+            pt: "Para condições de dente inteiro (ausente, implante, coroa, canal, fraturado, extração), pinta-se o dente todo.",
+            en: "For whole-tooth conditions (missing, implant, crown, root canal, fractured, extraction), the entire tooth is painted.",
           },
         ],
       },
@@ -883,9 +883,9 @@ export const HELP_ARTICLES: readonly Article[] = [
         type: "callout",
         tone: "info",
         text: {
-          es: "Puedes aplicar una condición a una arcada completa o a un sextante de una sola vez. Para deshacer, usa «Limpiar marcación» en el diente.",
-          pt: "Você pode aplicar uma condição a uma arcada inteira ou a um sextante de uma vez. Para desfazer, use «Limpar marcação» no dente.",
-          en: "You can apply a condition to a whole arch or a sextant at once. To undo, use “Clear marking” on the tooth.",
+          es: "Puedes aplicar una condición a una arcada completa o a un sextante de una sola vez. Para deshacer, usa «Limpiar diente» en el panel del diente.",
+          pt: "Você pode aplicar uma condição a uma arcada inteira ou a um sextante de uma vez. Para desfazer, use «Limpar dente» no painel do dente.",
+          en: "You can apply a condition to a whole arch or a sextant at once. To undo, use “Clear tooth” in the tooth's panel.",
         },
       },
       {
@@ -948,9 +948,9 @@ export const HELP_ARTICLES: readonly Article[] = [
             en: "Amendment: adds a new record chained to the original, with the correction. The original text stays visible.",
           },
           {
-            es: "Invalidar (anular): marca la evolución como inválida con un motivo. Solo un superadministrador puede hacerlo.",
-            pt: "Invalidar (anular): marca a evolução como inválida com um motivo. Só um superadministrador pode fazer isso.",
-            en: "Invalidate: marks the evolution as void with a reason. Only a super-administrator can do this.",
+            es: "Invalidar (anular): marca la evolución como inválida con un motivo. Solo el superadministrador de la plataforma (SuperClini) puede hacerlo, a pedido — no un administrador de la clínica.",
+            pt: "Invalidar (anular): marca a evolução como inválida com um motivo. Só o superadministrador da plataforma (SuperClini) pode fazer isso, sob solicitação — não um administrador da clínica.",
+            en: "Invalidate: marks the evolution as void with a reason. Only the platform super-administrator (SuperClini) can do this, on request — not a clinic administrator.",
           },
         ],
       },
@@ -958,9 +958,9 @@ export const HELP_ARTICLES: readonly Article[] = [
         type: "callout",
         tone: "warn",
         text: {
-          es: "Las evoluciones migradas desde otro sistema tienen blindaje extra: no se enmiendan, ni siquiera por un superadministrador.",
-          pt: "As evoluções migradas de outro sistema têm blindagem extra: não se emendam, nem por um superadministrador.",
-          en: "Evolutions migrated from another system have extra protection: they can't be amended, not even by a super-administrator.",
+          es: "Las evoluciones migradas desde otro sistema tienen blindaje extra: no se pueden enmendar (ni siquiera el superadministrador). En casos excepcionales, el superadministrador sí puede invalidarlas.",
+          pt: "As evoluções migradas de outro sistema têm blindagem extra: não podem ser emendadas (nem pelo superadministrador). Em casos excepcionais, o superadministrador pode invalidá-las.",
+          en: "Evolutions migrated from another system have extra protection: they can't be amended (not even by the super-administrator). In exceptional cases, the super-administrator can void them.",
         },
       },
     ],
@@ -1009,9 +1009,9 @@ export const HELP_ARTICLES: readonly Article[] = [
             en: "Add procedures (per tooth, with quantity, price and optional discount).",
           },
           {
-            es: "Acepta el plan: se genera la cuenta por cobrar con sus cuotas.",
-            pt: "Aceite o plano: gera-se a conta a receber com suas parcelas.",
-            en: "Accept the plan: the receivable account with its instalments is generated.",
+            es: "Acepta el plan y elige cómo se cobra: al contado, en cuotas, con entrada + cuotas, o sin pago. Al aceptar con cobro se genera la cuenta por cobrar con sus cuotas.",
+            pt: "Aceite o plano e escolha como cobrar: à vista, parcelado, com entrada + parcelas, ou sem pagamento. Ao aceitar com cobrança, gera-se a conta a receber com suas parcelas.",
+            en: "Accept the plan and choose how it's charged: in full, in instalments, deposit + instalments, or no payment. Accepting with a charge generates the receivable account with its instalments.",
           },
           {
             es: "A medida que atiendes, registra el avance del procedimiento (25 %, 50 %, 75 %, 100 %).",
@@ -1121,9 +1121,9 @@ export const HELP_ARTICLES: readonly Article[] = [
       en: "Open and close the cash drawer",
     },
     excerpt: {
-      es: "Cada operador tiene su caja. Así se abre, se registra y se cierra al final del día.",
-      pt: "Cada operador tem seu caixa. Assim se abre, registra e fecha no fim do dia.",
-      en: "Each operator has their own drawer. Here's how to open, record and close it.",
+      es: "La caja registra el efectivo del día. Así se abre, se registra y se cierra.",
+      pt: "O caixa registra o dinheiro do dia. Assim se abre, registra e fecha.",
+      en: "The register tracks the day's cash. Here's how to open, record and close it.",
     },
     body: [
       {
@@ -1152,9 +1152,9 @@ export const HELP_ARTICLES: readonly Article[] = [
             en: "Open your drawer: you'll see the previous drawer's balance and confirm the opening balance (starting cash).",
           },
           {
-            es: "Durante el día, los cobros entran solos. También puedes lanzar movimientos manuales: entrada, salida, sangría o suprimento.",
-            pt: "Durante o dia, os recebimentos entram sozinhos. Você também pode lançar movimentos manuais: entrada, saída, sangria ou suprimento.",
-            en: "During the day, payments come in automatically. You can also add manual movements: cash in, cash out, withdrawal or top-up.",
+            es: "Durante el día, los cobros entran solos en la caja abierta de la clínica (normalmente la de recepción), atribuidos al profesional para su liquidación. También puedes lanzar movimientos manuales: entrada, salida, sangría o suprimento.",
+            pt: "Durante o dia, os recebimentos entram sozinhos no caixa aberto da clínica (normalmente o da recepção), atribuídos ao profissional para o repasse. Você também pode lançar movimentos manuais: entrada, saída, sangria ou suprimento.",
+            en: "During the day, payments come into the clinic's open register (usually reception's), attributed to the professional for their payout. You can also add manual movements: cash in, cash out, withdrawal or top-up.",
           },
           {
             es: "Al terminar, pulsa Cerrar caja. Se muestra el saldo calculado (inicial + entradas − salidas); si quieres, escribes el contado y una observación.",
@@ -1177,9 +1177,9 @@ export const HELP_ARTICLES: readonly Article[] = [
         tone: "info",
         title: { es: "Cierre automático a medianoche", pt: "Fechamento automático à meia-noite", en: "Automatic midnight close" },
         text: {
-          es: "Si olvidas cerrar, la caja se cierra sola a medianoche en la zona horaria de tu clínica, con el saldo calculado, y abre una nueva para el día siguiente.",
-          pt: "Se você esquecer de fechar, o caixa fecha sozinho à meia-noite no fuso da sua clínica, com o saldo calculado, e abre um novo para o dia seguinte.",
-          en: "If you forget to close, the drawer closes itself at midnight in your clinic's time zone, with the calculated balance, and opens a new one for the next day.",
+          es: "Si olvidas cerrar, la caja se cierra sola a medianoche en la zona horaria de tu clínica, con el saldo calculado. Al día siguiente se abre una nueva para recepción automáticamente.",
+          pt: "Se você esquecer de fechar, o caixa fecha sozinho à meia-noite no fuso da sua clínica, com o saldo calculado. No dia seguinte um novo é aberto para a recepção automaticamente.",
+          en: "If you forget to close, the drawer closes itself at midnight in your clinic's time zone, with the calculated balance. The next day a new one is opened for reception automatically.",
         },
       },
     ],
@@ -1370,9 +1370,9 @@ export const HELP_ARTICLES: readonly Article[] = [
         type: "callout",
         tone: "info",
         text: {
-          es: "La comisión sale del cobro recibido (no de concluir el procedimiento). En Argentina, si el paciente tiene convenio con retención, esta reduce la producción antes de la comisión.",
-          pt: "A comissão sai do recebimento (não de concluir o procedimento). Na Argentina, se o paciente tem convênio com retención, ela reduz a produção antes da comissão.",
-          en: "Commission comes from the payment received (not from finishing the procedure). In Argentina, if the patient has an insurer with withholding, it reduces production before commission.",
+          es: "La comisión sale del cobro recibido; si en el período no hay cobros registrados, el sistema toma como base los procedimientos realizados (concluidos), valorados a precio. En Argentina, si el paciente tiene convenio con retención, esta reduce la producción antes de la comisión.",
+          pt: "A comissão sai do recebimento; se no período não há recebimentos registrados, o sistema usa como base os procedimentos realizados (concluídos), valorados a preço. Na Argentina, se o paciente tem convênio com retención, ela reduz a produção antes da comissão.",
+          en: "Commission comes from the payment received; if there are no recorded payments in the period, the system falls back to completed procedures, valued at price. In Argentina, if the patient has an insurer with withholding, it reduces production before commission.",
         },
       },
     ],
@@ -1470,9 +1470,9 @@ export const HELP_ARTICLES: readonly Article[] = [
       {
         type: "p",
         text: {
-          es: "Desde el menú Autoatención abres los tótems, que corren en el navegador de un tablet o pantalla: Recepción, Panel de Fila y Box del consultorio.",
-          pt: "No menu Autoatendimento você abre os totens, que rodam no navegador de um tablet ou tela: Recepção, Painel de Fila e Box do consultório.",
-          en: "From the Self-service menu you open the kiosks, which run in a tablet or screen browser: Reception, Queue panel and consulting-room Box.",
+          es: "Desde el menú Autoatención abres los tótems, que corren en el navegador de un tablet o pantalla: Recepción, Panel de Fila y Box del consultorio. En Recepción el paciente hace check-in de su cita, agenda una nueva o se registra como espontáneo (sin cita previa).",
+          pt: "No menu Autoatendimento você abre os totens, que rodam no navegador de um tablet ou tela: Recepção, Painel de Fila e Box do consultório. Na Recepção o paciente faz check-in da sua consulta, agenda uma nova ou se registra como espontâneo (sem consulta prévia).",
+          en: "From the Self-service menu you open the kiosks, which run in a tablet or screen browser: Reception, Queue panel and consulting-room Box. At Reception the patient checks in for their appointment, books a new one, or registers as a walk-in (no prior appointment).",
         },
       },
       {
@@ -1484,9 +1484,9 @@ export const HELP_ARTICLES: readonly Article[] = [
             en: "The patient enters their document on the Reception kiosk. The keypad adapts to your country (RUT in Chile, CPF, DNI, CURP…).",
           },
           {
-            es: "Si no está registrado, hace un registro rápido ahí mismo. Luego confirma sus datos y su cita del día.",
-            pt: "Se não estiver cadastrado, faz um cadastro rápido ali mesmo. Depois confirma seus dados e a consulta do dia.",
-            en: "If not registered, they do a quick sign-up right there. Then they confirm their details and today's appointment.",
+            es: "Si no está registrado, hace un registro rápido ahí mismo. Luego confirma sus datos; si no tiene cita del día, puede agendar o registrarse como espontáneo.",
+            pt: "Se não estiver cadastrado, faz um cadastro rápido ali mesmo. Depois confirma seus dados; se não tiver consulta do dia, pode agendar ou se registrar como espontâneo.",
+            en: "If not registered, they do a quick sign-up right there. Then they confirm their details; if they have no appointment today, they can book one or register as a walk-in.",
           },
           {
             es: "Si hay consentimientos pendientes, los firma en pantalla (es opcional). Al terminar, ve su posición en la fila.",
@@ -1612,14 +1612,14 @@ export const HELP_ARTICLES: readonly Article[] = [
         type: "steps",
         items: [
           {
-            es: "En la pestaña Profesionales, agrega a cada uno con su nombre, apodo, color de agenda y especialidades.",
-            pt: "Na aba Profissionais, adicione cada um com nome, apelido, cor de agenda e especialidades.",
-            en: "In the Professionals tab, add each one with their name, nickname, agenda color and specialties.",
+            es: "En la pestaña Profesionales, pulsa Nuevo y crea su cuenta: nombre, e-mail, contraseña provisional y rol. El apodo, color de agenda, CRO y especialidades se definen luego en su perfil (solo para dentistas).",
+            pt: "Na aba Profissionais, clique em Novo e crie a conta: nome, e-mail, senha provisória e papel. O apelido, cor de agenda, CRO e especialidades são definidos depois no perfil (só para dentistas).",
+            en: "In the Professionals tab, click New and create their account: name, e-mail, temporary password and role. Nickname, agenda color, CRO and specialties are set afterward in their profile (dentists only).",
           },
           {
-            es: "Define su comisión (%): es la que usará el sistema al calcular las liquidaciones.",
-            pt: "Defina a comissão (%): é a que o sistema usará ao calcular os repasses.",
-            en: "Set their commission (%): it's what the system uses when calculating payouts.",
+            es: "Para los dentistas, define la comisión global (%) y, si quieres, comisiones por especialidad, además de si puede recibir pagos. Es lo que el sistema usa al calcular las liquidaciones.",
+            pt: "Para os dentistas, defina a comissão global (%) e, se quiser, comissões por especialidade, além de se pode receber pagamentos. É o que o sistema usa ao calcular os repasses.",
+            en: "For dentists, set the global commission (%) and, if you want, per-specialty commissions, plus whether they can receive payments. It's what the system uses when calculating payouts.",
           },
           {
             es: "En la pestaña Especialidades, activa las que ofreces con un clic o crea una personalizada.",
@@ -1715,18 +1715,18 @@ export const HELP_ARTICLES: readonly Article[] = [
       en: "Upload a radiograph and generate an AI report",
     },
     excerpt: {
-      es: "Sube la placa y obtén un informe estructurado de apoyo, generado por IA.",
-      pt: "Envie a placa e obtenha um laudo estruturado de apoio, gerado por IA.",
-      en: "Upload the film and get a structured support report, generated by AI.",
+      es: "Sube la placa y obtén un informe de apoyo redactado por IA.",
+      pt: "Envie a placa e obtenha um laudo de apoio redigido por IA.",
+      en: "Upload the film and get an AI-written support report.",
     },
     body: [
       {
         type: "mockup",
         screen: "radiografia-ia",
         caption: {
-          es: "El informe de apoyo lista los hallazgos con su severidad. Es una ayuda, no reemplaza tu diagnóstico.",
-          pt: "O laudo de apoio lista os achados com a severidade. É uma ajuda, não substitui seu diagnóstico.",
-          en: "The support report lists findings with their severity. It's an aid, not a replacement for your diagnosis.",
+          es: "La IA redacta un informe de apoyo a partir de la placa. Es una ayuda, no reemplaza tu diagnóstico.",
+          pt: "A IA redige um laudo de apoio a partir da placa. É uma ajuda, não substitui seu diagnóstico.",
+          en: "The AI writes a support report from the film. It's an aid, not a replacement for your diagnosis.",
         },
       },
       {
@@ -1756,9 +1756,9 @@ export const HELP_ARTICLES: readonly Article[] = [
         type: "callout",
         tone: "info",
         text: {
-          es: "El análisis por IA está disponible para panorámicas, cefalométricas y bitewing. El informe se genera a pedido y no queda guardado como parte de la ficha.",
-          pt: "A análise por IA está disponível para panorâmicas, cefalométricas e bitewing. O laudo é gerado sob demanda e não fica salvo como parte da ficha.",
-          en: "AI analysis is available for panoramic, cephalometric and bitewing images. The report is generated on demand and isn't saved as part of the chart.",
+          es: "El análisis por IA está disponible para panorámicas, cefalométricas y bitewing, y consume cuota de tu plan. El informe queda guardado en la ficha y alimenta el Resumen IA del paciente; se genera una sola vez (no se regenera).",
+          pt: "A análise por IA está disponível para panorâmicas, cefalométricas e bitewing, e consome cota do seu plano. O laudo fica salvo na ficha e alimenta o Resumo IA do paciente; é gerado uma única vez (não se regenera).",
+          en: "AI analysis is available for panoramic, cephalometric and bitewing images, and uses your plan's quota. The report is saved in the chart and feeds the patient's AI Summary; it's generated once (it isn't regenerated).",
         },
       },
     ],
@@ -1873,9 +1873,9 @@ export const HELP_ARTICLES: readonly Article[] = [
             en: "Record clinical sessions as the treatment progresses.",
           },
           {
-            es: "El panel de control clasifica los casos activos: vencidos, sin retorno y por vencer.",
-            pt: "O painel de controle classifica os casos ativos: vencidos, sem retorno e a vencer.",
-            en: "The control panel classifies active cases: overdue, no-show and due soon.",
+            es: "El panel de control clasifica los casos activos: vencidos, por vencer, al día y con control agendado.",
+            pt: "O painel de controle classifica os casos ativos: vencidos, a vencer, em dia e com controle agendado.",
+            en: "The control panel classifies active cases: overdue, due soon, up to date and with a scheduled check-up.",
           },
         ],
       },
@@ -1988,9 +1988,9 @@ export const HELP_ARTICLES: readonly Article[] = [
         type: "steps",
         items: [
           {
-            es: "Crea el convenio con su nombre, tipo y el porcentaje de retención, si aplica.",
-            pt: "Crie o convênio com nome, tipo e o percentual de retención, se aplicável.",
-            en: "Create the insurer with its name, type and withholding percentage, if applicable.",
+            es: "Crea el convenio con su nombre, tipo (obra social, prepaga, estatal, particular) y sus condiciones: retención y, si aplica, coseguro/copago del paciente y descuento.",
+            pt: "Crie o convênio com nome, tipo (obra social, prepaga, estatal, particular) e suas condições: retención e, se aplicável, coseguro/copagamento do paciente e desconto.",
+            en: "Create the insurer with its name, type (health plan, prepaid, state, private) and its terms: withholding and, if applicable, the patient's copay/coinsurance and discount.",
           },
           {
             es: "Vincula el convenio al paciente en su ficha.",
@@ -2061,9 +2061,9 @@ export const HELP_ARTICLES: readonly Article[] = [
             en: "CPF (Brazil), DNI (Argentina/Peru), Cédula (Colombia): plain numeric keypad.",
           },
           {
-            es: "CURP (México), NIE/DNI (España): teclado alfanumérico.",
-            pt: "CURP (México), NIE/DNI (Espanha): teclado alfanumérico.",
-            en: "CURP (Mexico), NIE/DNI (Spain): alphanumeric keypad.",
+            es: "CURP (México), NIE/DNI (España), SSN/ID (EE. UU.) y Cartão de Cidadão (Portugal): teclado alfanumérico (QWERTY).",
+            pt: "CURP (México), NIE/DNI (Espanha), SSN/ID (EUA) e Cartão de Cidadão (Portugal): teclado alfanumérico (QWERTY).",
+            en: "CURP (Mexico), NIE/DNI (Spain), SSN/ID (USA) and Cartão de Cidadão (Portugal): alphanumeric (QWERTY) keypad.",
           },
         ],
       },
@@ -2217,9 +2217,9 @@ export const HELP_ARTICLES: readonly Article[] = [
       {
         type: "p",
         text: {
-          es: "La Visión de Red aparece para quienes administran más de una clínica. Muestra un dashboard con los indicadores agregados de toda la red.",
-          pt: "A Visão de Rede aparece para quem administra mais de uma clínica. Mostra um dashboard com os indicadores agregados de toda a rede.",
-          en: "The Network view appears for those who manage more than one clinic. It shows a dashboard with the network's aggregated metrics.",
+          es: "La Visión de Red aparece para quienes administran más de una clínica. Muestra un dashboard con los indicadores agregados de toda la red. Las redes las configura el equipo de SuperClini (no se crean solas desde el panel).",
+          pt: "A Visão de Rede aparece para quem administra mais de uma clínica. Mostra um dashboard com os indicadores agregados de toda a rede. As redes são configuradas pela equipe da SuperClini (não se criam sozinhas pelo painel).",
+          en: "The Network view appears for those who manage more than one clinic. It shows a dashboard with the network's aggregated metrics. Networks are set up by the SuperClini team (they aren't created from the panel).",
         },
       },
       {
@@ -2270,17 +2270,17 @@ export const HELP_ARTICLES: readonly Article[] = [
         type: "mockup",
         screen: "dos-pasos",
         caption: {
-          es: "Escaneas el QR con tu app y confirmas con el código de 6 dígitos.",
-          pt: "Você escaneia o QR com seu app e confirma com o código de 6 dígitos.",
-          en: "You scan the QR with your app and confirm with the 6-digit code.",
+          es: "Así funciona: escaneas un QR con tu app de autenticación y confirmas con un código de 6 dígitos.",
+          pt: "Como funciona: você escaneia um QR com seu app de autenticação e confirma com um código de 6 dígitos.",
+          en: "How it works: you scan a QR with your authenticator app and confirm with a 6-digit code.",
         },
       },
       {
         type: "p",
         text: {
-          es: "Cada usuario puede activar la verificación en dos pasos (2FA) para agregar una capa extra a su inicio de sesión, con una app de autenticación.",
-          pt: "Cada usuário pode ativar a verificação em duas etapas (2FA) para adicionar uma camada extra ao login, com um app de autenticação.",
-          en: "Each user can enable two-factor authentication (2FA) to add an extra layer to their sign-in, using an authenticator app.",
+          es: "SuperClini admite verificación en dos pasos (2FA) con una app de autenticación, para añadir una capa extra a tu inicio de sesión. Por ahora su activación se coordina con nuestro equipo de soporte.",
+          pt: "A SuperClini oferece verificação em duas etapas (2FA) com um app de autenticação, para adicionar uma camada extra ao seu login. Por enquanto sua ativação é coordenada com nossa equipe de suporte.",
+          en: "SuperClini supports two-factor authentication (2FA) with an authenticator app, to add an extra layer to your sign-in. For now, enabling it is arranged with our support team.",
         },
       },
       {
@@ -2343,9 +2343,9 @@ export const HELP_ARTICLES: readonly Article[] = [
         type: "list",
         items: [
           {
-            es: "Las tareas nacen de la IA (el Resumen IA del paciente detecta oportunidades) o las creas tú a mano.",
-            pt: "As tarefas nascem da IA (o Resumo IA do paciente detecta oportunidades) ou você as cria à mão.",
-            en: "Tasks come from the AI (the patient's AI Summary spots opportunities) or you create them by hand.",
+            es: "Las tareas nacen de la IA (el Resumen IA detecta oportunidades), de eventos de agenda y finanzas (p. ej. una cuota vencida), de un formulario de contacto, o las creas tú a mano.",
+            pt: "As tarefas nascem da IA (o Resumo IA detecta oportunidades), de eventos de agenda e finanças (ex.: uma parcela vencida), de um formulário de contato, ou você as cria à mão.",
+            en: "Tasks come from the AI (the AI Summary spots opportunities), from agenda and finance events (e.g. an overdue instalment), from a contact form, or you create them by hand.",
           },
           {
             es: "También puedes generarlas en lote con una campaña por segmento.",
@@ -2358,9 +2358,9 @@ export const HELP_ARTICLES: readonly Article[] = [
         type: "callout",
         tone: "info",
         text: {
-          es: "El CRM es una función de los planes superiores. Si no ves el menú, tu plan aún no lo incluye.",
-          pt: "O CRM é uma função dos planos superiores. Se você não vê o menu, seu plano ainda não o inclui.",
-          en: "The CRM is a feature of higher plans. If you don't see the menu, your plan doesn't include it yet.",
+          es: "El CRM es una función de los planes superiores y de los roles administrador, dentista y recepción. Cada dentista ve solo sus tareas; administración y recepción ven la bandeja completa de la clínica.",
+          pt: "O CRM é uma função dos planos superiores e dos papéis administrador, dentista e recepção. Cada dentista vê só as suas tarefas; administração e recepção veem a bandeja completa da clínica.",
+          en: "The CRM is a feature of higher plans and of the admin, dentist and reception roles. Each dentist sees only their own tasks; admin and reception see the clinic's full inbox.",
         },
       },
     ],
@@ -2395,9 +2395,9 @@ export const HELP_ARTICLES: readonly Article[] = [
       {
         type: "p",
         text: {
-          es: "La bandeja (Inbox) muestra todas las tareas con contadores por estado: pendientes, agendadas, enviadas y respondidas. Puedes filtrar por tema, canal y origen (IA o manual).",
-          pt: "A bandeja (Inbox) mostra todas as tarefas com contadores por estado: pendentes, agendadas, enviadas e respondidas. Você pode filtrar por tema, canal e origem (IA ou manual).",
-          en: "The inbox shows all tasks with counters by status: pending, scheduled, sent and replied. You can filter by topic, channel and origin (AI or manual).",
+          es: "La bandeja (Inbox) muestra las tareas con contadores por estado: pendientes, agendadas, enviadas y respondidas. Un dentista ve solo sus tareas; administración y recepción ven todas. Puedes filtrar por tema, canal y origen (IA o manual).",
+          pt: "A bandeja (Inbox) mostra as tarefas com contadores por estado: pendentes, agendadas, enviadas e respondidas. Um dentista vê só as suas tarefas; administração e recepção veem todas. Você pode filtrar por tema, canal e origem (IA ou manual).",
+          en: "The inbox shows tasks with counters by status: pending, scheduled, sent and replied. A dentist sees only their own; admin and reception see all. You can filter by topic, channel and origin (AI or manual).",
         },
       },
       {
@@ -2542,9 +2542,9 @@ export const HELP_ARTICLES: readonly Article[] = [
         type: "callout",
         tone: "info",
         text: {
-          es: "Puedes excluir a quienes ya recibieron un mensaje del mismo tema hace pocos días, para no saturar.",
-          pt: "Você pode excluir quem já recebeu uma mensagem do mesmo tema há poucos dias, para não saturar.",
-          en: "You can exclude those who already got a message on the same topic a few days ago, to avoid over-contacting.",
+          es: "Puedes excluir a quienes ya recibieron un mensaje del mismo tema hace pocos días, para no saturar. Hay límites: hasta 500 tareas por campaña y 3 campañas activas a la vez.",
+          pt: "Você pode excluir quem já recebeu uma mensagem do mesmo tema há poucos dias, para não saturar. Há limites: até 500 tarefas por campanha e 3 campanhas ativas por vez.",
+          en: "You can exclude those who already got a message on the same topic a few days ago, to avoid over-contacting. There are limits: up to 500 tasks per campaign and 3 active campaigns at a time.",
         },
       },
     ],
@@ -2569,7 +2569,7 @@ export const HELP_ARTICLES: readonly Article[] = [
     body: [
       {
         type: "mockup",
-        screen: "informe-gestion",
+        screen: "crm-reportes",
         caption: {
           es: "Los reportes miden el rendimiento: tareas enviadas, respondidas y la tasa de respuesta.",
           pt: "Os relatórios medem o desempenho: tarefas enviadas, respondidas e a taxa de resposta.",
@@ -2638,9 +2638,9 @@ export const HELP_ARTICLES: readonly Article[] = [
         type: "list",
         items: [
           {
-            es: "Cuatro indicadores: consultas de hoy, pacientes activos, comparecimiento (30 días) y facturación del mes.",
-            pt: "Quatro indicadores: consultas de hoje, pacientes ativos, comparecimento (30 dias) e faturamento do mês.",
-            en: "Four indicators: today's appointments, active patients, attendance (30 days) and the month's revenue.",
+            es: "Cuatro indicadores: consultas de hoy, pacientes activos, citas (30 días) e ingresos del mes. La tasa de asistencia se muestra aparte, en su propia tarjeta.",
+            pt: "Quatro indicadores: consultas de hoje, pacientes ativos, consultas (30 dias) e faturamento do mês. A taxa de comparecimento aparece à parte, em seu próprio cartão.",
+            en: "Four indicators: today's appointments, active patients, appointments (30 days) and the month's revenue. The attendance rate is shown separately, in its own card.",
           },
           {
             es: "La agenda del día, la búsqueda rápida de pacientes y un acceso rápido a los módulos.",
@@ -2802,9 +2802,9 @@ export const HELP_ARTICLES: readonly Article[] = [
         type: "mockup",
         screen: "stock",
         caption: {
-          es: "Cada insumo con su cantidad y mínimo; lo que está bajo el mínimo se marca en rojo.",
-          pt: "Cada insumo com sua quantidade e mínimo; o que está abaixo do mínimo fica em vermelho.",
-          en: "Each supply with its quantity and minimum; anything below minimum is flagged red.",
+          es: "Cada insumo con su cantidad y mínimo; lo que está en o bajo el mínimo se marca en rojo.",
+          pt: "Cada insumo com sua quantidade e mínimo; o que está no mínimo ou abaixo fica em vermelho.",
+          en: "Each supply with its quantity and minimum; anything at or below minimum is flagged red.",
         },
       },
       {
@@ -2834,9 +2834,9 @@ export const HELP_ARTICLES: readonly Article[] = [
         type: "callout",
         tone: "warn",
         text: {
-          es: "Cuando un item baja de su mínimo, aparece un aviso de stock bajo. El control es manual: no se descuenta solo al usar material en una consulta.",
-          pt: "Quando um item fica abaixo do mínimo, aparece um aviso de estoque baixo. O controle é manual: não baixa sozinho ao usar material numa consulta.",
-          en: "When an item drops below its minimum, a low-stock warning appears. Control is manual: it isn't deducted automatically when material is used in a visit.",
+          es: "Cuando un item llega a su mínimo (o baja de él), aparece un aviso de stock bajo. El control es manual: no se descuenta solo al usar material en una consulta.",
+          pt: "Quando um item chega ao mínimo (ou fica abaixo), aparece um aviso de estoque baixo. O controle é manual: não baixa sozinho ao usar material numa consulta.",
+          en: "When an item reaches its minimum (or drops below), a low-stock warning appears. Control is manual: it isn't deducted automatically when material is used in a visit.",
         },
       },
     ],
@@ -2861,11 +2861,11 @@ export const HELP_ARTICLES: readonly Article[] = [
     body: [
       {
         type: "mockup",
-        screen: "orden-lab",
+        screen: "cadastro-labs",
         caption: {
-          es: "Cada orden queda ligada a un laboratorio y a un paciente, con su estado y plazo.",
-          pt: "Cada ordem fica ligada a um laboratório e a um paciente, com seu status e prazo.",
-          en: "Each order is tied to a lab and a patient, with its status and due date.",
+          es: "Cada laboratorio con sus servicios, su costo y precio, y el margen.",
+          pt: "Cada laboratório com seus serviços, seu custo e preço, e a margem.",
+          en: "Each lab with its services, cost and price, and the margin.",
         },
       },
       {
@@ -3189,9 +3189,9 @@ export const HELP_ARTICLES: readonly Article[] = [
         type: "callout",
         tone: "info",
         text: {
-          es: "Este asistente de soporte no es Sofía: Sofía atiende a tus pacientes por WhatsApp; el asistente te ayuda a ti con el software y no accede a los datos de tus pacientes.",
-          pt: "Este assistente de suporte não é a Sofía: a Sofía atende seus pacientes no WhatsApp; o assistente ajuda você com o software e não acessa os dados dos seus pacientes.",
-          en: "This support assistant isn't Sofía: Sofía serves your patients on WhatsApp; the assistant helps you with the software and doesn't access your patients' data.",
+          es: "Este asistente de soporte no es Sofía: Sofía atiende a tus pacientes por WhatsApp; el asistente te ayuda a ti con el software. También puede buscar o registrar un paciente y agendar o reagendar una cita por ti, siempre pidiendo tu confirmación y con tus mismos permisos.",
+          pt: "Este assistente de suporte não é a Sofía: a Sofía atende seus pacientes no WhatsApp; o assistente ajuda você com o software. Ele também pode buscar ou cadastrar um paciente e agendar ou reagendar uma consulta por você, sempre pedindo sua confirmação e com as suas permissões.",
+          en: "This support assistant isn't Sofía: Sofía serves your patients on WhatsApp; the assistant helps you with the software. It can also search or register a patient and book or reschedule an appointment for you, always asking for your confirmation and with your own permissions.",
         },
       },
     ],
@@ -3242,9 +3242,9 @@ export const HELP_ARTICLES: readonly Article[] = [
             en: "Choose the type and template; it's filled with the patient's and professional's data.",
           },
           {
-            es: "Revisa el preview y guarda como borrador o emite. Al emitir, puedes imprimir o enviar por email.",
-            pt: "Revise o preview e salve como rascunho ou emita. Ao emitir, você pode imprimir ou enviar por e-mail.",
-            en: "Review the preview and save as draft or issue it. Once issued, you can print it or send it by email.",
+            es: "Revisa el preview y guarda como borrador o emite. Al emitir una receta, consentimiento, laudo o certificado, el paciente recibe una copia por email automáticamente si tiene correo; además puedes imprimir o reenviar.",
+            pt: "Revise o preview e salve como rascunho ou emita. Ao emitir uma receita, consentimento, laudo ou atestado, o paciente recebe uma cópia por e-mail automaticamente se tiver correio; além disso você pode imprimir ou reenviar.",
+            en: "Review the preview and save as draft or issue it. When you issue a prescription, consent, report or certificate, the patient automatically gets a copy by email if they have one; you can also print or resend it.",
           },
         ],
       },
@@ -3281,9 +3281,9 @@ export const HELP_ARTICLES: readonly Article[] = [
         type: "mockup",
         screen: "protocolo",
         caption: {
-          es: "El protocolo es una checklist: marcas cada paso y ves el avance en %.",
-          pt: "O protocolo é uma checklist: você marca cada passo e vê o avanço em %.",
-          en: "The protocol is a checklist: you tick each step and see progress in %.",
+          es: "Vincular deja el protocolo como referencia; en la consulta se convierte en una checklist con % de avance.",
+          pt: "Vincular deixa o protocolo como referência; na consulta ele vira uma checklist com % de avanço.",
+          en: "Linking keeps the protocol as a reference; during the visit it becomes a checklist with % progress.",
         },
       },
       {

@@ -2710,6 +2710,142 @@ function MiDesempenoMock({ locale }: { locale: Locale }) {
   );
 }
 
+/* ─────────────────────────── CRM — reportes ─────────────────────────────── */
+
+function CrmReportesMock({ locale }: { locale: Locale }) {
+  const L = {
+    title: { es: "Reportes del CRM", pt: "Relatórios do CRM", en: "CRM reports" },
+    period: { es: "Últimos 30 días", pt: "Últimos 30 dias", en: "Last 30 days" },
+    gen: { es: "Generadas", pt: "Geradas", en: "Generated" },
+    sent: { es: "Enviadas", pt: "Enviadas", en: "Sent" },
+    ans: { es: "Respondidas", pt: "Respondidas", en: "Answered" },
+    rate: { es: "Tasa de respuesta", pt: "Taxa de resposta", en: "Response rate" },
+    byChannel: { es: "Por canal", pt: "Por canal", en: "By channel" },
+  };
+  const funnel = [
+    { l: t(L.gen, locale), v: "128", w: "100%", c: "bg-violet-500" },
+    { l: t(L.sent, locale), v: "96", w: "75%", c: "bg-sky-500" },
+    { l: t(L.ans, locale), v: "41", w: "32%", c: "bg-emerald-500" },
+  ];
+  const channels = [
+    { l: "WhatsApp", v: "58%", w: "58%" },
+    { l: "Email", v: "34%", w: "34%" },
+    { l: "SMS", v: "8%", w: "8%" },
+  ];
+  return (
+    <MockupFrame title="SuperClini · CRM">
+      <div className="min-w-[340px] bg-ink-50/50 px-3 py-3 dark:bg-ink-950/40">
+        <div className="mb-2.5 flex items-center gap-2">
+          <div className="mr-auto text-sm font-bold text-ink-900 dark:text-white">{t(L.title, locale)}</div>
+          <span className="rounded-lg border border-ink-200 px-2 py-1 text-[10px] text-ink-500 dark:border-ink-700 dark:text-ink-300">{t(L.period, locale)} ▾</span>
+        </div>
+        <div className="grid grid-cols-1 gap-2.5 lg:grid-cols-2">
+          {/* funnel */}
+          <div className="rounded-2xl border border-ink-100 bg-white p-3 dark:border-ink-800 dark:bg-ink-900">
+            <div className="flex flex-col gap-2">
+              {funnel.map((f) => (
+                <div key={f.l}>
+                  <div className="mb-1 flex justify-between text-[11px]">
+                    <span className="text-ink-600 dark:text-ink-300">{f.l}</span>
+                    <span className="font-bold tabular-nums text-ink-800 dark:text-ink-100">{f.v}</span>
+                  </div>
+                  <div className="h-2 rounded-full bg-ink-100 dark:bg-ink-800">
+                    <div className={`h-full rounded-full ${f.c}`} style={{ width: f.w }} />
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-2.5 flex items-center justify-between rounded-xl bg-emerald-50 px-2.5 py-1.5 dark:bg-emerald-950/40">
+              <span className="text-[11px] font-semibold text-emerald-800 dark:text-emerald-200">{t(L.rate, locale)}</span>
+              <span className="text-[15px] font-extrabold text-emerald-700 dark:text-emerald-300">43%</span>
+            </div>
+          </div>
+          {/* by channel */}
+          <div className="rounded-2xl border border-ink-100 bg-white p-3 dark:border-ink-800 dark:bg-ink-900">
+            <div className="mb-2 text-[11px] font-semibold text-ink-700 dark:text-ink-200">{t(L.byChannel, locale)}</div>
+            <div className="flex flex-col gap-2">
+              {channels.map((c) => (
+                <div key={c.l} className="flex items-center gap-2">
+                  <span className="w-16 shrink-0 text-[10.5px] text-ink-500 dark:text-ink-400">{c.l}</span>
+                  <div className="h-2 flex-1 rounded-full bg-ink-100 dark:bg-ink-800">
+                    <div className="h-full rounded-full bg-violet-500" style={{ width: c.w }} />
+                  </div>
+                  <span className="w-8 shrink-0 text-right text-[10px] font-semibold tabular-nums text-ink-600 dark:text-ink-300">{c.v}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </MockupFrame>
+  );
+}
+
+/* ─────────────────────── CADASTRO DE LABORATORIOS ────────────────────────── */
+
+function CadastroLabsMock({ locale }: { locale: Locale }) {
+  const L = {
+    title: { es: "Laboratorios", pt: "Laboratórios", en: "Labs" },
+    add: { es: "+ Nuevo laboratorio", pt: "+ Novo laboratório", en: "+ New lab" },
+    services: { es: "servicios", pt: "serviços", en: "services" },
+    service: { es: "Servicio", pt: "Serviço", en: "Service" },
+    cost: { es: "Costo lab", pt: "Custo lab", en: "Lab cost" },
+    price: { es: "Precio clínica", pt: "Preço clínica", en: "Clinic price" },
+    margin: { es: "Margen", pt: "Margem", en: "Margin" },
+  };
+  const labs = [
+    { name: "Lab Dental Premium", n: 8, mail: "contacto@labpremium.cl", open: true },
+    { name: "Cerámica Andes", n: 5, mail: "ordenes@ceramicaandes.cl", open: false },
+    { name: "ProtLab", n: 6, mail: "info@protlab.cl", open: false },
+  ];
+  const rows = [
+    { s: { es: "Corona porcelana", pt: "Coroa porcelana", en: "Porcelain crown" }, cost: "$ 90.000", price: "$ 180.000", margin: "$ 90.000" },
+    { s: { es: "Prótesis removible", pt: "Prótese removível", en: "Removable denture" }, cost: "$ 160.000", price: "$ 320.000", margin: "$ 160.000" },
+  ];
+  return (
+    <MockupFrame title="SuperClini · Laboratorios">
+      <div className="min-w-[340px] px-3 py-3">
+        <div className="mb-2.5 flex items-center gap-2">
+          <div className="mr-auto text-sm font-bold text-ink-900 dark:text-white">{t(L.title, locale)}</div>
+          <span className="rounded-lg bg-sky-600 px-2.5 py-1 text-[11px] font-semibold text-white">{t(L.add, locale)}</span>
+        </div>
+        <div className="flex flex-col gap-2">
+          {labs.map((lab) => (
+            <div key={lab.name} className="rounded-2xl border border-ink-100 bg-white dark:border-ink-800 dark:bg-ink-900">
+              <div className="flex items-center gap-2 p-2.5">
+                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-sky-100 text-sky-600 dark:bg-sky-900/40 dark:text-sky-300">🔬</span>
+                <div className="min-w-0 flex-1">
+                  <div className="text-[12.5px] font-semibold text-ink-800 dark:text-ink-100">{lab.name}</div>
+                  <div className="truncate text-[10px] text-ink-400">{lab.n} {t(L.services, locale)} · {lab.mail}</div>
+                </div>
+                <span className="shrink-0 text-ink-300 dark:text-ink-600">{lab.open ? "▾" : "▸"}</span>
+              </div>
+              {lab.open && (
+                <div className="border-t border-ink-100 px-2.5 py-2 dark:border-ink-800">
+                  <div className="mb-1 grid grid-cols-[1.4fr_0.9fr_0.9fr_0.9fr] gap-1 text-[8.5px] font-semibold uppercase text-ink-400">
+                    <span>{t(L.service, locale)}</span>
+                    <span className="text-right">{t(L.cost, locale)}</span>
+                    <span className="text-right">{t(L.price, locale)}</span>
+                    <span className="text-right">{t(L.margin, locale)}</span>
+                  </div>
+                  {rows.map((r, i) => (
+                    <div key={i} className="grid grid-cols-[1.4fr_0.9fr_0.9fr_0.9fr] gap-1 py-0.5 text-[10.5px]">
+                      <span className="truncate text-ink-700 dark:text-ink-200">{t(r.s, locale)}</span>
+                      <span className="text-right tabular-nums text-ink-500 dark:text-ink-400">{r.cost}</span>
+                      <span className="text-right tabular-nums text-ink-700 dark:text-ink-200">{r.price}</span>
+                      <span className="text-right font-semibold tabular-nums text-emerald-600 dark:text-emerald-400">{r.margin}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </MockupFrame>
+  );
+}
+
 /* ─────────────────────────────── registry ──────────────────────────────── */
 
 const MOCKUPS: Record<MockupKey, React.FC<{ locale: Locale }>> = {
@@ -2752,6 +2888,8 @@ const MOCKUPS: Record<MockupKey, React.FC<{ locale: Locale }>> = {
   "dos-pasos": DosPasosMock,
   red: RedMock,
   "convenio-b2b": ConvenioB2bMock,
+  "crm-reportes": CrmReportesMock,
+  "cadastro-labs": CadastroLabsMock,
 };
 
 export function Mockup({ screen, locale }: { screen: MockupKey; locale: Locale }) {

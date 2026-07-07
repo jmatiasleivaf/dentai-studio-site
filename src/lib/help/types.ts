@@ -64,7 +64,9 @@ export type MockupKey =
   | "recordatorio"
   | "dos-pasos"
   | "red"
-  | "convenio-b2b";
+  | "convenio-b2b"
+  | "crm-reportes"
+  | "cadastro-labs";
 
 export type Accent = "brand" | "green" | "violet";
 
