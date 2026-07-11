@@ -1,6 +1,29 @@
 # SuperClini Site — Status Vivo
 
-**Última atualização**: 2026-07-06 — Centro de Ayuda completo + header elite + métricas de feedback
+**Última atualização**: 2026-07-11 — Centro de Ayuda: nova coleção "La ficha del paciente"
+
+## 2026-07-11 — Nova coleção `la-ficha-del-paciente` (5 artigos + 5 mockups)
+
+Commit `ee081a6` em `main` (e `feat/centro-ayuda`). Parte do capítulo de Academia
+"La ficha del paciente" (Workstream A do `SuperClini/youtube/publicacion/PACIENTES-CHAPTER-SPEC.md`).
+
+- **Coleção nova** `la-ficha-del-paciente` (id `pacientes`, accent brand), inserida em
+  `order:5` logo após "Ficha clínica" (imagenes..cuenta renumerados 6→12; só ordem de
+  display, zero mudança de slug/URL). Agora **12 coleções**.
+- **5 artigos tri-língue** ES/PT/EN (categoryId `pacientes`): `recorrido-por-la-ficha`,
+  `datos-del-paciente`, `anamnesis`, `resumen-con-ia`, `examenes-y-citas`. Cross-link
+  inverso a partir de `buscar-y-crear-paciente` (fica em primeros-pasos).
+- **5 mockups novos** de alta fidelidade em `mockups.tsx` (`ficha-overview`, `ficha-datos`,
+  `anamnesis`, `resumen-ia`, `examenes-citas`) + ilustração de coleção `pacientes`.
+- **Fidelidade verificada campo a campo** contra `dentai-studio` (read-only): sidebar real
+  (Exámenes vive dentro de Clínico, não é aba; Datos é `?tab=dados`), anamnese = 4 textareas
+  livres, Resumen con IA consome cota mensal (plan Profesional+, Haiku 4.5), disclaimer no-diagnóstico.
+- **Provas**: `npm run audit-stale` cero drift · `next build` exit 0 (174 páginas de artigo =
+  58×3) · 5 páginas novas curl 200 em ES/PT/EN, zero MISSING_MESSAGE, mockups renderizam.
+
+**Pendente**: deploy VPS (`git pull origin main` + build — corre Matias).
+
+---
 
 ## 2026-07-06 — Centro de Ayuda (`/ayuda`) EM PROD + header elite + métricas
 
