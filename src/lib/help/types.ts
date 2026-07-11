@@ -17,6 +17,7 @@ export type IllustrationKey =
   | "crm"
   | "informes"
   | "inventario"
+  | "pacientes"
   | "flujo-sofia"
   | "flujo-migracion"
   | "pantalla-caja";
@@ -66,7 +67,12 @@ export type MockupKey =
   | "red"
   | "convenio-b2b"
   | "crm-reportes"
-  | "cadastro-labs";
+  | "cadastro-labs"
+  | "ficha-overview"
+  | "ficha-datos"
+  | "anamnesis"
+  | "resumen-ia"
+  | "examenes-citas";
 
 export type Accent = "brand" | "green" | "violet";
 

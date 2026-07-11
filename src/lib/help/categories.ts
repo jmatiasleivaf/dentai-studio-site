@@ -1,7 +1,7 @@
 import type { Category } from "./types";
 
 /**
- * As 8 coleções do Centro de Ayuda. SSoT da arquitetura de informação.
+ * As 12 coleções do Centro de Ayuda. SSoT da arquitetura de informação.
  * Ancorada no estado REAL da plataforma (specs + testes + código, jul/2026).
  * Adicionar coleção nova? Adicionar aqui + ilustração em components/help/illustrations.tsx.
  */
@@ -75,9 +75,26 @@ export const HELP_CATEGORIES: readonly Category[] = [
     },
   },
   {
+    id: "pacientes",
+    slug: "la-ficha-del-paciente",
+    order: 5,
+    accent: "brand",
+    illustration: "pacientes",
+    name: {
+      es: "La ficha del paciente",
+      pt: "A ficha do paciente",
+      en: "The patient chart",
+    },
+    description: {
+      es: "El recorrido por la ficha, los datos del paciente, la anamnesis, el resumen con IA y los exámenes y citas vinculados.",
+      pt: "O passeio pela ficha, os dados do paciente, a anamnese, o resumo com IA e os exames e consultas vinculados.",
+      en: "A tour of the chart: patient data, anamnesis, the AI summary and the linked exams and appointments.",
+    },
+  },
+  {
     id: "imagenes",
     slug: "imagenes-ia",
-    order: 5,
+    order: 6,
     accent: "violet",
     illustration: "imagenes",
     name: {
@@ -94,7 +111,7 @@ export const HELP_CATEGORIES: readonly Category[] = [
   {
     id: "finanzas",
     slug: "caja-y-cobros",
-    order: 6,
+    order: 7,
     accent: "brand",
     illustration: "finanzas",
     name: {
@@ -111,7 +128,7 @@ export const HELP_CATEGORIES: readonly Category[] = [
   {
     id: "crm",
     slug: "crm-y-campanas",
-    order: 7,
+    order: 8,
     accent: "violet",
     illustration: "crm",
     name: {
@@ -128,7 +145,7 @@ export const HELP_CATEGORIES: readonly Category[] = [
   {
     id: "informes",
     slug: "informes-y-metricas",
-    order: 8,
+    order: 9,
     accent: "brand",
     illustration: "informes",
     name: {
@@ -145,7 +162,7 @@ export const HELP_CATEGORIES: readonly Category[] = [
   {
     id: "inventario",
     slug: "inventario-y-laboratorio",
-    order: 9,
+    order: 10,
     accent: "brand",
     illustration: "inventario",
     name: {
@@ -162,7 +179,7 @@ export const HELP_CATEGORIES: readonly Category[] = [
   {
     id: "totem",
     slug: "totem-y-recepcion",
-    order: 10,
+    order: 11,
     accent: "brand",
     illustration: "totem",
     name: {
@@ -179,7 +196,7 @@ export const HELP_CATEGORIES: readonly Category[] = [
   {
     id: "cuenta",
     slug: "cuenta-y-seguridad",
-    order: 11,
+    order: 12,
     accent: "brand",
     illustration: "cuenta",
     name: {

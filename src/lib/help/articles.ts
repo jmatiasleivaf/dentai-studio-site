@@ -3080,7 +3080,7 @@ export const HELP_ARTICLES: readonly Article[] = [
     updated: "2026-06-01",
     readingMinutes: 4,
     keywords: ["paciente", "buscar", "crear", "registrar", "documento", "prontuario"],
-    related: ["configurar-tu-clinica", "marcar-el-odontograma"],
+    related: ["recorrido-por-la-ficha", "configurar-tu-clinica", "marcar-el-odontograma"],
     title: {
       es: "Buscar y crear un paciente",
       pt: "Buscar e criar um paciente",
@@ -3374,6 +3374,365 @@ export const HELP_ARTICLES: readonly Article[] = [
           es: "Si el convenio ya está asociado a una empresa, el campo empresa queda bloqueado en el paciente para mantener la coherencia.",
           pt: "Se o convênio já está associado a uma empresa, o campo empresa fica bloqueado no paciente para manter a coerência.",
           en: "If the agreement is already tied to a company, the company field is locked on the patient to keep consistency.",
+        },
+      },
+    ],
+  },
+
+  // LA FICHA DEL PACIENTE (Ola 7)
+  {
+    slug: "recorrido-por-la-ficha",
+    categoryId: "pacientes",
+    updated: "2026-07-11",
+    readingMinutes: 4,
+    keywords: ["ficha", "paciente", "prontuario", "historia clínica", "secciones", "recorrido", "navegación"],
+    related: ["buscar-y-crear-paciente", "datos-del-paciente", "anamnesis", "marcar-el-odontograma"],
+    featured: true,
+    title: {
+      es: "Recorrido por la ficha del paciente",
+      pt: "Passeio pela ficha do paciente",
+      en: "A tour of the patient chart",
+    },
+    excerpt: {
+      es: "La ficha es el hub de cada paciente: barra lateral con todas sus secciones y cabecera con las acciones rápidas.",
+      pt: "A ficha é o hub de cada paciente: barra lateral com todas as seções e cabeçalho com as ações rápidas.",
+      en: "The chart is each patient's hub: a sidebar with every section and a header with quick actions.",
+    },
+    body: [
+      {
+        type: "mockup",
+        screen: "ficha-overview",
+        caption: {
+          es: "A la izquierda las secciones de la ficha; arriba, la cabecera con el paciente y las acciones.",
+          pt: "À esquerda as seções da ficha; acima, o cabeçalho com o paciente e as ações.",
+          en: "The chart's sections on the left; at the top, the header with the patient and the actions.",
+        },
+      },
+      {
+        type: "p",
+        text: {
+          es: "Al abrir un paciente entras a su ficha: el lugar único donde vive todo su historial. La barra lateral te lleva a cada sección y la cabecera reúne las acciones que más usas.",
+          pt: "Ao abrir um paciente você entra na ficha dele: o lugar único onde vive todo o histórico. A barra lateral leva a cada seção e o cabeçalho reúne as ações que você mais usa.",
+          en: "Opening a patient takes you to their chart: the single place where their whole history lives. The sidebar takes you to each section and the header gathers the actions you use most.",
+        },
+      },
+      {
+        type: "list",
+        items: [
+          {
+            es: "Clínico: el odontograma, el periodontograma y los exámenes vinculados del paciente.",
+            pt: "Clínico: o odontograma, o periodontograma e os exames vinculados do paciente.",
+            en: "Clinical: the odontogram, the periodontogram and the patient's linked exams.",
+          },
+          {
+            es: "Anamnesis: la historia médica (antecedentes, alergias, medicación, observaciones).",
+            pt: "Anamnese: o histórico médico (antecedentes, alergias, medicação, observações).",
+            en: "Anamnesis: the medical history (background, allergies, medication, notes).",
+          },
+          {
+            es: "Protocolos, Planes, Evolución y Documentos: tratamientos, evoluciones y documentos emitidos.",
+            pt: "Protocolos, Planos, Evolução e Documentos: tratamentos, evoluções e documentos emitidos.",
+            en: "Protocols, Plans, Evolutions and Documents: treatments, evolutions and issued documents.",
+          },
+          {
+            es: "Datos del Paciente y Facturación: la información personal y el estado de cobros.",
+            pt: "Dados do Paciente e Faturação: a informação pessoal e o estado de cobranças.",
+            en: "Patient Data and Billing: the personal information and the billing status.",
+          },
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        title: {
+          es: "Acciones de la cabecera",
+          pt: "Ações do cabeçalho",
+          en: "Header actions",
+        },
+        text: {
+          es: "Desde la cabecera agendas una cita, abres el Resumen con IA y ves los Casos IA del paciente (o creas una Nueva Simulación IA si aún no tiene). Los Exámenes no son una pestaña aparte: viven dentro de Clínico.",
+          pt: "No cabeçalho você agenda uma consulta, abre o Resumo com IA e vê os Casos IA do paciente (ou cria uma Nova Simulação IA se ainda não tiver). Os Exames não são uma aba à parte: ficam dentro de Clínico.",
+          en: "From the header you book an appointment, open the AI summary and see the patient's AI cases (or create a New AI Simulation if there's none yet). Exams aren't a separate tab: they live inside Clinical.",
+        },
+      },
+    ],
+  },
+  {
+    slug: "datos-del-paciente",
+    categoryId: "pacientes",
+    updated: "2026-07-11",
+    readingMinutes: 4,
+    keywords: ["datos", "paciente", "editar", "documento", "rut", "previsión", "fonasa", "isapre", "contacto", "país"],
+    related: ["buscar-y-crear-paciente", "empresas-y-convenios-b2b", "recorrido-por-la-ficha"],
+    title: {
+      es: "Datos del paciente: ver y editar",
+      pt: "Dados do paciente: ver e editar",
+      en: "Patient data: view and edit",
+    },
+    excerpt: {
+      es: "Identificación, contacto, previsión y convenio; los campos se adaptan al país de tu clínica.",
+      pt: "Identificação, contato, previdência e convênio; os campos se adaptam ao país da sua clínica.",
+      en: "Identification, contact, insurance and agreement; fields adapt to your clinic's country.",
+    },
+    body: [
+      {
+        type: "mockup",
+        screen: "ficha-datos",
+        caption: {
+          es: "La pestaña Datos del Paciente, con la identificación, el contacto y la previsión.",
+          pt: "A aba Dados do Paciente, com a identificação, o contato e a previdência.",
+          en: "The Patient Data tab, with identification, contact and insurance.",
+        },
+      },
+      {
+        type: "p",
+        text: {
+          es: "En la pestaña Datos del Paciente editas su información personal. Está organizada en bloques y guardas con «Guardar cambios».",
+          pt: "Na aba Dados do Paciente você edita a informação pessoal. Está organizada em blocos e você salva com «Salvar alterações».",
+          en: "In the Patient Data tab you edit their personal information. It's organized in blocks and you save with “Save changes”.",
+        },
+      },
+      {
+        type: "list",
+        items: [
+          {
+            es: "Identificación: nombre completo, tipo y número de documento, género, fecha de nacimiento (calcula la edad).",
+            pt: "Identificação: nome completo, tipo e número de documento, gênero, data de nascimento (calcula a idade).",
+            en: "Identification: full name, document type and number, gender, date of birth (age is computed).",
+          },
+          {
+            es: "Contacto: teléfono / WhatsApp, e-mail y dirección.",
+            pt: "Contato: telefone / WhatsApp, e-mail e endereço.",
+            en: "Contact: phone / WhatsApp, email and address.",
+          },
+          {
+            es: "Previsión de salud, convenio y empresa, contacto de emergencia y cómo te conoció el paciente.",
+            pt: "Previdência de saúde, convênio e empresa, contato de emergência e como o paciente te conheceu.",
+            en: "Health insurance, agreement and company, emergency contact and how the patient found you.",
+          },
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        title: {
+          es: "Se adapta a tu país",
+          pt: "Adapta-se ao seu país",
+          en: "Adapts to your country",
+        },
+        text: {
+          es: "El tipo de documento y la previsión cambian según el país de la clínica: en Chile ves RUT y Fonasa/Isapre/Particular; en Argentina DNI y Obra Social/Prepaga/PAMI, etc. El dígito verificador solo se valida para el RUT chileno.",
+          pt: "O tipo de documento e a previdência mudam conforme o país da clínica: no Chile você vê RUT e Fonasa/Isapre/Particular; na Argentina DNI e Obra Social/Prepaga/PAMI, etc. O dígito verificador só é validado para o RUT chileno.",
+          en: "Document type and insurance change with the clinic's country: in Chile you see RUT and Fonasa/Isapre/Particular; in Argentina DNI and Obra Social/Prepaga/PAMI, etc. The check digit is only validated for the Chilean RUT.",
+        },
+      },
+    ],
+  },
+  {
+    slug: "anamnesis",
+    categoryId: "pacientes",
+    updated: "2026-07-11",
+    readingMinutes: 3,
+    keywords: ["anamnesis", "anamnese", "historia médica", "alergias", "medicación", "antecedentes", "observaciones"],
+    related: ["recorrido-por-la-ficha", "marcar-el-odontograma", "registrar-evolucion"],
+    title: {
+      es: "La anamnesis: historia médica del paciente",
+      pt: "A anamnese: histórico médico do paciente",
+      en: "The anamnesis: the patient's medical history",
+    },
+    excerpt: {
+      es: "Cuatro campos libres para registrar antecedentes, alergias, medicación y observaciones clínicas.",
+      pt: "Quatro campos livres para registrar antecedentes, alergias, medicação e observações clínicas.",
+      en: "Four free-text fields to record background, allergies, medication and clinical notes.",
+    },
+    body: [
+      {
+        type: "mockup",
+        screen: "anamnesis",
+        caption: {
+          es: "La Anamnesis Médica: cuatro campos de texto que guardas con un clic.",
+          pt: "A Anamnese Médica: quatro campos de texto que você salva com um clique.",
+          en: "The Medical Anamnesis: four text fields you save with one click.",
+        },
+      },
+      {
+        type: "p",
+        text: {
+          es: "La sección Anamnesis reúne la historia médica del paciente en cuatro campos de texto libre. No son casillas de sí/no: escribes lo relevante y lo guardas con «Guardar».",
+          pt: "A seção Anamnese reúne o histórico médico do paciente em quatro campos de texto livre. Não são caixas de sim/não: você escreve o que é relevante e salva com «Salvar».",
+          en: "The Anamnesis section gathers the patient's medical history in four free-text fields. They aren't yes/no checkboxes: you write what's relevant and save with “Save”.",
+        },
+      },
+      {
+        type: "list",
+        items: [
+          {
+            es: "Historial médico: enfermedades sistémicas, cirugías, condiciones cardíacas, diabetes, hipertensión.",
+            pt: "Histórico médico: doenças sistêmicas, cirurgias, condições cardíacas, diabetes, hipertensão.",
+            en: "Medical history: systemic diseases, surgeries, cardiac conditions, diabetes, hypertension.",
+          },
+          {
+            es: "Alergias: anestésicos, antibióticos, látex u otros medicamentos.",
+            pt: "Alergias: anestésicos, antibióticos, látex ou outros medicamentos.",
+            en: "Allergies: anesthetics, antibiotics, latex or other medications.",
+          },
+          {
+            es: "Medicamentos en uso: anticoagulantes, antihipertensivos, corticoides, bifosfonatos.",
+            pt: "Medicamentos em uso: anticoagulantes, anti-hipertensivos, corticoides, bifosfonatos.",
+            en: "Medications in use: anticoagulants, antihypertensives, corticosteroids, bisphosphonates.",
+          },
+          {
+            es: "Observaciones clínicas: motivo de consulta, historial odontológico y notas generales.",
+            pt: "Observações clínicas: motivo da consulta, histórico odontológico e notas gerais.",
+            en: "Clinical notes: reason for the visit, dental history and general notes.",
+          },
+        ],
+      },
+      {
+        type: "callout",
+        tone: "warn",
+        text: {
+          es: "Mantén la anamnesis al día antes de cada procedimiento: es la base para decidir anestesia, medicación y precauciones. Cambios en alergias o medicación pueden cambiar el plan.",
+          pt: "Mantenha a anamnese em dia antes de cada procedimento: é a base para decidir anestesia, medicação e precauções. Mudanças em alergias ou medicação podem mudar o plano.",
+          en: "Keep the anamnesis up to date before every procedure: it's the basis for deciding anesthesia, medication and precautions. Changes in allergies or medication may change the plan.",
+        },
+      },
+    ],
+  },
+  {
+    slug: "resumen-con-ia",
+    categoryId: "pacientes",
+    updated: "2026-07-11",
+    readingMinutes: 4,
+    keywords: ["resumen", "ia", "inteligencia artificial", "paciente", "cuota", "resumen ejecutivo", "estado clínico", "estado comercial"],
+    related: ["tu-plan-y-cuotas", "que-es-el-crm", "recorrido-por-la-ficha"],
+    featured: true,
+    title: {
+      es: "El resumen del paciente con IA",
+      pt: "O resumo do paciente com IA",
+      en: "The patient's AI summary",
+    },
+    excerpt: {
+      es: "Un resumen generado por IA de toda la ficha: estado clínico, comercial y sugerencias, en segundos.",
+      pt: "Um resumo gerado por IA de toda a ficha: estado clínico, comercial e sugestões, em segundos.",
+      en: "An AI-generated summary of the whole chart: clinical status, commercial status and suggestions, in seconds.",
+    },
+    body: [
+      {
+        type: "mockup",
+        screen: "resumen-ia",
+        caption: {
+          es: "El resumen con IA: resumen ejecutivo, estado clínico, estado comercial y tags.",
+          pt: "O resumo com IA: resumo executivo, estado clínico, estado comercial e tags.",
+          en: "The AI summary: executive summary, clinical status, commercial status and tags.",
+        },
+      },
+      {
+        type: "p",
+        text: {
+          es: "Desde la cabecera de la ficha, «Resumen con IA» lee toda la información del paciente y arma un resumen estructurado que te pone al día en segundos.",
+          pt: "No cabeçalho da ficha, «Resumo com IA» lê toda a informação do paciente e monta um resumo estruturado que te atualiza em segundos.",
+          en: "From the chart's header, “AI summary” reads all the patient's information and builds a structured summary that catches you up in seconds.",
+        },
+      },
+      {
+        type: "list",
+        items: [
+          {
+            es: "Resumen ejecutivo y estado clínico, con alertas y próximos pasos sugeridos.",
+            pt: "Resumo executivo e estado clínico, com alertas e próximos passos sugeridos.",
+            en: "Executive summary and clinical status, with alerts and suggested next steps.",
+          },
+          {
+            es: "Estado comercial: situación financiera, LTV estimado, riesgo de pérdida y membresía.",
+            pt: "Estado comercial: situação financeira, LTV estimado, risco de perda e mensalidade.",
+            en: "Commercial status: financial situation, estimated LTV, churn risk and membership.",
+          },
+          {
+            es: "Tags y sugerencias de acción para el seguimiento (CRM).",
+            pt: "Tags e sugestões de ação para o acompanhamento (CRM).",
+            en: "Tags and action suggestions for follow-up (CRM).",
+          },
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        title: {
+          es: "Consume cuota de IA",
+          pt: "Consome cota de IA",
+          en: "Uses AI quota",
+        },
+        text: {
+          es: "El resumen está disponible desde el plan Profesional y consume 1 de tu cuota mensual al generarlo. Volver a abrir el mismo resumen no cuesta cuota; regenerarlo (cuando la ficha cambió) te pide confirmación porque descuenta 1. Es un apoyo generado por IA y no sustituye el criterio del profesional.",
+          pt: "O resumo está disponível a partir do plano Profissional e consome 1 da sua cota mensal ao gerar. Reabrir o mesmo resumo não custa cota; regerá-lo (quando a ficha mudou) pede confirmação porque desconta 1. É um apoio gerado por IA e não substitui o critério do profissional.",
+          en: "The summary is available from the Professional plan and uses 1 of your monthly quota when generated. Reopening the same summary costs no quota; regenerating it (when the chart changed) asks for confirmation because it deducts 1. It's AI-generated support and doesn't replace the professional's judgment.",
+        },
+      },
+    ],
+  },
+  {
+    slug: "examenes-y-citas",
+    categoryId: "pacientes",
+    updated: "2026-07-11",
+    readingMinutes: 4,
+    keywords: ["exámenes", "radiografía", "foto", "dicom", "citas", "historial", "agendamentos", "facturación"],
+    related: ["radiografia-informe-ia", "visor-dicom-3d", "registrar-un-cobro", "recorrido-por-la-ficha"],
+    title: {
+      es: "Exámenes y citas desde la ficha",
+      pt: "Exames e consultas a partir da ficha",
+      en: "Exams and appointments from the chart",
+    },
+    excerpt: {
+      es: "Desde la ficha ves los exámenes vinculados, el historial de citas del paciente y su facturación.",
+      pt: "A partir da ficha você vê os exames vinculados, o histórico de consultas do paciente e a faturação.",
+      en: "From the chart you see the linked exams, the patient's appointment history and their billing.",
+    },
+    body: [
+      {
+        type: "mockup",
+        screen: "examenes-citas",
+        caption: {
+          es: "Los exámenes vinculados y el historial de citas del paciente, con su resumen.",
+          pt: "Os exames vinculados e o histórico de consultas do paciente, com o resumo.",
+          en: "The linked exams and the patient's appointment history, with its summary.",
+        },
+      },
+      {
+        type: "p",
+        text: {
+          es: "La ficha reúne también los exámenes y las citas del paciente. Dentro de la sección Clínico, un panel muestra los exámenes vinculados (radiografías, fotos, modelos 3D y estudios DICOM) como vista previa.",
+          pt: "A ficha reúne também os exames e as consultas do paciente. Dentro da seção Clínico, um painel mostra os exames vinculados (radiografias, fotos, modelos 3D e estudos DICOM) como pré-visualização.",
+          en: "The chart also gathers the patient's exams and appointments. Inside the Clinical section, a panel shows the linked exams (radiographs, photos, 3D models and DICOM studies) as a preview.",
+        },
+      },
+      {
+        type: "list",
+        items: [
+          {
+            es: "Exámenes: previsualizas y con «Ver todos» abres el módulo de exámenes, donde subes archivos y revisas informes.",
+            pt: "Exames: você pré-visualiza e com «Ver todos» abre o módulo de exames, onde envia arquivos e revisa laudos.",
+            en: "Exams: you preview them, and with “See all” you open the exams module, where you upload files and review reports.",
+          },
+          {
+            es: "Historial de citas: el total, las realizadas, canceladas y ausencias, con filtros y una línea de tiempo.",
+            pt: "Histórico de consultas: o total, as realizadas, canceladas e faltas, com filtros e uma linha do tempo.",
+            en: "Appointment history: the total, completed, cancelled and no-shows, with filters and a timeline.",
+          },
+          {
+            es: "Facturación: desde la barra lateral accedes al estado de cobros del paciente (cuentas, cuotas y saldo).",
+            pt: "Faturação: pela barra lateral você acessa o estado de cobranças do paciente (contas, parcelas e saldo).",
+            en: "Billing: from the sidebar you reach the patient's billing status (accounts, installments and balance).",
+          },
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        text: {
+          es: "Subir una imagen, generar el informe con IA de una radiografía o medir en el visor DICOM se hace en el módulo de Exámenes e Imágenes, no en la ficha. La ficha te da el acceso y la vista rápida.",
+          pt: "Enviar uma imagem, gerar o laudo com IA de uma radiografia ou medir no visor DICOM se faz no módulo de Exames e Imagens, não na ficha. A ficha te dá o acesso e a visão rápida.",
+          en: "Uploading an image, generating a radiograph's AI report or measuring in the DICOM viewer is done in the Exams and Imaging module, not in the chart. The chart gives you the access and the quick view.",
         },
       },
     ],

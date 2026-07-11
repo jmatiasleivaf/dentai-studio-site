@@ -159,6 +159,15 @@ export function CategoryIllustration({
           <path d="M24 24v16" stroke="#06b6d4" strokeWidth="2.2" />
         </svg>
       );
+    case "pacientes":
+      return (
+        <svg {...common}>
+          <rect x="8" y="7" width="32" height="34" rx="5" stroke={g} strokeWidth="2.5" />
+          <circle cx="20" cy="19" r="4.5" stroke={g} strokeWidth="2.4" />
+          <path d="M13 32c1.5-4 5-6 7-6s5.5 2 7 6" stroke={g} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M30 17h4M30 23h4M30 29h4" stroke="#06b6d4" strokeWidth="2.2" strokeLinecap="round" />
+        </svg>
+      );
     default:
       return null;
   }

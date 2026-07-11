@@ -2846,6 +2846,410 @@ function CadastroLabsMock({ locale }: { locale: Locale }) {
   );
 }
 
+/* ───────────────── FICHA DEL PACIENTE — recorrido (overview) ────────────── */
+
+/** Barra lateral + cabecera de la ficha. Refleja PacienteFichaSidebar + PacienteFichaHeader. */
+function FichaOverviewMock({ locale }: { locale: Locale }) {
+  const L = {
+    age: { es: "34 años", pt: "34 anos", en: "34 y.o." },
+    schedule: { es: "Agendar cita", pt: "Agendar consulta", en: "Book appointment" },
+    aiSummary: { es: "Resumen con IA", pt: "Resumo com IA", en: "AI summary" },
+    iaCases: { es: "Casos IA", pt: "Casos IA", en: "AI cases" },
+    clin: { es: "Clínico", pt: "Clínico", en: "Clinical" },
+    anam: { es: "Anamnesis", pt: "Anamnese", en: "Anamnesis" },
+    prot: { es: "Protocolos", pt: "Protocolos", en: "Protocols" },
+    plan: { es: "Planes", pt: "Planos", en: "Plans" },
+    evo: { es: "Evolución", pt: "Evolução", en: "Evolutions" },
+    doc: { es: "Documentos", pt: "Documentos", en: "Documents" },
+    dat: { es: "Datos del Paciente", pt: "Dados do Paciente", en: "Patient Data" },
+    fac: { es: "Facturación", pt: "Faturação", en: "Billing" },
+    recs: { es: "12 reg. clínicos", pt: "12 reg. clínicos", en: "12 clinical records" },
+    evos: { es: "8 evoluciones", pt: "8 evoluções", en: "8 evolutions" },
+    exams: { es: "Exámenes", pt: "Exames", en: "Exams" },
+    seeAll: { es: "Ver todos", pt: "Ver todos", en: "See all" },
+    hint: {
+      es: "La sección activa se muestra a la derecha. Aquí, Clínico: odontograma, evoluciones y los exámenes vinculados.",
+      pt: "A seção ativa aparece à direita. Aqui, Clínico: odontograma, evoluções e os exames vinculados.",
+      en: "The active section shows on the right. Here, Clinical: odontogram, evolutions and the linked exams.",
+    },
+  };
+  const nav = [
+    { l: t(L.clin, locale), active: true },
+    { l: t(L.anam, locale), active: false },
+    { l: t(L.prot, locale), active: false },
+    { l: t(L.plan, locale), active: false },
+    { l: t(L.evo, locale), active: false },
+    { l: t(L.doc, locale), active: false },
+    { l: t(L.dat, locale), active: false },
+  ];
+
+  return (
+    <MockupFrame title="SuperClini · Ficha del paciente">
+      <div className="flex min-w-[340px]">
+        {/* sidebar */}
+        <nav className="hidden w-40 shrink-0 flex-col gap-0.5 border-r border-ink-100 bg-ink-50/60 p-2 sm:flex dark:border-ink-800 dark:bg-ink-950/40">
+          {nav.map((s) => (
+            <span
+              key={s.l}
+              className={`rounded-lg px-2.5 py-1.5 text-[11px] font-medium ${
+                s.active
+                  ? "bg-white text-sky-700 shadow-sm dark:bg-ink-800 dark:text-sky-300"
+                  : "text-ink-500 dark:text-ink-400"
+              }`}
+            >
+              {s.l}
+            </span>
+          ))}
+          <span className="mt-1 rounded-lg border-t border-ink-100 px-2.5 pt-2 text-[11px] font-medium text-ink-500 dark:border-ink-800 dark:text-ink-400">
+            {t(L.fac, locale)}
+          </span>
+          <div className="mt-1.5 px-2.5 text-[9px] leading-tight text-ink-400">
+            {t(L.recs, locale)}
+            <br />
+            {t(L.evos, locale)}
+          </div>
+        </nav>
+        {/* main */}
+        <div className="min-w-0 flex-1">
+          {/* patient header */}
+          <div className="flex flex-wrap items-center gap-2.5 border-b border-ink-100 px-3 py-3 dark:border-ink-800">
+            <span className="grid h-10 w-10 place-items-center rounded-xl bg-brand-gradient text-[13px] font-bold text-white">MG</span>
+            <div className="mr-auto">
+              <div className="flex items-center gap-1.5">
+                <span className="text-[13px] font-semibold text-ink-900 dark:text-white">María González</span>
+                <span className="rounded-full bg-ink-100 px-1.5 py-px text-[9px] text-ink-500 dark:bg-ink-800 dark:text-ink-300">{t(L.age, locale)}</span>
+              </div>
+              <div className="text-[10px] text-ink-400">RUT: 12.345.678-9 · +56 9 8765 4321</div>
+            </div>
+            <div className="flex flex-wrap gap-1.5">
+              <span className="rounded-lg bg-brand-gradient px-2 py-1 text-[10px] font-semibold text-white">{t(L.schedule, locale)}</span>
+              <span className="rounded-lg bg-violet-100 px-2 py-1 text-[10px] font-semibold text-violet-700 dark:bg-violet-900/50 dark:text-violet-300">✦ {t(L.aiSummary, locale)}</span>
+              <span className="rounded-lg border border-ink-200 px-2 py-1 text-[10px] font-semibold text-ink-600 dark:border-ink-700 dark:text-ink-300">{t(L.iaCases, locale)} · 2</span>
+            </div>
+          </div>
+          {/* active section teaser */}
+          <div className="p-3">
+            <div className="grid gap-2 sm:grid-cols-2">
+              <div className="rounded-xl border border-ink-100 p-2.5 dark:border-ink-800">
+                <div className="mb-1.5 grid grid-cols-8 gap-0.5">
+                  {Array.from({ length: 16 }).map((_, i) => (
+                    <span key={i} className={`h-4 rounded-sm ${i === 5 ? "bg-rose-400" : i === 10 ? "bg-sky-400" : "bg-ink-100 dark:bg-ink-800"}`} />
+                  ))}
+                </div>
+                <div className="text-[9px] uppercase tracking-wide text-ink-400">Odontograma</div>
+              </div>
+              <div className="rounded-xl border border-ink-100 p-2.5 dark:border-ink-800">
+                <div className="mb-1 flex items-center justify-between">
+                  <span className="text-[10.5px] font-semibold text-ink-700 dark:text-ink-200">{t(L.exams, locale)}</span>
+                  <span className="text-[9.5px] font-medium text-sky-600 dark:text-sky-400">{t(L.seeAll, locale)}</span>
+                </div>
+                <div className="flex gap-1.5">
+                  <span className="h-9 w-9 rounded-lg bg-slate-800" />
+                  <span className="grid h-9 flex-1 place-items-center rounded-lg bg-ink-100 text-[9px] text-ink-400 dark:bg-ink-800">3 radiografías · 2 fotos</span>
+                </div>
+              </div>
+            </div>
+            <p className="mt-2 text-[10.5px] leading-relaxed text-ink-500 dark:text-ink-400">{t(L.hint, locale)}</p>
+          </div>
+        </div>
+      </div>
+    </MockupFrame>
+  );
+}
+
+/* ───────────────── FICHA — Datos del paciente (pestaña dados) ───────────── */
+
+function FichaDatosMock({ locale }: { locale: Locale }) {
+  const L = {
+    heading: { es: "Datos del Paciente", pt: "Dados do Paciente", en: "Patient Data" },
+    sub: { es: "Información personal y de contacto", pt: "Informação pessoal e de contato", en: "Personal and contact information" },
+    save: { es: "Guardar cambios", pt: "Salvar alterações", en: "Save changes" },
+    ident: { es: "Identificación", pt: "Identificação", en: "Identification" },
+    fullName: { es: "Nombre completo", pt: "Nome completo", en: "Full name" },
+    docType: { es: "Tipo de documento", pt: "Tipo de documento", en: "Document type" },
+    docNum: { es: "RUT", pt: "RUT", en: "RUT" },
+    valid: { es: "✓ válido", pt: "✓ válido", en: "✓ valid" },
+    gender: { es: "Género", pt: "Gênero", en: "Gender" },
+    female: { es: "Femenino", pt: "Feminino", en: "Female" },
+    birth: { es: "Fecha de nacimiento", pt: "Data de nascimento", en: "Date of birth" },
+    contact: { es: "Contacto", pt: "Contato", en: "Contact" },
+    phone: { es: "Teléfono / WhatsApp", pt: "Telefone / WhatsApp", en: "Phone / WhatsApp" },
+    email: { es: "E-mail", pt: "E-mail", en: "Email" },
+    prev: { es: "Previsión de salud", pt: "Previdência de saúde", en: "Health insurance" },
+    country: { es: "Se adapta a tu país (Chile)", pt: "Adapta-se ao seu país (Chile)", en: "Adapts to your country (Chile)" },
+  };
+  const previsiones = ["Fonasa", "Isapre", "Particular"];
+
+  return (
+    <MockupFrame title="SuperClini · Ficha · Datos">
+      <div className="min-w-[320px] p-3">
+        <div className="mb-2.5 flex items-center gap-2">
+          <div className="mr-auto">
+            <div className="text-[13px] font-bold text-ink-900 dark:text-white">{t(L.heading, locale)}</div>
+            <div className="text-[10px] text-ink-400">{t(L.sub, locale)}</div>
+          </div>
+          <span className="rounded-lg bg-sky-600 px-2.5 py-1 text-[11px] font-semibold text-white">{t(L.save, locale)}</span>
+        </div>
+
+        {/* Identificación */}
+        <div className="mb-2 rounded-xl border border-ink-100 p-2.5 dark:border-ink-800">
+          <div className="mb-1.5 text-[9px] font-bold uppercase tracking-wide text-ink-400">{t(L.ident, locale)}</div>
+          <div className="grid gap-2 sm:grid-cols-2">
+            <Field label={t(L.fullName, locale)} value="María González" />
+            <div>
+              <div className="mb-0.5 text-[9.5px] text-ink-400">{t(L.docNum, locale)}</div>
+              <div className="flex items-center justify-between rounded-lg border border-ink-200 px-2 py-1.5 dark:border-ink-700">
+                <span className="text-[11px] text-ink-700 dark:text-ink-200">12.345.678-9</span>
+                <span className="text-[9px] font-semibold text-emerald-600 dark:text-emerald-400">{t(L.valid, locale)}</span>
+              </div>
+            </div>
+            <Field label={t(L.gender, locale)} value={t(L.female, locale)} />
+            <Field label={t(L.birth, locale)} value="12/03/1992 · 34" />
+          </div>
+        </div>
+
+        {/* Contacto */}
+        <div className="mb-2 rounded-xl border border-ink-100 p-2.5 dark:border-ink-800">
+          <div className="mb-1.5 text-[9px] font-bold uppercase tracking-wide text-ink-400">{t(L.contact, locale)}</div>
+          <div className="grid gap-2 sm:grid-cols-2">
+            <Field label={t(L.phone, locale)} value="+56 9 8765 4321" />
+            <Field label={t(L.email, locale)} value="maria.g@correo.cl" />
+          </div>
+        </div>
+
+        {/* Previsión */}
+        <div className="rounded-xl border border-ink-100 p-2.5 dark:border-ink-800">
+          <div className="mb-1.5 flex items-center justify-between">
+            <span className="text-[9px] font-bold uppercase tracking-wide text-ink-400">{t(L.prev, locale)}</span>
+            <span className="text-[9px] text-ink-400">{t(L.country, locale)}</span>
+          </div>
+          <div className="flex flex-wrap gap-1.5">
+            {previsiones.map((p, i) => (
+              <span
+                key={p}
+                className={`rounded-lg px-2.5 py-1 text-[10.5px] font-semibold ${
+                  i === 1
+                    ? "bg-sky-600 text-white"
+                    : "border border-ink-200 text-ink-500 dark:border-ink-700 dark:text-ink-300"
+                }`}
+              >
+                {p}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </MockupFrame>
+  );
+}
+
+/** Campo de formulario de solo lectura (label + valor en caja). */
+function Field({ label, value }: { label: string; value: string }) {
+  return (
+    <div>
+      <div className="mb-0.5 text-[9.5px] text-ink-400">{label}</div>
+      <div className="rounded-lg border border-ink-200 px-2 py-1.5 text-[11px] text-ink-700 dark:border-ink-700 dark:text-ink-200">{value}</div>
+    </div>
+  );
+}
+
+/* ─────────────────────────── FICHA — Anamnesis ─────────────────────────── */
+
+function AnamnesisMock({ locale }: { locale: Locale }) {
+  const L = {
+    heading: { es: "Anamnesis Médica", pt: "Anamnese Médica", en: "Medical Anamnesis" },
+    save: { es: "Guardar", pt: "Salvar", en: "Save" },
+    hist: { es: "Historial médico", pt: "Histórico médico", en: "Medical history" },
+    histV: {
+      es: "Hipertensión controlada con losartán. Sin cirugías recientes.",
+      pt: "Hipertensão controlada com losartana. Sem cirurgias recentes.",
+      en: "Hypertension controlled with losartan. No recent surgeries.",
+    },
+    allerg: { es: "Alergias", pt: "Alergias", en: "Allergies" },
+    allergV: { es: "Penicilina. Sin alergia a anestésicos.", pt: "Penicilina. Sem alergia a anestésicos.", en: "Penicillin. No anesthetic allergy." },
+    meds: { es: "Medicamentos en uso", pt: "Medicamentos em uso", en: "Medications in use" },
+    medsV: { es: "Losartán 50mg. Anticonceptivo oral.", pt: "Losartana 50mg. Anticoncepcional oral.", en: "Losartan 50mg. Oral contraceptive." },
+    notes: { es: "Observaciones clínicas", pt: "Observações clínicas", en: "Clinical notes" },
+    notesV: { es: "Paciente ansiosa ante procedimientos largos.", pt: "Paciente ansiosa em procedimentos longos.", en: "Patient anxious during long procedures." },
+  };
+  const areas = [
+    { l: t(L.hist, locale), v: t(L.histV, locale) },
+    { l: t(L.allerg, locale), v: t(L.allergV, locale) },
+    { l: t(L.meds, locale), v: t(L.medsV, locale) },
+    { l: t(L.notes, locale), v: t(L.notesV, locale) },
+  ];
+
+  return (
+    <MockupFrame title="SuperClini · Ficha · Anamnesis">
+      <div className="min-w-[300px] p-3">
+        <div className="mb-2.5 flex items-center gap-2">
+          <span className="mr-auto text-[13px] font-bold text-ink-900 dark:text-white">{t(L.heading, locale)}</span>
+          <span className="rounded-lg bg-sky-600 px-2.5 py-1 text-[11px] font-semibold text-white">{t(L.save, locale)}</span>
+        </div>
+        <div className="grid gap-2 sm:grid-cols-2">
+          {areas.map((a) => (
+            <div key={a.l}>
+              <div className="mb-0.5 text-[10px] font-semibold text-ink-600 dark:text-ink-300">{a.l}</div>
+              <div className="rounded-lg border border-ink-200 px-2.5 py-2 text-[11px] leading-relaxed text-ink-600 dark:border-ink-700 dark:text-ink-300">{a.v}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </MockupFrame>
+  );
+}
+
+/* ───────────────────────── FICHA — Resumen con IA ──────────────────────── */
+
+function ResumenIaMock({ locale }: { locale: Locale }) {
+  const L = {
+    title: { es: "Resumen con IA", pt: "Resumo com IA", en: "AI summary" },
+    quota: { es: "1 de 3 este mes", pt: "1 de 3 este mês", en: "1 of 3 this month" },
+    exec: { es: "Resumen ejecutivo", pt: "Resumo executivo", en: "Executive summary" },
+    execV: {
+      es: "Paciente activa con plan de ortodoncia en curso y buena adherencia. Al día en pagos.",
+      pt: "Paciente ativa com plano de ortodontia em curso e boa adesão. Em dia nos pagamentos.",
+      en: "Active patient with an ongoing ortho plan and good adherence. Up to date on payments.",
+    },
+    clin: { es: "Estado clínico", pt: "Estado clínico", en: "Clinical status" },
+    alert: { es: "Alerta: control de higiene pendiente", pt: "Alerta: controle de higiene pendente", en: "Alert: hygiene check pending" },
+    comm: { es: "Estado comercial", pt: "Estado comercial", en: "Commercial status" },
+    ltv: { es: "LTV estimado", pt: "LTV estimado", en: "Estimated LTV" },
+    fin: { es: "Al día", pt: "Em dia", en: "Up to date" },
+    finL: { es: "Estado financiero", pt: "Estado financeiro", en: "Financial status" },
+    tags: { es: "Interés estético", pt: "Interesse estético", en: "Aesthetic interest" },
+    tags2: { es: "Paciente VIP", pt: "Paciente VIP", en: "VIP patient" },
+    disc: {
+      es: "Generado por IA. No sustituye el criterio profesional del odontólogo.",
+      pt: "Gerado por IA. Não substitui o critério profissional do dentista.",
+      en: "AI-generated. Does not replace the dentist's professional judgment.",
+    },
+  };
+
+  return (
+    <MockupFrame title="SuperClini · Resumen con IA">
+      <div className="min-w-[300px] p-3">
+        <div className="mb-2.5 flex items-center gap-1.5">
+          <span className="rounded bg-violet-100 px-1.5 py-0.5 text-[9px] font-bold uppercase text-violet-700 dark:bg-violet-900/50 dark:text-violet-300">✦ IA</span>
+          <span className="mr-auto text-[13px] font-bold text-ink-900 dark:text-white">{t(L.title, locale)}</span>
+          <span className="rounded-full border border-ink-200 px-2 py-0.5 text-[9px] font-medium text-ink-500 dark:border-ink-700 dark:text-ink-300">{t(L.quota, locale)}</span>
+        </div>
+
+        <div className="mb-2 rounded-xl border border-ink-100 p-2.5 dark:border-ink-800">
+          <div className="mb-1 text-[9px] font-bold uppercase tracking-wide text-ink-400">{t(L.exec, locale)}</div>
+          <p className="text-[11px] leading-relaxed text-ink-600 dark:text-ink-300">{t(L.execV, locale)}</p>
+        </div>
+
+        <div className="mb-2 grid gap-2 sm:grid-cols-2">
+          <div className="rounded-xl border border-ink-100 p-2.5 dark:border-ink-800">
+            <div className="mb-1 text-[9px] font-bold uppercase tracking-wide text-ink-400">{t(L.clin, locale)}</div>
+            <div className="rounded-lg bg-amber-50 px-2 py-1 text-[10px] font-medium text-amber-700 dark:bg-amber-900/40 dark:text-amber-300">{t(L.alert, locale)}</div>
+          </div>
+          <div className="rounded-xl border border-ink-100 p-2.5 dark:border-ink-800">
+            <div className="mb-1 text-[9px] font-bold uppercase tracking-wide text-ink-400">{t(L.comm, locale)}</div>
+            <div className="flex items-center justify-between text-[10px]">
+              <span className="text-ink-500 dark:text-ink-400">{t(L.finL, locale)}</span>
+              <span className="rounded-full bg-emerald-100 px-1.5 py-px font-semibold text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">{t(L.fin, locale)}</span>
+            </div>
+            <div className="mt-1 flex items-center justify-between text-[10px]">
+              <span className="text-ink-500 dark:text-ink-400">{t(L.ltv, locale)}</span>
+              <span className="font-bold text-ink-700 dark:text-ink-200">$ 1.8M</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="mb-2 flex flex-wrap gap-1.5">
+          <span className="rounded-full bg-sky-100 px-2 py-0.5 text-[9.5px] font-semibold text-sky-700 dark:bg-sky-900/40 dark:text-sky-300">{t(L.tags, locale)}</span>
+          <span className="rounded-full bg-violet-100 px-2 py-0.5 text-[9.5px] font-semibold text-violet-700 dark:bg-violet-900/40 dark:text-violet-300">{t(L.tags2, locale)}</span>
+        </div>
+
+        <p className="text-[9.5px] italic leading-relaxed text-ink-400">{t(L.disc, locale)}</p>
+      </div>
+    </MockupFrame>
+  );
+}
+
+/* ─────────────────── FICHA — Exámenes y citas vinculados ───────────────── */
+
+function ExamenesCitasMock({ locale }: { locale: Locale }) {
+  const L = {
+    exams: { es: "Exámenes", pt: "Exames", en: "Exams" },
+    seeAll: { es: "Ver todos", pt: "Ver todos", en: "See all" },
+    radio: { es: "radiografías", pt: "radiografias", en: "radiographs" },
+    fotos: { es: "fotos", pt: "fotos", en: "photos" },
+    modelos: { es: "modelos 3D", pt: "modelos 3D", en: "3D models" },
+    dicom: { es: "estudios DICOM", pt: "estudos DICOM", en: "DICOM studies" },
+    appts: { es: "Historial de citas", pt: "Histórico de consultas", en: "Appointment history" },
+    total: { es: "Total", pt: "Total", en: "Total" },
+    done: { es: "Realizadas", pt: "Realizadas", en: "Completed" },
+    canc: { es: "Canceladas", pt: "Canceladas", en: "Cancelled" },
+    noShow: { es: "No asistió", pt: "Faltou", en: "No-show" },
+    r1: { es: "Limpieza dental · realizada", pt: "Limpeza dental · realizada", en: "Dental cleaning · done" },
+    r2: { es: "Control ortodoncia · agendada", pt: "Controle ortodontia · agendada", en: "Ortho check-up · booked" },
+  };
+  const exams = [
+    { n: 3, l: t(L.radio, locale) },
+    { n: 2, l: t(L.fotos, locale) },
+    { n: 1, l: t(L.modelos, locale) },
+    { n: 1, l: t(L.dicom, locale) },
+  ];
+  const stats = [
+    { n: 14, l: t(L.total, locale), c: "text-ink-700 dark:text-ink-200" },
+    { n: 11, l: t(L.done, locale), c: "text-emerald-600 dark:text-emerald-400" },
+    { n: 2, l: t(L.canc, locale), c: "text-rose-600 dark:text-rose-400" },
+    { n: 1, l: t(L.noShow, locale), c: "text-amber-600 dark:text-amber-400" },
+  ];
+
+  return (
+    <MockupFrame title="SuperClini · Exámenes y citas">
+      <div className="grid min-w-[320px] gap-2 p-3 sm:grid-cols-2">
+        {/* Exámenes widget */}
+        <div className="rounded-xl border border-ink-100 p-2.5 dark:border-ink-800">
+          <div className="mb-1.5 flex items-center justify-between">
+            <span className="text-[10.5px] font-semibold text-ink-700 dark:text-ink-200">{t(L.exams, locale)}</span>
+            <span className="text-[9.5px] font-medium text-sky-600 dark:text-sky-400">{t(L.seeAll, locale)}</span>
+          </div>
+          <div className="mb-2 flex gap-1.5">
+            <span className="h-10 w-10 rounded-lg bg-slate-800" />
+            <span className="h-10 w-10 rounded-lg bg-gradient-to-br from-slate-700 to-slate-900" />
+            <span className="grid h-10 flex-1 place-items-center rounded-lg border border-dashed border-ink-200 text-[9px] text-ink-400 dark:border-ink-700">DICOM</span>
+          </div>
+          <div className="grid grid-cols-2 gap-1.5">
+            {exams.map((e) => (
+              <div key={e.l} className="flex items-baseline gap-1 rounded-lg bg-ink-50 px-2 py-1 dark:bg-ink-800/50">
+                <span className="text-[12px] font-bold text-ink-700 dark:text-ink-200">{e.n}</span>
+                <span className="text-[9px] text-ink-400">{e.l}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* Citas */}
+        <div className="rounded-xl border border-ink-100 p-2.5 dark:border-ink-800">
+          <div className="mb-1.5 text-[10.5px] font-semibold text-ink-700 dark:text-ink-200">{t(L.appts, locale)}</div>
+          <div className="mb-2 grid grid-cols-4 gap-1">
+            {stats.map((s) => (
+              <div key={s.l} className="rounded-lg bg-ink-50 px-1 py-1 text-center dark:bg-ink-800/50">
+                <div className={`text-[13px] font-bold ${s.c}`}>{s.n}</div>
+                <div className="text-[7.5px] uppercase leading-tight text-ink-400">{s.l}</div>
+              </div>
+            ))}
+          </div>
+          <div className="flex flex-col gap-1.5">
+            <div className="flex items-center gap-1.5">
+              <span className="h-1.5 w-1.5 rounded-full bg-slate-400" />
+              <span className="text-[10px] text-ink-600 dark:text-ink-300">{t(L.r1, locale)}</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="h-1.5 w-1.5 rounded-full bg-sky-500" />
+              <span className="text-[10px] text-ink-600 dark:text-ink-300">{t(L.r2, locale)}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </MockupFrame>
+  );
+}
+
 /* ─────────────────────────────── registry ──────────────────────────────── */
 
 const MOCKUPS: Record<MockupKey, React.FC<{ locale: Locale }>> = {
@@ -2890,6 +3294,11 @@ const MOCKUPS: Record<MockupKey, React.FC<{ locale: Locale }>> = {
   "convenio-b2b": ConvenioB2bMock,
   "crm-reportes": CrmReportesMock,
   "cadastro-labs": CadastroLabsMock,
+  "ficha-overview": FichaOverviewMock,
+  "ficha-datos": FichaDatosMock,
+  anamnesis: AnamnesisMock,
+  "resumen-ia": ResumenIaMock,
+  "examenes-citas": ExamenesCitasMock,
 };
 
 export function Mockup({ screen, locale }: { screen: MockupKey; locale: Locale }) {
