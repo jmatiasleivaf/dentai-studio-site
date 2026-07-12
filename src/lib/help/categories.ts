@@ -81,9 +81,9 @@ export const HELP_CATEGORIES: readonly Category[] = [
     accent: "brand",
     illustration: "pacientes",
     name: {
-      es: "La ficha del paciente",
-      pt: "A ficha do paciente",
-      en: "The patient chart",
+      es: "Gestión del paciente",
+      pt: "Gestão do paciente",
+      en: "Patient management",
     },
     description: {
       es: "El recorrido por la ficha, los datos del paciente, la anamnesis, el resumen con IA y los exámenes y citas vinculados.",
