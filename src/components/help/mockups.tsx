@@ -3173,76 +3173,56 @@ function ResumenIaMock({ locale }: { locale: Locale }) {
 
 function ExamenesCitasMock({ locale }: { locale: Locale }) {
   const L = {
-    exams: { es: "Exámenes", pt: "Exames", en: "Exams" },
+    exams: { es: "Exámenes Clínicos", pt: "Exames Clínicos", en: "Clinical Exams" },
+    oneRad: { es: "1 rad.", pt: "1 rad.", en: "1 x-ray" },
     seeAll: { es: "Ver todos", pt: "Ver todos", en: "See all" },
-    radio: { es: "radiografías", pt: "radiografias", en: "radiographs" },
-    fotos: { es: "fotos", pt: "fotos", en: "photos" },
-    modelos: { es: "modelos 3D", pt: "modelos 3D", en: "3D models" },
-    dicom: { es: "estudios DICOM", pt: "estudos DICOM", en: "DICOM studies" },
-    appts: { es: "Historial de citas", pt: "Histórico de consultas", en: "Appointment history" },
-    total: { es: "Total", pt: "Total", en: "Total" },
-    done: { es: "Realizadas", pt: "Realizadas", en: "Completed" },
-    canc: { es: "Canceladas", pt: "Canceladas", en: "Cancelled" },
-    noShow: { es: "No asistió", pt: "Faltou", en: "No-show" },
-    r1: { es: "Limpieza dental · realizada", pt: "Limpeza dental · realizada", en: "Dental cleaning · done" },
-    r2: { es: "Control ortodoncia · agendada", pt: "Controle ortodontia · agendada", en: "Ortho check-up · booked" },
+    viewPano: { es: "Ver panorámica", pt: "Ver panorâmica", en: "View panoramic" },
+    pano: { es: "Panorámica", pt: "Panorâmica", en: "Panoramic" },
   };
-  const exams = [
-    { n: 3, l: t(L.radio, locale) },
-    { n: 2, l: t(L.fotos, locale) },
-    { n: 1, l: t(L.modelos, locale) },
-    { n: 1, l: t(L.dicom, locale) },
+  const types = [
+    { es: "Fotografías", pt: "Fotografias", en: "Photos" },
+    { es: "Radiografías", pt: "Radiografias", en: "Radiographs" },
+    { es: "Modelos 3D", pt: "Modelos 3D", en: "3D models" },
+    { es: "Exocad", pt: "Exocad", en: "Exocad" },
+    { es: "Documentos", pt: "Documentos", en: "Documents" },
+    { es: "CBCT/DICOM", pt: "CBCT/DICOM", en: "CBCT/DICOM" },
   ];
-  const stats = [
-    { n: 14, l: t(L.total, locale), c: "text-ink-700 dark:text-ink-200" },
-    { n: 11, l: t(L.done, locale), c: "text-emerald-600 dark:text-emerald-400" },
-    { n: 2, l: t(L.canc, locale), c: "text-rose-600 dark:text-rose-400" },
-    { n: 1, l: t(L.noShow, locale), c: "text-amber-600 dark:text-amber-400" },
-  ];
+  // radiografía panorámica reconocible: arco dental de dientes sobre fondo de rayos X
+  const teeth: React.ReactNode[] = [];
+  for (let i = 0; i < 14; i++) {
+    const f = i / 13;
+    const x = 20 + f * 200;
+    const yTop = 34 + Math.pow((x - 120) / 92, 2) * 16;
+    const yBot = 70 - Math.pow((x - 120) / 92, 2) * 14;
+    const op = (0.5 + 0.35 * (1 - Math.abs(f - 0.5) * 2)).toFixed(2);
+    teeth.push(<rect key={`t${i}`} x={x - 3.5} y={yTop - 7} width={7} height={10} rx={2.5} fill="#cbd5e1" opacity={op} />);
+    teeth.push(<rect key={`b${i}`} x={x - 3.5} y={yBot - 3} width={7} height={10} rx={2.5} fill="#e2e8f0" opacity={op} />);
+  }
 
   return (
-    <MockupFrame title="SuperClini · Exámenes y citas">
-      <div className="grid min-w-[320px] gap-2 p-3 sm:grid-cols-2">
-        {/* Exámenes widget */}
+    <MockupFrame title="SuperClini · Exámenes">
+      <div className="min-w-[320px] p-3">
         <div className="rounded-xl border border-ink-100 p-2.5 dark:border-ink-800">
-          <div className="mb-1.5 flex items-center justify-between">
+          <div className="mb-1.5 flex items-center gap-1.5">
             <span className="text-[10.5px] font-semibold text-ink-700 dark:text-ink-200">{t(L.exams, locale)}</span>
-            <span className="text-[9.5px] font-medium text-sky-600 dark:text-sky-400">{t(L.seeAll, locale)}</span>
+            <span className="text-[9px] text-ink-400">{t(L.oneRad, locale)}</span>
+            <span className="ml-auto text-[9.5px] font-medium text-sky-600 dark:text-sky-400">{t(L.seeAll, locale)} ›</span>
           </div>
-          <div className="mb-2 flex gap-1.5">
-            <span className="h-10 w-10 rounded-lg bg-slate-800" />
-            <span className="h-10 w-10 rounded-lg bg-gradient-to-br from-slate-700 to-slate-900" />
-            <span className="grid h-10 flex-1 place-items-center rounded-lg border border-dashed border-ink-200 text-[9px] text-ink-400 dark:border-ink-700">DICOM</span>
+          {/* radiografía panorámica */}
+          <div className="relative mb-2 overflow-hidden rounded-lg" style={{ background: "radial-gradient(120% 120% at 50% 35%, #26374d 0%, #0e1626 70%)" }}>
+            <svg viewBox="0 0 240 104" className="block h-[92px] w-full">
+              <path d="M18 36 Q120 6 222 36" fill="none" stroke="#7e93ac" strokeWidth={1.2} opacity={0.5} />
+              <path d="M22 66 Q120 92 218 66" fill="none" stroke="#7e93ac" strokeWidth={1.4} opacity={0.55} />
+              {teeth}
+            </svg>
+            <span className="absolute left-1.5 bottom-1.5 rounded bg-emerald-600 px-1.5 py-0.5 text-[8px] font-bold text-white">{t(L.pano, locale)}</span>
+            <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-md bg-slate-900/70 px-2 py-1 text-[9px] font-semibold text-white">{t(L.viewPano, locale)}</span>
           </div>
-          <div className="grid grid-cols-2 gap-1.5">
-            {exams.map((e) => (
-              <div key={e.l} className="flex items-baseline gap-1 rounded-lg bg-ink-50 px-2 py-1 dark:bg-ink-800/50">
-                <span className="text-[12px] font-bold text-ink-700 dark:text-ink-200">{e.n}</span>
-                <span className="text-[9px] text-ink-400">{e.l}</span>
-              </div>
+          {/* tipos del módulo */}
+          <div className="flex flex-wrap gap-1">
+            {types.map((ty, i) => (
+              <span key={i} className={`rounded-full px-2 py-0.5 text-[8.5px] font-medium ${i === 1 ? "bg-sky-100 text-sky-700 dark:bg-sky-900/40 dark:text-sky-300" : "bg-ink-100 text-ink-500 dark:bg-ink-800 dark:text-ink-400"}`}>{t(ty, locale)}</span>
             ))}
-          </div>
-        </div>
-        {/* Citas */}
-        <div className="rounded-xl border border-ink-100 p-2.5 dark:border-ink-800">
-          <div className="mb-1.5 text-[10.5px] font-semibold text-ink-700 dark:text-ink-200">{t(L.appts, locale)}</div>
-          <div className="mb-2 grid grid-cols-4 gap-1">
-            {stats.map((s) => (
-              <div key={s.l} className="rounded-lg bg-ink-50 px-1 py-1 text-center dark:bg-ink-800/50">
-                <div className={`text-[13px] font-bold ${s.c}`}>{s.n}</div>
-                <div className="text-[7.5px] uppercase leading-tight text-ink-400">{s.l}</div>
-              </div>
-            ))}
-          </div>
-          <div className="flex flex-col gap-1.5">
-            <div className="flex items-center gap-1.5">
-              <span className="h-1.5 w-1.5 rounded-full bg-slate-400" />
-              <span className="text-[10px] text-ink-600 dark:text-ink-300">{t(L.r1, locale)}</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <span className="h-1.5 w-1.5 rounded-full bg-sky-500" />
-              <span className="text-[10px] text-ink-600 dark:text-ink-300">{t(L.r2, locale)}</span>
-            </div>
           </div>
         </div>
       </div>
