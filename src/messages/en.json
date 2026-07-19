@@ -1623,5 +1623,50 @@
       "save": "Save preferences",
       "close": "Close"
     }
+  },
+  "signup": {
+    "metaTitle": "Create your SuperClini account — 14 days free, no card",
+    "metaDescription": "Open your clinic on SuperClini in under a minute. 14-day trial with full access, no credit card.",
+    "eyebrow": "Start today",
+    "title": "Your clinic running in under a minute",
+    "subtitle": "Create the account, set your password by email and sign in. No sales calls, no card, no commitment.",
+    "consent": "I agree to be contacted by SuperClini and accept the privacy policy and the processing of my data.",
+    "noCard": "No credit card. The trial ends on its own.",
+    "countriesNote": "Available in {count} countries, with local currency and tax documents.",
+    "successTitle": "Check your email",
+    "successBody": "We sent you a link to set your password and activate the account. That is when your 14 days begin.",
+    "successHint": "Not there? Check spam or promotions. The link is valid for 48 hours.",
+    "benefits": {
+      "trial": "14 days with full access, no crippled features",
+      "noCard": "No credit card or payment details",
+      "fullAccess": "Scheduling, clinical records, odontogram and AI assistant included",
+      "support": "Support from day one"
+    },
+    "form": {
+      "clinicName": "Clinic name",
+      "clinicNamePlaceholder": "Bright Smile Clinic",
+      "yourName": "Your name",
+      "country": "Country",
+      "email": "Email",
+      "emailHint": "This is where the activation link goes",
+      "phone": "Phone",
+      "optional": "optional",
+      "submit": "Create my account",
+      "submitting": "Creating…"
+    },
+    "errors": {
+      "required": "Required field",
+      "tooShort": "Too short",
+      "tooLong": "Too long",
+      "invalidEmail": "Invalid email",
+      "consentRequired": "We need your consent to create the account",
+      "emailTaken": "An account with this email already exists. Sign in instead.",
+      "disposableEmail": "Please use a permanent email, not a temporary one.",
+      "rateLimit": "Too many attempts. Please wait a few minutes.",
+      "unavailable": "Sign-up is temporarily unavailable. Contact us and we will open your account.",
+      "invalid": "Please review the details and try again.",
+      "network": "We could not connect. Check your connection and try again.",
+      "generic": "Something went wrong. Please try again in a few minutes."
+    }
   }
 }

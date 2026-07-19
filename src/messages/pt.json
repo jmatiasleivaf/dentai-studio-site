@@ -1623,5 +1623,50 @@
       "save": "Salvar preferências",
       "close": "Fechar"
     }
+  },
+  "signup": {
+    "metaTitle": "Crie sua conta SuperClini — 14 dias grátis, sem cartão",
+    "metaDescription": "Abra sua clínica no SuperClini em menos de um minuto. 14 dias de teste com acesso completo, sem cartão de crédito.",
+    "eyebrow": "Comece hoje",
+    "title": "Sua clínica funcionando em menos de um minuto",
+    "subtitle": "Crie a conta, defina sua senha por email e entre. Sem ligação de vendas, sem cartão, sem compromisso.",
+    "consent": "Aceito que a SuperClini entre em contato e concordo com a política de privacidade e o tratamento dos meus dados.",
+    "noCard": "Sem cartão de crédito. O teste termina sozinho.",
+    "countriesNote": "Disponível em {count} países, com moeda e documentos fiscais locais.",
+    "successTitle": "Confira seu email",
+    "successBody": "Enviamos um link para você definir a senha e ativar a conta. É com ele que começam seus 14 dias.",
+    "successHint": "Não chegou? Veja spam ou promoções. O link vale 48 horas.",
+    "benefits": {
+      "trial": "14 dias com acesso completo, sem funções cortadas",
+      "noCard": "Sem cartão de crédito nem dados de pagamento",
+      "fullAccess": "Agenda, prontuário, odontograma e assistente de IA inclusos",
+      "support": "Suporte em português desde o primeiro dia"
+    },
+    "form": {
+      "clinicName": "Nome da clínica",
+      "clinicNamePlaceholder": "Clínica Sorriso",
+      "yourName": "Seu nome",
+      "country": "País",
+      "email": "Email",
+      "emailHint": "É para cá que vai o link de ativação",
+      "phone": "Telefone",
+      "optional": "opcional",
+      "submit": "Criar minha conta",
+      "submitting": "Criando…"
+    },
+    "errors": {
+      "required": "Campo obrigatório",
+      "tooShort": "Muito curto",
+      "tooLong": "Longo demais",
+      "invalidEmail": "Email inválido",
+      "consentRequired": "Precisamos do seu consentimento para criar a conta",
+      "emailTaken": "Já existe uma conta com este email. Faça login.",
+      "disposableEmail": "Use um email permanente, não um temporário.",
+      "rateLimit": "Muitas tentativas. Aguarde alguns minutos.",
+      "unavailable": "O cadastro está temporariamente indisponível. Fale conosco e abrimos sua conta.",
+      "invalid": "Revise os dados e tente de novo.",
+      "network": "Não conseguimos conectar. Verifique sua conexão e tente de novo.",
+      "generic": "Algo deu errado. Tente de novo em alguns minutos."
+    }
   }
 }

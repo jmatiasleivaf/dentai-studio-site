@@ -20,6 +20,8 @@ const ROUTES: Array<{ path: string; priority: number; changeFrequency: "weekly" 
   { path: "/totem", priority: 0.9, changeFrequency: "weekly" },
   { path: "/automatizacoes", priority: 0.9, changeFrequency: "weekly" },
   { path: "/contato", priority: 0.7, changeFrequency: "monthly" },
+  // Prioridade alta: é a página de conversão do funil self-service.
+  { path: "/registro", priority: 0.9, changeFrequency: "monthly" },
   { path: "/privacidade", priority: 0.4, changeFrequency: "monthly" },
   // Centro de Ayuda
   { path: "/ayuda", priority: 0.8, changeFrequency: "weekly" },
