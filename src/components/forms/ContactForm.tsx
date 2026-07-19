@@ -94,7 +94,31 @@ export function ContactForm({ defaultInteresse, onSuccess, hideHeader }: Contact
     // explícita de marketing.
     const envelope = forTransmission(attribution, consent);
 
+    // Destino primário: rota do PRÓPRIO site, que repassa ao CRM pelo servidor
+    // (o token de ingestão não pode ir para o browser). Se o CRM estiver
+    // desligado ou fora do ar, cai no app, que é o destino histórico e segue
+    // funcionando. Nenhum lead se perde na transição.
+    const payload = {
+      ...data,
+      atribuicao: envelope,
+      consentPolicyVersion: CONSENT_POLICY_VERSION,
+      consentMarketing: consent?.marketing ?? false,
+    };
+
     try {
+      const viaCrm = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      }).catch(() => null);
+
+      if (viaCrm?.ok) {
+        setStatus("success");
+        reset();
+        onSuccess?.();
+        return;
+      }
+
       const response = await fetch(`${API_URL}/api/leads`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
