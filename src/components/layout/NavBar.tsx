@@ -276,18 +276,33 @@ export function NavBar() {
           >
             <a href="https://app.superclini.com">{t("login")}</a>
           </Button>
+          {/* "Agendar demo" desce para secundário: quem quer falar com vendas
+              continua tendo o caminho, mas o CTA primário passa a ser o
+              self-service, que converte sem esperar por um humano. */}
           <ContactDialog
             trigger={({ onClick }) => (
               <Button
                 size="sm"
-                variant={overlay ? "secondary" : "primary"}
-                className="hidden md:inline-flex"
+                variant={overlay ? "outline" : "ghost"}
+                className={cn(
+                  "hidden lg:inline-flex",
+                  overlay &&
+                    "!border-white/40 !text-white hover:!border-white hover:!bg-white/10"
+                )}
                 onClick={onClick}
               >
                 {t("demo")}
               </Button>
             )}
           />
+          <Button
+            asChild
+            size="sm"
+            variant={overlay ? "secondary" : "primary"}
+            className="hidden md:inline-flex"
+          >
+            <Link href="/registro">{t("signup")}</Link>
+          </Button>
           {/* Hambúrguer mobile (≥44px) */}
           <button
             type="button"
@@ -404,6 +419,7 @@ export function NavBar() {
                     trigger={({ onClick }) => (
                       <Button
                         size="lg"
+                        variant="outline"
                         className="w-full"
                         onClick={() => {
                           onClick();
@@ -411,10 +427,17 @@ export function NavBar() {
                         }}
                       >
                         {t("demo")}
-                        <ArrowRight className="h-4 w-4" aria-hidden />
                       </Button>
                     )}
                   />
+                  {/* CTA primário no mobile fica por ÚLTIMO: é o mais perto do
+                      polegar em tela alta, e é o que queremos que seja tocado. */}
+                  <Button asChild size="lg" className="w-full">
+                    <Link href="/registro" onClick={() => setOpen(false)}>
+                      {t("signup")}
+                      <ArrowRight className="h-4 w-4" aria-hidden />
+                    </Link>
+                  </Button>
                 </div>
               </nav>
             </motion.div>
