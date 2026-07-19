@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
+import { CONSENT_POLICY_VERSION } from "@/lib/consent";
 import type { Metadata } from "next";
 
 export async function generateMetadata({
@@ -18,7 +19,10 @@ export async function generateMetadata({
 
 export default async function PrivacyPage() {
   const t = await getTranslations("privacy");
-  const lastUpdated = "2026-04-22";
+  // Amarrado à versão de consentimento: se as finalidades mudam, o banner
+  // volta a perguntar E a data publicada acompanha. Antes eram dois valores
+  // independentes, e a política podia ficar desatualizada em silêncio.
+  const lastUpdated = CONSENT_POLICY_VERSION;
 
   return (
     <Section tone="default" className="py-20 sm:py-24">
@@ -45,6 +49,7 @@ export default async function PrivacyPage() {
           <Section2 title={t("sections.security.title")} body={t("sections.security.body")} />
           <Section2 title={t("sections.cookies.title")} body={t("sections.cookies.body")} />
           <Section2 title={t("sections.transfer.title")} body={t("sections.transfer.body")} />
+          <Section2 title={t("sections.sharing.title")} body={t("sections.sharing.body")} />
           <Section2 title={t("sections.contact.title")} body={t("sections.contact.body")} />
 
           <div className="mt-12 rounded-2xl border-l-4 border-brand-400 bg-brand-50 p-6 dark:border-brand-600 dark:bg-brand-950/30">

@@ -8,6 +8,8 @@ import { NavBar } from "@/components/layout/NavBar";
 import { Footer } from "@/components/layout/Footer";
 import { CountryProvider } from "@/contexts/CountryContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
+import { ConsentProvider } from "@/contexts/ConsentContext";
+import { CookieBanner } from "@/components/consent/CookieBanner";
 import { routing, type Locale } from "@/i18n/routing";
 import { COUNTRIES, COUNTRY_LIST, type CountryCode } from "@/lib/countries";
 import { SUPERCLINI_FACTS } from "@/lib/superclini.facts";
@@ -150,11 +152,14 @@ export default async function LocaleLayout({
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ThemeProvider>
             <CountryProvider defaultCountry={defaultCountry}>
-              <div className="flex min-h-screen flex-col bg-white text-ink-900 transition-colors dark:bg-ink-950 dark:text-ink-50">
-                <NavBar />
-                <main className="flex-1">{children}</main>
-                <Footer />
-              </div>
+              <ConsentProvider>
+                <div className="flex min-h-screen flex-col bg-white text-ink-900 transition-colors dark:bg-ink-950 dark:text-ink-50">
+                  <NavBar />
+                  <main className="flex-1">{children}</main>
+                  <Footer />
+                </div>
+                <CookieBanner />
+              </ConsentProvider>
               {jsonLd.map((schema, idx) => (
                 <script
                   key={idx}

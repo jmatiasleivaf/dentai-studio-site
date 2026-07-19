@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations, useLocale } from "next-intl";
-import { useSearchParams } from "next/navigation";
 import { Check, Loader2, AlertCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -16,6 +15,9 @@ import {
 } from "@/lib/lead-schema";
 import { useCountry } from "@/contexts/CountryContext";
 import { COUNTRIES, type CountryCode } from "@/lib/countries";
+import { useConsent } from "@/contexts/ConsentContext";
+import { forTransmission } from "@/lib/attribution";
+import { CONSENT_POLICY_VERSION } from "@/lib/consent";
 
 // Placeholder de telefone por país — formato local familiar reduz fricção.
 const PHONE_PLACEHOLDER: Record<CountryCode, string> = {
@@ -49,8 +51,8 @@ export function ContactForm({ defaultInteresse, onSuccess, hideHeader }: Contact
   const tForm = useTranslations("contact.form");
   const tErr = useTranslations("contact.errors");
   const locale = useLocale();
-  const searchParams = useSearchParams();
   const { country } = useCountry();
+  const { attribution, consent } = useConsent();
 
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState<string>("");
@@ -80,14 +82,17 @@ export function ContactForm({ defaultInteresse, onSuccess, hideHeader }: Contact
     setStatus("submitting");
     setErrorMsg("");
 
-    // Captura de atribuição — não vem do form
-    const origemUrl = typeof document !== "undefined" ? document.referrer || undefined : undefined;
-    const landingPath = typeof window !== "undefined" ? window.location.pathname : undefined;
-    const utmSource = searchParams?.get("utm_source") ?? undefined;
-    const utmMedium = searchParams?.get("utm_medium") ?? undefined;
-    const utmCampaign = searchParams?.get("utm_campaign") ?? undefined;
-    const utmContent = searchParams?.get("utm_content") ?? undefined;
-    const utmTerm = searchParams?.get("utm_term") ?? undefined;
+    // Atribuição vem do envelope de PRIMEIRO TOQUE mantido em memória pelo
+    // ConsentProvider — não da URL atual. Ler a URL aqui perdia a origem
+    // assim que a pessoa navegasse de /pt/sofia para /pt/contato, que é
+    // exatamente o percurso normal de quem chega por anúncio.
+    //
+    // `forTransmission` remove gclid/fbclid quando não há consentimento de
+    // marketing: os UTMs são metadados de campanha próprios e seguem sob o
+    // consentimento do próprio formulário, mas os click ids servem para
+    // re-vincular a pessoa ao perfil publicitário dela e exigem a opção
+    // explícita de marketing.
+    const envelope = forTransmission(attribution, consent);
 
     try {
       const response = await fetch(`${API_URL}/api/leads`, {
@@ -95,13 +100,22 @@ export function ContactForm({ defaultInteresse, onSuccess, hideHeader }: Contact
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...data,
-          origemUrl,
-          landingPath,
-          utmSource,
-          utmMedium,
-          utmCampaign,
-          utmContent,
-          utmTerm,
+          origemUrl: envelope.referrer,
+          landingPath: envelope.landingPath,
+          utmSource: envelope.utmSource,
+          utmMedium: envelope.utmMedium,
+          utmCampaign: envelope.utmCampaign,
+          utmContent: envelope.utmContent,
+          utmTerm: envelope.utmTerm,
+          gclid: envelope.gclid,
+          fbclid: envelope.fbclid,
+          canalRef: envelope.canalRef,
+          firstSeenAt: envelope.firstSeenAt,
+          // Prova de consentimento: sem versão da política e finalidades
+          // aceitas não há como demonstrar que o consentimento foi válido
+          // (RGPD art. 7(1) e LGPD art. 8º §2 — o ônus é do controlador).
+          consentPolicyVersion: CONSENT_POLICY_VERSION,
+          consentMarketing: consent?.marketing ?? false,
         }),
       });
 

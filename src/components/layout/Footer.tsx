@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/container";
 import { Logo } from "@/components/ui/logo";
 import { COUNTRY_LIST } from "@/lib/countries";
 import { NAV_RESOURCES } from "@/lib/site-nav";
+import { CookiePreferencesButton } from "@/components/consent/CookiePreferencesButton";
 
 /**
  * Footer com cross-linking SEO para todas as landings de feature. Renderiza
@@ -57,6 +58,10 @@ export function Footer() {
             <FooterLink href={`/${locale}/privacidade`}>{t("legal.privacy")}</FooterLink>
             <FooterLink href="#">{t("legal.terms")}</FooterLink>
             <FooterLink href="#">{t("legal.security")}</FooterLink>
+            {/* Revogar tem que ser tao facil quanto consentir (RGPD art. 7(3)). */}
+            <li>
+              <CookiePreferencesButton className="min-h-touch text-left text-sm text-ink-400 transition-colors hover:text-brand-400" />
+            </li>
           </FooterCol>
         </div>
 

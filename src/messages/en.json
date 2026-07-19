@@ -46,7 +46,13 @@
       "searchAria": "Search the help center",
       "searchButton": "Search",
       "noResults": "No results found. Try another word or talk to support.",
-      "popular": ["Connect WhatsApp", "Public agenda", "Odontogram", "Open and close cash", "Payouts"]
+      "popular": [
+        "Connect WhatsApp",
+        "Public agenda",
+        "Odontogram",
+        "Open and close cash",
+        "Payouts"
+      ]
     },
     "collections": {
       "eyebrow": "Browse by topic",
@@ -311,17 +317,29 @@
       "solo": {
         "pain": "You're your own receptionist, assistant and bookkeeper.",
         "benefit": "Sofía answers on WhatsApp while you work. Books on her own. Remembers on her own.",
-        "highlights": ["Auto scheduling 24/7", "One panel: clinical + finance", "PWA: installs on phone without App Store"]
+        "highlights": [
+          "Auto scheduling 24/7",
+          "One panel: clinical + finance",
+          "PWA: installs on phone without App Store"
+        ]
       },
       "clinic": {
         "pain": "Multiple providers, multiple ops, one cashier to reconcile.",
         "benefit": "Automatic commissions on progress. Multi-op scheduling. Unified reports.",
-        "highlights": ["Automatic payroll per provider", "Auditable clinical protocols", "Average ticket by specialty"]
+        "highlights": [
+          "Automatic payroll per provider",
+          "Auditable clinical protocols",
+          "Average ticket by specialty"
+        ]
       },
       "network": {
         "pain": "Every location with its own chaos. Zero consolidation.",
         "benefit": "Real multi-tenant platform. Super-admin consolidates sites, cost centers and permissions.",
-        "highlights": ["Multi-site with impersonation", "Accounting consolidation", "24/7 priority support"]
+        "highlights": [
+          "Multi-site with impersonation",
+          "Accounting consolidation",
+          "24/7 priority support"
+        ]
       }
     },
     "cta": "See recommended plan"
@@ -339,14 +357,38 @@
       "linkText": "See everything Sofía does"
     },
     "items": {
-      "agenda": { "title": "Multi-op scheduling", "desc": "Real-time availability by provider and op. Auto conflict detection." },
-      "prontuario": { "title": "Digital EHR", "desc": "FDI tooth chart, periodontal chart, immutable progress notes (HIPAA-ready / LGPD / Ley 20.584)." },
-      "dicom": { "title": "DICOM 3D viewer", "desc": "Built-in CBCT with Cornerstone3D. Dental presets, W/L, ROI, measurements." },
-      "planos": { "title": "Treatment plans", "desc": "Phases, sessions, digital acceptance and automatic settlement per service." },
-      "financeiro": { "title": "Full financial module", "desc": "Receivables, installments, daily cashier, payroll settlements and reports." },
-      "memberships": { "title": "Memberships", "desc": "Patient subscription plans with MRR, ARR and retention metrics." },
-      "laboratory": { "title": "Lab portal", "desc": "Two-way orders with external labs. No financial data for technicians." },
-      "totem": { "title": "Self-service kiosk", "desc": "Reception check-in + operatory panel. Digital consent signing." }
+      "agenda": {
+        "title": "Multi-op scheduling",
+        "desc": "Real-time availability by provider and op. Auto conflict detection."
+      },
+      "prontuario": {
+        "title": "Digital EHR",
+        "desc": "FDI tooth chart, periodontal chart, immutable progress notes (HIPAA-ready / LGPD / Ley 20.584)."
+      },
+      "dicom": {
+        "title": "DICOM 3D viewer",
+        "desc": "Built-in CBCT with Cornerstone3D. Dental presets, W/L, ROI, measurements."
+      },
+      "planos": {
+        "title": "Treatment plans",
+        "desc": "Phases, sessions, digital acceptance and automatic settlement per service."
+      },
+      "financeiro": {
+        "title": "Full financial module",
+        "desc": "Receivables, installments, daily cashier, payroll settlements and reports."
+      },
+      "memberships": {
+        "title": "Memberships",
+        "desc": "Patient subscription plans with MRR, ARR and retention metrics."
+      },
+      "laboratory": {
+        "title": "Lab portal",
+        "desc": "Two-way orders with external labs. No financial data for technicians."
+      },
+      "totem": {
+        "title": "Self-service kiosk",
+        "desc": "Reception check-in + operatory panel. Digital consent signing."
+      }
     },
     "ctaAll": "See all features"
   },
@@ -386,14 +428,38 @@
     "eyebrow": "FAQ",
     "title": "Questions we hear all the time.",
     "items": [
-      { "q": "How does the free trial work?", "a": "14 days with full access to all features. No credit card. If you don't want to continue, simply don't enter payment details." },
-      { "q": "Can I migrate from another system?", "a": "Yes. We import patients, history and schedule from Excel, Dentrix, Dentalink, Clinicorp and others. Onboarding team assists you." },
-      { "q": "Does Sofía really book in my calendar?", "a": "Yes. Uses function calling against your real database. Checks availability, creates the appointment, respects conflicts, can reschedule or cancel." },
-      { "q": "Does AI replace the dentist for diagnosis?", "a": "No. AI assists diagnosis by pointing out visible findings. Clinical decision is always yours. Full legal audit trail is kept." },
-      { "q": "Is my data safe?", "a": "True multi-tenant with org isolation. Encryption in transit and at rest. We comply with HIPAA-ready practices, LGPD (Brazil) and GDPR (Europe)." },
-      { "q": "What if I need support?", "a": "Direct WhatsApp chat with the team. Professional plan includes business-hours support. Corporate is 24/7 with SLA." },
-      { "q": "Does it work in my country?", "a": "SuperClini runs in 9 countries: US, Chile, Brazil, Colombia, Argentina, Mexico, Peru, Spain and Portugal. Each with local currency, compliance and language." },
-      { "q": "Can I cancel anytime?", "a": "Yes. No contracts, no penalties, no fine print. Cancel from the panel and keep access until the end of the paid period." }
+      {
+        "q": "How does the free trial work?",
+        "a": "14 days with full access to all features. No credit card. If you don't want to continue, simply don't enter payment details."
+      },
+      {
+        "q": "Can I migrate from another system?",
+        "a": "Yes. We import patients, history and schedule from Excel, Dentrix, Dentalink, Clinicorp and others. Onboarding team assists you."
+      },
+      {
+        "q": "Does Sofía really book in my calendar?",
+        "a": "Yes. Uses function calling against your real database. Checks availability, creates the appointment, respects conflicts, can reschedule or cancel."
+      },
+      {
+        "q": "Does AI replace the dentist for diagnosis?",
+        "a": "No. AI assists diagnosis by pointing out visible findings. Clinical decision is always yours. Full legal audit trail is kept."
+      },
+      {
+        "q": "Is my data safe?",
+        "a": "True multi-tenant with org isolation. Encryption in transit and at rest. We comply with HIPAA-ready practices, LGPD (Brazil) and GDPR (Europe)."
+      },
+      {
+        "q": "What if I need support?",
+        "a": "Direct WhatsApp chat with the team. Professional plan includes business-hours support. Corporate is 24/7 with SLA."
+      },
+      {
+        "q": "Does it work in my country?",
+        "a": "SuperClini runs in 9 countries: US, Chile, Brazil, Colombia, Argentina, Mexico, Peru, Spain and Portugal. Each with local currency, compliance and language."
+      },
+      {
+        "q": "Can I cancel anytime?",
+        "a": "Yes. No contracts, no penalties, no fine print. Cancel from the panel and keep access until the end of the paid period."
+      }
     ]
   },
   "ctaFinal": {
@@ -406,11 +472,26 @@
     "tagline": "The dental platform with native AI — built for practices that want to grow without chaos.",
     "resourcesTitle": "Resources",
     "productTitle": "Product",
-    "product": { "features": "Features", "ai": "AI", "whatsapp": "WhatsApp AI", "pricing": "Pricing", "clients": "Customers" },
+    "product": {
+      "features": "Features",
+      "ai": "AI",
+      "whatsapp": "WhatsApp AI",
+      "pricing": "Pricing",
+      "clients": "Customers"
+    },
     "companyTitle": "Company",
-    "company": { "about": "About us", "blog": "Blog", "contact": "Contact", "help": "Help center" },
+    "company": {
+      "about": "About us",
+      "blog": "Blog",
+      "contact": "Contact",
+      "help": "Help center"
+    },
     "legalTitle": "Legal",
-    "legal": { "privacy": "Privacy policy", "terms": "Terms of use", "security": "Security" },
+    "legal": {
+      "privacy": "Privacy policy",
+      "terms": "Terms of use",
+      "security": "Security"
+    },
     "countriesTitle": "Countries",
     "rights": "All rights reserved."
   },
@@ -537,7 +618,7 @@
       },
       "what": {
         "title": "2. What we collect",
-        "body": "Through the contact form: name, email, phone, clinic name (optional), country, team size (optional), interest type, and free-text message. Automatically: IP address, browser user-agent, origin URL, and UTM parameters when applicable. We do not collect clinical data via the public site — that is handled exclusively inside the product under a separate agreement."
+        "body": "Through the contact form: name, email, phone, clinic name (optional), country, team size (optional), type of interest and free-text message. Automatically: IP address, browser user-agent and entry page. With your marketing consent, also: campaign parameters (utm_source, utm_medium, utm_campaign, utm_content, utm_term), Google (gclid) and Meta (fbclid) click identifiers, referring partner code (canal_ref), landing page, traffic source and first-contact date. We do not collect clinical data through the public site — that is handled exclusively inside the product under a separate agreement."
       },
       "why": {
         "title": "3. Why we use the data",
@@ -545,11 +626,10 @@
       },
       "legal": {
         "title": "4. Legal basis",
-        "body": "Explicit consent of the data subject (form checkbox) — Ley 19.628 (Chile), LGPD art. 7, I (Brazil), GDPR art. 6(1)(a) (EU).\nLegitimate interest for fraud prevention and site security — GDPR art. 6(1)(f), LGPD art. 7, IX.\nCompliance with legal obligations when applicable — GDPR art. 6(1)(c), LGPD art. 7, II."
+        "body": "Explicit consent of the data subject (form checkbox) — LGPD art. 7º, I (Brazil), Ley 19.628 and Ley 21.719 (Chile), GDPR art. 6(1)(a) (EU).\nSpecific consent to store non-essential information on your device (attribution cookie) — ePrivacy Directive art. 5(3) and GDPR art. 6(1)(a). Declining does not limit any site functionality.\nLegitimate interest for fraud prevention and site security — LGPD art. 7º, IX, GDPR art. 6(1)(f).\nCompliance with legal obligations where applicable — LGPD art. 7º, II, GDPR art. 6(1)(c)."
       },
       "rights": {
-        "title": "5. Your rights",
-        "body": "You may at any time request: access to your data, correction, deletion, portability, withdrawal of consent, and objection to processing. Just email us at privacy@superclini.com from your registered address. We respond within 15 business days (Chile), 15 days (Brazil, LGPD), or 1 month (GDPR)."
+        "title": "5. Your rights"
       },
       "retention": {
         "title": "6. Retention",
@@ -561,15 +641,19 @@
       },
       "cookies": {
         "title": "8. Cookies and similar technologies",
-        "body": "We use essential cookies to run the site (language preference, detected country). We don't use third-party advertising tracking cookies without your consent. Analytics runs with anonymized IP and no personal identifiers."
+        "body": "Essential cookies, always stored because the site does not work without them: NEXT_LOCALE (chosen language, 365 days), NEXT_COUNTRY (detected country, drives currency and pricing, 30 days) and superclini-theme (light or dark theme, browser local storage). None of them identifies you.\nConsent cookie: _sc_consent (6 months) stores your own choice about cookies. It is the proof that we honoured your decision.\nMarketing and attribution cookie, stored ONLY if you accept it: _sc_attr (90 days) records which campaign or ad brought you here, including Google (gclid) and Meta (fbclid) click identifiers. It tells us which campaigns actually help clinics find us.\nWe load no third-party scripts, no Meta pixel and no Google Analytics. You can change or withdraw your choice at any time via the Cookie preferences link in the footer; withdrawing deletes the attribution cookie immediately."
       },
       "transfer": {
         "title": "9. International transfers",
         "body": "Some of our infrastructure providers (hosting, transactional email) are located outside Chile and Brazil. When international transfer happens, we ensure equivalent protection via standard contractual clauses (GDPR SCC) or adequacy decisions."
       },
       "contact": {
-        "title": "10. Contact",
+        "title": "11. Contact",
         "body": "To exercise your rights or ask questions about this policy: privacy@superclini.com.\nController: SuperClini SpA, Chile."
+      },
+      "sharing": {
+        "title": "10. Third-party sharing",
+        "body": "Today we do not share your data with advertising platforms. If you accept the Marketing and attribution category, we may in the future tell Google LLC and Meta Platforms that a contact originating from a campaign became a customer, in order to measure advertising return. That would involve the click identifier and hashed contact data, and always happens server to server, never through scripts loaded in your browser. Before any such transmission begins, this policy will be updated with the details of what is sent and we will ask for your choice again. You can decline now or withdraw later via the Cookie preferences link in the footer."
       }
     },
     "dpo": {
@@ -604,10 +688,22 @@
       "eyebrow": "How it works",
       "title": "Zero to 24/7 in 4 steps",
       "steps": {
-        "1": { "title": "Connect your WhatsApp Business", "desc": "Scan the QR once. No new number. No extra app." },
-        "2": { "title": "Sofía learns your schedule", "desc": "Imports providers, hours, specialties, plans. In seconds." },
-        "3": { "title": "Answers day, night and weekends", "desc": "Books, confirms, reschedules, answers. You just see the outcome." },
-        "4": { "title": "Hands off what needs you", "desc": "Clinical question, urgency, complaint — Sofía hands over with full context." }
+        "1": {
+          "title": "Connect your WhatsApp Business",
+          "desc": "Scan the QR once. No new number. No extra app."
+        },
+        "2": {
+          "title": "Sofía learns your schedule",
+          "desc": "Imports providers, hours, specialties, plans. In seconds."
+        },
+        "3": {
+          "title": "Answers day, night and weekends",
+          "desc": "Books, confirms, reschedules, answers. You just see the outcome."
+        },
+        "4": {
+          "title": "Hands off what needs you",
+          "desc": "Clinical question, urgency, complaint — Sofía hands over with full context."
+        }
       }
     },
     "feature1": {
@@ -756,10 +852,22 @@
       "eyebrow": "How it works",
       "title": "From photo to plan in 4 clicks",
       "steps": {
-        "1": { "title": "Upload the image", "desc": "Front photo of the patient for smile, or radiograph (PNG/JPEG/WEBP) for analysis." },
-        "2": { "title": "AI processes", "desc": "Gemini reads the image in seconds. Multi-treatment (veneers + whitening + orthodontics) in a single request." },
-        "3": { "title": "You review", "desc": "Result inside the chart, with AI confidence score and automatic medical-legal disclaimer." },
-        "4": { "title": "Show the patient", "desc": "Side-by-side display, saved in the case and auditable. Optional digital acceptance on the spot." }
+        "1": {
+          "title": "Upload the image",
+          "desc": "Front photo of the patient for smile, or radiograph (PNG/JPEG/WEBP) for analysis."
+        },
+        "2": {
+          "title": "AI processes",
+          "desc": "Gemini reads the image in seconds. Multi-treatment (veneers + whitening + orthodontics) in a single request."
+        },
+        "3": {
+          "title": "You review",
+          "desc": "Result inside the chart, with AI confidence score and automatic medical-legal disclaimer."
+        },
+        "4": {
+          "title": "Show the patient",
+          "desc": "Side-by-side display, saved in the case and auditable. Optional digital acceptance on the spot."
+        }
       }
     },
     "smile": {
@@ -912,10 +1020,22 @@
       "eyebrow": "How it works",
       "title": "From registration to billing in 4 steps",
       "steps": {
-        "1": { "title": "Register the patient", "desc": "Demographics + structured anamnesis (allergies, meds, conditions). Supports SSN/CPF/RUT per country." },
-        "2": { "title": "Treat with tooth chart + EHR", "desc": "32 teeth in FDI standard. Status per surface. Immutable clinical notes (HIPAA-ready/LGPD)." },
-        "3": { "title": "Attach exams", "desc": "Intraoral photos (9 standard slots), 2D radiographs, CBCT 3D via DICOM, aligner series." },
-        "4": { "title": "Bill with legal audit", "desc": "Prescription template with 11 variables. Audit trail of who saw/edited what, when." }
+        "1": {
+          "title": "Register the patient",
+          "desc": "Demographics + structured anamnesis (allergies, meds, conditions). Supports SSN/CPF/RUT per country."
+        },
+        "2": {
+          "title": "Treat with tooth chart + EHR",
+          "desc": "32 teeth in FDI standard. Status per surface. Immutable clinical notes (HIPAA-ready/LGPD)."
+        },
+        "3": {
+          "title": "Attach exams",
+          "desc": "Intraoral photos (9 standard slots), 2D radiographs, CBCT 3D via DICOM, aligner series."
+        },
+        "4": {
+          "title": "Bill with legal audit",
+          "desc": "Prescription template with 11 variables. Audit trail of who saw/edited what, when."
+        }
       }
     },
     "odonto": {
@@ -952,12 +1072,30 @@
         "Works on desktop, touch tablets"
       ],
       "presets": [
-        { "name": "Hueso", "values": "500/2500" },
-        { "name": "Implante", "values": "800/3500" },
-        { "name": "Tejido", "values": "50/400" },
-        { "name": "Endo", "values": "300/1500" },
-        { "name": "Estándar", "values": "400/2000" },
-        { "name": "Custom", "values": "W/L manual" }
+        {
+          "name": "Hueso",
+          "values": "500/2500"
+        },
+        {
+          "name": "Implante",
+          "values": "800/3500"
+        },
+        {
+          "name": "Tejido",
+          "values": "50/400"
+        },
+        {
+          "name": "Endo",
+          "values": "300/1500"
+        },
+        {
+          "name": "Estándar",
+          "values": "400/2000"
+        },
+        {
+          "name": "Custom",
+          "values": "W/L manual"
+        }
       ]
     },
     "exame": {
@@ -1096,10 +1234,22 @@
       "eyebrow": "How it works",
       "title": "From arrival to chair in 4 steps",
       "steps": {
-        "1": { "title": "Patient arrives", "desc": "Friendly home screen on the tablet, in English/Spanish/Portuguese based on country." },
-        "2": { "title": "Identifies", "desc": "Types SSN/RUT/CPF on the touch numpad. System finds the patient in seconds." },
-        "3": { "title": "Checks in or books", "desc": "Sees confirmed next appointment or picks a new available slot with the right provider." },
-        "4": { "title": "Signs consent", "desc": "HIPAA-ready/LGPD compliant. Digital signature saved as base64 in the case, with legal audit trail." }
+        "1": {
+          "title": "Patient arrives",
+          "desc": "Friendly home screen on the tablet, in English/Spanish/Portuguese based on country."
+        },
+        "2": {
+          "title": "Identifies",
+          "desc": "Types SSN/RUT/CPF on the touch numpad. System finds the patient in seconds."
+        },
+        "3": {
+          "title": "Checks in or books",
+          "desc": "Sees confirmed next appointment or picks a new available slot with the right provider."
+        },
+        "4": {
+          "title": "Signs consent",
+          "desc": "HIPAA-ready/LGPD compliant. Digital signature saved as base64 in the case, with legal audit trail."
+        }
       }
     },
     "checkin": {
@@ -1266,10 +1416,22 @@
       "eyebrow": "How it works",
       "title": "Configure once. Runs every night.",
       "steps": {
-        "1": { "title": "Set rates", "desc": "Provider commission %, membership plans, payment gateway (MercadoPago)." },
-        "2": { "title": "Treat and close cases", "desc": "Each progressed service updates cash, commission and receivables in real time." },
-        "3": { "title": "Cron runs overnight", "desc": "Cash closes at 11pm. Recurring billing at 3am. Reminders at 10am. All in UTC." },
-        "4": { "title": "You see the summary", "desc": "Morning: dashboard with closed cash, updated MRR, processed charges, failures with scheduled retry." }
+        "1": {
+          "title": "Set rates",
+          "desc": "Provider commission %, membership plans, payment gateway (MercadoPago)."
+        },
+        "2": {
+          "title": "Treat and close cases",
+          "desc": "Each progressed service updates cash, commission and receivables in real time."
+        },
+        "3": {
+          "title": "Cron runs overnight",
+          "desc": "Cash closes at 11pm. Recurring billing at 3am. Reminders at 10am. All in UTC."
+        },
+        "4": {
+          "title": "You see the summary",
+          "desc": "Morning: dashboard with closed cash, updated MRR, processed charges, failures with scheduled retry."
+        }
       }
     },
     "caixa": {
@@ -1436,6 +1598,30 @@
       "sub": "14-day trial with full finance active in staging. Sales-led setup in 1 business day.",
       "ctaPrimary": "Request finance demo",
       "ctaSecondary": "Talk to sales"
+    }
+  },
+  "consent": {
+    "title": "Your privacy, your choice",
+    "body": "We use essential cookies to make the site work. With your permission, we also record which campaign brought you here, so we know which ads actually help clinics find us. You can decline without losing any functionality.",
+    "policyLink": "Read the privacy policy",
+    "preferences": "Cookie preferences",
+    "categories": {
+      "essential": {
+        "name": "Essential",
+        "desc": "Language, country and visual theme. The site does not work properly without them.",
+        "always": "Always on"
+      },
+      "marketing": {
+        "name": "Marketing and attribution",
+        "desc": "Records which ad or campaign brought you here (including Google and Meta click identifiers) for 90 days. Lets us measure which campaigns work and, in the future, report the conversion back to Google and Meta."
+      }
+    },
+    "actions": {
+      "accept": "Accept all",
+      "reject": "Decline all",
+      "customize": "Customize",
+      "save": "Save preferences",
+      "close": "Close"
     }
   }
 }

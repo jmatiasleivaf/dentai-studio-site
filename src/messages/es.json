@@ -46,7 +46,13 @@
       "searchAria": "Buscar en el centro de ayuda",
       "searchButton": "Buscar",
       "noResults": "No encontramos resultados. Prueba otra palabra o habla con soporte.",
-      "popular": ["Conectar WhatsApp", "Agenda pública", "Odontograma", "Abrir y cerrar caja", "Liquidaciones"]
+      "popular": [
+        "Conectar WhatsApp",
+        "Agenda pública",
+        "Odontograma",
+        "Abrir y cerrar caja",
+        "Liquidaciones"
+      ]
     },
     "collections": {
       "eyebrow": "Explora por tema",
@@ -311,17 +317,29 @@
       "solo": {
         "pain": "Tú eres tu propia recepcionista, asistente y tesorero.",
         "benefit": "Sofía responde por WhatsApp mientras atiendes. Agenda sola. Recuerda solos.",
-        "highlights": ["Agenda automática 24/7", "Un solo panel: clínico + financiero", "PWA: instala en el celular sin App Store"]
+        "highlights": [
+          "Agenda automática 24/7",
+          "Un solo panel: clínico + financiero",
+          "PWA: instala en el celular sin App Store"
+        ]
       },
       "clinic": {
         "pain": "Varios dentistas, varios silones, una sola caja para cuadrar al día.",
         "benefit": "Comisiones automáticas al evolucionar. Agenda multi-box. Reportes unificados.",
-        "highlights": ["Liquidaciones automáticas por dentista", "Protocolos clínicos auditables", "Ticket medio por especialidad"]
+        "highlights": [
+          "Liquidaciones automáticas por dentista",
+          "Protocolos clínicos auditables",
+          "Ticket medio por especialidad"
+        ]
       },
       "network": {
         "pain": "Cada sede con su propio caos. Cero consolidación.",
         "benefit": "Plataforma multi-tenant real. Superadmin consolida sedes, centro de costo y permisos.",
-        "highlights": ["Multi-sede con impersonación", "Consolidación contable", "Soporte prioritario 24/7"]
+        "highlights": [
+          "Multi-sede con impersonación",
+          "Consolidación contable",
+          "Soporte prioritario 24/7"
+        ]
       }
     },
     "cta": "Ver plan recomendado"
@@ -339,14 +357,38 @@
       "linkText": "Ver todo de Sofía"
     },
     "items": {
-      "agenda": { "title": "Agenda multi-box", "desc": "Disponibilidad en tiempo real por profesional y box. Detecta conflictos automáticamente." },
-      "prontuario": { "title": "Ficha clínica digital", "desc": "Odontograma FDI, periodontograma, evolución inmutable (Ley 20.584 / CFO / LGPD)." },
-      "dicom": { "title": "Visor DICOM 3D", "desc": "CBCT integrado con Cornerstone3D. Presets dentales, W/L, ROI, mediciones." },
-      "planos": { "title": "Planes de tratamiento", "desc": "Con fases, sesiones, aceptación digital y liquidación automática por prestación." },
-      "financeiro": { "title": "Financiero completo", "desc": "Cuentas por cobrar, parcelas, caja diaria, liquidaciones y reportes." },
-      "memberships": { "title": "Membresías", "desc": "Planes de suscripción para pacientes con MRR, ARR y métricas de retención." },
-      "laboratory": { "title": "Portal del laboratorio", "desc": "Órdenes bidireccionales con el lab externo. Sin datos financieros para el técnico." },
-      "totem": { "title": "Tótem autoatendimiento", "desc": "Check-in en recepción + panel para box. Firma digital de consentimientos." }
+      "agenda": {
+        "title": "Agenda multi-box",
+        "desc": "Disponibilidad en tiempo real por profesional y box. Detecta conflictos automáticamente."
+      },
+      "prontuario": {
+        "title": "Ficha clínica digital",
+        "desc": "Odontograma FDI, periodontograma, evolución inmutable (Ley 20.584 / CFO / LGPD)."
+      },
+      "dicom": {
+        "title": "Visor DICOM 3D",
+        "desc": "CBCT integrado con Cornerstone3D. Presets dentales, W/L, ROI, mediciones."
+      },
+      "planos": {
+        "title": "Planes de tratamiento",
+        "desc": "Con fases, sesiones, aceptación digital y liquidación automática por prestación."
+      },
+      "financeiro": {
+        "title": "Financiero completo",
+        "desc": "Cuentas por cobrar, parcelas, caja diaria, liquidaciones y reportes."
+      },
+      "memberships": {
+        "title": "Membresías",
+        "desc": "Planes de suscripción para pacientes con MRR, ARR y métricas de retención."
+      },
+      "laboratory": {
+        "title": "Portal del laboratorio",
+        "desc": "Órdenes bidireccionales con el lab externo. Sin datos financieros para el técnico."
+      },
+      "totem": {
+        "title": "Tótem autoatendimiento",
+        "desc": "Check-in en recepción + panel para box. Firma digital de consentimientos."
+      }
     },
     "ctaAll": "Ver todas las funcionalidades"
   },
@@ -576,7 +618,7 @@
       },
       "what": {
         "title": "2. Qué datos recopilamos",
-        "body": "A través del formulario de contacto: nombre, email, teléfono, nombre de la clínica (opcional), país, tamaño del equipo (opcional), tipo de interés y mensaje libre. Automáticamente: dirección IP, user-agent del navegador, URL de origen y parámetros UTM cuando aplique. No recopilamos datos clínicos a través del sitio público — esos son tratados exclusivamente dentro del producto bajo contrato separado."
+        "body": "Por el formulario de contacto: nombre, email, teléfono, nombre de la clínica (opcional), país, tamaño del equipo (opcional), tipo de interés y mensaje libre. Automáticamente: dirección IP, user-agent del navegador y página de entrada. Con tu consentimiento de marketing, también: parámetros de campaña (utm_source, utm_medium, utm_campaign, utm_content, utm_term), identificadores de clic de Google (gclid) y de Meta (fbclid), código del socio que te refirió (canal_ref), página de llegada, origen del acceso y fecha del primer contacto. No recolectamos datos clínicos por el sitio público — esos se tratan exclusivamente dentro del producto bajo contrato separado."
       },
       "why": {
         "title": "3. Para qué usamos los datos",
@@ -584,11 +626,10 @@
       },
       "legal": {
         "title": "4. Base legal del tratamiento",
-        "body": "Consentimiento explícito del titular (checkbox en el formulario) — Ley 19.628 (Chile), LGPD art. 7º, I (Brasil), GDPR art. 6(1)(a) (UE).\nInterés legítimo para prevención de fraude y seguridad del sitio — GDPR art. 6(1)(f), LGPD art. 7º, IX.\nCumplimiento de obligación legal cuando aplicable — GDPR art. 6(1)(c), LGPD art. 7º, II."
+        "body": "Consentimiento explícito del titular (checkbox en el formulario) — LGPD art. 7º, I (Brasil), Ley 19.628 y Ley 21.719 (Chile), GDPR art. 6(1)(a) (UE).\nConsentimiento específico para almacenar información no esencial en tu dispositivo (cookie de atribución) — Directiva ePrivacy art. 5(3) y GDPR art. 6(1)(a). Rechazar no limita ninguna función del sitio.\nInterés legítimo para prevención de fraude y seguridad del sitio — LGPD art. 7º, IX, GDPR art. 6(1)(f).\nCumplimiento de obligación legal cuando corresponda — LGPD art. 7º, II, GDPR art. 6(1)(c)."
       },
       "rights": {
-        "title": "5. Tus derechos",
-        "body": "Puedes en cualquier momento solicitar: acceso a tus datos, corrección, eliminación, portabilidad, revocación del consentimiento y oposición al tratamiento. Basta escribirnos a privacidad@superclini.com con tu email registrado. Responderemos en hasta 15 días hábiles (Chile) / 15 días (Brasil, LGPD) / 1 mes (GDPR)."
+        "title": "5. Tus derechos"
       },
       "retention": {
         "title": "6. Retención",
@@ -600,15 +641,19 @@
       },
       "cookies": {
         "title": "8. Cookies y tecnologías similares",
-        "body": "Usamos cookies esenciales para funcionamiento del sitio (preferencia de idioma, país detectado). No usamos cookies de rastreo publicitario de terceros sin tu consentimiento. Analytics se ejecuta con IP anonimizada y sin identificadores personales."
+        "body": "Cookies esenciales, siempre guardadas porque el sitio no funciona sin ellas: NEXT_LOCALE (idioma elegido, 365 días), NEXT_COUNTRY (país detectado, define moneda y precios, 30 días) y superclini-theme (tema claro u oscuro, almacenamiento local del navegador). Ninguna de ellas te identifica.\nCookie de consentimiento: _sc_consent (6 meses) guarda tu propia elección sobre las cookies. Es la prueba de que respetamos tu decisión.\nCookie de marketing y atribución, guardada SOLO si la aceptas: _sc_attr (90 días) guarda de qué campaña o anuncio llegaste, incluidos los identificadores de clic de Google (gclid) y de Meta (fbclid). Sirve para saber qué campañas realmente ayudan a las clínicas a encontrarnos.\nNo cargamos ningún script de terceros, ningún píxel de Meta y ningún Google Analytics. Puedes cambiar o revocar tu elección cuando quieras desde el enlace Preferencias de cookies en el pie de página; la revocación borra la cookie de atribución de inmediato."
       },
       "transfer": {
         "title": "9. Transferencias internacionales",
         "body": "Algunos de nuestros proveedores de infraestructura (hosting, email transaccional) están ubicados fuera de Chile. Cuando hay transferencia internacional, garantizamos protección equivalente vía cláusulas contractuales estándar (GDPR SCC) o decisiones de adecuación."
       },
       "contact": {
-        "title": "10. Contacto",
+        "title": "11. Contacto",
         "body": "Para ejercer tus derechos o aclarar dudas sobre esta política: privacidad@superclini.com.\nResponsable: SuperClini SpA, Chile."
+      },
+      "sharing": {
+        "title": "10. Compartición con terceros",
+        "body": "Hoy no compartimos tus datos con plataformas de publicidad. Si aceptas la categoría Marketing y atribución, en el futuro podríamos informar a Google LLC y a Meta Platforms que un contacto originado en una campaña se convirtió en cliente, para medir el retorno de la inversión publicitaria. Eso involucraría el identificador de clic y datos de contacto protegidos con hash, y ocurre siempre servidor a servidor, nunca mediante scripts cargados en tu navegador. Antes de que cualquier envío de ese tipo comience, esta política se actualizará con el detalle de lo que se envía y te pediremos tu elección nuevamente. Puedes rechazar ahora o revocar después desde el enlace Preferencias de cookies en el pie de página."
       }
     },
     "dpo": {
@@ -643,10 +688,22 @@
       "eyebrow": "Cómo funciona",
       "title": "De cero a 24/7 en 4 pasos",
       "steps": {
-        "1": { "title": "Conecta tu WhatsApp Business", "desc": "Escaneas el QR una vez. Sin cambiar de número. Sin app extra." },
-        "2": { "title": "Sofía aprende tu agenda", "desc": "Importa horarios, dentistas, especialidades y planes. En segundos." },
-        "3": { "title": "Atiende día, noche y fin de semana", "desc": "Agenda, confirma, reagenda, responde dudas. Tú solo ves el resultado." },
-        "4": { "title": "Te pasa lo que requiere humano", "desc": "Pregunta clínica, urgencia, reclamo — Sofía te transfiere con contexto completo." }
+        "1": {
+          "title": "Conecta tu WhatsApp Business",
+          "desc": "Escaneas el QR una vez. Sin cambiar de número. Sin app extra."
+        },
+        "2": {
+          "title": "Sofía aprende tu agenda",
+          "desc": "Importa horarios, dentistas, especialidades y planes. En segundos."
+        },
+        "3": {
+          "title": "Atiende día, noche y fin de semana",
+          "desc": "Agenda, confirma, reagenda, responde dudas. Tú solo ves el resultado."
+        },
+        "4": {
+          "title": "Te pasa lo que requiere humano",
+          "desc": "Pregunta clínica, urgencia, reclamo — Sofía te transfiere con contexto completo."
+        }
       }
     },
     "feature1": {
@@ -795,10 +852,22 @@
       "eyebrow": "Cómo funciona",
       "title": "De la foto al plan en 4 clics",
       "steps": {
-        "1": { "title": "Sube la imagen", "desc": "Foto frontal del paciente para sonrisa, o radiografía (PNG/JPEG/WEBP) para análisis." },
-        "2": { "title": "La IA procesa", "desc": "Gemini analiza la imagen en segundos. Multi-tratamiento (carillas + blanqueamiento + ortodoncia) en un solo request." },
-        "3": { "title": "Tú revisas", "desc": "Resultado dentro de la ficha, con confianza de la IA y disclaimer médico-legal automático." },
-        "4": { "title": "Muéstralo al paciente", "desc": "Exhibición lado a lado, guardada en el caso y auditable. Aceptación digital opcional al instante." }
+        "1": {
+          "title": "Sube la imagen",
+          "desc": "Foto frontal del paciente para sonrisa, o radiografía (PNG/JPEG/WEBP) para análisis."
+        },
+        "2": {
+          "title": "La IA procesa",
+          "desc": "Gemini analiza la imagen en segundos. Multi-tratamiento (carillas + blanqueamiento + ortodoncia) en un solo request."
+        },
+        "3": {
+          "title": "Tú revisas",
+          "desc": "Resultado dentro de la ficha, con confianza de la IA y disclaimer médico-legal automático."
+        },
+        "4": {
+          "title": "Muéstralo al paciente",
+          "desc": "Exhibición lado a lado, guardada en el caso y auditable. Aceptación digital opcional al instante."
+        }
       }
     },
     "smile": {
@@ -951,10 +1020,22 @@
       "eyebrow": "Cómo funciona",
       "title": "Del registro al cobro en 4 pasos",
       "steps": {
-        "1": { "title": "Registra al paciente", "desc": "Demografía + anamnesis estructurada (alergias, medicamentos, condiciones). Soporta RUT/CPF/NIT por país." },
-        "2": { "title": "Atiende con odontograma + ficha", "desc": "32 dientes en estándar FDI. Estado por cara. Evolución clínica inmutable (Ley 20.584/CFO/LGPD)." },
-        "3": { "title": "Anexa exámenes", "desc": "Fotos intraorales (9 slots estándar), radiografías 2D, CBCT 3D vía DICOM, series de alineadores." },
-        "4": { "title": "Cobra con auditoría legal", "desc": "Prescripción template con 11 variables. Pista de auditoría de quién vio/editó qué, cuándo." }
+        "1": {
+          "title": "Registra al paciente",
+          "desc": "Demografía + anamnesis estructurada (alergias, medicamentos, condiciones). Soporta RUT/CPF/NIT por país."
+        },
+        "2": {
+          "title": "Atiende con odontograma + ficha",
+          "desc": "32 dientes en estándar FDI. Estado por cara. Evolución clínica inmutable (Ley 20.584/CFO/LGPD)."
+        },
+        "3": {
+          "title": "Anexa exámenes",
+          "desc": "Fotos intraorales (9 slots estándar), radiografías 2D, CBCT 3D vía DICOM, series de alineadores."
+        },
+        "4": {
+          "title": "Cobra con auditoría legal",
+          "desc": "Prescripción template con 11 variables. Pista de auditoría de quién vio/editó qué, cuándo."
+        }
       }
     },
     "odonto": {
@@ -991,12 +1072,30 @@
         "Funciona en escritorio, tablet con touch"
       ],
       "presets": [
-        { "name": "Hueso", "values": "500/2500" },
-        { "name": "Implante", "values": "800/3500" },
-        { "name": "Tejido", "values": "50/400" },
-        { "name": "Endo", "values": "300/1500" },
-        { "name": "Estándar", "values": "400/2000" },
-        { "name": "Custom", "values": "W/L manual" }
+        {
+          "name": "Hueso",
+          "values": "500/2500"
+        },
+        {
+          "name": "Implante",
+          "values": "800/3500"
+        },
+        {
+          "name": "Tejido",
+          "values": "50/400"
+        },
+        {
+          "name": "Endo",
+          "values": "300/1500"
+        },
+        {
+          "name": "Estándar",
+          "values": "400/2000"
+        },
+        {
+          "name": "Custom",
+          "values": "W/L manual"
+        }
       ]
     },
     "exame": {
@@ -1135,10 +1234,22 @@
       "eyebrow": "Cómo funciona",
       "title": "De la llegada al sillón en 4 pasos",
       "steps": {
-        "1": { "title": "Paciente llega", "desc": "Pantalla inicial amigable en el tablet, en español o portugués según el país." },
-        "2": { "title": "Se identifica", "desc": "Digita RUT/CPF/NIT en el numpad touch. El sistema busca al paciente en segundos." },
-        "3": { "title": "Hace check-in o agenda", "desc": "Ve su próxima cita confirmada o elige nuevo horario disponible con el profesional adecuado." },
-        "4": { "title": "Firma consentimiento", "desc": "Conforme Ley 20.584/LGPD. Firma digital guardada como base64 en el caso, con auditoría legal." }
+        "1": {
+          "title": "Paciente llega",
+          "desc": "Pantalla inicial amigable en el tablet, en español o portugués según el país."
+        },
+        "2": {
+          "title": "Se identifica",
+          "desc": "Digita RUT/CPF/NIT en el numpad touch. El sistema busca al paciente en segundos."
+        },
+        "3": {
+          "title": "Hace check-in o agenda",
+          "desc": "Ve su próxima cita confirmada o elige nuevo horario disponible con el profesional adecuado."
+        },
+        "4": {
+          "title": "Firma consentimiento",
+          "desc": "Conforme Ley 20.584/LGPD. Firma digital guardada como base64 en el caso, con auditoría legal."
+        }
       }
     },
     "checkin": {
@@ -1305,10 +1416,22 @@
       "eyebrow": "Cómo funciona",
       "title": "Configura una vez. Corre toda la noche.",
       "steps": {
-        "1": { "title": "Configura tarifas", "desc": "Comisión por profesional, planes de membership, gateway de pago (MercadoPago)." },
-        "2": { "title": "Atiende y cierra el caso", "desc": "Cada prestación evolucionada actualiza caja, comisión y cuentas por cobrar en tiempo real." },
-        "3": { "title": "El cron corre overnight", "desc": "La caja cierra a las 23h. Cobro recurrente a las 03h. Recordatorios a las 10h. Todo en UTC." },
-        "4": { "title": "Ves el consolidado", "desc": "Mañana: dashboard con caja cerrada, MRR actualizado, cobros realizados, fallas con retry programado." }
+        "1": {
+          "title": "Configura tarifas",
+          "desc": "Comisión por profesional, planes de membership, gateway de pago (MercadoPago)."
+        },
+        "2": {
+          "title": "Atiende y cierra el caso",
+          "desc": "Cada prestación evolucionada actualiza caja, comisión y cuentas por cobrar en tiempo real."
+        },
+        "3": {
+          "title": "El cron corre overnight",
+          "desc": "La caja cierra a las 23h. Cobro recurrente a las 03h. Recordatorios a las 10h. Todo en UTC."
+        },
+        "4": {
+          "title": "Ves el consolidado",
+          "desc": "Mañana: dashboard con caja cerrada, MRR actualizado, cobros realizados, fallas con retry programado."
+        }
       }
     },
     "caixa": {
@@ -1475,6 +1598,30 @@
       "sub": "Trial 14 días con financiero completo activo en staging. Setup guiado por el equipo en 1 día hábil.",
       "ctaPrimary": "Solicitar demo financiero",
       "ctaSecondary": "Hablar con ventas"
+    }
+  },
+  "consent": {
+    "title": "Tu privacidad, tu decisión",
+    "body": "Usamos cookies esenciales para que el sitio funcione. Con tu permiso, también guardamos de qué campaña llegaste, para saber qué anuncios realmente ayudan a las clínicas a encontrarnos. Puedes rechazar sin perder ninguna función.",
+    "policyLink": "Leer la política de privacidad",
+    "preferences": "Preferencias de cookies",
+    "categories": {
+      "essential": {
+        "name": "Esenciales",
+        "desc": "Idioma, país y tema visual. Sin ellas el sitio no funciona correctamente.",
+        "always": "Siempre activas"
+      },
+      "marketing": {
+        "name": "Marketing y atribución",
+        "desc": "Guarda de qué anuncio o campaña llegaste (incluye identificadores de clic de Google y Meta) durante 90 días. Nos permite medir qué campañas funcionan y, en el futuro, informar la conversión a Google y Meta."
+      }
+    },
+    "actions": {
+      "accept": "Aceptar todo",
+      "reject": "Rechazar todo",
+      "customize": "Personalizar",
+      "save": "Guardar preferencias",
+      "close": "Cerrar"
     }
   }
 }
