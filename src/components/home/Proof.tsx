@@ -8,11 +8,8 @@ export function Proof() {
   const t = useTranslations("proof");
   const format = useFormatter();
 
+  // Tile de testes removido em 2026-07-20 (ver TrustStrip). Restam 3 tiles.
   const stats = [
-    {
-      key: "tests",
-      value: format.number(SUPERCLINI_FACTS.testsCount),
-    },
     {
       key: "countries",
       value: format.number(SUPERCLINI_FACTS.countriesCount),
@@ -27,10 +24,10 @@ export function Proof() {
     },
   ] as const;
 
+  // compliance.US saiu junto com "HIPAA-ready" (claim sem BAA nem controle mapeado).
   const complianceFlags = [
     ...SUPERCLINI_FACTS.compliance.LATAM,
     ...SUPERCLINI_FACTS.compliance.EU,
-    ...SUPERCLINI_FACTS.compliance.US,
   ];
 
   return (
@@ -47,7 +44,7 @@ export function Proof() {
           </div>
 
           {/* Stats grid: 4 telemetry tiles dirigidos por SUPERCLINI_FACTS */}
-          <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-ink-200 bg-ink-200 dark:border-ink-800 dark:bg-ink-800 sm:grid-cols-4">
+          <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-3xl border border-ink-200 bg-ink-200 dark:border-ink-800 dark:bg-ink-800 sm:grid-cols-3">
             {stats.map((s) => (
               <div
                 key={s.key}

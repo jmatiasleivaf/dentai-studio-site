@@ -45,7 +45,7 @@ export function Footer() {
                 </li>
               )
             )}
-            <FooterLink href="/#pricing">{t("product.pricing")}</FooterLink>
+            <FooterLink href={`/${locale}/precios`}>{t("product.pricing")}</FooterLink>
           </FooterCol>
 
           <FooterCol title={t("companyTitle")}>

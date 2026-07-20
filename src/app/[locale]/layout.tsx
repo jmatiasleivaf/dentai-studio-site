@@ -109,7 +109,7 @@ function buildJsonLd(locale: string, description: string) {
       lowPrice: "29",
       highPrice: "249",
       offerCount: String(SUPERCLINI_FACTS.tiersCount),
-      url: `https://superclini.com/${locale}#pricing`,
+      url: `https://superclini.com/${locale}/precios`,
     },
   };
   return [organization, softwareApp];

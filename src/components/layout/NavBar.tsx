@@ -28,9 +28,13 @@ import { NAV_RESOURCES } from "@/lib/site-nav";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 import { cn } from "@/lib/utils";
 
+/**
+ * `page: true` = rota de verdade, precisa do Link locale-aware (senão o usuário
+ * em /pt cai no idioma padrão). Sem a flag é âncora na home, e âncora é <a>.
+ */
 const SECTIONS = [
-  { href: "/#features", labelKey: "features" },
-  { href: "/#pricing", labelKey: "pricing" },
+  { href: "/#features", labelKey: "features", page: false },
+  { href: "/precios", labelKey: "pricing", page: true },
 ] as const;
 
 /** Ícone por landing — chaveado pelo labelKey de NAV_RESOURCES (SSoT em site-nav.ts). */
@@ -62,22 +66,32 @@ function Underline({ overlay }: { overlay: boolean }) {
 function NavItem({
   href,
   overlay,
+  page = false,
   children,
 }: {
   href: string;
   overlay: boolean;
+  page?: boolean;
   children: React.ReactNode;
 }) {
+  const className = cn(
+    "group relative inline-flex items-center py-1.5 text-sm font-medium transition-colors",
+    overlay
+      ? "text-white/85 hover:text-white"
+      : "text-ink-600 hover:text-ink-900 dark:text-ink-300 dark:hover:text-white"
+  );
+
+  if (page) {
+    return (
+      <Link href={href as never} className={className}>
+        {children}
+        <Underline overlay={overlay} />
+      </Link>
+    );
+  }
+
   return (
-    <a
-      href={href}
-      className={cn(
-        "group relative inline-flex items-center py-1.5 text-sm font-medium transition-colors",
-        overlay
-          ? "text-white/85 hover:text-white"
-          : "text-ink-600 hover:text-ink-900 dark:text-ink-300 dark:hover:text-white"
-      )}
-    >
+    <a href={href} className={className}>
       {children}
       <Underline overlay={overlay} />
     </a>
@@ -254,7 +268,7 @@ export function NavBar() {
           </div>
 
           {SECTIONS.map((s) => (
-            <NavItem key={s.href} href={s.href} overlay={overlay}>
+            <NavItem key={s.href} href={s.href} overlay={overlay} page={s.page}>
               {t(s.labelKey)}
             </NavItem>
           ))}
@@ -392,16 +406,29 @@ export function NavBar() {
 
                 {/* Seções */}
                 <div className="mt-4 border-t border-ink-100 pt-2 dark:border-white/10">
-                  {SECTIONS.map((s) => (
-                    <a
-                      key={s.href}
-                      href={s.href}
-                      onClick={() => setOpen(false)}
-                      className="flex min-h-touch-md items-center rounded-2xl px-3 py-3 text-base font-semibold text-ink-800 transition-colors hover:bg-ink-50 active:bg-ink-100 dark:text-ink-100 dark:hover:bg-white/5"
-                    >
-                      {t(s.labelKey)}
-                    </a>
-                  ))}
+                  {SECTIONS.map((s) => {
+                    const cls =
+                      "flex min-h-touch-md items-center rounded-2xl px-3 py-3 text-base font-semibold text-ink-800 transition-colors hover:bg-ink-50 active:bg-ink-100 dark:text-ink-100 dark:hover:bg-white/5";
+                    return s.page ? (
+                      <Link
+                        key={s.href}
+                        href={s.href as never}
+                        onClick={() => setOpen(false)}
+                        className={cls}
+                      >
+                        {t(s.labelKey)}
+                      </Link>
+                    ) : (
+                      <a
+                        key={s.href}
+                        href={s.href}
+                        onClick={() => setOpen(false)}
+                        className={cls}
+                      >
+                        {t(s.labelKey)}
+                      </a>
+                    );
+                  })}
                 </div>
 
                 {/* Rodapé: preferências + CTAs */}

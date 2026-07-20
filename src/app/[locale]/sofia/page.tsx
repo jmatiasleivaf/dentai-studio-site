@@ -23,6 +23,7 @@ import { LandingCTA } from "@/components/landing/LandingCTA";
 import { ChatMockup, type ChatMessage } from "@/components/landing/ChatMockup";
 import { FAQSchema } from "@/components/home/FAQSchema";
 import { routing, type Locale } from "@/i18n/routing";
+import { SUPERCLINI_FACTS } from "@/lib/superclini.facts";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -40,7 +41,7 @@ export async function generateMetadata({
   const canonical = `https://superclini.com/${locale}/sofia`;
   return {
     title: t("title"),
-    description: t("description"),
+    description: t("description", { count: SUPERCLINI_FACTS.sofiaToolsCount }),
     alternates: {
       canonical,
       languages: Object.fromEntries(
@@ -51,12 +52,12 @@ export async function generateMetadata({
       type: "website",
       url: canonical,
       title: t("title"),
-      description: t("description"),
+      description: t("description", { count: SUPERCLINI_FACTS.sofiaToolsCount }),
     },
     twitter: {
       card: "summary_large_image",
       title: t("title"),
-      description: t("description"),
+      description: t("description", { count: SUPERCLINI_FACTS.sofiaToolsCount }),
     },
   };
 }
@@ -90,7 +91,7 @@ export default async function SofiaPage({
       <LandingHero
         badge={t("hero.badge")}
         title={t("hero.h1")}
-        sub={t("hero.sub")}
+        sub={t("hero.sub", { count: SUPERCLINI_FACTS.sofiaToolsCount })}
         primaryCta={
           <ContactCTAButton defaultInteresse="trial_profesional">
             {t("hero.ctaPrimary")}
@@ -141,7 +142,7 @@ export default async function SofiaPage({
       </section>
 
       <FeatureBlock
-        eyebrow={t("feature1.eyebrow")}
+        eyebrow={t("feature1.eyebrow", { count: SUPERCLINI_FACTS.sofiaToolsCount })}
         title={t("feature1.title")}
         description={t("feature1.description")}
         side="right"

@@ -1,4 +1,4 @@
-import { ShieldCheck, Globe2, Activity, CheckCircle2 } from "lucide-react";
+import { ShieldCheck, Globe2, Activity } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/container";
 import { SUPERCLINI_FACTS } from "@/lib/superclini.facts";
@@ -6,8 +6,10 @@ import { SUPERCLINI_FACTS } from "@/lib/superclini.facts";
 export function TrustStrip() {
   const t = useTranslations("trustStrip");
 
+  // O tile "pruebas automatizadas" saiu em 2026-07-20: contagem de teste é
+  // conversa de engenharia, nenhum dentista compra por isso. O fato segue no
+  // SSoT (superclini.facts.testsCount), só deixou de ser argumento de venda.
   const items = [
-    { key: "tests", Icon: CheckCircle2, values: { count: SUPERCLINI_FACTS.testsCount } },
     { key: "compliance", Icon: ShieldCheck, values: undefined },
     {
       key: "countries",
@@ -26,7 +28,7 @@ export function TrustStrip() {
         <p className="mb-6 text-center text-xs font-semibold uppercase tracking-[0.15em] text-ink-500 dark:text-ink-400">
           {t("title")}
         </p>
-        <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
           {items.map(({ key, Icon, values }) => (
             <div
               key={key}

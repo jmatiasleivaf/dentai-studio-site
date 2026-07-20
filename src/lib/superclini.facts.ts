@@ -22,6 +22,26 @@ export const SUPERCLINI_FACTS = {
   /** Moedas distintas em circulação (CLP, BRL, COP, MXN, ARS, PEN, USD, EUR). */
   currenciesCount: 8,
 
+  // ─── Agentes de IA ────────────────────────────────────────────────
+  /** Sofía (paciente), IAndra (equipe), AlicIA (caso clínico). Todos em produção. */
+  agentsCount: 3,
+  /**
+   * Ferramentas registradas da Sofía. Fonte autoritativa:
+   * dentai-studio/src/lib/whatsapp-tools.ts → AGENT_TOOLS (:1799-1984).
+   * Auditado 2026-07-20: são 13. O site dizia 12 até esta data.
+   */
+  sofiaToolsCount: 13,
+  /**
+   * Ações que a IAndra executa, com gate de permissão por usuário.
+   * Fonte: dentai-studio/src/lib/support/tools/registry.ts → ALL_TOOLS (:17-25).
+   */
+  iandraActionsCount: 5,
+  /**
+   * Dias sem evolução que a AlicIA usa para marcar um plano.
+   * Fonte: dentai-studio/src/lib/alicia/seguimento.ts (:25-30).
+   */
+  aliciaThresholds: { morno: 30, frio: 60 },
+
   // ─── Pricing ──────────────────────────────────────────────────────
   /** Tiers públicos: Esencial, Profesional, Avanzado, Corporativo (renomeado de Enterprise em 2026-04-29). */
   tiersCount: 4,
@@ -32,16 +52,24 @@ export const SUPERCLINI_FACTS = {
 
   // ─── Cotas IA por tier (referência narrativa; valores autoritativos em pricing.ts PLAN_MATRIX) ─
   aiQuotas: {
-    profesional: { simulaciones: 30, radiografia: 30, whatsappConv: 0 },
+    // whatsappConv do Profesional passou de 0 para 100 em 2026-07-20: sem Sofía
+    // no tier 2, a promessa dos três agentes na home era falsa. COGS ~US$0,015/conv.
+    profesional: { simulaciones: 30, radiografia: 30, whatsappConv: 100 },
     avanzado: { simulaciones: 100, radiografia: 100, whatsappConv: 300 },
     // corporativo: cotas personalizadas por contrato
   },
 
   // ─── Compliance / Regulação ──────────────────────────────────────
+  /**
+   * ATENÇÃO: só entra aqui regulação com implementação REAL no produto.
+   * "HIPAA-ready" foi REMOVIDO em 2026-07-20: a única ocorrência de HIPAA no app
+   * é uma string de prompt (dentai-studio/src/lib/ai.ts:28), sem BAA e sem
+   * controle mapeado. Era claim que reprova em diligência.
+   * "ISO 27001" e "SOC 2" também não entram: são do provedor de hosting.
+   */
   compliance: {
     LATAM: ["LGPD", "Ley 20.584", "Lei 19.628"],
     EU: ["GDPR"],
-    US: ["HIPAA-ready"],
   },
 
   // ─── Marca / Posicionamento ───────────────────────────────────────

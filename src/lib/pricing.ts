@@ -67,6 +67,7 @@ export const PLANS: Record<PlanId, { features: PlanFeature[] }> = {
       { key: "totemUnlimited", highlight: "new" },
       { key: "memberships", highlight: "new" },
       { key: "laboratoryPortal" },
+      { key: "whatsappConv100", highlight: "ai" },
       { key: "casosIa30", highlight: "ai" },
       { key: "radiographIa30", highlight: "ai" },
       { key: "reportsBi" },
@@ -138,7 +139,7 @@ export const PLAN_MATRIX: MatrixRow[] = [
   // IA
   { groupKey: "ai", key: "casosIa",              values: { esencial: "no", profesional: "30mo",  avanzado: "100mo",  corporativo: "custom" } },
   { key: "radiographIa",                         values: { esencial: "no", profesional: "30mo",  avanzado: "100mo",  corporativo: "custom" } },
-  { key: "whatsappIa",                           values: { esencial: "no", profesional: "no",    avanzado: "300conv", corporativo: "custom" } },
+  { key: "whatsappIa",                           values: { esencial: "no", profesional: "100conv", avanzado: "300conv", corporativo: "custom" } },
 
   // Avançado
   { groupKey: "advanced", key: "dicom3d",        values: { esencial: "no",    profesional: "no",          avanzado: "yes",      corporativo: "yes" } },

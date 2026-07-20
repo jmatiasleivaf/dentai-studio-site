@@ -19,6 +19,8 @@ const ROUTES: Array<{ path: string; priority: number; changeFrequency: "weekly" 
   { path: "/clinico", priority: 0.9, changeFrequency: "weekly" },
   { path: "/totem", priority: 0.9, changeFrequency: "weekly" },
   { path: "/automatizacoes", priority: 0.9, changeFrequency: "weekly" },
+  // Pricing saiu da home em 2026-07-20 e virou página própria.
+  { path: "/precios", priority: 0.9, changeFrequency: "monthly" },
   { path: "/contato", priority: 0.7, changeFrequency: "monthly" },
   // Prioridade alta: é a página de conversão do funil self-service.
   { path: "/registro", priority: 0.9, changeFrequency: "monthly" },

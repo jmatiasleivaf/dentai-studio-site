@@ -97,25 +97,66 @@
     "inCollection": "Articles in this collection"
   },
   "hero": {
-    "badge": "Available in {count} countries",
-    "eyebrow": "AI-powered dental software · {countries} LATAM markets",
-    "h1Prefix": "Your schedule ",
-    "h1Highlight": "fills itself",
-    "h1Suffix": ".",
-    "sub": "Sofía handles WhatsApp and bookings. Visual AI assists your diagnostics. You decide, always. In {countries} markets, with your currency and tax.",
-    "ctaPrimary": "Request 14-day trial",
-    "ctaSecondary": "See Sofía in action",
-    "dashboardAlt": "SuperClini panel — daily schedule, KPIs and Sofía in real time",
+    "eyebrow": "Agentic dental software · {countries} markets",
+    "h1Line1": "Three agents work",
+    "h1Line2": "in your clinic today.",
+    "sub": "Sofía answers WhatsApp and books for real. IAndra runs the system and executes your team’s day. AlicIA never lets a treatment you already sold go cold.",
+    "ctaPrimary": "Create free account",
+    "ctaSecondary": "Meet the three agents",
     "trustItems": {
       "noCard": "No credit card",
       "setup": "Guided setup in 1 day",
       "cancel": "Cancel anytime"
     }
   },
+  "agents": {
+    "eyebrow": "Your clinic’s AI team",
+    "title": "Each agent has a job. And does it today.",
+    "sub": "These are not loose features with AI bolted on. They are three named agents, each owning one front, inside the same system and on the same patient record.",
+    "sofia": {
+      "axis": "Outward · the patient",
+      "headline": "Answers WhatsApp and books for real.",
+      "body": "Offers slots that actually exist, not invented gaps: it runs on the same engine as public booking. And never books without the patient confirming in writing.",
+      "p1": "{tools} tools wired to your real schedule",
+      "p2": "Never reveals another record’s appointment, even on a shared phone",
+      "p3": "When it is not her job, she hands it to you",
+      "chatLabel": "Sample conversation",
+      "chatOnline": "Sofía is online",
+      "chat1": "Hi, I need an appointment for a cleaning",
+      "chat2": "Hi. I have Tuesday the 22nd at 10:30 or Wednesday the 23rd at 16:00. Which works?",
+      "chat3": "Tuesday at 10:30",
+      "chat4": "Done. You are booked for Tuesday the 22nd at 10:30. I will confirm here a day before."
+    },
+    "iandra": {
+      "axis": "Inward · your team",
+      "headline": "Runs the system and executes the day.",
+      "body": "Registers patients, checks the schedule and books appointments while explaining how it is done. Before touching anything, it shows you the record to confirm.",
+      "p1": "{actions} actions, and only the ones that user could already perform",
+      "p2": "Shows you the record before writing",
+      "p3": "What it does not know, it reports and follows up"
+    },
+    "alicia": {
+      "axis": "The case · your treatment",
+      "headline": "Never lets a treatment you already sold go cold.",
+      "body": "Watches proposed and in-progress plans nobody picked back up. At {morno} days it flags them. At {frio} it turns red. And it sorts by money sitting still, not alphabetically.",
+      "p1": "A plan proposed 90 days ago has been stalled for 90 days, not zero",
+      "p2": "Sorts by stalled value, not by date",
+      "p3": "And takes you to the clinical AI of the patient you are looking at"
+    },
+    "systemTitle": "Three agents. One record.",
+    "systemBody": "They live in the same panel, on the same data. You switch agents without switching screens and without repeating context.",
+    "dockAlt": "The three SuperClini agents in a single panel inside the system",
+    "iandraAlt": "Real IAndra panel with its quick actions inside SuperClini",
+    "aliciaAlt": "Real AlicIA panel showing stalled cases and their days without progress"
+  },
+  "closing": {
+    "title": "Your clinic is no longer operated.",
+    "highlight": "It is delegated.",
+    "sub": "Your team stops chasing. It goes back to caring."
+  },
   "trustStrip": {
     "title": "Built to be trusted on day one",
     "items": {
-      "tests": "{count} automated tests",
       "compliance": "HIPAA-ready · GDPR · LGPD",
       "countries": "{countries} countries · {currencies} currencies",
       "uptime": "Cloud infra 24/7"
@@ -124,11 +165,11 @@
   "ai": {
     "eyebrow": "The difference is AI",
     "title": "Sofía + visual AI: your clinic's AI team.",
-    "sub": "We don't tell you we have AI. We show it working — booking, simulating, reading radiographs.",
+    "sub": "We don't tell you we have AI. We show it working, booking, simulating, reading radiographs.",
     "cards": {
       "whatsapp": {
         "title": "Sofía, your AI receptionist on WhatsApp",
-        "desc": "Schedules, confirms, reschedules and answers questions 24/7 — checking real availability and creating the appointment in your calendar.",
+        "desc": "Schedules, confirms, reschedules and answers questions 24/7, checking real availability and creating the appointment in your calendar.",
         "proofLabel": "Real conversation with agent Sofía",
         "examples": {
           "user1": "Hi, I'd like to book a dental cleaning",
@@ -145,7 +186,7 @@
       },
       "radiograph": {
         "title": "AI radiograph analysis",
-        "desc": "Assisted detection of cavities, periapical lesions and visible pathologies. AI doesn't replace the clinician — it speeds up diagnosis.",
+        "desc": "Assisted detection of cavities, periapical lesions and visible pathologies. AI doesn't replace the clinician, it speeds up diagnosis.",
         "metrics": {
           "caries": "Cavities detected",
           "lesions": "Apical lesions",
@@ -241,7 +282,8 @@
       "sso": "Corporate SSO (Azure AD · Okta)",
       "apiAccess": "Full API + webhooks",
       "accountManager": "Dedicated account manager",
-      "onboardingPremium": "Premium onboarding (2-4 wks)"
+      "onboardingPremium": "Premium onboarding (2-4 wks)",
+      "whatsappConv100": "Sofía · {count} unique conversations/mo"
     },
     "matrix": {
       "title": "Detailed comparison of all 4 plans",
@@ -302,8 +344,14 @@
         "33tpl": "33 templates",
         "30mo": "30/mo",
         "100mo": "100/mo",
-        "300conv": "300 conversations/mo"
+        "300conv": "300 conversations/mo",
+        "100conv": "{count} conversations/mo",
+        "none": "Not included"
       }
+    },
+    "meta": {
+      "title": "Pricing · SuperClini",
+      "description": "{tiers} plans for dental clinics across {countries} markets, priced in your currency. The three AI agents are included from the Profesional plan up."
     }
   },
   "personas": {
@@ -351,7 +399,7 @@
     "sub": "No hidden add-ons. No expensive third-party integrations.",
     "spotlight": {
       "title": "Sofía on WhatsApp",
-      "desc": "AI agent with function calling. Books, confirms, reschedules, answers — checking real availability and creating appointments straight in your calendar.",
+      "desc": "AI agent with function calling. Books, confirms, reschedules, answers, checking real availability and creating appointments straight in your calendar.",
       "chatLabel": "Real conversation",
       "chatQ": "I'd like to book a cleaning",
       "chatA": "Thursday at 9am with Dr. Carolina works?",
@@ -416,14 +464,13 @@
     "eyebrow": "The story behind",
     "title": "Built with clinics, not for them.",
     "stats": {
-      "tests": "automated tests",
       "countries": "countries in production",
-      "currencies": "currencies & local tax",
+      "currencies": "currencies with local formatting",
       "ai": "AI providers"
     },
     "providersLabel": "AI",
     "complianceLabel": "Compliance",
-    "founded": "Founded in {year} — dozens of interviews with dentists before the first line of code."
+    "founded": "Founded in {year}, dozens of interviews with dentists before the first line of code."
   },
   "faq": {
     "eyebrow": "FAQ",
@@ -664,13 +711,13 @@
   },
   "sofiaPage": {
     "meta": {
-      "title": "Sofía — AI WhatsApp Assistant for Dental Practices",
-      "description": "Sofía answers, books and triages your WhatsApp 24/7. 12 AI functions wired to your real schedule. Stop losing leads at midnight and on weekends."
+      "title": "Sofía, AI WhatsApp Assistant for Dental Practices",
+      "description": "Sofía answers, books and triages your WhatsApp 24/7. {count} AI functions wired to your real schedule. Stop losing leads at midnight and on weekends."
     },
     "hero": {
       "badge": "AI Assistant · WhatsApp",
       "h1": "Sofía answers your WhatsApp 24/7. You handle the patient.",
-      "sub": "AI agent with 12 real functions wired to your schedule. Books, confirms, reschedules and answers questions — in English, Spanish and Portuguese. Never miss a lead at 3 AM.",
+      "sub": "AI agent with {count} real functions wired to your schedule. Books, confirms, reschedules and answers questions, in English, Spanish and Portuguese. Never miss a lead at 3 AM.",
       "ctaPrimary": "Request 14-day trial",
       "ctaSecondary": "See Sofía in action",
       "chat": {
@@ -703,12 +750,12 @@
         },
         "4": {
           "title": "Hands off what needs you",
-          "desc": "Clinical question, urgency, complaint — Sofía hands over with full context."
+          "desc": "Clinical question, urgency, complaint, Sofía hands over with full context."
         }
       }
     },
     "feature1": {
-      "eyebrow": "12 real functions",
+      "eyebrow": "{count} real functions",
       "title": "Sofía isn't a chatbot. It's an agent with tools.",
       "description": "Every interaction queries your real database and executes a concrete action. No generic answers, no 'one moment' that never ends.",
       "bullets": [
@@ -745,7 +792,7 @@
         "solo": {
           "persona": "Solo dentist",
           "pain": "You treat and answer WhatsApp at the same time.",
-          "benefit": "Sofía answers while you're in the patient's mouth. You don't lose leads — and you don't interrupt the procedure."
+          "benefit": "Sofía answers while you're in the patient's mouth. You don't lose leads, and you don't interrupt the procedure."
         },
         "clinic": {
           "persona": "3-8 chair practice",
@@ -768,7 +815,7 @@
         "horario": {
           "topic": "Hours of operation",
           "before": "Business hours: 9-7. Closed weekends.",
-          "after": "24/7. Late nights, Sundays, holidays — never sleeps."
+          "after": "24/7. Late nights, Sundays, holidays, never sleeps."
         },
         "resposta": {
           "topic": "Response time",
@@ -802,7 +849,7 @@
         },
         {
           "q": "Which languages does Sofía speak?",
-          "a": "Spanish (trained in neutral LATAM ES). Brazilian Portuguese automatically when the patient writes in PT. English also supported. Detection is per message — patient switches language and Sofía follows."
+          "a": "Spanish (trained in neutral LATAM ES). Brazilian Portuguese automatically when the patient writes in PT. English also supported. Detection is per message, patient switches language and Sofía follows."
         },
         {
           "q": "What if a patient asks a clinical question Sofía can't answer?",
@@ -810,7 +857,7 @@
         },
         {
           "q": "How does it work with new vs existing patients?",
-          "a": "Sofía looks up by phone (WhatsApp LID). Existing: addresses by name, knows history. New: registers on the spot — asks for name, ID, age. Appointment is created with a valid patient."
+          "a": "Sofía looks up by phone (WhatsApp LID). Existing: addresses by name, knows history. New: registers on the spot, asks for name, ID, age. Appointment is created with a valid patient."
         },
         {
           "q": "Can I turn Sofía off at specific times?",
@@ -822,7 +869,7 @@
         },
         {
           "q": "Does Sofía recognize who's already in our system?",
-          "a": "Yes — looks up by WhatsApp phone and matches against your patient base. If recognized, addresses by name and has context. If new number, registers them."
+          "a": "Yes, looks up by WhatsApp phone and matches against your patient base. If recognized, addresses by name and has context. If new number, registers them."
         },
         {
           "q": "How long does activation take?",

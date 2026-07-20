@@ -143,9 +143,9 @@ export function Features() {
 
         <div className="mt-12 text-center">
           <Button asChild variant="outline" size="lg">
-            <a href="#pricing">
+            <Link href="/precios">
               {t("ctaAll")} <ArrowRight className="h-4 w-4" aria-hidden />
-            </a>
+            </Link>
           </Button>
         </div>
       </Container>

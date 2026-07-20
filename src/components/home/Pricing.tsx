@@ -18,6 +18,17 @@ import {
   type PlanId,
 } from "@/lib/pricing";
 import type { Locale } from "@/i18n/routing";
+import { SUPERCLINI_FACTS } from "@/lib/superclini.facts";
+
+/**
+ * Cotas de IA que aparecem nos rótulos dos cards, vindas do SSoT.
+ * As chaves antigas (casosIa30, radiographIa30, whatsappConv300) ainda carregam
+ * o número literal na string e seguem na whitelist do audit-stale; a dívida está
+ * registrada no SITE-STATUS. As chaves novas nascem com placeholder.
+ */
+const FEATURE_VALUES: Record<string, Record<string, number>> = {
+  whatsappConv100: { count: SUPERCLINI_FACTS.aiQuotas.profesional.whatsappConv },
+};
 
 export function Pricing() {
   const t = useTranslations("pricing");
@@ -237,7 +248,9 @@ function PlanCard({
         {PLANS[planId].features.map((f) => (
           <li key={f.key} className="flex items-start gap-2.5 text-sm text-ink-200">
             <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-emerald-400" aria-hidden />
-            <span className="flex-1">{tFeat(f.key)}</span>
+            <span className="flex-1">
+              {tFeat(f.key, FEATURE_VALUES[f.key] ?? {})}
+            </span>
             {f.highlight ? (
               <span
                 className={

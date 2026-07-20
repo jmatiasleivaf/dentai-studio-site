@@ -6,6 +6,12 @@ import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/container";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { PLAN_MATRIX, PLAN_ORDER, type MatrixValue, type PlanId } from "@/lib/pricing";
+import { SUPERCLINI_FACTS } from "@/lib/superclini.facts";
+
+/** Valores da matriz que consomem número do SSoT em vez de literal na string. */
+const MATRIX_VALUES: Record<string, Record<string, number>> = {
+  "100conv": { count: SUPERCLINI_FACTS.aiQuotas.profesional.whatsappConv },
+};
 
 const TIER_COLORS: Record<PlanId, { header: string; cell: string }> = {
   esencial: {
@@ -38,7 +44,12 @@ export function PricingMatrix() {
       return <Check className="mx-auto h-4 w-4 text-emerald-500" aria-label={tValues("full")} />;
     }
     if (v === "no") {
-      return <Minus className="mx-auto h-4 w-4 text-ink-300 dark:text-ink-700" aria-label="—" />;
+      return (
+        <Minus
+          className="mx-auto h-4 w-4 text-ink-300 dark:text-ink-700"
+          aria-label={tValues("none")}
+        />
+      );
     }
     // Counts numéricos (professionals "10", boxes "5", branches "3") renderizam direto.
     // Labels (unlimited, 5gb, 30mo, custom, etc) vêm de pricing.matrix.values.* via i18n.
@@ -46,7 +57,7 @@ export function PricingMatrix() {
     const resolved = isNumericLiteral
       ? v
       : tValues.has(v as never)
-        ? tValues(v as never)
+        ? tValues(v as never, MATRIX_VALUES[v] ?? {})
         : v;
     return (
       <span
