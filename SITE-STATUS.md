@@ -1,6 +1,108 @@
 # SuperClini Site — Status Vivo
 
-**Última atualização**: 2026-07-19 — Canal LLM: 3 camadas do Cloudflare destravadas + ferramenta de medição
+**Última atualização**: 2026-07-20 — Home agêntica: os 3 agentes viram a faixa de entrada
+
+## 2026-07-20 — Home agêntica (branch `feat/home-agentica`, commit `eae64c7`)
+
+**AGUARDA GATE DE MATIAS PARA MERGE.** Não há staging: `main` é produção.
+
+**Por que**: a home vendia módulos (Features, Personas, Pricing, Totem). A empresa
+mudou de categoria e o site não tinha acompanhado.
+
+### A premissa que a pesquisa derrubou
+
+Deep-research (104 agentes, 22 fontes, 25 claims verificados adversarialmente,
+13 confirmados e 12 refutados). O achado que muda a estratégia, **verificado 3-0**:
+
+> A **Dentalink já vende trabalho entregue** e tem **sete** capacidades de IA em
+> produção: Análisis de RX, Contact Center, Contralor IA, Notas Clínicas, Reportes
+> IA, Resumen Clínico, Simulador de Sonrisas. Copy do Contact Center: *"Responde
+> WhatsApp, atiende llamadas y agenda citas automáticamente."* Doc de ajuda
+> atualizado 17/06/2026, "para todos los países", sem flag de beta.
+
+O claim oposto ("Dentalink é feature-first") foi **refutado 0-3**.
+
+**Duas frases ficaram proibidas por serem falsas**: "somos os únicos com IA" e
+"o único que atende WhatsApp e agenda sozinho".
+
+**O território que sobra, e é o nosso**: lá são sete automações **dispersas e
+anônimas**, nenhuma com persona. Aqui são **três agentes com nome, um trabalho
+cada, no mesmo painel e sobre a mesma ficha**. O diferencial não é ter IA nem
+vender resultado. É consolidação e nomeação.
+
+### O backlash agêntico tem dois mecanismos, e a ambição não é nenhum
+
+Verificado 3-0 (TechCrunch 24/03/2025, SF Standard 07/04/2025): 11x caiu por
+**prova social fabricada** (logos de não-clientes, carta de demanda por "false
+advertising"); Artisan caiu por **enquadramento de substituição** ("Stop Hiring
+Humans", ameaças de morte aos milhares). Regra que fica: zero logo ou métrica que
+não exista, e nunca posicionar agente contra pessoa.
+
+### O que mudou
+
+| Antes | Depois |
+|---|---|
+| H1 "Tu agenda se llena sola" | "Tres agentes trabajan en tu clínica hoy." |
+| Sofía citada de passagem | Faixa dos 3 agentes com peso igual, logo após o hero |
+| Vídeo de fundo (1,9 a 4,3 MB) | Removido. Prova é o produto real |
+| Pricing + Matriz na home | `/precios` (URL nova, sem 301) |
+| Totem e Personas na home | Removidos |
+
+**Vocabulário extraído do código do app (read-only), não inventado:**
+Sofía 13 tools + read-back de 2 passos + privacidade entre fichas do mesmo
+telefone · IAndra 5 ações com gate RBAC + cartão de confirmação · AlicIA planos
+parados 30d/60d ordenados por `valorFinal`.
+
+### Claims corrigidos (não eram cosméticos)
+
+- **"HIPAA-ready" REMOVIDO** do `superclini.facts.ts` e do `Proof`. Estava
+  publicado. Única ocorrência de HIPAA no app é string de prompt (`ai.ts:28`),
+  sem BAA e sem controle mapeado.
+- **"12 funciones IA" estava errado**: são 13 (`whatsapp-tools.ts`). E era
+  literal no i18n. Agora vem de `SUPERCLINI_FACTS.sofiaToolsCount`.
+- **"monedas y fiscal local"** virou "formato local": flertava com facturación
+  electrónica, que não existe.
+- **39 travessões longos** removidos das seções tocadas. **Restam ~676 no resto
+  do site** (es/pt/en). Sweep separado, ver pendências.
+
+### Pricing
+
+`whatsappIa` do Profesional passou de `no` para **100 conv/mês**. Sem Sofía no
+tier 2, a promessa dos três agentes era falsa dentro da própria página.
+`aiQuotas.profesional.whatsappConv` no SSoT acompanha. COGS ~US$0,015/conv.
+
+### Provas
+
+| Prova | Resultado |
+|---|---|
+| `npm run audit-stale` | zero drift |
+| `npm run build` | exit 0 |
+| `npm run lint` | 0 erros, 12 warnings pré-existentes |
+| **First Load JS da home** | **228 kB → 180 kB** |
+| `/precios` | 174 kB, 200 nos 3 idiomas |
+| 6 combinações viewport × idioma | zero `MISSING_MESSAGE`, zero overflow-x em 375px |
+
+**Correção de medição**: o "102 kB mantido" que as sessões anteriores vinham
+reportando é o *shared chunk*, não o custo da home. A home real era **228 kB**.
+A partir daqui o número honesto é o First Load da rota.
+
+### Pendências desta sessão
+
+1. **Merge e deploy**: gate de Matias. Sem staging, `main` é produção.
+2. **Capturar a janela do canal LLM ANTES do deploy** (`scripts/canal-llm.mjs`).
+   O log retém ~4,5 dias; sem isso a janela pré-redesign some e nenhuma
+   comparação com a linha de base 15-19/07 é possível.
+3. **Sofía não tem print real**: a org de demonstração não tem conversa semeada
+   (`"Aún no hay conversaciones."`). Usa `ChatMockup`. Para trocar por print real,
+   semear WhatsApp em staging.
+4. **O seed da AlicIA tem travessão longo** nos títulos de plano ("Plan de
+   tratamiento — Joaquín"), e ele aparece no print publicado. É dado de demo.
+5. **Sweep dos ~676 travessões** restantes no copy.
+6. **Sofía nega ser IA** (`whatsapp-prompts.ts:148`) enquanto o site a expõe como
+   IA, e vendemos em ES e PT (UE, AI Act art. 50). Contradição pré-existente, mas
+   agora a home a torna mais visível. Merece decisão.
+
+---
 
 ## 2026-07-19 — Canal de recomendação por LLM: medição e destravamento
 
