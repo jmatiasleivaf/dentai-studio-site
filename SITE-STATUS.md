@@ -1,6 +1,65 @@
 # SuperClini Site — Status Vivo
 
-**Última atualização**: 2026-07-11 — Centro de Ayuda: nova coleção "La ficha del paciente"
+**Última atualização**: 2026-07-19 — Canal LLM: 3 camadas do Cloudflare destravadas + ferramenta de medição
+
+## 2026-07-19 — Canal de recomendação por LLM: medição e destravamento
+
+Branch `feat/canal-llm-medicao`, commit `b95ba91` (**local, ainda não pushado**).
+
+**Por que**: ao migrar leads históricos para o CRM descobrimos que 3 das 6 pessoas
+que viraram lead chegaram com `utmSource=chatgpt.com`. Metade da captação vinha de
+recomendação de LLM, sem nunca ter sido medida nem trabalhada.
+
+**O achado central — o `robots.txt` em produção não era o do repo.** O Cloudflare
+injetava um bloco "Managed Content". Eram **três** controles independentes, e mexer
+em um só não resolvia nada:
+
+| Camada | Onde no painel | O que fazia |
+|---|---|---|
+| Block AI Bots | Controle de rastreamento de IA → Segurança → Configurações | bloqueava DE VERDADE na borda (WAF) |
+| AI Crawl Control | mesma tela, toggle por crawler | ClaudeBot e GPTBot bloqueados |
+| robots.txt gerenciado | Controle de rastreamento de IA → **Sinais** | 9 `Disallow` + `Content-Signal: ai-train=no` |
+
+Os toggles individuais ficam **inertes** enquanto "Block AI Bots" estiver ligado.
+As três foram desligadas por Matias em 19/07. Consequência aceita: o conteúdo do
+site passa a poder ser usado para treino de IA. Reversível nas mesmas 3 telas.
+
+**Prova pós-mudança**: `robots.txt` voltou a ter 1 único `Disallow` (`/api/`), e
+ChatGPT-User, GPTBot, ClaudeBot, Claude-SearchBot e PerplexityBot recebem todos
+**200 com conteúdo real** (272 KB em `/es/ayuda`, zero página de desafio).
+
+**Ferramenta**: `scripts/canal-llm.mjs`. Lê o log do nginx e separa bot de LLM por
+FUNÇÃO (recuperação ao vivo vs índice vs treino), gente no site, e o sinal indireto
+de entrada direta em página profunda. Não grava nada em dispositivo de ninguém.
+Provado contra 68.083 linhas de log de produção. `audit-stale` zero drift, build exit 0.
+
+**Linha de base registrada (15-19/07, 4,5 dias)**, para comparar depois:
+10 hits de recuperação ao vivo · 0 referrer de LLM · 659 pageviews · 68,9% sem
+referrer nenhum · 141 sessões entrando direto em página profunda (teto, não medida).
+
+**Prova de que o Centro de Ayuda funciona como matéria-prima**: ChatGPT-User buscou
+`/es/ayuda/primeros-pasos/migrar-desde-dentalink` ao vivo durante a conversa de alguém.
+
+**Achado de segurança (fora do escopo)**: 62 hits que pareciam "Amazonbot" e
+"Applebot-Extended" eram varredura de credencial com user-agent falsificado, sondando
+`/.env`, `/.ssh/id_rsa`, `/.git/config`, `/.claude.json`. **Nada vazou** (únicos 200
+foram 14 em `/login`, página pública). Bloquear Amazonbot no Cloudflare não adianta:
+o user-agent é falso. Merece sessão própria de hardening.
+
+**Pendente — 3 decisões de Matias, nada avança sem elas:**
+1. Autorizar edição do `nginx.conf` (uma linha de `log_format` com `$host` +
+   `CF-Connecting-IP` truncado em /24; aplicar com `nginx -s reload`, sem recriar
+   container, nunca com `mv` por causa do bind mount inode). Sem isso o log grava o
+   IP de borda do Cloudflare e toda contagem de sessão é PISO, não medida.
+2. Liberar escrita na VPS para o Claude, ou receber bloco copia-cola.
+3. Publicar `/comparativas` com comparação nominal a Dentalink, Bilog e DoctoCliq
+   (os HTML existem em `C:\Users\User\Documents\SuperClini\`, fora do site). Exige
+   preço vindo do SSoT `pricing.ts` e decisão sobre exposição jurídica.
+
+**Pendente operacional**: retenção do log é de 4,5 dias (`json-file`, 10m × 3). A
+primeira leitura útil pós-mudança só sai ~7 dias depois de resolver o item 1.
+
+---
 
 ## 2026-07-11 — Nova coleção `la-ficha-del-paciente` (5 artigos + 5 mockups)
 
