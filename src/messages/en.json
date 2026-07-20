@@ -157,7 +157,7 @@
   "trustStrip": {
     "title": "Built to be trusted on day one",
     "items": {
-      "compliance": "HIPAA-ready · GDPR · LGPD",
+      "compliance": "LGPD · Ley 20.584 · GDPR",
       "countries": "{countries} countries · {currencies} currencies",
       "uptime": "Cloud infra 24/7"
     }
@@ -412,7 +412,7 @@
       },
       "prontuario": {
         "title": "Digital EHR",
-        "desc": "FDI tooth chart, periodontal chart, immutable progress notes (HIPAA-ready / LGPD / Ley 20.584)."
+        "desc": "FDI tooth chart, periodontal chart, immutable progress notes (Ley 20.584 / CFO / LGPD)."
       },
       "dicom": {
         "title": "DICOM 3D viewer",
@@ -494,7 +494,7 @@
       },
       {
         "q": "Is my data safe?",
-        "a": "True multi-tenant with org isolation. Encryption in transit and at rest. We comply with HIPAA-ready practices, LGPD (Brazil) and GDPR (Europe)."
+        "a": "True multi-tenant with org isolation. Encryption in transit and at rest. We comply with Ley 20.584 (Chile), LGPD (Brazil) and GDPR (Europe)."
       },
       {
         "q": "What if I need support?",
@@ -1049,7 +1049,7 @@
   "clinicoPage": {
     "meta": {
       "title": "Clinical Module — Tooth chart, immutable EHR, DICOM 3D and exams",
-      "description": "Everything your practice needs: interactive FDI tooth chart, immutable EHR (HIPAA-ready/LGPD), in-browser DICOM 3D viewer with 6 dental presets, 2D exams and aligners. All connected."
+      "description": "Everything your practice needs: interactive FDI tooth chart, immutable EHR (Ley 20.584/LGPD), in-browser DICOM 3D viewer with 6 dental presets, 2D exams and aligners. All connected."
     },
     "hero": {
       "badge": "Complete Clinical Module",
@@ -1074,7 +1074,7 @@
         },
         "2": {
           "title": "Treat with tooth chart + EHR",
-          "desc": "32 teeth in FDI standard. Status per surface. Immutable clinical notes (HIPAA-ready/LGPD)."
+          "desc": "32 teeth in FDI standard. Status per surface. Immutable clinical notes (Ley 20.584/LGPD)."
         },
         "3": {
           "title": "Attach exams",
@@ -1089,7 +1089,7 @@
     "odonto": {
       "eyebrow": "Tooth chart + EHR",
       "title": "International FDI standard. Legally immutable EHR.",
-      "description": "32 teeth in FDI system (11-48), interactive — click to change status. Clinical notes immutable per HIPAA-ready, LGPD and Ley 20.584 (Chile) — only super-admin can invalidate with logged reason.",
+      "description": "32 teeth in FDI system (11-48), interactive — click to change status. Clinical notes immutable per LGPD and Ley 20.584 (Chile) — only super-admin can invalidate with logged reason.",
       "bullets": [
         "International FDI system (11-48), worldwide clinical standard",
         "Status per tooth surface (V/P/L/D/O), zoom on mobile",
@@ -1198,7 +1198,7 @@
           "after": "Built-in native browser viewer. Cornerstone3D + 6 dental presets."
         },
         "legal": {
-          "topic": "Legal compliance (HIPAA-ready/LGPD)",
+          "topic": "Legal compliance (Ley 20.584/LGPD)",
           "before": "Manual: you note what you can/should somewhere.",
           "after": "Automatic immutability + audit trail by default."
         },
@@ -1232,7 +1232,7 @@
         },
         {
           "q": "How does clinical notes work legally?",
-          "a": "Immutable by default. Once saved, can't be edited — only a new note with reference to the previous one is allowed. Only super-admin can mark a note as invalid (with logged reason and timestamp). Per HIPAA-ready, LGPD and Ley 20.584 (CL)."
+          "a": "Immutable by default. Once saved, can't be edited — only a new note with reference to the previous one is allowed. Only super-admin can mark a note as invalid (with logged reason and timestamp). Per LGPD and Ley 20.584 (CL)."
         },
         {
           "q": "Does it work offline?",
@@ -1296,7 +1296,7 @@
         },
         "4": {
           "title": "Signs consent",
-          "desc": "HIPAA-ready/LGPD compliant. Digital signature saved as base64 in the case, with legal audit trail."
+          "desc": "Ley 20.584/LGPD compliant. Digital signature saved as base64 in the case, with legal audit trail."
         }
       }
     },
@@ -1323,13 +1323,13 @@
     "consent": {
       "eyebrow": "Digital Consent",
       "title": "Digital signature with full legal audit trail.",
-      "description": "Consent forms (anesthesia, procedure, photography, LGPD) signed by the patient's finger on the tablet. Saved as base64 linked to the case, with timestamp and IP — compliant with HIPAA-ready, LGPD and Ley 20.584 (Chile).",
+      "description": "Consent forms (anesthesia, procedure, photography, LGPD) signed by the patient's finger on the tablet. Saved as base64 linked to the case, with timestamp and IP — compliant with LGPD and Ley 20.584 (Chile).",
       "bullets": [
         "Pre-configured forms (anesthesia, procedure, photography, LGPD/GDPR)",
         "Touch canvas signature (finger or stylus)",
         "Saved as immutable base64 in patient case",
         "Timestamp + IP + UserAgent for legal audit",
-        "Compliant with HIPAA-ready, LGPD, GDPR, Ley 20.584",
+        "Compliant with Ley 20.584 (CL), CFO (BR), LGPD, GDPR",
         "PDF auto-generated for download/print"
       ],
       "mockupLabels": {
@@ -1428,7 +1428,7 @@
         },
         {
           "q": "Is the digital consent legally valid?",
-          "a": "Yes. Digital signature + timestamp + IP + UserAgent + immutable base64 in the case is valid evidence per HIPAA-ready, LGPD and Ley 20.584 (CL). Auto-generated PDF for download/print if you prefer a physical backup."
+          "a": "Yes. Digital signature + timestamp + IP + UserAgent + immutable base64 in the case is valid evidence per LGPD and Ley 20.584 (CL). Auto-generated PDF for download/print if you prefer a physical backup."
         }
       ]
     },
