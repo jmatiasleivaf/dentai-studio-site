@@ -76,9 +76,23 @@ const BOT_GENERICO = /bot|crawler|spider|slurp|preview|monitor|lighthouse|headle
 
 const ASSET = /\.(js|css|png|jpe?g|webp|avif|svg|ico|woff2?|ttf|mp4|webm|map|json|xml|txt)$/i;
 
-/** Linha do nginx no formato `combined`. */
+/**
+ * Dois formatos convivem, porque o log muda de formato no meio da série e
+ * jogar fora o histórico anterior seria perder a linha de base:
+ *
+ *  - `combined`: o padrão do nginx. O primeiro campo é o IP, e sob Cloudflare
+ *    esse IP é o da BORDA, não o do visitante. Não tem o host, então site, app
+ *    e CRM ficam misturados.
+ *  - `canal`: o formato novo. Primeiro campo é o `$host` (separa os três) e o
+ *    segundo é o IP do visitante já truncado em /24.
+ *
+ * A distinção entre os dois é posicional: `combined` tem `- -` (ident e user
+ * do protocolo, sempre vazios) antes do colchete da data; `canal` não tem.
+ */
 const COMBINED =
   /^(\S+) \S+ \S+ \[([^\]]+)\] "(\w+) (\S+) [^"]*" (\d{3}) (\d+|-) "([^"]*)" "([^"]*)"/;
+const CANAL =
+  /^(\S+) (\S+) \[([^\]]+)\] "(\w+) (\S+) [^"]*" (\d{3}) (\d+|-) "([^"]*)" "([^"]*)"/;
 
 function parseLinha(raw) {
   // O log chega ou cru, ou embrulhado no JSON do docker (`{"log":"..."}`).
@@ -90,10 +104,25 @@ function parseLinha(raw) {
       return null;
     }
   }
-  const m = COMBINED.exec(linha);
-  if (!m) return null;
-  const [, ip, ts, metodo, alvo, status, , referrer, ua] = m;
+
+  const mc = COMBINED.exec(linha);
+  if (mc) {
+    const [, ip, ts, metodo, alvo, status, , referrer, ua] = mc;
+    return montar({ host: null, ip, ts, metodo, alvo, status, referrer, ua });
+  }
+
+  const mn = CANAL.exec(linha);
+  if (mn) {
+    const [, host, ip, ts, metodo, alvo, status, , referrer, ua] = mn;
+    return montar({ host, ip, ts, metodo, alvo, status, referrer, ua });
+  }
+
+  return null;
+}
+
+function montar({ host, ip, ts, metodo, alvo, status, referrer, ua }) {
   return {
+    host,
     ip,
     ts,
     metodo,
@@ -107,8 +136,16 @@ function parseLinha(raw) {
 
 /** Só o site institucional. O app e o CRM entopem o mesmo log e não são o canal. */
 const ROTA_SITE = /^\/(es|pt|en)(\/|$)/;
+const HOST_SITE = /^(www\.)?superclini\.com$/i;
 
-function ehPaginaDoSite(caminho) {
+/**
+ * Com o formato `canal` dá para filtrar pelo host, que é exato. Com o
+ * `combined` antigo o host não existe na linha, e sobra só o prefixo de
+ * idioma como aproximação. Por isso a função aceita host nulo: é a série
+ * histórica, e descartá-la custaria a linha de base.
+ */
+function ehPaginaDoSite(caminho, host) {
+  if (host && !HOST_SITE.test(host)) return false;
   if (!ROTA_SITE.test(caminho)) return false;
   if (ASSET.test(caminho)) return false;
   if (caminho.startsWith("/_next")) return false;
@@ -188,7 +225,7 @@ async function main() {
       const chave = `${bot.nome} (${bot.tipo})`;
       botHits.set(chave, (botHits.get(chave) ?? 0) + 1);
       botPorTipo.set(bot.tipo, (botPorTipo.get(bot.tipo) ?? 0) + 1);
-      if (ehPaginaDoSite(e.caminho)) {
+      if (ehPaginaDoSite(e.caminho, e.host)) {
         botPaginas.set(`${bot.nome} ${e.caminho}`, (botPaginas.get(`${bot.nome} ${e.caminho}`) ?? 0) + 1);
       }
       continue;
@@ -202,7 +239,7 @@ async function main() {
 
     // ── Trilha 2: gente no site ──
     if (BOT_GENERICO.test(e.ua)) continue;
-    if (!ehPaginaDoSite(e.caminho)) continue;
+    if (!ehPaginaDoSite(e.caminho, e.host)) continue;
     if (e.status !== 200) continue;
 
     pageviews++;
