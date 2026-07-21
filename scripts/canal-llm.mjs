@@ -184,9 +184,14 @@ function tabela(titulo, mapa, limite = 15) {
   }
 }
 
-async function main() {
-  const arquivo = process.argv[2];
-
+/**
+ * Agrega um iterador de linhas de log num objeto de números.
+ *
+ * Extraído de `main` para que o snapshot (canal-snapshot.mjs) reuse EXATAMENTE
+ * a mesma lógica em vez de duplicá-la. `main` imprime a partir deste objeto;
+ * o snapshot serializa uma fatia dele em JSONL. Uma fonte, dois consumidores.
+ */
+export async function agregar(iteradorLinhas) {
   let totalLinhas = 0;
   let naoParseadas = 0;
   let primeiroTs = null;
@@ -209,7 +214,7 @@ async function main() {
   // Sessões (piso, ver aviso do topo)
   const sessoes = new Map();
 
-  for await (const raw of linhas(arquivo)) {
+  for await (const raw of iteradorLinhas) {
     totalLinhas++;
     const e = parseLinha(raw);
     if (!e) {
@@ -290,6 +295,43 @@ async function main() {
   const totalIndex = botPorTipo.get("index") ?? 0;
   const totalTraining = botPorTipo.get("training") ?? 0;
 
+  return {
+    totalLinhas,
+    naoParseadas,
+    primeiroTs,
+    ultimoTs,
+    botHits,
+    botPaginas,
+    botPorTipo,
+    baselineBuscador,
+    pageviews,
+    paginas,
+    referrersExternos,
+    comReferrerLlm,
+    comReferrerBuscador,
+    semReferrer,
+    sessoes,
+    diretoFundo,
+    diretoHome,
+    paginasFundo,
+    totalRetrieval,
+    totalIndex,
+    totalTraining,
+  };
+}
+
+async function main() {
+  const arquivo = process.argv[2];
+  const r = await agregar(linhas(arquivo));
+  const {
+    totalLinhas, naoParseadas, primeiroTs, ultimoTs,
+    botHits, botPaginas, baselineBuscador,
+    pageviews, paginas, referrersExternos,
+    comReferrerLlm, comReferrerBuscador, semReferrer, sessoes,
+    diretoFundo, diretoHome, paginasFundo,
+    totalRetrieval, totalIndex, totalTraining,
+  } = r;
+
   console.log("=".repeat(64));
   console.log("CANAL LLM — RELATÓRIO DE MEDIÇÃO");
   console.log("=".repeat(64));
@@ -353,7 +395,13 @@ async function main() {
   console.log("");
 }
 
-main().catch((err) => {
-  console.error("Falhou:", err.message);
-  process.exit(1);
-});
+// Só roda o relatório quando o script é executado direto (`node canal-llm.mjs`).
+// Quando importado (canal-snapshot.mjs reusa `agregar`), NÃO auto-executa.
+// Basename em vez de path absoluto: robusto em Windows e Linux.
+import { basename } from "node:path";
+if (process.argv[1] && basename(process.argv[1]) === "canal-llm.mjs") {
+  main().catch((err) => {
+    console.error("Falhou:", err.message);
+    process.exit(1);
+  });
+}

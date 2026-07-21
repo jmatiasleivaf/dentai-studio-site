@@ -26,6 +26,10 @@ services:
       # o agregado em GET /api/help-feedback?token=... Gere um segredo:
       #   openssl rand -hex 24
       - HELP_FEEDBACK_TOKEN=CHANGE_ME
+      # Série do canal de recomendação por LLM. O cron alimenta ./data/canal.jsonl
+      # (scripts/canal-snapshot.mjs, 1 linha/dia). Token para ler a série em
+      # GET /api/canal-stats?token=... Sem o token, a rota responde 404.
+      - CANAL_STATS_TOKEN=CHANGE_ME
     volumes:
       # Persiste os votos anônimos (sem PII) em ./data/help-feedback.jsonl.
       # ⚠️ O container roda como uid 1001 (nextjs) — dar posse ao dir no host:
