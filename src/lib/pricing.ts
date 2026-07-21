@@ -10,7 +10,7 @@ export type PlanId = "esencial" | "profesional" | "avanzado" | "corporativo";
 
 /**
  * Preços mensais em moeda local, com terminação .990 / .90 (varejo).
- * Corporativo é "cotización" em todos os países — valor 0 sinaliza "consultar"
+ * Corporativo é "cotización" em todos os países, valor 0 sinaliza "consultar"
  * (UI mostra apenas badge "Cotización", sem floor público).
  * Argentina: agora cobrado em ARS com revisão trimestral por volatilidade.
  */
@@ -26,7 +26,7 @@ export const PRICING: Record<CountryCode, Record<PlanId, number>> = {
   PT: { esencial: 29,      profesional: 89,      avanzado: 199,     corporativo: 0 },
 };
 
-/** Desconto anual: pagar 10 meses, receber 2 — -16.67% efetivo, arredondamos a -20%. */
+/** Desconto anual: pagar 10 meses, receber 2, -16.67% efetivo, arredondamos a -20%. */
 export const ANNUAL_DISCOUNT = 0.2;
 
 /** Trial em dias para o tier Profesional (ver §8 do doc estratégico). */

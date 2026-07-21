@@ -11,7 +11,7 @@ type Item = { q: string; a: string };
 /**
  * FAQ acordeão configurável por namespace i18n. Reusa entre home e landings.
  * Para Schema.org FAQPage, usar <LandingFAQSchema namespace={...} /> em paralelo
- * (server component) — JS não roda em crawlers.
+ * (server component), JS não roda em crawlers.
  */
 export function LandingFAQ({ namespace }: { namespace: string }) {
   const t = useTranslations(namespace);

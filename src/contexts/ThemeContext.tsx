@@ -27,7 +27,7 @@ function applyToDocument(resolved: "light" | "dark") {
 /**
  * Provider SSR-safe: inicia com "system" fixo e só lê localStorage dentro do
  * useEffect. Isso garante que server e client renderizam o mesmo HTML na
- * primeira passada — o <ThemeBootstrap> no <head> aplica a classe `dark`
+ * primeira passada, o <ThemeBootstrap> no <head> aplica a classe `dark`
  * antes do React hidratar para evitar FOUC.
  */
 export function ThemeProvider({ children }: { children: React.ReactNode }) {

@@ -4,9 +4,9 @@ import { dirname } from "node:path";
 
 /**
  * Métrica de qualidade do Centro de Ayuda: registra o voto "¿fue útil?".
- * 100% anônimo (sem PII, sem cookies) — LGPD-safe.
+ * 100% anônimo (sem PII, sem cookies), LGPD-safe.
  *
- * Durabilidade: SEMPRE loga em stdout (`[help-feedback] {...}` — visível em
+ * Durabilidade: SEMPRE loga em stdout (`[help-feedback] {...}`, visível em
  * `docker logs dentai-site`, sobrevive a restart). Também tenta gravar num
  * arquivo JSONL; se `/data` for um volume Docker, persiste entre deploys.
  * Leitura agregada: GET com ?token= (env HELP_FEEDBACK_TOKEN).
@@ -34,9 +34,9 @@ export async function POST(req: Request) {
   }
 
   const entry = { ts: new Date().toISOString(), slug, category, locale, helpful };
-  // stdout — durável via logs do container
+  // stdout, durável via logs do container
   console.log("[help-feedback]", JSON.stringify(entry));
-  // arquivo — durável se /data for volume; best-effort
+  // arquivo, durável se /data for volume; best-effort
   try {
     await mkdir(dirname(FILE), { recursive: true });
     await appendFile(FILE, JSON.stringify(entry) + "\n", "utf8");

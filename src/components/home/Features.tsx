@@ -60,7 +60,7 @@ export function Features() {
         />
 
         <div className="mt-14 grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-5">
-          {/* Spotlight — Sofía / WhatsApp · 2×2 em desktop, full-width em mobile */}
+          {/* Spotlight, Sofía / WhatsApp · 2×2 em desktop, full-width em mobile */}
           <article className="group relative col-span-2 row-span-1 overflow-hidden rounded-3xl border border-brand-200/80 bg-gradient-to-br from-brand-50 via-white to-white p-6 transition-all hover:border-brand-300 hover:shadow-card-hover dark:border-brand-500/30 dark:from-brand-500/10 dark:via-ink-900 dark:to-ink-900 dark:hover:border-brand-400/50 sm:p-8 md:row-span-2">
             <div
               aria-hidden

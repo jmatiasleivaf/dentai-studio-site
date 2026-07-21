@@ -2,7 +2,7 @@
  * Single Source of Truth para fatos quantitativos do produto SuperClini.
  *
  * Toda string de UI que mencione um número (testes, módulos, países, cotas)
- * deve consumir daqui via placeholder i18n — NUNCA hardcoded em messages/*.json.
+ * deve consumir daqui via placeholder i18n, NUNCA hardcoded em messages/*.json.
  *
  * Atualização: manual por enquanto. Roadmap: `npm run sync-facts` puxa do
  * monorepo do app SaaS quando endpoint público existir. Toda mudança aqui
@@ -15,7 +15,7 @@ export const SUPERCLINI_FACTS = {
   // ─── Produto / Engenharia ─────────────────────────────────────────
   /** Tests passing no app SaaS. Source: memory project_superclini_pricing.md (Fase E, 2026-04-30, commit c1c083e). */
   testsCount: 1925,
-  /** Features booleanas do pricing system (BillingPlan.features). Auditoria pendente: i18n diz "módulos operacionais" — pode ser narrativa diferente. */
+  /** Features booleanas do pricing system (BillingPlan.features). Auditoria pendente: i18n diz "módulos operacionais", pode ser narrativa diferente. */
   modulesCount: 22,
   /** Países atendidos. Derivado de lib/countries.ts para nunca dessincronizar. */
   countriesCount: COUNTRY_LIST.length,

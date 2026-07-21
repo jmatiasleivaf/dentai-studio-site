@@ -18,7 +18,7 @@ import { COUNTRIES, type CountryCode } from "@/lib/countries";
  *
  * Vive no site e não no app de propósito: é aqui que o envelope de atribuição
  * do primeiro toque está em memória. Se o formulário estivesse em
- * app.superclini.com, outro domínio, a conta nasceria sem origem — e a
+ * app.superclini.com, outro domínio, a conta nasceria sem origem, e a
  * pergunta "que campanha trouxe esta clínica" voltaria a não ter resposta.
  * O POST é cross-origin, com a mesma whitelist de CORS já usada pelo
  * formulário de contato.
@@ -104,7 +104,7 @@ export function SignupForm() {
   };
 
   // Sucesso: o próximo passo é o EMAIL, não o login. Quem acabou de se
-  // cadastrar ainda não tem senha — mandar para /login aqui seria um beco.
+  // cadastrar ainda não tem senha, mandar para /login aqui seria um beco.
   if (status === "success") {
     return (
       <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-8 text-center dark:border-emerald-800 dark:bg-emerald-950/40">

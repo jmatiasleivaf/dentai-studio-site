@@ -2,7 +2,7 @@ import * as React from "react";
 import type { Accent, IllustrationKey } from "@/lib/help/types";
 
 /**
- * Ilustrações procedurais do Centro de Ayuda — mesmo estilo do resto do site
+ * Ilustrações procedurais do Centro de Ayuda, mesmo estilo do resto do site
  * (linha + gradiente brand, zero imagens de banco). Os gradientes vivem uma
  * única vez em <HelpGradientDefs/> (renderizado por página) para evitar ids
  * duplicados quando a mesma ilustração aparece em vários lugares.
@@ -241,7 +241,7 @@ export function BodyIllustration({ illustration }: { illustration: IllustrationK
         <path d="M172 146h336" stroke="#f1f5f9" strokeWidth="2" />
         <rect x="164" y="158" width="352" height="24" rx="8" fill="rgba(16,185,129,.12)" />
         <text x="180" y="174" fontFamily="sans-serif" fontSize="12.5" fontWeight="700" fill="#047857">Diferencia</text>
-        <text x="500" y="174" fontFamily="sans-serif" fontSize="12.5" fontWeight="700" fill="#047857" textAnchor="end">$ 0 — cuadrado</text>
+        <text x="500" y="174" fontFamily="sans-serif" fontSize="12.5" fontWeight="700" fill="#047857" textAnchor="end">$ 0, cuadrado</text>
       </svg>
     );
   }

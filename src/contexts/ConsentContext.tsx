@@ -25,7 +25,7 @@ type Ctx = {
   openBanner: () => void;
   closeBanner: () => void;
   decide: (marketing: boolean) => void;
-  /** Envelope em memória — sempre disponível, com ou sem consentimento. */
+  /** Envelope em memória, sempre disponível, com ou sem consentimento. */
   attribution: Attribution;
 };
 
@@ -42,7 +42,7 @@ export function ConsentProvider({ children }: { children: React.ReactNode }) {
     const stored = readConsent();
     setConsent(stored);
 
-    // CAMADA 0 — captura da URL para a memória. Não é armazenamento em
+    // CAMADA 0, captura da URL para a memória. Não é armazenamento em
     // equipamento terminal, logo não depende de consentimento.
     const url = new URLSearchParams(window.location.search);
     const fresh = fromSearchParams(url, {
@@ -50,7 +50,7 @@ export function ConsentProvider({ children }: { children: React.ReactNode }) {
       referrer: document.referrer || undefined,
     });
 
-    // CAMADA 2 — o cookie só é lido se houver consentimento vigente. Sem ele,
+    // CAMADA 2, o cookie só é lido se houver consentimento vigente. Sem ele,
     // um cookie remanescente de antes da revogação é ignorado e apagado.
     const persisted = stored?.marketing ? readAttributionCookie() : {};
     if (!stored?.marketing) eraseAttributionCookie();

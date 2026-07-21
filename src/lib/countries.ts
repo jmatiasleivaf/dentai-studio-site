@@ -37,7 +37,7 @@ export const COUNTRIES: Record<CountryCode, CountryConfig> = {
   CL: {
     code: "CL",
     name: { es: "Chile", pt: "Chile", en: "Chile" },
-    flag: "🇨🇱",
+    flag: "CL", // bandeira renderizada por <Flag/>; emoji nao funciona no Chromium Windows
     locale: "es",
     intlLocale: "es-CL",
     currency: "CLP",
@@ -48,7 +48,7 @@ export const COUNTRIES: Record<CountryCode, CountryConfig> = {
   BR: {
     code: "BR",
     name: { es: "Brasil", pt: "Brasil", en: "Brazil" },
-    flag: "🇧🇷",
+    flag: "BR", // bandeira renderizada por <Flag/>; emoji nao funciona no Chromium Windows
     locale: "pt",
     intlLocale: "pt-BR",
     currency: "BRL",
@@ -59,7 +59,7 @@ export const COUNTRIES: Record<CountryCode, CountryConfig> = {
   CO: {
     code: "CO",
     name: { es: "Colombia", pt: "Colômbia", en: "Colombia" },
-    flag: "🇨🇴",
+    flag: "CO", // bandeira renderizada por <Flag/>; emoji nao funciona no Chromium Windows
     locale: "es",
     intlLocale: "es-CO",
     currency: "COP",
@@ -70,7 +70,7 @@ export const COUNTRIES: Record<CountryCode, CountryConfig> = {
   AR: {
     code: "AR",
     name: { es: "Argentina", pt: "Argentina", en: "Argentina" },
-    flag: "🇦🇷",
+    flag: "AR", // bandeira renderizada por <Flag/>; emoji nao funciona no Chromium Windows
     locale: "es",
     intlLocale: "es-AR",
     currency: "ARS",
@@ -81,7 +81,7 @@ export const COUNTRIES: Record<CountryCode, CountryConfig> = {
   MX: {
     code: "MX",
     name: { es: "México", pt: "México", en: "Mexico" },
-    flag: "🇲🇽",
+    flag: "MX", // bandeira renderizada por <Flag/>; emoji nao funciona no Chromium Windows
     locale: "es",
     intlLocale: "es-MX",
     currency: "MXN",
@@ -92,7 +92,7 @@ export const COUNTRIES: Record<CountryCode, CountryConfig> = {
   PE: {
     code: "PE",
     name: { es: "Perú", pt: "Peru", en: "Peru" },
-    flag: "🇵🇪",
+    flag: "PE", // bandeira renderizada por <Flag/>; emoji nao funciona no Chromium Windows
     locale: "es",
     intlLocale: "es-PE",
     currency: "PEN",
@@ -103,7 +103,7 @@ export const COUNTRIES: Record<CountryCode, CountryConfig> = {
   US: {
     code: "US",
     name: { es: "Estados Unidos", pt: "Estados Unidos", en: "United States" },
-    flag: "🇺🇸",
+    flag: "US", // bandeira renderizada por <Flag/>; emoji nao funciona no Chromium Windows
     locale: "en",
     intlLocale: "en-US",
     currency: "USD",
@@ -114,7 +114,7 @@ export const COUNTRIES: Record<CountryCode, CountryConfig> = {
   ES: {
     code: "ES",
     name: { es: "España", pt: "Espanha", en: "Spain" },
-    flag: "🇪🇸",
+    flag: "ES", // bandeira renderizada por <Flag/>; emoji nao funciona no Chromium Windows
     locale: "es",
     intlLocale: "es-ES",
     currency: "EUR",
@@ -125,7 +125,7 @@ export const COUNTRIES: Record<CountryCode, CountryConfig> = {
   PT: {
     code: "PT",
     name: { es: "Portugal", pt: "Portugal", en: "Portugal" },
-    flag: "🇵🇹",
+    flag: "PT", // bandeira renderizada por <Flag/>; emoji nao funciona no Chromium Windows
     locale: "pt",
     intlLocale: "pt-PT",
     currency: "EUR",

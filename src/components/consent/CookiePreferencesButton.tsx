@@ -5,7 +5,7 @@ import { useConsent } from "@/contexts/ConsentContext";
 
 /**
  * Link permanente no rodapé. Revogar tem que ser tão fácil quanto consentir
- * (RGPD art. 7(3)) — sem ele, o consentimento dado pelo banner é frágil.
+ * (RGPD art. 7(3)), sem ele, o consentimento dado pelo banner é frágil.
  */
 export function CookiePreferencesButton({ className }: { className?: string }) {
   const t = useTranslations("consent");

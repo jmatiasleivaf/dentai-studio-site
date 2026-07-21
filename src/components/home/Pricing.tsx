@@ -1,12 +1,13 @@
 "use client";
 
 import * as React from "react";
-import { Check, ChevronDown, ArrowRight, MessageSquare } from "lucide-react";
+import { Check, ChevronDown, ArrowRight, MessageSquare, Star } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Section, SectionHeader } from "@/components/ui/section";
+import { Flag } from "@/components/ui/flag";
 import { ContactDialog } from "@/components/home/ContactDialog";
 import { useCountry } from "@/contexts/CountryContext";
 import { COUNTRIES, COUNTRY_LIST, formatCurrency, type CountryCode } from "@/lib/countries";
@@ -55,7 +56,7 @@ export function Pricing() {
                 aria-expanded={pickerOpen}
                 className="inline-flex min-h-touch items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-2 font-semibold text-white hover:border-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
               >
-                <span aria-hidden>{country.flag}</span>
+                <Flag code={country.code} />
                 <span>{country.name[locale]}</span>
                 <span className="text-ink-400">({country.currency})</span>
                 <ChevronDown className="h-4 w-4" aria-hidden />
@@ -119,7 +120,7 @@ export function Pricing() {
           ))}
         </div>
 
-        {/* Disclaimer ARS — revisão trimestral por volatilidade cambial */}
+        {/* Disclaimer ARS, revisão trimestral por volatilidade cambial */}
         {country.code === "AR" ? (
           <p className="mt-6 text-center text-xs text-ink-400">{t("arsDisclaimer")}</p>
         ) : null}
@@ -204,7 +205,7 @@ function PlanCard({
       {isPopular ? (
         <div className="absolute -top-3 left-1/2 -translate-x-1/2">
           <Badge tone="onBrand" className="bg-brand-gradient text-white">
-            ★ {t("popular")}
+            <Star className="h-3 w-3 fill-current" aria-hidden /> {t("popular")}
           </Badge>
         </div>
       ) : null}
@@ -341,7 +342,7 @@ function CountryPicker({
               className="flex w-full items-center justify-between gap-3 px-4 py-3 text-sm font-medium text-ink-200 hover:bg-white/5 min-h-touch"
             >
               <span className="flex items-center gap-2.5">
-                <span aria-hidden>{c.flag}</span>
+                <Flag code={c.code} />
                 <span>{COUNTRIES[c.code].name[locale]}</span>
               </span>
               <span className="text-xs text-ink-500">{c.currency}</span>

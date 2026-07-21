@@ -7,8 +7,8 @@ const BASE = "https://superclini.com";
 /**
  * Rotas do site organizadas por prioridade SEO.
  * - "" = home (priority 1.0)
- * - landings de feature (priority 0.9) — ranqueiam para keywords de produto
- * - utility/legal (priority 0.5) — necessárias mas baixo CTR
+ * - landings de feature (priority 0.9), ranqueiam para keywords de produto
+ * - utility/legal (priority 0.5), necessárias mas baixo CTR
  *
  * Ao criar nova landing, adicionar aqui + verificar messages/*.json.
  */

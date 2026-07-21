@@ -278,7 +278,7 @@ function AgendaPreview({ locale }: { locale: string }) {
     <div className="rounded-3xl border border-ink-100 bg-white p-5 shadow-card-hover dark:border-ink-800 dark:bg-ink-900 sm:p-6">
       <div className="mb-3 flex items-center justify-between">
         <span className="text-xs font-extrabold uppercase tracking-wider text-ink-500 dark:text-ink-400">
-          {locale === "pt" ? "Agenda — semana" : locale === "en" ? "Schedule — this week" : "Agenda — esta semana"}
+          {locale === "pt" ? "Agenda, semana" : locale === "en" ? "Schedule, this week" : "Agenda, esta semana"}
         </span>
         <Calendar className="h-4 w-4 text-brand-500" aria-hidden />
       </div>

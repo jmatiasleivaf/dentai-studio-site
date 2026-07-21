@@ -5,7 +5,7 @@ import { motion, useReducedMotion } from "framer-motion";
 
 /**
  * ShinyText: efeito de gradiente que varre o texto continuamente.
- * Inspirado no padrão MotionSites — adaptado para o brand do SuperClini
+ * Inspirado no padrão MotionSites, adaptado para o brand do SuperClini
  * (gradient brand-400 → white → brand-400 ao invés do azul genérico).
  *
  * Respeita `prefers-reduced-motion`: estático no idioma do usuário sem motion.

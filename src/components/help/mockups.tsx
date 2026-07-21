@@ -3,7 +3,7 @@ import type { Locale } from "@/i18n/routing";
 import type { MockupKey } from "@/lib/help/types";
 
 /**
- * Mockups do Centro de Ayuda — reconstrução HTML/CSS FIEL de telas reais do
+ * Mockups do Centro de Ayuda, reconstrução HTML/CSS FIEL de telas reais do
  * app DentAI/SuperClini, com dados fictícios e não-reveladores (LGPD-safe),
  * theme-aware (light + dark) e responsiva. NÃO são screenshots: rebuild limpo,
  * zero PII, zero imagem externa, zero dependência nova. Cada tela é validada
@@ -75,7 +75,7 @@ function AgendaMock({ locale }: { locale: Locale }) {
       h: 74,
       name: "María González",
       proc: { es: "Limpieza dental", pt: "Limpeza dental", en: "Dental cleaning" },
-      time: "08:00 – 09:00",
+      time: "08:00-09:00",
       status: "confirmado",
     },
     {
@@ -83,7 +83,7 @@ function AgendaMock({ locale }: { locale: Locale }) {
       h: 74,
       name: "Juan Pérez",
       proc: { es: "Control ortodoncia", pt: "Controle ortodontia", en: "Ortho check-up" },
-      time: "09:00 – 10:00",
+      time: "09:00-10:00",
       status: "agendado",
     },
     {
@@ -91,7 +91,7 @@ function AgendaMock({ locale }: { locale: Locale }) {
       h: 74,
       name: "Camila Rojas",
       proc: { es: "Endodoncia", pt: "Endodontia", en: "Root canal" },
-      time: "10:30 – 11:30",
+      time: "10:30-11:30",
       status: "realizado",
     },
     {
@@ -99,7 +99,7 @@ function AgendaMock({ locale }: { locale: Locale }) {
       h: 36,
       name: "Diego Muñoz",
       proc: { es: "Urgencia", pt: "Urgência", en: "Emergency" },
-      time: "12:00 – 12:30",
+      time: "12:00-12:30",
       status: "faltou",
     },
   ];
@@ -321,11 +321,11 @@ function SofiaChatMock({ locale }: { locale: Locale }) {
   );
 }
 
-/* ───────────────────── CAJA — detalle con movimientos ───────────────────── */
+/* ───────────────────── CAJA · detalle con movimientos ───────────────────── */
 
 function CajaDetalleMock({ locale }: { locale: Locale }) {
   const L = {
-    header: { es: "Caja — Valentina Soto", pt: "Caixa — Valentina Soto", en: "Register — Valentina Soto" },
+    header: { es: "Caja · Valentina Soto", pt: "Caixa · Valentina Soto", en: "Register · Valentina Soto" },
     opened: { es: "Apertura: 07/07/2026 10:16", pt: "Abertura: 07/07/2026 10:16", en: "Opened: 07/07/2026 10:16" },
     newMov: { es: "+ Nuevo movimiento", pt: "+ Novo movimento", en: "+ New movement" },
     close: { es: "Cerrar caja", pt: "Fechar caixa", en: "Close register" },
@@ -351,7 +351,7 @@ function CajaDetalleMock({ locale }: { locale: Locale }) {
   const movs: Array<{ kind: "in" | "out"; concept: Dict; time: string; method: Dict; who: string; amount: string }> = [
     {
       kind: "in",
-      concept: { es: "Control — Cuota 1", pt: "Controle — Parcela 1", en: "Check-up — Instalment 1" },
+      concept: { es: "Control · Cuota 1", pt: "Controle · Parcela 1", en: "Check-up · Instalment 1" },
       time: "11:26",
       method: method.transfer,
       who: "María González",
@@ -359,7 +359,7 @@ function CajaDetalleMock({ locale }: { locale: Locale }) {
     },
     {
       kind: "in",
-      concept: { es: "Prótesis — Cuota 1", pt: "Prótese — Parcela 1", en: "Prosthesis — Instalment 1" },
+      concept: { es: "Prótesis · Cuota 1", pt: "Prótese · Parcela 1", en: "Prosthesis · Instalment 1" },
       time: "11:41",
       method: method.debit,
       who: "Juan Pérez",
@@ -529,7 +529,7 @@ function PanelKpisMock({ locale }: { locale: Locale }) {
     ing: { es: "Ingresos del mes", pt: "Faturamento do mês", en: "Revenue this month" },
     ingSub: { es: "Pagos recibidos", pt: "Pagamentos recebidos", en: "Payments received" },
     today: { es: "Citas de hoy", pt: "Consultas de hoje", en: "Today's schedule" },
-    attend: { es: "Asistencia — 30 días", pt: "Comparecimento — 30 dias", en: "Attendance — 30 days" },
+    attend: { es: "Asistencia · 30 días", pt: "Comparecimento · 30 dias", en: "Attendance · 30 days" },
     rate: { es: "Tasa de asistencia", pt: "Taxa de comparecimento", en: "Attendance rate" },
     done: { es: "Realizadas", pt: "Realizadas", en: "Completed" },
     cancel: { es: "Canceladas", pt: "Canceladas", en: "Cancelled" },
@@ -699,7 +699,7 @@ function CobroSplitMock({ locale }: { locale: Locale }) {
   );
 }
 
-/* ───────────────────────────── SOFÍA — config ───────────────────────────── */
+/* ───────────────────────────── SOFÍA · config ───────────────────────────── */
 
 function SofiaConfigMock({ locale }: { locale: Locale }) {
   const L = {
@@ -885,7 +885,7 @@ function OdontogramaMock({ locale }: { locale: Locale }) {
   );
 }
 
-/* ───────────────────────── SOFÍA — conectar (QR) ────────────────────────── */
+/* ───────────────────────── SOFÍA · conectar (QR) ────────────────────────── */
 
 function QrGlyph() {
   // QR decorativo determinístico (não é um código real).
@@ -1055,7 +1055,7 @@ function PlanTratamientoMock({ locale }: { locale: Locale }) {
   );
 }
 
-/* ─────────────────────── FICHA — evolución clínica ──────────────────────── */
+/* ─────────────────────── FICHA · evolución clínica ──────────────────────── */
 
 function FichaEvolucionMock({ locale }: { locale: Locale }) {
   const L = {
@@ -1134,13 +1134,13 @@ function FichaEvolucionMock({ locale }: { locale: Locale }) {
   );
 }
 
-/* ───────────────────────── RADIOGRAFÍA — informe IA ─────────────────────── */
+/* ───────────────────────── RADIOGRAFÍA · informe IA ─────────────────────── */
 
 function RadiografiaIaMock({ locale }: { locale: Locale }) {
   const L = {
     findings: { es: "Hallazgos", pt: "Achados", en: "Findings" },
-    f1: { es: "Caries interproximal — pieza 36", pt: "Cárie interproximal — dente 36", en: "Interproximal caries — tooth 36" },
-    f2: { es: "Lesión periapical — pieza 24", pt: "Lesão periapical — dente 24", en: "Periapical lesion — tooth 24" },
+    f1: { es: "Caries interproximal · pieza 36", pt: "Cárie interproximal · dente 36", en: "Interproximal caries · tooth 36" },
+    f2: { es: "Lesión periapical · pieza 24", pt: "Lesão periapical · dente 24", en: "Periapical lesion · tooth 24" },
     f3: { es: "Pérdida ósea horizontal leve", pt: "Perda óssea horizontal leve", en: "Mild horizontal bone loss" },
     moderate: { es: "Moderada", pt: "Moderada", en: "Moderate" },
     severe: { es: "Severa", pt: "Severa", en: "Severe" },
@@ -1199,7 +1199,7 @@ function RadiografiaIaMock({ locale }: { locale: Locale }) {
   );
 }
 
-/* ─────────────────────── CASO IA — simulación sonrisa ───────────────────── */
+/* ─────────────────────── CASO IA · simulación sonrisa ───────────────────── */
 
 function Teeth({ shade, even }: { shade: string; even: boolean }) {
   return (
@@ -1357,7 +1357,7 @@ function LiquidacionMock({ locale }: { locale: Locale }) {
   );
 }
 
-/* ─────────────────────────── TOTEM — check-in ───────────────────────────── */
+/* ─────────────────────────── TOTEM · check-in ───────────────────────────── */
 
 function TotemMock({ locale }: { locale: Locale }) {
   const L = {
@@ -1417,7 +1417,7 @@ function CrmInboxMock({ locale }: { locale: Locale }) {
     { name: "Ana Pérez", ia: true, subj: { es: "Retorno de revisión pendiente", pt: "Retorno de revisão pendente", en: "Pending review follow-up" }, ch: "💬", st: t(L.stPend, locale), stc: "bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300", bar: "bg-rose-500", time: "hace 10min" },
     { name: "João Silva", ia: false, subj: { es: "Plan de tratamiento por aprobar", pt: "Plano de tratamento a aprovar", en: "Treatment plan to approve" }, ch: "✉️", st: t(L.stSched, locale), stc: "bg-sky-100 text-sky-700 dark:bg-sky-900/40 dark:text-sky-300", bar: "bg-ink-300 dark:bg-ink-600", time: "hace 3h" },
     { name: "María López", ia: true, subj: { es: "Renovación de membresía", pt: "Renovação de membership", en: "Membership renewal" }, ch: "📞", st: t(L.stSent, locale), stc: "bg-violet-100 text-violet-700 dark:bg-violet-900/40 dark:text-violet-300", bar: "bg-ink-200 dark:bg-ink-700", time: "hace 1d" },
-    { name: "Carlos Rojas", ia: false, subj: { es: "Cobranza — cuota vencida", pt: "Cobrança — parcela vencida", en: "Collection — overdue" }, ch: "📱", st: t(L.stAnsw, locale), stc: "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300", bar: "bg-ink-200 dark:bg-ink-700", time: "hace 2d" },
+    { name: "Carlos Rojas", ia: false, subj: { es: "Cobranza · cuota vencida", pt: "Cobrança · parcela vencida", en: "Collection · overdue" }, ch: "📱", st: t(L.stAnsw, locale), stc: "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300", bar: "bg-ink-200 dark:bg-ink-700", time: "hace 2d" },
   ];
 
   return (
@@ -1555,9 +1555,9 @@ function OrdenLabMock({ locale }: { locale: Locale }) {
     delivered: { label: t(L.delivered, locale), cls: "bg-ink-100 text-ink-500 border-ink-200 dark:bg-ink-800 dark:text-ink-400 dark:border-ink-700" },
   };
   const orders = [
-    { name: "María González", st: st.sent, lab: { es: "Lab Premium — Corona", pt: "Lab Premium — Coroa", en: "Lab Premium — Crown" }, desc: { es: "Corona de porcelana pieza 26", pt: "Coroa de porcelana dente 26", en: "Porcelain crown tooth 26" }, price: "$ 180.000", due: "12/07" },
-    { name: "Juan Pérez", st: st.prod, lab: { es: "ProtLab — Prótesis", pt: "ProtLab — Prótese", en: "ProtLab — Prosthesis" }, desc: { es: "Prótesis parcial removible", pt: "Prótese parcial removível", en: "Removable partial denture" }, price: "$ 320.000", due: "15/07" },
-    { name: "Ana Silva", st: st.ready, lab: { es: "Cerámica Andes — Carilla", pt: "Cerâmica Andes — Faceta", en: "Andes Ceramic — Veneer" }, desc: { es: "2 carillas anteriores, color A2", pt: "2 facetas anteriores, cor A2", en: "2 front veneers, shade A2" }, price: "$ 240.000", due: "06/07" },
+    { name: "María González", st: st.sent, lab: { es: "Lab Premium · Corona", pt: "Lab Premium · Coroa", en: "Lab Premium · Crown" }, desc: { es: "Corona de porcelana pieza 26", pt: "Coroa de porcelana dente 26", en: "Porcelain crown tooth 26" }, price: "$ 180.000", due: "12/07" },
+    { name: "Juan Pérez", st: st.prod, lab: { es: "ProtLab · Prótesis", pt: "ProtLab · Prótese", en: "ProtLab · Prosthesis" }, desc: { es: "Prótesis parcial removible", pt: "Prótese parcial removível", en: "Removable partial denture" }, price: "$ 320.000", due: "15/07" },
+    { name: "Ana Silva", st: st.ready, lab: { es: "Cerámica Andes · Carilla", pt: "Cerâmica Andes · Faceta", en: "Andes Ceramic · Veneer" }, desc: { es: "2 carillas anteriores, color A2", pt: "2 facetas anteriores, cor A2", en: "2 front veneers, shade A2" }, price: "$ 240.000", due: "06/07" },
   ];
 
   return (
@@ -1969,7 +1969,7 @@ function PacienteBuscarMock({ locale }: { locale: Locale }) {
   );
 }
 
-/* ─────────────────────── TOTEM — teclado por país ───────────────────────── */
+/* ─────────────────────── TOTEM · teclado por país ───────────────────────── */
 
 function TotemTecladoMock({ locale }: { locale: Locale }) {
   const L = {
@@ -2198,7 +2198,7 @@ function DicomMock({ locale }: { locale: Locale }) {
         <div className="flex items-center gap-2 border-b border-slate-700 px-3 py-2">
           <span className="text-slate-400">‹</span>
           <span className="rounded-full bg-sky-900 px-1.5 py-px text-[9px] font-bold text-sky-300">CT</span>
-          <span className="text-[12px] font-semibold text-white">Tomografía — Juan Pérez</span>
+          <span className="text-[12px] font-semibold text-white">Tomografía · Juan Pérez</span>
           <span className="ml-auto text-[9.5px] text-slate-500">🎞 {t(L.slices, locale)} · 24.3 MB</span>
         </div>
         {/* toolbar */}
@@ -2268,8 +2268,8 @@ function ProcedimientosMock({ locale }: { locale: Locale }) {
     { code: "DT001", name: { es: "Consulta inicial", pt: "Consulta inicial", en: "Initial visit" }, tag: t(L.catalog, locale), tagC: "bg-sky-50 text-sky-600 dark:bg-sky-900/40 dark:text-sky-300", cat: { es: "General", pt: "Geral", en: "General" }, dur: "30 min", price: "$ 120.000", on: true },
     { code: "DT014", name: { es: "Limpieza (profilaxis)", pt: "Limpeza (profilaxia)", en: "Cleaning" }, tag: t(L.catalog, locale), tagC: "bg-sky-50 text-sky-600 dark:bg-sky-900/40 dark:text-sky-300", cat: { es: "Prevención", pt: "Prevenção", en: "Prevention" }, dur: "40 min", price: "$ 180.000", on: true },
     { code: "DT032", name: { es: "Endodoncia", pt: "Endodontia", en: "Root canal" }, tag: t(L.catalog, locale), tagC: "bg-sky-50 text-sky-600 dark:bg-sky-900/40 dark:text-sky-300", cat: { es: "Endodoncia", pt: "Endodontia", en: "Endodontics" }, dur: "60 min", price: "$ 650.000", on: true },
-    { code: "—", name: { es: "Blanqueamiento LED", pt: "Clareamento LED", en: "LED whitening" }, tag: t(L.custom, locale), tagC: "bg-violet-50 text-violet-600 dark:bg-violet-900/40 dark:text-violet-300", cat: { es: "Estética", pt: "Estética", en: "Aesthetics" }, dur: "50 min", price: "$ 900.000", on: false },
-    { code: "📦", name: { es: "Plan Ortodoncia 12m", pt: "Plano Ortodontia 12m", en: "Ortho plan 12m" }, tag: t(L.pack, locale), tagC: "bg-violet-100 text-violet-700 dark:bg-violet-900/50 dark:text-violet-300", cat: { es: "Paquete", pt: "Pacote", en: "Package" }, dur: "—", price: "$ 4.800.000", on: true, pack: true },
+    { code: ", ", name: { es: "Blanqueamiento LED", pt: "Clareamento LED", en: "LED whitening" }, tag: t(L.custom, locale), tagC: "bg-violet-50 text-violet-600 dark:bg-violet-900/40 dark:text-violet-300", cat: { es: "Estética", pt: "Estética", en: "Aesthetics" }, dur: "50 min", price: "$ 900.000", on: false },
+    { code: "📦", name: { es: "Plan Ortodoncia 12m", pt: "Plano Ortodontia 12m", en: "Ortho plan 12m" }, tag: t(L.pack, locale), tagC: "bg-violet-100 text-violet-700 dark:bg-violet-900/50 dark:text-violet-300", cat: { es: "Paquete", pt: "Pacote", en: "Package" }, dur: ", ", price: "$ 4.800.000", on: true, pack: true },
   ];
 
   return (
@@ -2377,7 +2377,7 @@ function DocumentoClinicoMock({ locale }: { locale: Locale }) {
     print: { es: "Imprimir", pt: "Imprimir", en: "Print" },
   };
   const docs = [
-    { type: { es: "Receta", pt: "Receita", en: "Prescription" }, tc: "bg-sky-50 text-sky-700 dark:bg-sky-900/40 dark:text-sky-300", folio: "DOC-2026-0007", title: { es: "Amoxicilina 500 mg — 7 días", pt: "Amoxicilina 500 mg — 7 dias", en: "Amoxicillin 500 mg — 7 days" } },
+    { type: { es: "Receta", pt: "Receita", en: "Prescription" }, tc: "bg-sky-50 text-sky-700 dark:bg-sky-900/40 dark:text-sky-300", folio: "DOC-2026-0007", title: { es: "Amoxicilina 500 mg · 7 días", pt: "Amoxicilina 500 mg · 7 dias", en: "Amoxicillin 500 mg · 7 days" } },
     { type: { es: "Presupuesto", pt: "Orçamento", en: "Quote" }, tc: "bg-sky-50 text-sky-700 dark:bg-sky-900/40 dark:text-sky-300", folio: "DOC-2026-0006", title: { es: "Rehabilitación oral", pt: "Reabilitação oral", en: "Full-mouth rehab" } },
     { type: { es: "Certificado", pt: "Atestado", en: "Certificate" }, tc: "bg-emerald-50 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300", folio: "DOC-2026-0005", title: { es: "Reposo 24 horas", pt: "Repouso 24 horas", en: "24-hour rest" } },
   ];
@@ -2409,11 +2409,11 @@ function DocumentoClinicoMock({ locale }: { locale: Locale }) {
   );
 }
 
-/* ─────────────────────── PROTOCOLO — checklist ───────────────────────────── */
+/* ─────────────────────── PROTOCOLO · checklist ───────────────────────────── */
 
 function ProtocoloMock({ locale }: { locale: Locale }) {
   const L = {
-    name: { es: "Protocolo — Endodoncia", pt: "Protocolo — Endodontia", en: "Protocol — Root canal" },
+    name: { es: "Protocolo · Endodoncia", pt: "Protocolo · Endodontia", en: "Protocol · Root canal" },
     completed: { es: "ítems completados", pt: "itens completados", en: "items completed" },
     finalize: { es: "Finalizar protocolo", pt: "Finalizar protocolo", en: "Finish protocol" },
   };
@@ -2710,7 +2710,7 @@ function MiDesempenoMock({ locale }: { locale: Locale }) {
   );
 }
 
-/* ─────────────────────────── CRM — reportes ─────────────────────────────── */
+/* ─────────────────────────── CRM · reportes ─────────────────────────────── */
 
 function CrmReportesMock({ locale }: { locale: Locale }) {
   const L = {
@@ -2846,7 +2846,7 @@ function CadastroLabsMock({ locale }: { locale: Locale }) {
   );
 }
 
-/* ───────────────── FICHA DEL PACIENTE — recorrido (overview) ────────────── */
+/* ───────────────── FICHA DEL PACIENTE · recorrido (overview) ────────────── */
 
 /** Barra lateral + cabecera de la ficha. Refleja PacienteFichaSidebar + PacienteFichaHeader. */
 function FichaOverviewMock({ locale }: { locale: Locale }) {
@@ -2957,7 +2957,7 @@ function FichaOverviewMock({ locale }: { locale: Locale }) {
   );
 }
 
-/* ───────────────── FICHA — Datos del paciente (pestaña dados) ───────────── */
+/* ───────────────── FICHA · Datos del paciente (pestaña dados) ───────────── */
 
 function FichaDatosMock({ locale }: { locale: Locale }) {
   const L = {
@@ -3053,7 +3053,7 @@ function Field({ label, value }: { label: string; value: string }) {
   );
 }
 
-/* ─────────────────────────── FICHA — Anamnesis ─────────────────────────── */
+/* ─────────────────────────── FICHA · Anamnesis ─────────────────────────── */
 
 function AnamnesisMock({ locale }: { locale: Locale }) {
   const L = {
@@ -3099,7 +3099,7 @@ function AnamnesisMock({ locale }: { locale: Locale }) {
   );
 }
 
-/* ───────────────────────── FICHA — Resumen con IA ──────────────────────── */
+/* ───────────────────────── FICHA · Resumen con IA ──────────────────────── */
 
 function ResumenIaMock({ locale }: { locale: Locale }) {
   const L = {
@@ -3169,7 +3169,7 @@ function ResumenIaMock({ locale }: { locale: Locale }) {
   );
 }
 
-/* ─────────────────── FICHA — Exámenes y citas vinculados ───────────────── */
+/* ─────────────────── FICHA · Exámenes y citas vinculados ───────────────── */
 
 function ExamenesCitasMock({ locale }: { locale: Locale }) {
   const L = {

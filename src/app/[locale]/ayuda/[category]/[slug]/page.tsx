@@ -33,7 +33,7 @@ export async function generateMetadata({
   const loc = locale as Locale;
   const canonical = `https://superclini.com/${locale}/ayuda/${category}/${slug}`;
   return {
-    title: `${found.article.title[loc]} — SuperClini`,
+    title: `${found.article.title[loc]} · SuperClini`,
     description: found.article.excerpt[loc],
     alternates: {
       canonical,

@@ -1,7 +1,7 @@
 import type { Article } from "./types";
 
 /**
- * Conteúdo do Centro de Ayuda — ALTA FIDELIDADE, aterrado no estado real da
+ * Conteúdo do Centro de Ayuda, ALTA FIDELIDADE, aterrado no estado real da
  * plataforma (specs + ~2.434 testes + código, análise jul/2026). Cada artigo é
  * um objeto tipado; o corpo é um Block[] renderizado por ArticleBody.
  *
@@ -34,7 +34,7 @@ export const HELP_ARTICLES: readonly Article[] = [
         text: {
           es: "La migración desde Dentalink la realiza el equipo de SuperClini por ti: no es algo que configures sola. Nosotros procesamos tus datos exportados y creamos tu clínica ya lista para trabajar.",
           pt: "A migração do Dentalink é feita pela equipe da SuperClini para você: não é algo que você configura sozinha. Nós processamos seus dados exportados e criamos sua clínica já pronta para trabalhar.",
-          en: "The migration from Dentalink is done by the SuperClini team for you — it isn't something you set up yourself. We process your exported data and create your clinic ready to work.",
+          en: "The migration from Dentalink is done by the SuperClini team for you, it isn't something you set up yourself. We process your exported data and create your clinic ready to work.",
         },
       },
       {
@@ -186,9 +186,9 @@ export const HELP_ARTICLES: readonly Article[] = [
         type: "mockup",
         screen: "agenda-dia",
         caption: {
-          es: "Vista Día: cada cita muestra su color de estado — confirmada, agendada, realizada o falta.",
-          pt: "Vista Dia: cada consulta mostra a cor do seu estado — confirmada, agendada, realizada ou falta.",
-          en: "Day view: each appointment shows its status color — confirmed, booked, done or no-show.",
+          es: "Vista Día: cada cita muestra su color de estado, confirmada, agendada, realizada o falta.",
+          pt: "Vista Dia: cada consulta mostra a cor do seu estado, confirmada, agendada, realizada ou falta.",
+          en: "Day view: each appointment shows its status color, confirmed, booked, done or no-show.",
         },
       },
       {
@@ -305,9 +305,9 @@ export const HELP_ARTICLES: readonly Article[] = [
         type: "mockup",
         screen: "agenda-dia",
         caption: {
-          es: "El color de cada cita muestra su estado — confirmada, realizada, falta…",
-          pt: "A cor de cada consulta mostra seu estado — confirmada, realizada, falta…",
-          en: "Each appointment's color shows its status — confirmed, done, no-show…",
+          es: "El color de cada cita muestra su estado, confirmada, realizada, falta…",
+          pt: "A cor de cada consulta mostra seu estado, confirmada, realizada, falta…",
+          en: "Each appointment's color shows its status, confirmed, done, no-show…",
         },
       },
       {
@@ -948,9 +948,9 @@ export const HELP_ARTICLES: readonly Article[] = [
             en: "Amendment: adds a new record chained to the original, with the correction. The original text stays visible.",
           },
           {
-            es: "Invalidar (anular): marca la evolución como inválida con un motivo. Solo el superadministrador de la plataforma (SuperClini) puede hacerlo, a pedido — no un administrador de la clínica.",
-            pt: "Invalidar (anular): marca a evolução como inválida com um motivo. Só o superadministrador da plataforma (SuperClini) pode fazer isso, sob solicitação — não um administrador da clínica.",
-            en: "Invalidate: marks the evolution as void with a reason. Only the platform super-administrator (SuperClini) can do this, on request — not a clinic administrator.",
+            es: "Invalidar (anular): marca la evolución como inválida con un motivo. Solo el superadministrador de la plataforma (SuperClini) puede hacerlo, a pedido, no un administrador de la clínica.",
+            pt: "Invalidar (anular): marca a evolução como inválida com um motivo. Só o superadministrador da plataforma (SuperClini) pode fazer isso, sob solicitação · não um administrador da clínica.",
+            en: "Invalidate: marks the evolution as void with a reason. Only the platform super-administrator (SuperClini) can do this, on request, not a clinic administrator.",
           },
         ],
       },
@@ -1891,7 +1891,7 @@ export const HELP_ARTICLES: readonly Article[] = [
     ],
   },
 
-  // FINANZAS — convenios y saldos
+  // FINANZAS · convenios y saldos
   {
     slug: "saldo-a-favor",
     categoryId: "finanzas",
@@ -2387,9 +2387,9 @@ export const HELP_ARTICLES: readonly Article[] = [
         type: "mockup",
         screen: "crm-inbox",
         caption: {
-          es: "Cada tarea con su paciente, canal y estado; las de IA llevan el sello ✨.",
-          pt: "Cada tarefa com seu paciente, canal e estado; as de IA levam o selo ✨.",
-          en: "Each task with its patient, channel and status; AI ones carry the ✨ mark.",
+          es: "Cada tarea con su paciente, canal y estado; las de IA llevan un sello especial.",
+          pt: "Cada tarefa com seu paciente, canal e estado; as de IA levam um selo especial.",
+          en: "Each task with its patient, channel and status; AI ones carry a special mark.",
         },
       },
       {
@@ -2682,9 +2682,9 @@ export const HELP_ARTICLES: readonly Article[] = [
         type: "mockup",
         screen: "informe-gestion",
         caption: {
-          es: "KPIs, gráficos e rankings por período — una vista de doce disponibles.",
-          pt: "KPIs, gráficos e rankings por período — uma vista de doze disponíveis.",
-          en: "KPIs, charts and rankings by period — one of twelve available views.",
+          es: "KPIs, gráficos e rankings por período, una vista de doce disponibles.",
+          pt: "KPIs, gráficos e rankings por período, uma vista de doze disponíveis.",
+          en: "KPIs, charts and rankings by period, one of twelve available views.",
         },
       },
       {
@@ -2743,9 +2743,9 @@ export const HELP_ARTICLES: readonly Article[] = [
         type: "mockup",
         screen: "mi-desempeno",
         caption: {
-          es: "Tus números personales: cierre, producción y asistencia — nunca los de un colega.",
-          pt: "Seus números pessoais: fechamento, produção e comparecimento — nunca os de um colega.",
-          en: "Your personal numbers: close rate, production and attendance — never a colleague's.",
+          es: "Tus números personales: cierre, producción y asistencia · nunca los de un colega.",
+          pt: "Seus números pessoais: fechamento, produção e comparecimento · nunca os de um colega.",
+          en: "Your personal numbers: close rate, production and attendance · never a colleague's.",
         },
       },
       {
@@ -2924,9 +2924,9 @@ export const HELP_ARTICLES: readonly Article[] = [
         type: "mockup",
         screen: "orden-lab",
         caption: {
-          es: "Cada orden con su estado — enviado, en producción, listo o entregado — y su plazo.",
-          pt: "Cada ordem com seu status — enviado, em produção, pronto ou entregue — e seu prazo.",
-          en: "Each order with its status — sent, in production, ready or delivered — and its due date.",
+          es: "Cada orden con su estado, enviado, en producción, listo o entregado · y su plazo.",
+          pt: "Cada ordem com seu status, enviado, em produção, pronto ou entregue · e seu prazo.",
+          en: "Each order with its status, sent, in production, ready or delivered · and its due date.",
         },
       },
       {

@@ -4,7 +4,7 @@ import * as React from "react";
 import { ThumbsUp, ThumbsDown } from "lucide-react";
 
 /**
- * "¿Te resultó útil?" — feedback do artigo. Mostra o agradecimento e envia o
+ * "¿Te resultó útil?", feedback do artigo. Mostra o agradecimento e envia o
  * voto (anônimo, sem PII) para /api/help-feedback como métrica de qualidade.
  * O envio é fire-and-forget: nunca bloqueia nem quebra a UI.
  */

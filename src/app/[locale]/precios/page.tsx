@@ -7,7 +7,7 @@ import { routing, type Locale } from "@/i18n/routing";
 import { SUPERCLINI_FACTS } from "@/lib/superclini.facts";
 
 /**
- * /precios — criada em 2026-07-20.
+ * /precios, criada em 2026-07-20.
  *
  * O pricing saiu da home porque somava ~160 unidades de informação (4 cards,
  * 39 bullets, matriz de 25 linhas × 4 colunas) numa página cuja tese é outra.

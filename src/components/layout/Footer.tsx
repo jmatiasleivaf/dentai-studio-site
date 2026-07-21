@@ -2,6 +2,7 @@ import * as React from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Container } from "@/components/ui/container";
 import { Logo } from "@/components/ui/logo";
+import { Flag } from "@/components/ui/flag";
 import { COUNTRY_LIST } from "@/lib/countries";
 import { NAV_RESOURCES } from "@/lib/site-nav";
 import { CookiePreferencesButton } from "@/components/consent/CookiePreferencesButton";
@@ -72,7 +73,7 @@ export function Footer() {
           <div className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-ink-400">
             {COUNTRY_LIST.map((c) => (
               <span key={c.code} className="inline-flex items-center gap-1.5">
-                <span aria-hidden>{c.flag}</span>
+                <Flag code={c.code} />
                 <span>{c.name.es}</span>
               </span>
             ))}
@@ -80,7 +81,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-ink-800 py-6 text-center text-xs text-ink-500">
-          © {year} SuperClini — {t("rights")}
+          © {year} SuperClini, {t("rights")}
         </div>
       </Container>
     </footer>

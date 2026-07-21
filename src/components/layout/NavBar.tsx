@@ -37,7 +37,7 @@ const SECTIONS = [
   { href: "/precios", labelKey: "pricing", page: true },
 ] as const;
 
-/** Ícone por landing — chaveado pelo labelKey de NAV_RESOURCES (SSoT em site-nav.ts). */
+/** Ícone por landing, chaveado pelo labelKey de NAV_RESOURCES (SSoT em site-nav.ts). */
 const RESOURCE_ICONS: Record<string, LucideIcon> = {
   sofia: MessageCircle,
   iaClinica: Brain,
@@ -49,7 +49,7 @@ const RESOURCE_ICONS: Record<string, LucideIcon> = {
 
 const PANEL_EASE = [0.22, 1, 0.36, 1] as const;
 
-/** Sublinhado que varre da esquerda no hover — assinatura visual do header. */
+/** Sublinhado que varre da esquerda no hover, assinatura visual do header. */
 function Underline({ overlay }: { overlay: boolean }) {
   return (
     <span
@@ -177,7 +177,7 @@ export function NavBar() {
 
         {/* Nav desktop */}
         <nav className="hidden items-center gap-7 lg:flex" aria-label={t("menuLabel")}>
-          {/* Dropdown Recursos — painel rico com ícone + descrição */}
+          {/* Dropdown Recursos, painel rico com ícone + descrição */}
           <div
             className="relative"
             onMouseEnter={() => setResourcesOpen(true)}

@@ -4,7 +4,7 @@
  *
  * Por que este módulo existe: gravar `gclid`/`fbclid` no dispositivo é
  * tracking, não medição funcional. O art. 5(3) da ePrivacy regula o ATO DE
- * GRAVAR, e é neutro quanto a quem grava — "é first-party" não é defesa. O
+ * GRAVAR, e é neutro quanto a quem grava, "é first-party" não é defesa. O
  * site serve Espanha e Portugal com páginas ativas, então RGPD e ePrivacy
  * incidem diretamente. Consentimento posterior (o checkbox do formulário) não
  * convalida coleta anterior, porque a gravação já foi o tratamento.
@@ -14,7 +14,7 @@
  *     gravado. Nem cookie, nem localStorage, nem sessionStorage (todos caem
  *     no art. 5(3)).
  *  2. Recusar é tão fácil quanto aceitar. Nada vem pré-marcado.
- *  3. Revogar APAGA o que já foi gravado — não basta parar de gravar.
+ *  3. Revogar APAGA o que já foi gravado, não basta parar de gravar.
  *  4. O consentimento é versionado: mudou a política, pergunta de novo.
  *
  * O próprio registro de consentimento é estritamente necessário (é a prova de
@@ -58,7 +58,7 @@ function isSecureContext(): boolean {
 
 /**
  * `Secure` sempre que possível. Em dev (http://localhost) o browser rejeita
- * cookie Secure, então ele é omitido — só ali.
+ * cookie Secure, então ele é omitido, só ali.
  */
 function cookieAttrs(maxAge: number): string {
   const base = `path=/; max-age=${maxAge}; samesite=lax`;

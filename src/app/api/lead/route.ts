@@ -6,7 +6,7 @@ import { headers } from "next/headers";
  *
  * POR QUE EXISTE: o endpoint de ingestão do CRM
  * (`crm.superclini.com/api/inbound/site-lead`) é server-to-server e autentica
- * por `x-pulsar-inbound-token`. Esse token NÃO pode ir para o browser — se o
+ * por `x-pulsar-inbound-token`. Esse token NÃO pode ir para o browser, se o
  * formulário postasse direto do cliente, o segredo estaria no bundle e
  * qualquer um poderia injetar leads no CRM.
  *

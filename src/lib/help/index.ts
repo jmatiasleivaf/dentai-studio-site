@@ -52,7 +52,7 @@ export function getRelatedArticles(article: Article): Array<{ article: Article; 
     .filter((x) => x.category);
 }
 
-/** Todos os pares (categoria, artigo) — usado por generateStaticParams e sitemap. */
+/** Todos os pares (categoria, artigo), usado por generateStaticParams e sitemap. */
 export function getAllArticlePaths(): Array<{ categorySlug: string; articleSlug: string }> {
   return HELP_ARTICLES.map((a) => ({
     categorySlug: getCategoryById(a.categoryId)!.slug,
@@ -129,7 +129,7 @@ export function buildSearchIndex(locale: Locale): SearchEntry[] {
   return entries;
 }
 
-/** Headings h2 de um artigo, com id de âncora — alimenta o TOC. */
+/** Headings h2 de um artigo, com id de âncora, alimenta o TOC. */
 export function getHeadings(article: Article, locale: Locale): Array<{ id: string; text: string }> {
   return article.body
     .filter((b): b is Extract<Block, { type: "h2" }> => b.type === "h2")

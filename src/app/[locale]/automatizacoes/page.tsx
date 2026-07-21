@@ -15,6 +15,9 @@ import {
   Repeat,
   CheckCircle2,
   AlertCircle,
+  Mail,
+  CreditCard,
+  RefreshCw,
   XCircle,
   Clock,
 } from "lucide-react";
@@ -369,10 +372,10 @@ function MembershipMockup({ labels }: { labels: Record<string, string> }) {
       <div className="mt-4 rounded-xl border border-ink-100 bg-ink-50 p-3 dark:border-ink-800 dark:bg-ink-800/50">
         <div className="text-[10px] uppercase tracking-wider text-ink-500">{labels.timeline}</div>
         <ul className="mt-2 space-y-1 text-[10px] text-ink-700 dark:text-ink-300">
-          <li>📩 7d antes · WhatsApp + Email</li>
-          <li>📩 3d antes · WhatsApp + Email</li>
-          <li>💳 D-day · cobrança automática</li>
-          <li>🔁 D+1..D+7 · retry escalonado</li>
+          <li className="flex items-center gap-1.5"><Mail className="h-3 w-3 shrink-0 text-brand-500" aria-hidden />7d antes · WhatsApp + Email</li>
+          <li className="flex items-center gap-1.5"><Mail className="h-3 w-3 shrink-0 text-brand-500" aria-hidden />3d antes · WhatsApp + Email</li>
+          <li className="flex items-center gap-1.5"><CreditCard className="h-3 w-3 shrink-0 text-emerald-500" aria-hidden />D-day · cobrança automática</li>
+          <li className="flex items-center gap-1.5"><RefreshCw className="h-3 w-3 shrink-0 text-amber-500" aria-hidden />D+1..D+7 · retry escalonado</li>
         </ul>
       </div>
     </div>

@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://superclini.com"),
   title: {
     default: "SuperClini",
-    template: "%s — SuperClini",
+    template: "%s · SuperClini",
   },
   icons: {
     icon: [{ url: "/icon-superclini.svg", type: "image/svg+xml" }],
@@ -23,7 +23,7 @@ export const viewport: Viewport = {
 };
 
 // O <html> + <body> vivem em [locale]/layout.tsx para permitir lang={locale}
-// dinâmico (crítico para SEO multi-idioma — Google penaliza lang errado).
+// dinâmico (crítico para SEO multi-idioma, Google penaliza lang errado).
 // Padrão recomendado pelo next-intl 3.x.
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return children;

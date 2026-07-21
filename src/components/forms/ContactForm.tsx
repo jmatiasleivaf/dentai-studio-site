@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations, useLocale } from "next-intl";
 import { Check, Loader2, AlertCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Flag } from "@/components/ui/flag";
 import {
   contactFormSchema,
   type ContactFormValues,
@@ -19,7 +20,7 @@ import { useConsent } from "@/contexts/ConsentContext";
 import { forTransmission } from "@/lib/attribution";
 import { CONSENT_POLICY_VERSION } from "@/lib/consent";
 
-// Placeholder de telefone por país — formato local familiar reduz fricção.
+// Placeholder de telefone por país, formato local familiar reduz fricção.
 const PHONE_PLACEHOLDER: Record<CountryCode, string> = {
   CL: "+56 9 1234 5678",
   BR: "+55 11 91234-5678",
@@ -40,7 +41,7 @@ type Status = "idle" | "submitting" | "success" | "error";
 interface ContactFormProps {
   /** Valor inicial para o campo "interesse" (ex.: "trial_profesional" via CTA específico) */
   defaultInteresse?: (typeof LEAD_INTERESSES)[number];
-  /** Chamado quando o envio concluir com sucesso — usado pelo modal para fechar-se. */
+  /** Chamado quando o envio concluir com sucesso, usado pelo modal para fechar-se. */
   onSuccess?: () => void;
   /** Oculta o título/descrição interno (quando o form está num header próprio, ex.: modal). */
   hideHeader?: boolean;
@@ -83,7 +84,7 @@ export function ContactForm({ defaultInteresse, onSuccess, hideHeader }: Contact
     setErrorMsg("");
 
     // Atribuição vem do envelope de PRIMEIRO TOQUE mantido em memória pelo
-    // ConsentProvider — não da URL atual. Ler a URL aqui perdia a origem
+    // ConsentProvider, não da URL atual. Ler a URL aqui perdia a origem
     // assim que a pessoa navegasse de /pt/sofia para /pt/contato, que é
     // exatamente o percurso normal de quem chega por anúncio.
     //
@@ -137,7 +138,7 @@ export function ContactForm({ defaultInteresse, onSuccess, hideHeader }: Contact
           firstSeenAt: envelope.firstSeenAt,
           // Prova de consentimento: sem versão da política e finalidades
           // aceitas não há como demonstrar que o consentimento foi válido
-          // (RGPD art. 7(1) e LGPD art. 8º §2 — o ônus é do controlador).
+          // (RGPD art. 7(1) e LGPD art. 8º §2, o ônus é do controlador).
           consentPolicyVersion: CONSENT_POLICY_VERSION,
           consentMarketing: consent?.marketing ?? false,
         }),
@@ -202,7 +203,7 @@ export function ContactForm({ defaultInteresse, onSuccess, hideHeader }: Contact
         </div>
       ) : null}
 
-      {/* Honeypot — invisible via inline CSS + aria-hidden + tabindex=-1 */}
+      {/* Honeypot, invisible via inline CSS + aria-hidden + tabindex=-1 */}
       <div
         aria-hidden="true"
         style={{ position: "absolute", left: "-9999px", width: 0, height: 0, overflow: "hidden" }}
@@ -282,7 +283,7 @@ export function ContactForm({ defaultInteresse, onSuccess, hideHeader }: Contact
           <select {...register("pais")} className={fieldClass}>
             {LEAD_PAISES.map((code) => (
               <option key={code} value={code}>
-                {COUNTRIES[code as CountryCode]?.flag} {tForm(`countries.${code}` as never)}
+                <Flag code={code as CountryCode} /> {tForm(`countries.${code}` as never)}
               </option>
             ))}
           </select>

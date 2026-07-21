@@ -4,7 +4,7 @@ import * as React from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 /**
- * Fade-up on scroll — reusável em qualquer seção.
+ * Fade-up on scroll, reusável em qualquer seção.
  * Respeita `prefers-reduced-motion` automaticamente.
  *
  * Defesa importante: SSR/pré-hidratação renderizam o conteúdo sem motion

@@ -5,7 +5,7 @@
  * Sem isso, Meta e Google só conseguem otimizar por formulário preenchido, que
  * traz volume ruim; com isso passam a otimizar por receita.
  *
- * ARQUITETURA EM CAMADAS — cada uma com um regime legal diferente:
+ * ARQUITETURA EM CAMADAS, cada uma com um regime legal diferente:
  *
  *  Camada 0 (memória): capturado da URL no mount e carregado pela navegação
  *    interna em memória React. Morre ao fechar a aba. NÃO é armazenamento em
@@ -14,7 +14,7 @@
  *    maioria esmagadora do tráfego pago mobile em LATAM.
  *
  *  Camada 1 (server): o middleware injeta os valores da URL como props. Mesmo
- *    regime da Camada 0 — vinculado ao ciclo da requisição, nada persiste.
+ *    regime da Camada 0, vinculado ao ciclo da requisição, nada persiste.
  *
  *  Camada 2 (cookie `_sc_attr`, 90 dias): só existe com consentimento de
  *    marketing explícito. É o que permite atribuir uma conversão que acontece
@@ -57,7 +57,7 @@ function isEmpty(a: Attribution): boolean {
   return !Object.values(a).some((v) => typeof v === "string" && v.length > 0);
 }
 
-/** Lê o envelope dos parâmetros da URL. Puro — serve em server e client. */
+/** Lê o envelope dos parâmetros da URL. Puro, serve em server e client. */
 export function fromSearchParams(
   params: URLSearchParams | Record<string, string | string[] | undefined>,
   opts: { pathname?: string; referrer?: string } = {},
@@ -113,7 +113,7 @@ export function readAttributionCookie(): Attribution {
 }
 
 /**
- * Persiste o envelope — SOMENTE com consentimento de marketing.
+ * Persiste o envelope, SOMENTE com consentimento de marketing.
  * Chamar sem consentimento é no-op silencioso, por desenho: nenhum caminho de
  * código consegue gravar tracking por engano.
  */
@@ -130,8 +130,8 @@ export function persistAttribution(a: Attribution, consent: ConsentStatus): void
  * Envelope que pode ser ENVIADO ao servidor no submit do formulário.
  *
  * O envio acontece sob o consentimento explícito do próprio formulário (o
- * checkbox obrigatório), então os UTMs — que são metadados de campanha
- * próprios — vão sempre. Os click ids, não: `gclid`/`fbclid` existem para
+ * checkbox obrigatório), então os UTMs, que são metadados de campanha
+ * próprios, vão sempre. Os click ids, não: `gclid`/`fbclid` existem para
  * re-vincular a pessoa ao perfil publicitário dela no Google e na Meta, e
  * enviá-los alimenta a finalidade publicitária. Essa finalidade é outra, e
  * precisa do consentimento de marketing.

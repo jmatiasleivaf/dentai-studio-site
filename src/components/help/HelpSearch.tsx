@@ -7,7 +7,7 @@ import { normalize } from "@/lib/help/normalize";
 import type { SearchEntry } from "@/lib/help";
 
 /**
- * Busca do Centro de Ayuda — instantânea, 100% client-side sobre um índice
+ * Busca do Centro de Ayuda, instantânea, 100% client-side sobre um índice
  * gerado no server (buildSearchIndex). Sem dependências: tokeniza a query e
  * casa cada token contra o haystack normalizado de cada entrada.
  */

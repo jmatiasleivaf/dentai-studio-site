@@ -1,8 +1,8 @@
 {
   "meta": {
     "siteName": "SuperClini",
-    "title": "SuperClini — Software dental con IA en WhatsApp, simulación de sonrisa y DICOM 3D",
-    "description": "La primera plataforma dental con asistente IA en WhatsApp, simulación de sonrisa y visor DICOM 3D integrado. Funciona en {countries} mercados con moneda y fiscal locales."
+    "title": "SuperClini · Software dental con IA en WhatsApp, simulación de sonrisa y DICOM 3D",
+    "description": "La primera plataforma dental con asistente IA en WhatsApp, simulación de sonrisa y visor DICOM 3D integrado. Funciona en {countries} mercados con moneda, documento e idioma locales."
   },
   "nav": {
     "features": "Funcionalidades",
@@ -35,14 +35,14 @@
   },
   "help": {
     "meta": {
-      "title": "Centro de Ayuda — SuperClini",
-      "description": "Guías, tutoriales y respuestas para sacar el máximo de SuperClini: agenda, Sofía, ficha clínica, cobros y facturación fiscal de tu país."
+      "title": "Centro de Ayuda · SuperClini",
+      "description": "Guías, tutoriales y respuestas para sacar el máximo de SuperClini: agenda, Sofía, ficha clínica, cobros y reportes."
     },
     "hero": {
       "eyebrow": "Centro de Ayuda · {countries} mercados",
       "q1": "¿En qué podemos",
       "qHi": "ayudarte",
-      "sub": "Guías, tutoriales y respuestas para sacar el máximo de SuperClini — de la agenda a la facturación fiscal de tu país.",
+      "sub": "Guías, tutoriales y respuestas para sacar el máximo de SuperClini, de la agenda a los cobros de tu clínica.",
       "searchPlaceholder": "Busca por tema, función o duda…",
       "searchAria": "Buscar en el centro de ayuda",
       "searchButton": "Buscar",
@@ -502,7 +502,7 @@
       },
       {
         "q": "¿Funciona en mi país?",
-        "a": "SuperClini opera en 9 países: Chile, Brasil, Colombia, Argentina, México, Perú, Estados Unidos, España y Portugal. Cada uno con moneda, fiscal e idioma local."
+        "a": "SuperClini opera en 9 países: Chile, Brasil, Colombia, Argentina, México, Perú, Estados Unidos, España y Portugal. Cada uno con su moneda, su documento de identidad y su previsión local."
       },
       {
         "q": "¿Puedo cancelar en cualquier momento?",
@@ -517,7 +517,7 @@
     "ctaSecondary": "Agendar demo con ventas"
   },
   "footer": {
-    "tagline": "La plataforma de gestión dental con IA nativa — construida para clínicas que quieren crecer sin caos.",
+    "tagline": "La plataforma de gestión dental con IA nativa, construida para clínicas que quieren crecer sin caos.",
     "resourcesTitle": "Recursos",
     "productTitle": "Producto",
     "product": {
@@ -624,9 +624,9 @@
       },
       "sizes": {
         "1": "1 dentista",
-        "2-5": "2–5 dentistas",
-        "6-10": "6–10 dentistas",
-        "11-20": "11–20 dentistas",
+        "2-5": "2-5 dentistas",
+        "6-10": "6-10 dentistas",
+        "11-20": "11-20 dentistas",
         "20+": "Más de 20 dentistas"
       },
       "interests": {
@@ -666,7 +666,7 @@
       },
       "what": {
         "title": "2. Qué datos recopilamos",
-        "body": "Por el formulario de contacto: nombre, email, teléfono, nombre de la clínica (opcional), país, tamaño del equipo (opcional), tipo de interés y mensaje libre. Automáticamente: dirección IP, user-agent del navegador y página de entrada. Con tu consentimiento de marketing, también: parámetros de campaña (utm_source, utm_medium, utm_campaign, utm_content, utm_term), identificadores de clic de Google (gclid) y de Meta (fbclid), código del socio que te refirió (canal_ref), página de llegada, origen del acceso y fecha del primer contacto. No recolectamos datos clínicos por el sitio público — esos se tratan exclusivamente dentro del producto bajo contrato separado."
+        "body": "Por el formulario de contacto: nombre, email, teléfono, nombre de la clínica (opcional), país, tamaño del equipo (opcional), tipo de interés y mensaje libre. Automáticamente: dirección IP, user-agent del navegador y página de entrada. Con tu consentimiento de marketing, también: parámetros de campaña (utm_source, utm_medium, utm_campaign, utm_content, utm_term), identificadores de clic de Google (gclid) y de Meta (fbclid), código del socio que te refirió (canal_ref), página de llegada, origen del acceso y fecha del primer contacto. No recolectamos datos clínicos por el sitio público, esos se tratan exclusivamente dentro del producto bajo contrato separado."
       },
       "why": {
         "title": "3. Para qué usamos los datos",
@@ -674,7 +674,7 @@
       },
       "legal": {
         "title": "4. Base legal del tratamiento",
-        "body": "Consentimiento explícito del titular (checkbox en el formulario) — LGPD art. 7º, I (Brasil), Ley 19.628 y Ley 21.719 (Chile), GDPR art. 6(1)(a) (UE).\nConsentimiento específico para almacenar información no esencial en tu dispositivo (cookie de atribución) — Directiva ePrivacy art. 5(3) y GDPR art. 6(1)(a). Rechazar no limita ninguna función del sitio.\nInterés legítimo para prevención de fraude y seguridad del sitio — LGPD art. 7º, IX, GDPR art. 6(1)(f).\nCumplimiento de obligación legal cuando corresponda — LGPD art. 7º, II, GDPR art. 6(1)(c)."
+        "body": "Consentimiento explícito del titular (checkbox en el formulario) · LGPD art. 7º, I (Brasil), Ley 19.628 y Ley 21.719 (Chile), GDPR art. 6(1)(a) (UE).\nConsentimiento específico para almacenar información no esencial en tu dispositivo (cookie de atribución) · Directiva ePrivacy art. 5(3) y GDPR art. 6(1)(a). Rechazar no limita ninguna función del sitio.\nInterés legítimo para prevención de fraude y seguridad del sitio, LGPD art. 7º, IX, GDPR art. 6(1)(f).\nCumplimiento de obligación legal cuando corresponda · LGPD art. 7º, II, GDPR art. 6(1)(c)."
       },
       "rights": {
         "title": "5. Tus derechos"
@@ -728,7 +728,7 @@
           "user2": "8 años. ¿Tienes hora el sábado en la mañana?",
           "bot2": "Tengo a las 9:00 y 10:30 con la Dra. Carolina, especialista en odontopediatría. ¿Cuál prefieres?",
           "user3": "10:30 está perfecto",
-          "bot3": "Listo. Cita agendada sábado 10:30 con Dra. Carolina. Te recordaré el viernes. ✨"
+          "bot3": "Listo. Cita agendada sábado 10:30 con Dra. Carolina. Te recordaré el viernes."
         }
       }
     },
@@ -886,12 +886,12 @@
   },
   "iaClinicaPage": {
     "meta": {
-      "title": "IA Clínica — Simulación de sonrisa y análisis de radiografías con IA",
+      "title": "IA Clínica · Simulación de sonrisa y análisis de radiografías con IA",
       "description": "IA visual integrada al ficha: simula sonrisas antes del tratamiento y asiste el análisis de radiografías panorámicas, cefalométricas, bitewing y periapicales. Con auditoría legal completa."
     },
     "hero": {
       "badge": "IA Visual · Clínica",
-      "h1": "La IA ve lo que el dentista ve — y te ayuda a explicar.",
+      "h1": "La IA ve lo que el dentista ve, y te ayuda a explicar.",
       "sub": "Simulación de sonrisa en segundos para cerrar más casos en la primera consulta. Análisis asistido de radiografías con hot spots. Todo dentro de la ficha, con auditoría legal.",
       "ctaPrimary": "Solicitar demo de la IA",
       "ctaSecondary": "Ver cómo funciona"
@@ -929,14 +929,14 @@
         "Resultado en segundos (timeout 120s, retry automático)",
         "Imágenes 1024×1024 alta calidad",
         "Disclaimer médico-legal embebido (no promete resultado exacto)",
-        "Guardada en el caso del paciente — visible en la ficha",
+        "Guardada en el caso del paciente, visible en la ficha",
         "Funciona en escritorio, tablet y celular del dentista"
       ]
     },
     "radio": {
       "eyebrow": "Análisis Radiográfico",
       "title": "La IA asiste el diagnóstico. Tú decides.",
-      "description": "Detección asistida en radiografías panorámicas, cefalométricas, bitewing y periapicales. La IA señala hallazgos visibles con transparencia sobre confianza — la decisión clínica es siempre tuya, con auditoría legal completa.",
+      "description": "Detección asistida en radiografías panorámicas, cefalométricas, bitewing y periapicales. La IA señala hallazgos visibles con transparencia sobre confianza · la decisión clínica es siempre tuya, con auditoría legal completa.",
       "heroLabel": "Caries · Lesiones · Cefalo Ricketts/Steiner",
       "bullets": [
         "4 tipos: panorámica, cefalométrica, bitewing, periapical",
@@ -944,7 +944,7 @@
         "Lesiones periapicales y estado periodontal",
         "Cefalometría con Ricketts, Steiner y McNamara (valores vs normales)",
         "PNG, JPEG y WEBP soportados",
-        "Pista de auditoría — quién analizó, cuándo, con qué modelo"
+        "Pista de auditoría · quién analizó, cuándo, con qué modelo"
       ],
       "detections": [
         "Caries moderada detectada (cara oclusal)",
@@ -968,7 +968,7 @@
         },
         "network": {
           "persona": "Red odontológica",
-          "pain": "Sin estándar clínico entre sucursales — cada lugar con su calidad.",
+          "pain": "Sin estándar clínico entre sucursales · cada lugar con su calidad.",
           "benefit": "La IA es el mismo modelo en todas las sucursales. Estándar único de simulación y análisis. Métricas comparables de aceptación."
         }
       }
@@ -1007,19 +1007,19 @@
       "items": [
         {
           "q": "¿La IA reemplaza al dentista en el diagnóstico?",
-          "a": "No. La IA asiste el diagnóstico señalando hallazgos visibles en la imagen — caries en estado X, lesión sugerida en lugar Y. La decisión clínica es siempre del dentista. Cada análisis se registra con auditoría legal completa: quién vio, cuándo, con qué modelo IA."
+          "a": "No. La IA asiste el diagnóstico señalando hallazgos visibles en la imagen, caries en estado X, lesión sugerida en lugar Y. La decisión clínica es siempre del dentista. Cada análisis se registra con auditoría legal completa: quién vio, cuándo, con qué modelo IA."
         },
         {
           "q": "¿Qué imágenes acepta la simulación de sonrisa?",
-          "a": "Foto frontal del paciente (sonriendo, boca abierta natural). PNG, JPEG o WEBP. La IA genera una imagen 1024×1024 mostrando el resultado simulado con los tratamientos seleccionados (carillas, blanqueamiento, ortodoncia — combinados o aislados)."
+          "a": "Foto frontal del paciente (sonriendo, boca abierta natural). PNG, JPEG o WEBP. La IA genera una imagen 1024×1024 mostrando el resultado simulado con los tratamientos seleccionados (carillas, blanqueamiento, ortodoncia · combinados o aislados)."
         },
         {
           "q": "¿Cuánto tarda una simulación?",
-          "a": "Típicamente 30-60 segundos. Timeout máximo 120s con 2 retries automáticos. Si el modelo está bajo carga, se espera una cola pequeña. No quedas atrapado en la pantalla — el resultado aparece cuando está listo en el caso del paciente."
+          "a": "Típicamente 30-60 segundos. Timeout máximo 120s con 2 retries automáticos. Si el modelo está bajo carga, se espera una cola pequeña. No quedas atrapado en la pantalla, el resultado aparece cuando está listo en el caso del paciente."
         },
         {
           "q": "¿Qué radiografías analiza la IA?",
-          "a": "Panorámica, cefalométrica, bitewing y periapical. Formatos: PNG, JPEG, WEBP. Aún no soporta DICOM nativo — para CBCT 3D, usa el visor DICOM 3D integrado (que es manual, no usa IA)."
+          "a": "Panorámica, cefalométrica, bitewing y periapical. Formatos: PNG, JPEG, WEBP. Aún no soporta DICOM nativo, para CBCT 3D, usa el visor DICOM 3D integrado (que es manual, no usa IA)."
         },
         {
           "q": "¿Los planes tienen cuota mensual de IA?",
@@ -1027,7 +1027,7 @@
         },
         {
           "q": "¿La simulación garantiza el resultado real del tratamiento?",
-          "a": "No. Cada simulación incluye disclaimer médico-legal automático: 'Simulación educativa — resultado real depende de variables biológicas y técnicas'. Úsala para alinear expectativa, nunca como contrato o promesa clínica."
+          "a": "No. Cada simulación incluye disclaimer médico-legal automático: 'Simulación educativa · resultado real depende de variables biológicas y técnicas'. Úsala para alinear expectativa, nunca como contrato o promesa clínica."
         },
         {
           "q": "¿Es seguro para LGPD/GDPR?",
@@ -1048,7 +1048,7 @@
   },
   "clinicoPage": {
     "meta": {
-      "title": "Módulo Clínico — Odontograma, ficha inmutable, DICOM 3D y exámenes",
+      "title": "Módulo Clínico · Odontograma, ficha inmutable, DICOM 3D y exámenes",
       "description": "Todo lo que tu clínica necesita: odontograma FDI interactivo, ficha clínica inmutable (LGPD/Ley 20.584), visor DICOM 3D en el navegador con 6 presets dentales, exámenes 2D y alineadores. Todo conectado."
     },
     "hero": {
@@ -1089,14 +1089,14 @@
     "odonto": {
       "eyebrow": "Odontograma + Ficha",
       "title": "Estándar FDI internacional. Ficha inmutable legal.",
-      "description": "32 dientes en sistema FDI (11-48), interactivo con clic para cambiar estado. Evolución clínica inmutable conforme Ley 20.584 (Chile), CFO (Brasil) y LGPD — solo superadmin puede invalidar con motivo registrado.",
+      "description": "32 dientes en sistema FDI (11-48), interactivo con clic para cambiar estado. Evolución clínica inmutable conforme Ley 20.584 (Chile), CFO (Brasil) y LGPD, solo superadmin puede invalidar con motivo registrado.",
       "bullets": [
         "Sistema FDI internacional (11-48), estándar clínico mundial",
         "Estado por cara del diente (V/P/L/D/O), zoom en mobile",
-        "Evolución inmutable legal — invalidación solo por superadmin con motivo",
+        "Evolución inmutable legal · invalidación solo por superadmin con motivo",
         "Anamnesis estructurada: alergias, medicamentos, condiciones crónicas",
         "Prescripción template con 11 variables ({{paciente_nome}}, {{dentista_cro}} etc.)",
-        "Auto-save en PATCH parcial — no se pierde nada"
+        "Auto-save en PATCH parcial · no se pierde nada"
       ],
       "statusLabels": {
         "healthy": "Sano",
@@ -1157,7 +1157,7 @@
         "Integración con laboratorio externo vía CasoAlineador.laboratorioId",
         "Validación MIME por upload (PNG/JPEG/WEBP)",
         "Storage: 5GB Esencial · 50GB Profesional · 100GB Avanzado · custom Corporativo",
-        "Todo dentro del caso del paciente — búsqueda por examen o fecha"
+        "Todo dentro del caso del paciente, búsqueda por examen o fecha"
       ]
     },
     "useCases": {
@@ -1194,7 +1194,7 @@
         },
         "dicom": {
           "topic": "DICOM 3D viewer",
-          "before": "Software aparte (Sidexis, Romexis) — US$ 3-6k licencia.",
+          "before": "Software aparte (Sidexis, Romexis) · US$ 3-6k licencia.",
           "after": "Incluido nativo en el navegador. Cornerstone3D + 6 presets dentales."
         },
         "legal": {
@@ -1228,15 +1228,15 @@
         },
         {
           "q": "¿Puedo hacer MPR o Volume Rendering?",
-          "a": "No en la versión actual. El DICOM Viewer usa Stack Viewport (1 slice por vez, scroll para navegar). MPR y Volume Rendering están en el roadmap — depende de un issue abierto en Cornerstone3D v4."
+          "a": "No en la versión actual. El DICOM Viewer usa Stack Viewport (1 slice por vez, scroll para navegar). MPR y Volume Rendering están en el roadmap, depende de un issue abierto en Cornerstone3D v4."
         },
         {
           "q": "¿Cómo funciona la evolución clínica desde el punto de vista legal?",
-          "a": "Inmutable por defecto. Una vez guardada, no se puede editar — solo una nueva evolución con referencia a la anterior es permitida. Solo superadmin puede marcar una evolución como inválida (con motivo registrado y timestamp). Conforme Ley 20.584 (CL), CFO (BR) y LGPD."
+          "a": "Inmutable por defecto. Una vez guardada, no se puede editar, solo una nueva evolución con referencia a la anterior es permitida. Solo superadmin puede marcar una evolución como inválida (con motivo registrado y timestamp). Conforme Ley 20.584 (CL), CFO (BR) y LGPD."
         },
         {
           "q": "¿Funciona offline?",
-          "a": "No. El sistema es cloud multi-tenant — requiere conexión. A cambio: backup automático, multi-device sync, cero riesgo de perder ficha por disco dañado."
+          "a": "No. El sistema es cloud multi-tenant · requiere conexión. A cambio: backup automático, multi-device sync, cero riesgo de perder ficha por disco dañado."
         },
         {
           "q": "¿Funciona en iPad y tablets Android?",
@@ -1244,7 +1244,7 @@
         },
         {
           "q": "¿Puedo importar de Dentalink u otro sistema?",
-          "a": "Sí. Tenemos 12 adaptadores de import (paciente, agenda, plan, cuenta por cobrar, evolución, odontograma, etc.). La inmutabilidad legal se preserva — evoluciones importadas mantienen fecha original y quedan marcadas como migradas."
+          "a": "Sí. Tenemos 12 adaptadores de import (paciente, agenda, plan, cuenta por cobrar, evolución, odontograma, etc.). La inmutabilidad legal se preserva · evoluciones importadas mantienen fecha original y quedan marcadas como migradas."
         },
         {
           "q": "¿Cuántos pacientes activos por plan?",
@@ -1253,7 +1253,7 @@
       ]
     },
     "ctaFinal": {
-      "title": "Todo lo que necesitas para atender — sin instalar nada.",
+      "title": "Todo lo que necesitas para atender, sin instalar nada.",
       "sub": "Trial 14 días con módulo clínico completo. Setup guiado por nuestro equipo en 1 día hábil.",
       "ctaPrimary": "Solicitar demo del módulo",
       "ctaSecondary": "Hablar con ventas"
@@ -1261,7 +1261,7 @@
   },
   "totemPage": {
     "meta": {
-      "title": "Tótem Autoatención — Check-in, agendamiento y consentimiento en la recepción",
+      "title": "Tótem Autoatención · Check-in, agendamiento y consentimiento en la recepción",
       "description": "Tablet touch que libera tu recepción: el paciente se identifica con RUT/CPF, ve su próxima cita, hace check-in, agenda nuevo horario y firma consentimiento digital. Sin fila."
     },
     "hero": {
@@ -1302,7 +1302,7 @@
     },
     "checkin": {
       "eyebrow": "Recepción",
-      "title": "Check-in, agenda y cola — todo en el tablet.",
+      "title": "Check-in, agenda y cola · todo en el tablet.",
       "description": "Paciente reconocido por documento, próxima cita confirmada con 1 toque. Pacientes nuevos se registran al instante. La cola se gestiona automáticamente.",
       "bullets": [
         "Identificación por RUT/CPF/NIT (soporta formato por país)",
@@ -1323,7 +1323,7 @@
     "consent": {
       "eyebrow": "Consentimiento Digital",
       "title": "Firma digital con auditoría legal completa.",
-      "description": "Términos de consentimiento (anestesia, procedimiento, fotografía, LGPD) firmados con el dedo del paciente en el tablet. Guardado como base64 vinculado al caso, con timestamp e IP — conforme Ley 20.584 (Chile), CFO (Brasil) y LGPD.",
+      "description": "Términos de consentimiento (anestesia, procedimiento, fotografía, LGPD) firmados con el dedo del paciente en el tablet. Guardado como base64 vinculado al caso, con timestamp e IP, conforme Ley 20.584 (Chile), CFO (Brasil) y LGPD.",
       "bullets": [
         "Términos preconfigurados (anestesia, procedimiento, fotografía, LGPD/GDPR)",
         "Firma en canvas touch (dedo o stylus)",
@@ -1351,7 +1351,7 @@
         },
         "luxo": {
           "persona": "Clínica premium / experiencia diferenciada",
-          "pain": "Quiere experiencia diferenciada — pero la recepcionista no da abasto sola.",
+          "pain": "Quiere experiencia diferenciada · pero la recepcionista no da abasto sola.",
           "benefit": "Experiencia tipo Apple Store. Paciente entra, se identifica en el tablet, ve tiempo estimado, recibe un café."
         },
         "rede": {
@@ -1370,7 +1370,7 @@
         "tempo": {
           "topic": "Tiempo medio de check-in",
           "before": "3-5min por paciente (depende de la fila en el mostrador).",
-          "after": "30-60s — paciente lo hace solo apenas llega."
+          "after": "30-60s · paciente lo hace solo apenas llega."
         },
         "fila": {
           "topic": "Cola visible",
@@ -1380,7 +1380,7 @@
         "dados": {
           "topic": "Registro de paciente nuevo",
           "before": "Recepcionista digita todo en el mostrador (5-10min).",
-          "after": "Paciente lo completa solo (2min) — recepcionista valida después."
+          "after": "Paciente lo completa solo (2min), recepcionista valida después."
         },
         "consent": {
           "topic": "Consentimiento legal",
@@ -1390,7 +1390,7 @@
         "recep": {
           "topic": "Carga de la recepcionista",
           "before": "100% del tiempo en check-in + registros + consentimientos.",
-          "after": "40% — enfoca en pacientes complejos, llamadas, agendamientos especiales."
+          "after": "40% · enfoca en pacientes complejos, llamadas, agendamientos especiales."
         }
       }
     },
@@ -1400,7 +1400,7 @@
       "items": [
         {
           "q": "¿Qué hardware necesito?",
-          "a": "Tablet touch (iPad o Android) o Mac Mini + monitor touch 15-22\". La app es web/PWA — corre en cualquier device con Chrome/Safari actualizado y pantalla touch. Recomendamos Mac Mini + monitor de pie para clínicas de alto volumen."
+          "a": "Tablet touch (iPad o Android) o Mac Mini + monitor touch 15-22\". La app es web/PWA, corre en cualquier device con Chrome/Safari actualizado y pantalla touch. Recomendamos Mac Mini + monitor de pie para clínicas de alto volumen."
         },
         {
           "q": "¿Funciona offline?",
@@ -1408,7 +1408,7 @@
         },
         {
           "q": "¿Cuánto cuesta el hardware?",
-          "a": "iPad básico ~CLP 350.000 / US$ 350. Setup Mac Mini + monitor touch ~CLP 1.000.000 / US$ 1.200. Tú decides qué comprar — nuestra parte es solo el software, incluido en planes Profesional+."
+          "a": "iPad básico ~CLP 350.000 / US$ 350. Setup Mac Mini + monitor touch ~CLP 1.000.000 / US$ 1.200. Tú decides qué comprar, nuestra parte es solo el software, incluido en planes Profesional+."
         },
         {
           "q": "¿Tiene tótem para el sillón del dentista (no recepción)?",
@@ -1434,20 +1434,20 @@
     },
     "ctaFinal": {
       "title": "Tu recepción libera 60% del tiempo. Sin despedir a nadie.",
-      "sub": "Trial 14 días con tótem activo. Setup guiado en 1 día hábil — sin hardware, instalable en cualquier tablet.",
+      "sub": "Trial 14 días con tótem activo. Setup guiado en 1 día hábil, sin hardware, instalable en cualquier tablet.",
       "ctaPrimary": "Solicitar demo del tótem",
       "ctaSecondary": "Hablar con ventas"
     }
   },
   "automatizacoesPage": {
     "meta": {
-      "title": "Automatizaciones — Caja, liquidaciones y cobro automático (MercadoPago)",
+      "title": "Automatizaciones · Caja, liquidaciones y cobro automático (MercadoPago)",
       "description": "Caja diaria cierra sola vía cron. Liquidaciones de dentistas calculadas por período. Memberships con cobro recurrente automático (MercadoPago) y recordatorios escalonados. Todo duerme contigo."
     },
     "hero": {
       "badge": "Automatizaciones Financieras",
       "h1": "Tu clínica factura. Mientras tú duermes.",
-      "sub": "La caja diaria cierra sola. Las liquidaciones de comisión se calculan por período. Memberships con cobro recurrente automático vía gateway. Recordatorios WhatsApp+Email escalonados — sin perder mensualidad.",
+      "sub": "La caja diaria cierra sola. Las liquidaciones de comisión se calculan por período. Memberships con cobro recurrente automático vía gateway. Recordatorios WhatsApp+Email escalonados · sin perder mensualidad.",
       "ctaPrimary": "Solicitar demo financiero",
       "ctaSecondary": "Ver cómo funciona",
       "mockupLabels": {
@@ -1485,7 +1485,7 @@
     "caixa": {
       "eyebrow": "Caja Automática",
       "title": "La caja diaria cierra sola. Tú solo revisas.",
-      "description": "MovimentoCaixa registra cada entrada (consulta, transferencia, tarjeta) y salida (proveedor, anticipo) en tiempo real. Cron de cierre corre a medianoche — saldo del día consolidado, listo para revisar en la mañana.",
+      "description": "MovimentoCaixa registra cada entrada (consulta, transferencia, tarjeta) y salida (proveedor, anticipo) en tiempo real. Cron de cierre corre a medianoche, saldo del día consolidado, listo para revisar en la mañana.",
       "bullets": [
         "Movimientos registrados en tiempo real al evolucionar prestación",
         "Cron de cierre automático (configurable por sucursal)",
@@ -1507,13 +1507,13 @@
     "liquidacao": {
       "eyebrow": "Liquidaciones Automáticas",
       "title": "Comisión de cada dentista calculada por período.",
-      "description": "Configuras % de comisión por profesional (o override por convenio). Toda prestación evolucionada genera ítem de Liquidación automáticamente. Al fin de mes, cierras el período y pagas — sin planilla, sin fricción.",
+      "description": "Configuras % de comisión por profesional (o override por convenio). Toda prestación evolucionada genera ítem de Liquidación automáticamente. Al fin de mes, cierras el período y pagas, sin planilla, sin fricción.",
       "bullets": [
         "% configurable por profesional o por convenio",
         "Auto-upsert al evolucionar prestación del plan de tratamiento",
         "Liquidación agrupada por período mensual (o personalizable)",
         "Histórico inmutable: quién evolucionó, cuándo, qué procedimiento",
-        "Comisión por período — no por procedimiento (decisión arquitectural validada)",
+        "Comisión por período · no por procedimiento (decisión arquitectural validada)",
         "Exportable a planilla (CSV/PDF) o procesamiento directo"
       ],
       "mockupLabels": {
@@ -1533,7 +1533,7 @@
       "description": "Pacientes se suscriben a plan mensual/anual. Cobro recurrente vía MercadoPago (CL/BR/AR/MX/CO/PE) sucede solo. Recordatorios pre (7d/3d/0d) + retry escalonado post (D+1..D+7 diario, después semanal). 4 estados visibles en el badge: activo, por vencer, en deuda, cancelado.",
       "bullets": [
         "Cobro recurrente mensual o anual (auto-renovación toggle)",
-        "Gateway MercadoPago MVP — failover entre múltiples gateways soportado",
+        "Gateway MercadoPago MVP · failover entre múltiples gateways soportado",
         "Recordatorios pre-cobro: WhatsApp + Email (7d / 3d / 0d)",
         "Retry escalonado post-cobro: D+1, D+2, ... D+7, después W2/W3/W4",
         "Webhook idempotente (sin cobro duplicado)",
@@ -1561,7 +1561,7 @@
         "clinica": {
           "persona": "Clínica 3-8 sillones",
           "pain": "5 dentistas con comisión diferente. Error de cálculo cada 2 meses. Mensualidad de membership olvidada.",
-          "benefit": "Liquidación automática por profesional + retro-fix de errores vía auditoría. Membership cobra automático y le recuerda al paciente — sin ti."
+          "benefit": "Liquidación automática por profesional + retro-fix de errores vía auditoría. Membership cobra automático y le recuerda al paciente, sin ti."
         },
         "rede": {
           "persona": "Red odontológica multi-sucursal",
@@ -1593,7 +1593,7 @@
         },
         "lembrete": {
           "topic": "Recordatorio de mensualidad",
-          "before": "La recepcionista llama o se olvida — alta fricción.",
+          "before": "La recepcionista llama o se olvida, alta fricción.",
           "after": "Recordatorios escalonados WhatsApp + Email (7d, 3d, día, retry). Idempotente."
         },
         "mrr": {
@@ -1609,27 +1609,27 @@
       "items": [
         {
           "q": "¿Qué gateways de pago están soportados?",
-          "a": "MercadoPago es el MVP actual, con cobertura en CL, BR, AR, MX, CO y PE. Webpay (Chile) y Stripe (US/global) están en el roadmap próximo. Configuras tus credenciales por organización — quedan cifradas (AES-256-GCM) en la base."
+          "a": "MercadoPago es el MVP actual, con cobertura en CL, BR, AR, MX, CO y PE. Webpay (Chile) y Stripe (US/global) están en el roadmap próximo. Configuras tus credenciales por organización · quedan cifradas (AES-256-GCM) en la base."
         },
         {
           "q": "¿Cómo funciona el failover entre gateways?",
-          "a": "Soporta múltiples gateways por clínica con prioridad. Si MercadoPago falla (inestabilidad, etc.), el sistema intenta el siguiente gateway configurado. Webhook idempotente — no cobra duplicado aún si hay retry."
+          "a": "Soporta múltiples gateways por clínica con prioridad. Si MercadoPago falla (inestabilidad, etc.), el sistema intenta el siguiente gateway configurado. Webhook idempotente · no cobra duplicado aún si hay retry."
         },
         {
           "q": "¿Comisión es por procedimiento o por período?",
-          "a": "Por período (mensual). Decisión arquitectural validada con socios — comisión por procedimiento genera complejidad desproporcional al valor (debate sobre quién 'hizo' la etapa, etc.). Configuras % por profesional o override por convenio. Liquidación cierra al mes."
+          "a": "Por período (mensual). Decisión arquitectural validada con socios · comisión por procedimiento genera complejidad desproporcional al valor (debate sobre quién 'hizo' la etapa, etc.). Configuras % por profesional o override por convenio. Liquidación cierra al mes."
         },
         {
           "q": "¿Los recordatorios de cobro son spam?",
-          "a": "No. Cadencia: 7d antes (WhatsApp+Email), 3d antes (idem), el día (cobro automático). Post-cobro fallido: D+1, D+2 ... D+7 diarios, después W2, W3, W4 semanales, último admin_d30 (sin auto-cancel). Idempotente — no duplica envío si el webhook falla."
+          "a": "No. Cadencia: 7d antes (WhatsApp+Email), 3d antes (idem), el día (cobro automático). Post-cobro fallido: D+1, D+2 ... D+7 diarios, después W2, W3, W4 semanales, último admin_d30 (sin auto-cancel). Idempotente · no duplica envío si el webhook falla."
         },
         {
           "q": "¿El paciente necesita registrar tarjeta en el tótem o en la recepción?",
-          "a": "Puede ser en la recepción (recepcionista) o en el portal del paciente (link enviado por WhatsApp). La tarjeta es tokenizada por el gateway — nunca pasa por nuestra base. PCI compliance vía gateway."
+          "a": "Puede ser en la recepción (recepcionista) o en el portal del paciente (link enviado por WhatsApp). La tarjeta es tokenizada por el gateway, nunca pasa por nuestra base. PCI compliance vía gateway."
         },
         {
           "q": "¿El cobro automático está en producción?",
-          "a": "En producción parcial. Está activo en STAGING para todas las clínicas. En producción, se activa por opt-in clínica por clínica mientras monitoreamos métricas iniciales. El trial da acceso completo en staging — puedes probar sin riesgo."
+          "a": "En producción parcial. Está activo en STAGING para todas las clínicas. En producción, se activa por opt-in clínica por clínica mientras monitoreamos métricas iniciales. El trial da acceso completo en staging, puedes probar sin riesgo."
         },
         {
           "q": "¿Puedo pausar o desactivar un cobro específico?",
@@ -1673,14 +1673,14 @@
     }
   },
   "signup": {
-    "metaTitle": "Creá tu cuenta SuperClini — 14 días gratis, sin tarjeta",
+    "metaTitle": "Creá tu cuenta SuperClini · 14 días gratis, sin tarjeta",
     "metaDescription": "Abrí tu clínica en SuperClini en menos de un minuto. 14 días de prueba con acceso completo, sin tarjeta de crédito.",
     "eyebrow": "Empezá hoy",
     "title": "Tu clínica funcionando en menos de un minuto",
     "subtitle": "Creá la cuenta, definí tu contraseña por email y entrá. Sin llamadas de ventas, sin tarjeta, sin compromiso.",
     "consent": "Acepto que SuperClini me contacte y acepto la política de privacidad y el tratamiento de mis datos.",
     "noCard": "Sin tarjeta de crédito. La prueba termina sola.",
-    "countriesNote": "Disponible en {count} países, con moneda y documentos fiscales locales.",
+    "countriesNote": "Disponible en {count} países, con moneda y documento de identidad locales.",
     "successTitle": "Revisá tu correo",
     "successBody": "Te enviamos un enlace para definir tu contraseña y activar la cuenta. Con eso empiezan tus 14 días.",
     "successHint": "¿No llegó? Revisá spam o promociones. El enlace vale 48 horas.",

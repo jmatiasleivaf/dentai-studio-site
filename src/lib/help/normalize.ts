@@ -1,10 +1,10 @@
 /**
- * Utilidades de texto puras (sem imports de dados) — seguras para o bundle
+ * Utilidades de texto puras (sem imports de dados), seguras para o bundle
  * client. A busca (HelpSearch) importa daqui para não arrastar o catálogo
  * de artigos para o JavaScript do cliente.
  */
 
-/** minúsculas, sem acentos, trim — base para casar busca. */
+/** minúsculas, sem acentos, trim, base para casar busca. */
 export function normalize(s: string): string {
   return s
     .normalize("NFD")

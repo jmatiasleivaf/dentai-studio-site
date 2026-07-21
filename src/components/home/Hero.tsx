@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
@@ -24,17 +25,41 @@ export function Hero() {
 
   return (
     <section className="relative isolate -mt-nav overflow-hidden bg-ink-950">
-      {/* Base dark + acento radial da marca. Sem vídeo, sem imagem: o peso
-          visual vem da tipografia e da prova de produto na seção seguinte. */}
-      <div
+      {/* Ilustração de fundo: fitas de seda translúcidas em azul sobre navy.
+          Abstração de atmosfera, gerada por IA. Nunca simula tela do produto.
+          Escurecida na exportação; o scrim abaixo garante o contraste do texto. */}
+      <Image
+        src="/showcase/hero-ribbon.webp"
+        alt=""
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/3 -z-10 h-[600px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-500/20 blur-[120px]"
+        fill
+        priority
+        sizes="100vw"
+        className="hidden object-cover object-right opacity-90 -z-10 sm:block"
       />
-      {/* Scrim: branco sobre o gradiente da marca dá 2,8:1 a 3,7:1, que reprova
-          em AA. Esta camada leva a zona de texto a ~5:1. Ver marca.css. */}
+      <Image
+        src="/showcase/hero-ribbon-mobile.webp"
+        alt=""
+        aria-hidden
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-right opacity-80 -z-10 sm:hidden"
+      />
+      {/* Acento radial da marca, some sobre as fitas para dar profundidade. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-t from-ink-950 via-ink-950/60 to-ink-950/85"
+        className="pointer-events-none absolute left-1/2 top-1/3 -z-10 h-[600px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-500/15 blur-[120px]"
+      />
+      {/* Scrim: branco sobre o azul das fitas reprova em AA (marca.css mede
+          2,8:1 a 3,7:1). Esta camada leva a zona central de texto a ~5:1. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-t from-ink-950 via-ink-950/75 to-ink-950/80"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-10 bg-ink-950/30"
       />
       <div
         aria-hidden

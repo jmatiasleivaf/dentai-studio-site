@@ -3,7 +3,7 @@ import type { Locale } from "@/i18n/routing";
 /** Texto localizado nos 3 idiomas do site. Seed é tri-língue (ES/PT/EN obrigatórios). */
 export type Localized = Record<Locale, string>;
 
-/** Chave de ilustração customizada (procedural SVG) — ver components/help/illustrations.tsx. */
+/** Chave de ilustração customizada (procedural SVG), ver components/help/illustrations.tsx. */
 export type IllustrationKey =
   | "primeros-pasos"
   | "agenda"
@@ -23,7 +23,7 @@ export type IllustrationKey =
   | "pantalla-caja";
 
 /**
- * Chave de mockup — reconstrução HTML/CSS fiel de uma tela real do app
+ * Chave de mockup, reconstrução HTML/CSS fiel de uma tela real do app
  * (dados fictícios, theme-aware). Ver components/help/mockups.tsx.
  */
 export type MockupKey =
@@ -77,7 +77,7 @@ export type MockupKey =
 export type Accent = "brand" | "green" | "violet";
 
 /**
- * Blocos de conteúdo tipados — o corpo de cada artigo é um Block[].
+ * Blocos de conteúdo tipados, o corpo de cada artigo é um Block[].
  * Zero dependências novas: renderizado por components/help/ArticleBody.tsx.
  * Cada bloco carrega seu texto localizado, então um artigo serve os 3 idiomas.
  */
@@ -116,7 +116,7 @@ export type Article = {
   excerpt: Localized;
   /** Palavras-chave extras pra busca (nomes de país, sinônimos, termos técnicos). */
   keywords?: string[];
-  /** ISO date (YYYY-MM-DD) — data absoluta, nunca relativa. */
+  /** ISO date (YYYY-MM-DD), data absoluta, nunca relativa. */
   updated: string;
   readingMinutes: number;
   body: Block[];

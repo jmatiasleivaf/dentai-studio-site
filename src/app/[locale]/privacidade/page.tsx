@@ -12,7 +12,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "privacy" });
   return {
-    title: `${t("metaTitle")} — SuperClini`,
+    title: `${t("metaTitle")} · SuperClini`,
     description: t("metaDescription"),
   };
 }

@@ -25,7 +25,7 @@ export async function generateMetadata({
   const loc = locale as Locale;
   const canonical = `https://superclini.com/${locale}/ayuda/${cat.slug}`;
   return {
-    title: `${cat.name[loc]} — SuperClini`,
+    title: `${cat.name[loc]} · SuperClini`,
     description: cat.description[loc],
     alternates: {
       canonical,

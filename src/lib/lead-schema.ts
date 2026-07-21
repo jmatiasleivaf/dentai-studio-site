@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 // Espelha leadCreateSchema em dentai-studio/src/lib/lead-validation.ts.
-// Mantido em sync manual — qualquer mudança nas regras deve ser replicada lá.
+// Mantido em sync manual, qualquer mudança nas regras deve ser replicada lá.
 
 export const LEAD_PAISES = ["CL", "BR", "CO", "AR", "MX", "PE", "US", "ES", "PT"] as const;
 export const LEAD_TAMANHOS = ["1", "2-5", "6-10", "11-20", "20+"] as const;
@@ -37,7 +37,7 @@ export const contactFormSchema = z.object({
   mensagem: z.string().trim().max(1000).optional().or(z.literal("")),
   // LGPD / Ley 19.628 / GDPR
   consentimento: z.literal(true, { message: "consent" }),
-  // Honeypot — invisible CSS field. Bots preenchem, humanos não.
+  // Honeypot, invisible CSS field. Bots preenchem, humanos não.
   website: z.string().max(500).optional().or(z.literal("")),
 });
 
