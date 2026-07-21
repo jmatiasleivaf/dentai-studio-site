@@ -1,6 +1,41 @@
 # SuperClini Site — Status Vivo
 
-**Última atualização**: 2026-07-20 — Home agêntica: os 3 agentes viram a faixa de entrada
+**Última atualização**: 2026-07-20 — Home agêntica EM PROD + varredura de marca
+
+## 2026-07-20 (tarde) — Varredura de marca, bandeiras SVG, ilustração do hero
+
+Commits `6492523` (HIPAA no EN), `e4be166` (varredura). O primeiro já está EM PROD.
+O `e4be166` **aguarda push + deploy**.
+
+**Correção de um número que reportei errado.** Eu disse "715 travessões" e depois
+"676 restantes". Não existiam. Usei `grep` com classe de caractere, que casa byte a
+byte dentro de UTF-8 e contava `─` (U+2500, linha de caixa em comentário) e
+fragmentos multibyte. Medido com Unicode: **317 em-dash + 13 en-dash**. Todos
+removidos. Ferramenta: `scratchpad/scan-marca.mjs` (Unicode-aware, a usar daqui em
+diante em vez de grep para contar travessão e emoji).
+
+**Mais dois claims fiscais proibidos, que a varredura expôs e estavam publicados:**
+- "facturación fiscal de tu país" / "tax invoicing" nas descrições do Ayuda.
+- "moneda y fiscal locales" / "documentos fiscales locales". O produto adapta o
+  **documento de identidade** (RUT/CPF/CURP) e a previsión, não documento fiscal.
+
+**Bandeiras SVG.** Novo `src/components/ui/flag.tsx` desenha as 9 bandeiras.
+Motivo duplo: regra de marca e o Chromium no Windows não renderiza bandeira emoji.
+`countries.ts.flag` virou a sigla (dado morto agora que a UI usa `<Flag>`).
+
+**Emoji.** 78 no total. Resolvidos os user-facing: automatizacoes (Lucide), o `★`
+do Pricing (`<Star>`), `✨` de 3 strings e do articles.ts. **Ficam para lote
+separado os 47 de `mockups.tsx`** (telas simuladas do Ayuda) e os 2 `✓` do totem
+(caractere de check, não emoji colorido).
+
+**Ilustração do hero.** Fitas de seda em azul sobre navy, geradas via fal.ai
+(flux-pro), seguindo `i3-objeto`. Atmosfera abstrata, nunca simula tela. Prompt
+exclui os clichês de IA. Escurecida + scrim reforçado para o texto passar em AA.
+55 KB desktop, 24 KB mobile. Gerador em `scratchpad/gerar-hero.mjs`.
+
+---
+
+## 2026-07-20 (manhã) — Home agêntica: os 3 agentes viram a faixa de entrada
 
 ## 2026-07-20 — Home agêntica (branch `feat/home-agentica`, commit `eae64c7`)
 
