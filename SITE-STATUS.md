@@ -1,6 +1,41 @@
 # SuperClini Site — Status Vivo
 
-**Última atualização**: 2026-07-20 — Home agêntica EM PROD + varredura de marca
+**Última atualização**: 2026-07-21 — Canal LLM: série temporal (Fase 2) + WhatsApp mock
+
+## 2026-07-21 — Medição do canal LLM, Fase 2 (série temporal)
+
+Commit `42c856b` (site) + Fase 1 já EM PROD no CRM (ver
+`project_superclini_medicao_canal_llm_crm`). **Site aguarda push + deploy + cron.**
+
+O `canal-llm.mjs` media bem mas era efêmero (manual, terminal, sem histórico) e o
+log do nginx retém ~4,5 dias. Agora:
+- `canal-llm.mjs`: agregação extraída em `agregar(linhas)` exportável; o relatório
+  manual consome dela. Uma fonte, dois consumidores.
+- `scripts/canal-snapshot.mjs`: reusa `agregar`, grava 1 linha/dia em
+  `/data/canal.jsonl` (padrão do help-feedback).
+- `GET /api/canal-stats`: token por env, 404 sem env, 403 token errado. Serve
+  série + acumulado + linha de base 15-19/07 congelada.
+- Cron: systemd timer `superclini-canal-snapshot` (diário 04:10 UTC), roda o
+  snapshot num container node efêmero (sem node no host, site é standalone).
+  Units já em `/tmp` da VPS.
+
+Provas: relatório manual intacto, endpoint testado 403/200 com série de 2 dias,
+audit-stale zero drift, build exit 0, lint 0 erros.
+
+**Pendente de deploy (gate + grant):** push, deploy do site, env `CANAL_STATS_TOKEN`
+no compose de produção, e instalar o timer. Passo a passo pronto para colar.
+
+---
+
+## 2026-07-21 — Sofía com interface fiel do WhatsApp (commit `8f9fdbc`, aguarda deploy)
+
+O card genérico da Sofía não parecia WhatsApp. Novo `WhatsAppMock` reconstrói a
+interface fiel (header verde-petróleo, "en línea", número mascarado, bolhas
+verdes do paciente com check duplo azul, bolhas brancas da Sofía). Dados
+fictícios, não conversa de paciente real: mesma técnica dos mockups do Ayuda,
+evita PII. É o canal onde a Sofía vive, não tela inventada do sistema.
+
+---
 
 ## 2026-07-20 (tarde) — Varredura de marca, bandeiras SVG, ilustração do hero
 
