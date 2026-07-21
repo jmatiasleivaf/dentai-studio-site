@@ -121,11 +121,12 @@
       "p2": "Never reveals another record’s appointment, even on a shared phone",
       "p3": "When it is not her job, she hands it to you",
       "chatLabel": "Sample conversation",
-      "chatOnline": "Sofía is online",
+      "chatOnline": "online",
       "chat1": "Hi, I need an appointment for a cleaning",
       "chat2": "Hi. I have Tuesday the 22nd at 10:30 or Wednesday the 23rd at 16:00. Which works?",
       "chat3": "Tuesday at 10:30",
-      "chat4": "Done. You are booked for Tuesday the 22nd at 10:30. I will confirm here a day before."
+      "chat4": "Done. You are booked for Tuesday the 22nd at 10:30. I will confirm here a day before.",
+      "chatInput": "Type a message"
     },
     "iandra": {
       "axis": "Inward · your team",

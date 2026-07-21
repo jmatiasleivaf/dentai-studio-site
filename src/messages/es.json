@@ -121,11 +121,12 @@
       "p2": "No revela la cita de otra ficha, aunque compartan teléfono",
       "p3": "Cuando no es su trabajo, te la pasa a ti",
       "chatLabel": "Conversación de ejemplo",
-      "chatOnline": "Sofía está en línea",
+      "chatOnline": "en línea",
       "chat1": "Hola, necesito hora para una limpieza",
       "chat2": "Hola. Tengo el martes 22 a las 10:30 o el miércoles 23 a las 16:00. ¿Cuál te acomoda?",
       "chat3": "El martes a las 10:30",
-      "chat4": "Listo. Te dejo agendada el martes 22 a las 10:30. Te confirmo por aquí un día antes."
+      "chat4": "Listo. Te dejo agendada el martes 22 a las 10:30. Te confirmo por aquí un día antes.",
+      "chatInput": "Escribe un mensaje"
     },
     "iandra": {
       "axis": "Hacia adentro · tu equipo",

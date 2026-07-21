@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
-import { ChatMockup } from "@/components/landing/ChatMockup";
+import { WhatsAppMock } from "@/components/home/WhatsAppMock";
 import { SUPERCLINI_FACTS } from "@/lib/superclini.facts";
 
 /**
@@ -18,8 +18,10 @@ import { SUPERCLINI_FACTS } from "@/lib/superclini.facts";
  * IAndra sky, AlicIA violeta.
  *
  * Prova visual: IAndra e AlicIA são capturas REAIS do produto em staging
- * (2026-07-20). Sofía usa o ChatMockup porque a org de demonstração não tem
- * conversas semeadas; é reconstrução fiel, nunca uma tela inventada do sistema.
+ * (2026-07-20). Sofía usa uma reconstrução fiel da interface do WhatsApp
+ * (WhatsAppMock) com conversa fictícia, porque conversa real é de paciente real
+ * e a política do repo proíbe PII. É o canal onde a Sofía vive, não uma tela
+ * inventada do sistema.
  */
 
 type AgentKey = "sofia" | "iandra" | "alicia";
@@ -66,14 +68,14 @@ export function AgentsBand() {
 
   const visuals: Record<AgentKey, React.ReactNode> = {
     sofia: (
-      <ChatMockup
-        proofLabel={t("sofia.chatLabel")}
-        onlineLabel={t("sofia.chatOnline")}
+      <WhatsAppMock
+        statusLabel={t("sofia.chatOnline")}
+        inputPlaceholder={t("sofia.chatInput")}
         messages={[
-          { side: "user", text: t("sofia.chat1") },
-          { side: "bot", text: t("sofia.chat2") },
-          { side: "user", text: t("sofia.chat3") },
-          { side: "bot", text: t("sofia.chat4") },
+          { side: "out", text: t("sofia.chat1"), time: "21:04" },
+          { side: "in", text: t("sofia.chat2"), time: "21:04" },
+          { side: "out", text: t("sofia.chat3"), time: "21:05" },
+          { side: "in", text: t("sofia.chat4"), time: "21:05" },
         ]}
       />
     ),
