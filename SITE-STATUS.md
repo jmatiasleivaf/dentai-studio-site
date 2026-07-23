@@ -1,6 +1,44 @@
 # SuperClini Site — Status Vivo
 
-**Última atualização**: 2026-07-21 — Canal LLM: série temporal (Fase 2) + WhatsApp mock
+**Última atualização**: 2026-07-23 — Versão dedicada do Chile (cl.superclini.com) EM PROD
+
+## 2026-07-23 — Versão dedicada do Chile em cl.superclini.com (EM PROD)
+
+Commits `74eedca` + `fef5041` em `main`, deployados. Mesmo app Next serve os dois
+hosts; a decisão "sou a versão Chile?" nasce do header `Host` (nginx repassa
+`Host $host`). Não toca `/es|/pt|/en` do principal (zero 301). Fase 1 = marketing.
+
+- **`src/lib/site-host.ts`** (SSoT): `isChileSite()` lê `headers()`, `isChileHostname()`
+  puro p/ middleware, `CHILE_HOST`, origens. **`SiteContext`** leva `isChile` ao client.
+- **middleware**: no host CL, apex e `/pt|/en` -> `/es`; trava `NEXT_COUNTRY=CL`.
+- **layout**: canonical/hreflang/JSON-LD/`defaultCountry` host-aware; `es-CL` aponta
+  para o subdomínio nos dois hosts; `x-default` corrigido de `/en` para o apex.
+- **`ChileHighlights`** (server, só no host CL): pagos locais, CLP, RUT, Ley 20.584,
+  migración Dentalink, os 3 agentes. Só fatos reais (pré-receita, zero prova social).
+- **Pricing/LocaleSwitcher**: escondem picker de país e troca de idioma no CL;
+  `pricing.subChile` substitui a copy "puedes cambiarlo".
+- **sitemap/robots** host-aware; **i18n** `chile.*` + `subChile` nos 3 idiomas.
+
+Gotcha: ler `headers()` torna as rotas `[locale]` dinâmicas. next-intl embute todas
+as mensagens no HTML, então strings `chile.*` aparecem 1x no bundle mesmo no principal
+(teste real = contar: principal 1, CL 2).
+
+Decisão de canonical: home e /precios são a superfície única do CL (self-canonical);
+landings/ayuda mantêm canonical no principal (consolidam duplicata). Fase 2 pode mudar.
+
+Infra: DNS `cl` A proxied (Cloudflare); nginx `server_name ... cl.superclini.com`
+(vhost já tinha `proxy_pass http://site:3000` + `Host $host`). O `dentai-nginx` servia
+um inode-fantasma divergente do arquivo do host; resolvido rebaseando na config viva +
+`docker compose up -d --force-recreate nginx`. 7 vhosts verificados 200/307 (0x 520).
+
+Provas ao vivo: `cl/` 307->`/es`+cookie CL; `cl/es` canonical+hreflang es-CL+bloco Chile;
+`cl/pt`->`/es`; `cl/es/precios` CLP; `superclini.com/es` intacto (es-CL cruza p/ CL);
+build+lint+audit-stale verdes; `MISSING_MESSAGE=0`. Screenshots em `SuperClini/_chile-preview`.
+
+Checkout vivo da pasarela = fase 2 (spec própria). Limpeza pendente na VPS: remover
+`nginx.conf.candidate`/`.live` de `/opt/dentai-studio/nginx/`.
+
+---
 
 ## 2026-07-21 — Medição do canal LLM, Fase 2 (série temporal)
 
