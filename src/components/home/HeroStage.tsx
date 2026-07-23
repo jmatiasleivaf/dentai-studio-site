@@ -75,10 +75,10 @@ export function HeroStage({ locale }: { locale: Locale }) {
       {/* brilho da marca atrás do retrato */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -inset-6 -z-10 rounded-[2rem] bg-brand-500/25 blur-3xl"
+        className="pointer-events-none absolute -inset-6 -z-10 rounded-[2rem] bg-brand-400/20 blur-3xl"
       />
 
-      <div className="relative overflow-hidden rounded-3xl border border-white/12 shadow-2xl">
+      <div className="relative overflow-hidden rounded-3xl border border-ink-200 shadow-2xl dark:border-white/12">
         <Image
           src="/showcase/home/recepcion.webp"
           alt={t(TXT.portraitAlt, locale)}
@@ -90,7 +90,7 @@ export function HeroStage({ locale }: { locale: Locale }) {
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950/45 via-transparent to-transparent"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950/20 via-transparent to-transparent"
         />
       </div>
 

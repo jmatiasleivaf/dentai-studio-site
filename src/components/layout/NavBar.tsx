@@ -110,18 +110,11 @@ export function NavBar() {
   const pathname = usePathname();
   const [open, setOpen] = React.useState(false);
   const [resourcesOpen, setResourcesOpen] = React.useState(false);
-  const [scrolled, setScrolled] = React.useState(false);
 
-  const isHome = /^\/[a-z]{2}\/?$/.test(pathname);
-  const overlay = isHome && !scrolled && !open;
-
-  React.useEffect(() => {
-    if (!isHome) return;
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [isHome]);
+  // Hero da home passou a ser CLARO (Direção B, 2026-07-23). A barra fica sólida
+  // em vidro em todas as páginas; some o overlay transparente de texto branco que
+  // exigia hero escuro. O Hero deixou de usar `-mt-nav` (não sobe mais por baixo).
+  const overlay = false;
 
   // Lock de scroll do body com o drawer aberto.
   React.useEffect(() => {
