@@ -119,10 +119,10 @@ export function AgentsBand() {
           <span className="inline-block rounded-full bg-brand-100 px-4 py-1.5 text-[11px] font-extrabold uppercase tracking-[0.15em] text-brand-700 dark:bg-brand-500/10 dark:text-brand-300">
             {t("eyebrow")}
           </span>
-          <h2 className="mt-6 font-display text-fluid-3xl font-extrabold leading-[1.02] tracking-tight text-ink-950 dark:text-white">
+          <h2 className="mt-6 font-display text-display-2 font-bold text-ink-950 dark:text-white text-balance">
             {t("title")}
           </h2>
-          <p className="mt-5 text-balance text-base leading-relaxed text-ink-600 dark:text-ink-400">
+          <p className="mt-5 text-balance text-lead text-ink-600 dark:text-ink-400">
             {t("sub")}
           </p>
         </div>
@@ -146,7 +146,7 @@ export function AgentsBand() {
                 {t(`${a}.axis`)}
               </p>
 
-              <h3 className="mt-5 font-display text-xl font-bold leading-snug tracking-tight text-ink-950 dark:text-white">
+              <h3 className="mt-5 font-display text-display-3 font-bold text-ink-950 dark:text-white">
                 {t(`${a}.headline`)}
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-ink-600 dark:text-ink-400">
@@ -179,7 +179,7 @@ export function AgentsBand() {
             concorrência não ocupa, porque lá as automações são anônimas. */}
         <div className="mt-14 grid items-center gap-10 rounded-3xl border border-ink-200 bg-ink-50 p-8 dark:border-ink-800 dark:bg-ink-900 lg:grid-cols-2 lg:p-12">
           <div>
-            <h3 className="font-display text-fluid-2xl font-extrabold leading-tight tracking-tight text-ink-950 dark:text-white">
+            <h3 className="font-display text-display-2 font-bold text-ink-950 dark:text-white">
               {t("systemTitle")}
             </h3>
             <p className="mt-4 text-base leading-relaxed text-ink-600 dark:text-ink-400">

@@ -55,6 +55,13 @@ const config: Config = {
         "fluid-3xl": "clamp(2rem, 1.6rem + 2vw, 3rem)",
         "fluid-4xl": "clamp(2.5rem, 1.8rem + 3.5vw, 4.5rem)",
         "fluid-5xl": "clamp(3rem, 2rem + 5vw, 6rem)",
+        // Escala editorial harmônica (razão ~1.2). Substitui os saltos billboard
+        // (fluid-4xl/5xl) na home: título menor, mais peso em subtítulo e corpo.
+        // Aplicar em todo o site incrementalmente; a home herda daqui.
+        "display-1": ["clamp(2rem, 1.4rem + 3vw, 3.25rem)", { lineHeight: "1.07", letterSpacing: "-0.025em" }],
+        "display-2": ["clamp(1.6rem, 1.2rem + 1.9vw, 2.25rem)", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
+        "display-3": ["clamp(1.25rem, 1.05rem + 1vw, 1.5rem)", { lineHeight: "1.2", letterSpacing: "-0.015em" }],
+        "lead": ["clamp(1.0625rem, 1rem + 0.4vw, 1.25rem)", { lineHeight: "1.5" }],
       },
       minHeight: {
         touch: "44px",

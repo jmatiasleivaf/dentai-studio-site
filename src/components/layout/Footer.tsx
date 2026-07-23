@@ -27,6 +27,14 @@ export function Footer({ isChile = false }: { isChile?: boolean }) {
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-ink-400">
               {t("tagline")}
             </p>
+            {/* Bloco legal da empresa operadora (SII Chile). Aparece nas duas
+                superfícies: a LF BROTHERS SpA opera a marca SuperClini inteira. */}
+            <div className="mt-6 max-w-xs text-xs leading-relaxed text-ink-500">
+              <p className="mb-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-ink-400">
+                {t("legalEntity.label")}
+              </p>
+              {t("legalEntity.body")}
+            </div>
           </div>
 
           <FooterCol title={t("resourcesTitle")}>

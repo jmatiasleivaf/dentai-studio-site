@@ -1,6 +1,58 @@
 # SuperClini Site — Status Vivo
 
-**Última atualização**: 2026-07-23 — Versão dedicada do Chile (cl.superclini.com) EM PROD
+**Última atualização**: 2026-07-23 — Home overhaul Direção B (branch `feat/home-overhaul`, AGUARDA GATE)
+
+## 2026-07-23 (tarde) — Home overhaul Direção B (branch `feat/home-overhaul`, AGUARDA GATE DE MATIAS)
+
+Redesenho da dobra e limpeza da narrativa de IA. Direção escolhida pelo Matias
+(B: tese agêntica, editorial). Sem staging: `main` é produção, deploy só no "sim".
+
+**Os três pedidos diretos do Matias, entregues:**
+- **Rosto humano acima da dobra**: `HeroStage.tsx` (novo) traz retrato real (Pexels,
+  licença comercial, `public/showcase/home/CREDITS.md`), casting LATAM, cena
+  não-clínica. Sobre ele, cartões de vidro de PRODUTO (agenda em grade + chip da
+  Sofía no WhatsApp), dados fictícios, zero PII. Foto otimizada WebP (44 KB).
+- **Tipografia menor e harmônica**: escala modular nova no `tailwind.config.ts`
+  (`display-1/2/3`, `lead`, razão ~1.2). H1 sai do billboard `fluid-5xl` (até 96px)
+  para `display-1` (até 52px). Home migrada; resto do site adota incremental.
+- **Rodapé legal**: `footer.legalEntity.*` (label + body) nos 3 idiomas, nas duas
+  superfícies. "SuperClini es una marca de LF BROTHERS SpA, RUT 78.441.027-7.
+  Apoquindo 6410, Of. 605, Las Condes, Santiago, Chile." Só endereço (decisão do
+  Matias), sem email/telefone.
+
+**Narrativa de IA consolidada (a confusão apontada):** removida a `AISection`
+(deletada) do `page.tsx`. Ela duplicava a Sofía (WhatsAppCard vs o card Sofía da
+AgentsBand) e criava um segundo "temos IA". Agora a `AgentsBand` é a ÚNICA moldura
+de IA, com encabeçado "Una sola historia de IA / No es tener IA. Es delegar el
+trabajo repetitivo". Sai também o par antes/depois de sorriso (risco clínico). As
+chaves `ai.*` ficam órfãs, inofensivas.
+
+**Copy afinada para o Chile (pedido do Matias):** H1 "Tu equipo deja de andar
+detrás de cada paciente. / Vuelve a atender." ("andar detrás" > "perseguir", que
+soava a acoso). "hora" = cita no sub do Chile via override `hero.subChile`
+(host-aware, como `eyebrowChile`): main mostra "las citas", CL mostra "las horas".
+A palavra "perseguir" foi tirada também do `closing.sub`.
+
+**Fundo do hero mantido navy (decisão de engenharia):** o NavBar entra em overlay
+(texto branco) na home no topo e assume hero escuro. Um hero claro exigiria mexer
+no NavBar (compartilhado). O retrato claro e os cartões brancos ganham contraste
+premium sobre o navy. Se o Matias preferir claro, é follow-up de NavBar.
+
+**Provas:** `npm run build` exit 0 (tsc limpo) · `npm run lint` 0 erros (12 warnings
+pré-existentes) · `npm run audit-stale` zero drift · **First Load da home 181 kB**
+(era 180) · screenshots main+CL, desktop+mobile (Playwright host-resolver-rules)
+confirmam host-aware (citas vs horas), rodapé legal, IA consolidada, "perseguir"
+fora. Galeria de capturas gerada para o gate visual.
+
+**Arquivos:** `tailwind.config.ts`, `src/app/[locale]/page.tsx`, `Hero.tsx`,
+`HeroStage.tsx` (novo), `AgentsBand.tsx`, `layout/Footer.tsx`, `messages/{es,pt,en}.json`,
+`public/showcase/home/{recepcion.webp,recepcion-sm.webp,CREDITS.md}`,
+`AISection.tsx` (deletado).
+
+**Pendências:** gate do Matias para merge+deploy. Migrar landings para a escala
+tipográfica nova (incremental). Limpeza opcional das chaves `ai.*` órfãs.
+
+---
 
 ## 2026-07-23 — Versão dedicada do Chile em cl.superclini.com (EM PROD)
 

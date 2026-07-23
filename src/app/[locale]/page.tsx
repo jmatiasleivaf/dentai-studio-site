@@ -4,7 +4,6 @@ import { AgentsBand } from "@/components/home/AgentsBand";
 import { ChileHighlights } from "@/components/home/ChileHighlights";
 import { TrustStrip } from "@/components/home/TrustStrip";
 import { isChileSite } from "@/lib/site-host";
-import { AISection } from "@/components/home/AISection";
 import { Features } from "@/components/home/Features";
 import { FAQ } from "@/components/home/FAQ";
 import { FAQSchema } from "@/components/home/FAQSchema";
@@ -15,10 +14,11 @@ import { CtaFinal } from "@/components/home/CtaFinal";
  * Home da tese agêntica (2026-07-20).
  *
  * Ordem: o sujeito (os três agentes) antes do predicado (a plataforma).
- *   Hero        estabelece que os três trabalham hoje
- *   AgentsBand  o trabalho de cada um, em peso igual, com prova real
+ *   Hero        rosto humano + prova de produto; os três trabalham hoje
+ *   AgentsBand  o trabalho de cada um, em peso igual, com prova real. É a
+ *               ÚNICA moldura de IA da home (a antiga AISection duplicava a
+ *               Sofía e criava um segundo "temos IA"; removida em 2026-07-23).
  *   TrustStrip  o mínimo de confiança, sem contagem de teste
- *   AISection   a IA clínica sob demanda
  *   Features    os módulos, comprimidos: a plataforma sustenta os agentes
  *   Proof       a história e os números que importam
  *   FAQ         matéria-prima extraível
@@ -46,7 +46,6 @@ export default async function HomePage({
       <AgentsBand />
       {chile ? <ChileHighlights /> : null}
       <TrustStrip isChile={chile} />
-      <AISection />
       <Features />
       <FAQ />
       <FAQSchema locale={locale} />

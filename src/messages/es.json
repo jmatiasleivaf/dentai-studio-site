@@ -128,13 +128,14 @@
     "inCollection": "Artículos en esta colección"
   },
   "hero": {
-    "eyebrow": "Software dental agéntico · {countries} mercados",
-    "eyebrowChile": "Software dental agéntico",
-    "h1Line1": "Tres agentes trabajan",
-    "h1Line2": "en tu clínica hoy.",
-    "sub": "Sofía contesta el WhatsApp y agenda de verdad. IAndra resuelve el sistema y ejecuta el día de tu equipo. AlicIA no deja caer un tratamiento que ya vendiste.",
+    "eyebrow": "Tu clínica, operada por tres agentes con nombre",
+    "eyebrowChile": "Tu clínica, operada por tres agentes con nombre",
+    "h1Line1": "Tu equipo deja de andar detrás de cada paciente.",
+    "h1Line2": "Vuelve a atender.",
+    "sub": "Sofía contesta y confirma las citas por WhatsApp, IAndra cobra y cuadra la caja, AlicIA reactiva los tratamientos detenidos. Todo en el mismo panel, sobre la misma ficha.",
+    "subChile": "Sofía contesta y confirma las horas por WhatsApp, IAndra cobra y cuadra la caja, AlicIA reactiva los tratamientos detenidos. Todo en el mismo panel, sobre la misma ficha.",
     "ctaPrimary": "Crear cuenta gratis",
-    "ctaSecondary": "Ver los tres agentes",
+    "ctaSecondary": "Conocer los 3 agentes",
     "trustItems": {
       "noCard": "Sin tarjeta de crédito",
       "setup": "Setup guiado en 1 día",
@@ -142,9 +143,9 @@
     }
   },
   "agents": {
-    "eyebrow": "El equipo de IA de tu clínica",
+    "eyebrow": "Una sola historia de IA",
     "title": "Cada agente tiene un trabajo. Y lo hace hoy.",
-    "sub": "No son funciones sueltas con IA encima. Son tres agentes con nombre, cada uno responsable de un frente, dentro del mismo sistema y sobre la misma ficha.",
+    "sub": "No es tener IA. Es delegar el trabajo repetitivo a tres agentes con nombre, en el mismo panel y sobre la misma ficha del paciente.",
     "sofia": {
       "axis": "Hacia afuera · el paciente",
       "headline": "Contesta el WhatsApp y agenda de verdad.",
@@ -185,7 +186,7 @@
   "closing": {
     "title": "Tu clínica ya no se opera.",
     "highlight": "Se delega.",
-    "sub": "Tu equipo deja de perseguir. Vuelve a atender."
+    "sub": "Tu equipo deja de andar detrás de todo. Vuelve a atender."
   },
   "trustStrip": {
     "title": "Construido para ser confiable en el primer día",
@@ -573,6 +574,10 @@
       "privacy": "Política de privacidad",
       "terms": "Términos de uso",
       "security": "Seguridad"
+    },
+    "legalEntity": {
+      "label": "Datos de la empresa",
+      "body": "SuperClini es una marca de LF BROTHERS SpA, RUT 78.441.027-7. Apoquindo 6410, Of. 605, Las Condes, Santiago, Chile."
     },
     "countriesTitle": "Países",
     "rights": "Todos los derechos reservados."

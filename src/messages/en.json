@@ -128,13 +128,14 @@
     "inCollection": "Articles in this collection"
   },
   "hero": {
-    "eyebrow": "Agentic dental software · {countries} markets",
-    "eyebrowChile": "Agentic dental software",
-    "h1Line1": "Three agents work",
-    "h1Line2": "in your clinic today.",
-    "sub": "Sofía answers WhatsApp and books for real. IAndra runs the system and executes your team’s day. AlicIA never lets a treatment you already sold go cold.",
+    "eyebrow": "Your clinic, run by three named agents",
+    "eyebrowChile": "Your clinic, run by three named agents",
+    "h1Line1": "Your team stops chasing every patient.",
+    "h1Line2": "Back to caring.",
+    "sub": "Sofía answers and confirms appointments on WhatsApp, IAndra collects and closes the register, AlicIA revives stalled treatments. All in one panel, on the same record.",
+    "subChile": "Sofía answers and confirms appointments on WhatsApp, IAndra collects and closes the register, AlicIA revives stalled treatments. All in one panel, on the same record.",
     "ctaPrimary": "Create free account",
-    "ctaSecondary": "Meet the three agents",
+    "ctaSecondary": "Meet the 3 agents",
     "trustItems": {
       "noCard": "No credit card",
       "setup": "Guided setup in 1 day",
@@ -142,9 +143,9 @@
     }
   },
   "agents": {
-    "eyebrow": "Your clinic’s AI team",
+    "eyebrow": "One AI story, not a checklist",
     "title": "Each agent has a job. And does it today.",
-    "sub": "These are not loose features with AI bolted on. They are three named agents, each owning one front, inside the same system and on the same patient record.",
+    "sub": "This is not having AI. It is delegating the repetitive work to three named agents, in one panel and on the same patient record.",
     "sofia": {
       "axis": "Outward · the patient",
       "headline": "Answers WhatsApp and books for real.",
@@ -185,7 +186,7 @@
   "closing": {
     "title": "Your clinic is no longer operated.",
     "highlight": "It is delegated.",
-    "sub": "Your team stops chasing. It goes back to caring."
+    "sub": "Your team stops chasing everything. It goes back to caring."
   },
   "trustStrip": {
     "title": "Built to be trusted on day one",
@@ -573,6 +574,10 @@
       "privacy": "Privacy policy",
       "terms": "Terms of use",
       "security": "Security"
+    },
+    "legalEntity": {
+      "label": "Company details",
+      "body": "SuperClini is a brand of LF BROTHERS SpA, Tax ID (RUT) 78.441.027-7. Apoquindo 6410, Of. 605, Las Condes, Santiago, Chile."
     },
     "countriesTitle": "Countries",
     "rights": "All rights reserved."
