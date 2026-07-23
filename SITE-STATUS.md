@@ -35,8 +35,24 @@ Provas ao vivo: `cl/` 307->`/es`+cookie CL; `cl/es` canonical+hreflang es-CL+blo
 `cl/pt`->`/es`; `cl/es/precios` CLP; `superclini.com/es` intacto (es-CL cruza p/ CL);
 build+lint+audit-stale verdes; `MISSING_MESSAGE=0`. Screenshots em `SuperClini/_chile-preview`.
 
-Checkout vivo da pasarela = fase 2 (spec própria). Limpeza pendente na VPS: remover
-`nginx.conf.candidate`/`.live` de `/opt/dentai-studio/nginx/`.
+Checkout vivo da pasarela = fase 2 (spec própria).
+
+**Pós-review do Matias (mesmo dia, commit `212b8d8`, EM PROD):**
+- GLOBAL: seção `Proof` removida inteira (números 9/8/3, providers, compliance,
+  "Fundado en"); tema travado em CLARO e seletor de tema removido (NavBar desktop +
+  drawer; `ThemeContext` vira light-only; `theme-toggle.tsx` e `Proof.tsx` deletados).
+  As variantes `dark:` seguem no código, inertes (classe `dark` nunca entra no html).
+- SÓ NO CHILE: sem referência a outros países. Rodapé "Países" oculto (prop `isChile`
+  no Footer, vinda do layout), `hero.eyebrowChile` sem "N mercados", tile de países
+  fora da `TrustStrip`. Hero/TrustStrip recebem `isChile` da `page.tsx`.
+- CTA "Crear cuenta gratis" mantido indo para `/registro` (decisão do Matias). Estado:
+  o do hero abre o form de contato (ContactCTAButton), o do topo/menu vai para /registro.
+- Chaves `proof.*` do i18n ficaram órfãs (inofensivas, não renderizam); remoção por
+  regex é frágil, deixadas para limpeza futura via parse+reserialize.
+- Provado ao vivo: `Anthropic Claude`=0 nos dois (Proof fora), html sem classe `dark`,
+  rodapé Países render main=2/cl=1, hero mercados no global e eyebrowChile no CL.
+
+Limpeza da VPS feita: `nginx.conf.candidate`/`.live` removidos.
 
 ---
 
