@@ -15,9 +15,23 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { Mockup } from "@/components/help/mockups";
+import { Slider } from "@/components/ui/slider";
+import type { MockupKey } from "@/lib/help/types";
 import type { Locale } from "@/i18n/routing";
 import { SUPERCLINI_FACTS } from "@/lib/superclini.facts";
 import { cn } from "@/lib/utils";
+
+type Dict = Record<Locale, string>;
+const pick = (d: Dict, l: Locale) => d[l] ?? d.es;
+
+// Telas reais do produto que passam no slider (mockups fiéis do Centro de Ayuda).
+const SCREENS: { screen: MockupKey; cap: Dict }[] = [
+  { screen: "panel-kpis", cap: { es: "Panel del día: tu clínica de un vistazo", pt: "Painel do dia: tua clínica num relance", en: "Daily panel: your clinic at a glance" } },
+  { screen: "agenda-dia", cap: { es: "Agenda en grilla, por profesional", pt: "Agenda em grade, por profissional", en: "Grid schedule, by professional" } },
+  { screen: "caja-detalle", cap: { es: "Caja y cobros, sin planillas", pt: "Caixa e cobranças, sem planilhas", en: "Cash and payments, no spreadsheets" } },
+  { screen: "ficha-overview", cap: { es: "La ficha del paciente, completa", pt: "A ficha do paciente, completa", en: "The complete patient record" } },
+];
+const SLIDER_LABEL: Dict = { es: "Pantallas reales del producto", pt: "Telas reais do produto", en: "Real product screens" };
 
 /**
  * A plataforma que sustenta os agentes (Direção B, 2026-07-23).
@@ -67,9 +81,18 @@ export function Features() {
           sub={t("sub")}
         />
 
-        {/* Tela real do produto: prova visual, não catálogo de texto. */}
+        {/* Slider de telas REAIS do produto: prova visual, mostra a amplitude. */}
         <div className="mx-auto mt-12 w-full max-w-3xl">
-          <Mockup screen="panel-kpis" locale={locale} />
+          <Slider label={pick(SLIDER_LABEL, locale)} autoMs={6000}>
+            {SCREENS.map((s) => (
+              <div key={s.screen} className="px-1">
+                <Mockup screen={s.screen} locale={locale} />
+                <p className="mt-4 text-center text-sm text-ink-500 dark:text-ink-400">
+                  {pick(s.cap, locale)}
+                </p>
+              </div>
+            ))}
+          </Slider>
         </div>
 
         <div className="mt-14 grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-5">

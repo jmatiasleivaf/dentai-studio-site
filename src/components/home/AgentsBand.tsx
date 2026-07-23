@@ -1,6 +1,6 @@
 import * as React from "react";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { WhatsAppMock } from "@/components/home/WhatsAppMock";
@@ -63,8 +63,19 @@ function Wordmark({ agent }: { agent: AgentKey }) {
   );
 }
 
+const NAMES: Record<AgentKey, string> = { sofia: "Sofía", iandra: "IAndra", alicia: "AlicIA" };
+const ROLES: Record<AgentKey, Record<string, string>> = {
+  sofia: { es: "Pacientes y WhatsApp", pt: "Pacientes e WhatsApp", en: "Patients and WhatsApp" },
+  iandra: { es: "Equipo y caja", pt: "Equipe e caixa", en: "Team and cash" },
+  alicia: { es: "Tratamientos", pt: "Tratamentos", en: "Treatments" },
+};
+const ACTIVE_LABEL: Record<string, string> = { es: "Activo", pt: "Ativo", en: "Active" };
+const FICHA_LABEL: Record<string, string> = { es: "Ficha del paciente", pt: "Ficha do paciente", en: "Patient record" };
+const PANEL_CAPTION: Record<string, string> = { es: "Un panel · tres agentes", pt: "Um painel · três agentes", en: "One panel · three agents" };
+
 export function AgentsBand() {
   const t = useTranslations("agents");
+  const locale = useLocale();
 
   const visuals: Record<AgentKey, React.ReactNode> = {
     sofia: (
@@ -186,14 +197,61 @@ export function AgentsBand() {
               {t("systemBody")}
             </p>
           </div>
-          <Image
-            src="/showcase/agentes/dock.webp"
-            alt={t("dockAlt")}
-            width={848}
-            height={780}
-            sizes="(max-width: 1024px) 90vw, 460px"
-            className="mx-auto w-full max-w-[460px] rounded-2xl"
-          />
+          {/* Ilustração: uma ficha, três agentes num dock. Substitui o print
+              confuso do dock por um desenho legível do conceito. */}
+          <div className="mx-auto w-full max-w-[440px]">
+            <div className="rounded-2xl border border-ink-200 bg-white p-5 shadow-xl dark:border-ink-800 dark:bg-ink-950">
+              <div className="flex items-center gap-3 border-b border-ink-100 pb-4 dark:border-ink-800">
+                <span
+                  aria-hidden
+                  className="grid h-11 w-11 place-items-center rounded-full bg-brand-100 font-display text-sm font-bold text-brand-700 dark:bg-brand-500/20 dark:text-brand-300"
+                >
+                  JP
+                </span>
+                <span className="min-w-0">
+                  <span className="block font-display text-sm font-bold text-ink-950 dark:text-white">
+                    {FICHA_LABEL[locale] ?? FICHA_LABEL.es}
+                  </span>
+                  <span className="block text-xs text-ink-400">
+                    {PANEL_CAPTION[locale] ?? PANEL_CAPTION.es}
+                  </span>
+                </span>
+              </div>
+              <ul className="mt-4 space-y-2">
+                {(["sofia", "iandra", "alicia"] as AgentKey[]).map((a, idx) => {
+                  const active = idx === 0;
+                  return (
+                    <li
+                      key={a}
+                      className={`flex items-center gap-3 rounded-xl border p-3 transition-colors ${
+                        active
+                          ? "border-brand-300 bg-brand-50 dark:border-brand-500/40 dark:bg-brand-500/10"
+                          : "border-ink-100 dark:border-ink-800"
+                      }`}
+                    >
+                      <span
+                        aria-hidden
+                        className={`h-2.5 w-2.5 shrink-0 rounded-full ring-4 ${ACCENT[a].dot} ${ACCENT[a].ring}`}
+                      />
+                      <span className="min-w-0 flex-1">
+                        <span className="block font-display text-sm font-bold text-ink-950 dark:text-white">
+                          {NAMES[a]}
+                        </span>
+                        <span className="block text-xs text-ink-400">
+                          {ROLES[a][locale] ?? ROLES[a].es}
+                        </span>
+                      </span>
+                      {active ? (
+                        <span className="shrink-0 rounded-full bg-brand-500/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-brand-700 dark:text-brand-300">
+                          {ACTIVE_LABEL[locale] ?? ACTIVE_LABEL.es}
+                        </span>
+                      ) : null}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </div>
         </div>
       </Container>
     </Section>

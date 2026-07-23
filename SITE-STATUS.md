@@ -1,6 +1,30 @@
 # SuperClini Site — Status Vivo
 
-**Última atualização**: 2026-07-23 — Home overhaul Direção B (branch `feat/home-overhaul`, AGUARDA GATE)
+**Última atualização**: 2026-07-23 — Home Direção B: carrosséis + finale novo (branch `feat/home-overhaul`, AGUARDA GATE)
+
+## 2026-07-23 (noite) — Interatividade + finale (feedback do Matias sobre a home clara)
+
+Quatro pedidos do Matias após rever a home clara, todos aplicados:
+- **Dock dos agentes**: o print confuso virou uma ILUSTRAÇÃO legível (card "Ficha
+  del paciente" + dock dos 3 agentes com cor e papel, Sofía ativa). `AgentsBand.tsx`.
+- **Seção humana**: virou CARROSSEL de 3 cenas (recepção, caixa, tratamentos),
+  cada uma com foto real própria e mensagem própria. `HumanSection.tsx` +
+  `human.slides[]` i18n. Casting diverso (inclui um homem no card de equipe).
+- **Plataforma**: a tela real virou SLIDER de 4 telas (panel, agenda, caixa, ficha)
+  com legenda. `Features.tsx`.
+- **Fecho (IMG4, "legado, horroroso")**: a banda escura + o CTA em degradê neon
+  saíram. Novo finale claro premium num painel único que carrega a assinatura
+  ("Se delega.") + CTA. `Closing.tsx` DELETADO; `CtaFinal.tsx` reescrito.
+
+Peça nova reutilizável `src/components/ui/slider.tsx` (client, acessível, respeita
+reduced-motion, alvo 44px, swipe, `inert` nos slides fora de tela). Slides
+renderizados no servidor e passados como children (mockups não entram no bundle).
+
+Provas: build exit 0, lint 0 erros, audit-stale zero drift, **First Load home
+181 -> 186 kB** (+5 kB pelos carrosséis), sem overflow-x em 390px, screenshots +
+close-ups (dock, carrossel, finale) verificados.
+
+---
 
 ## 2026-07-23 (tarde) — Home overhaul Direção B (branch `feat/home-overhaul`, AGUARDA GATE DE MATIAS)
 

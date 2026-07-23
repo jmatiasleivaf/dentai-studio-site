@@ -189,16 +189,40 @@
     "sub": "A tua equipe para de correr atrás de tudo. Volta a atender."
   },
   "human": {
-    "kicker": "Tua equipe, não um bot",
-    "title": "Os agentes correm atrás. Tua equipe atende.",
-    "body": "Sofía, IAndra e AlicIA cuidam de confirmar, cobrar e reativar. Tua equipe deixa de viver grudada no telefone e volta ao que sabe fazer: atender bem cada paciente.",
-    "p1": "Menos ligações de confirmação e cobranças para perseguir",
-    "p2": "Mais tempo no consultório e na recepção, com o paciente na frente",
-    "p3": "A mesma equipe, rendendo sem o caos de todo dia",
+    "carouselLabel": "Como tua equipe trabalha com os agentes",
     "link": "Conhecer os 3 agentes",
-    "badgeNumber": "18 consultas",
-    "badgeLabel": "confirmadas hoje, sem uma ligação",
-    "photoAlt": "Dentista sorrindo na clínica"
+    "slides": [
+      {
+        "kicker": "Recepção",
+        "title": "Os agentes confirmam. Tua equipe recebe.",
+        "body": "Sofía confirma e reagenda as consultas no WhatsApp. Tua recepção para de viver ligando e recebe cada paciente com calma.",
+        "p1": "Menos ligações de confirmação toda manhã",
+        "p2": "Menos faltas, sem perseguir ninguém",
+        "badgeNumber": "18 consultas",
+        "badgeLabel": "confirmadas hoje, sem uma ligação",
+        "photoAlt": "Recepcionista atendendo uma paciente no balcão da clínica"
+      },
+      {
+        "kicker": "Caixa",
+        "title": "Os agentes cobram. Tua equipe atende.",
+        "body": "IAndra cobra, fecha o caixa e monta o dia. Tua equipe para de correr atrás do dinheiro e volta ao consultório.",
+        "p1": "Cobranças e fechamento de caixa sem planilhas",
+        "p2": "A mesma equipe, sem o caos do fim do dia",
+        "badgeNumber": "0 planilhas",
+        "badgeLabel": "para fechar o caixa do dia",
+        "photoAlt": "Equipe de uma clínica odontológica sorrindo, uma dentista e um dentista"
+      },
+      {
+        "kicker": "Tratamentos",
+        "title": "Os agentes reativam. Tua equipe trata.",
+        "body": "AlicIA detecta os tratamentos parados e os reativa. Tua equipe volta para a clínica, não para a lista de pendências.",
+        "p1": "Nenhum plano vendido esfria",
+        "p2": "Mais cadeira, menos acompanhamento manual",
+        "badgeNumber": "30 e 60 dias",
+        "badgeLabel": "sem avanço, detectados sozinhos",
+        "photoAlt": "Dentista sorrindo na clínica"
+      }
+    ]
   },
   "trustStrip": {
     "title": "Construído para ser confiável desde o primeiro dia",

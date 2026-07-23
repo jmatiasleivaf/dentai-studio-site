@@ -189,16 +189,40 @@
     "sub": "Tu equipo deja de andar detrás de todo. Vuelve a atender."
   },
   "human": {
-    "kicker": "Tu equipo, no un bot",
-    "title": "Los agentes persiguen. Tu equipo atiende.",
-    "body": "Sofía, IAndra y AlicIA se encargan de confirmar, cobrar y reactivar. Tu equipo deja de vivir pegado al teléfono y vuelve a lo que sabe hacer: atender bien a cada paciente.",
-    "p1": "Menos llamadas de confirmación y cobros que perseguir",
-    "p2": "Más tiempo en el box y en la recepción, con el paciente delante",
-    "p3": "El mismo equipo, rindiendo sin el caos de todos los días",
+    "carouselLabel": "Cómo trabaja tu equipo con los agentes",
     "link": "Conocer los 3 agentes",
-    "badgeNumber": "18 citas",
-    "badgeLabel": "confirmadas hoy, sin una llamada",
-    "photoAlt": "Odontóloga sonriendo en su clínica"
+    "slides": [
+      {
+        "kicker": "Recepción",
+        "title": "Los agentes confirman. Tu equipo recibe.",
+        "body": "Sofía confirma y reagenda las citas por WhatsApp. Tu recepción deja de vivir llamando y recibe a cada paciente con calma.",
+        "p1": "Menos llamadas de confirmación cada mañana",
+        "p2": "Menos ausencias, sin perseguir a nadie",
+        "badgeNumber": "18 citas",
+        "badgeLabel": "confirmadas hoy, sin una llamada",
+        "photoAlt": "Recepcionista atendiendo a una paciente en el mostrador de la clínica"
+      },
+      {
+        "kicker": "Caja",
+        "title": "Los agentes cobran. Tu equipo atiende.",
+        "body": "IAndra cobra, cuadra la caja y arma el día. Tu equipo deja de correr detrás de la plata y vuelve al box.",
+        "p1": "Cobros y cierre de caja sin planillas",
+        "p2": "El mismo equipo, sin el caos de fin de día",
+        "badgeNumber": "0 planillas",
+        "badgeLabel": "para cuadrar la caja del día",
+        "photoAlt": "Equipo de una clínica dental sonriendo, una odontóloga y un odontólogo"
+      },
+      {
+        "kicker": "Tratamientos",
+        "title": "Los agentes reactivan. Tu equipo trata.",
+        "body": "AlicIA detecta los tratamientos detenidos y los reactiva. Tu equipo vuelve a la clínica, no a la lista de pendientes.",
+        "p1": "Ningún plan vendido se enfría",
+        "p2": "Más sillón, menos seguimiento manual",
+        "badgeNumber": "30 y 60 días",
+        "badgeLabel": "sin avance, detectados solos",
+        "photoAlt": "Odontóloga sonriendo en su clínica"
+      }
+    ]
   },
   "trustStrip": {
     "title": "Construido para ser confiable en el primer día",

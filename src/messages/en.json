@@ -189,16 +189,40 @@
     "sub": "Your team stops chasing everything. It goes back to caring."
   },
   "human": {
-    "kicker": "Your team, not a bot",
-    "title": "The agents chase. Your team cares.",
-    "body": "Sofía, IAndra and AlicIA handle confirming, collecting and reviving. Your team stops living on the phone and goes back to what it does best: caring for every patient.",
-    "p1": "Fewer confirmation calls and payments to chase",
-    "p2": "More time at the chair and the front desk, with the patient there",
-    "p3": "The same team, performing without the daily chaos",
+    "carouselLabel": "How your team works with the agents",
     "link": "Meet the 3 agents",
-    "badgeNumber": "18 appts",
-    "badgeLabel": "confirmed today, without a call",
-    "photoAlt": "Dentist smiling at the clinic"
+    "slides": [
+      {
+        "kicker": "Front desk",
+        "title": "The agents confirm. Your team welcomes.",
+        "body": "Sofía confirms and reschedules appointments on WhatsApp. Your front desk stops living on the phone and welcomes each patient calmly.",
+        "p1": "Fewer confirmation calls every morning",
+        "p2": "Fewer no-shows, without chasing anyone",
+        "badgeNumber": "18 appts",
+        "badgeLabel": "confirmed today, without a call",
+        "photoAlt": "Receptionist helping a patient at the clinic front desk"
+      },
+      {
+        "kicker": "Cash",
+        "title": "The agents collect. Your team cares.",
+        "body": "IAndra collects, closes the register and sets up the day. Your team stops chasing payments and gets back to the chair.",
+        "p1": "Payments and register close without spreadsheets",
+        "p2": "The same team, without the end-of-day chaos",
+        "badgeNumber": "0 spreadsheets",
+        "badgeLabel": "to balance the day's register",
+        "photoAlt": "A dental clinic team smiling, a female and a male dentist"
+      },
+      {
+        "kicker": "Treatments",
+        "title": "The agents revive. Your team treats.",
+        "body": "AlicIA spots stalled treatments and revives them. Your team gets back to the clinic, not the to-do list.",
+        "p1": "No sold plan ever goes cold",
+        "p2": "More chair time, less manual follow-up",
+        "badgeNumber": "30 and 60 days",
+        "badgeLabel": "with no progress, caught on their own",
+        "photoAlt": "Dentist smiling at the clinic"
+      }
+    ]
   },
   "trustStrip": {
     "title": "Built to be trusted on day one",

@@ -8,7 +8,6 @@ import { isChileSite } from "@/lib/site-host";
 import { Features } from "@/components/home/Features";
 import { FAQ } from "@/components/home/FAQ";
 import { FAQSchema } from "@/components/home/FAQSchema";
-import { Closing } from "@/components/home/Closing";
 import { CtaFinal } from "@/components/home/CtaFinal";
 
 /**
@@ -51,7 +50,6 @@ export default async function HomePage({
       <Features />
       <FAQ />
       <FAQSchema locale={locale} />
-      <Closing />
       <CtaFinal />
     </>
   );
