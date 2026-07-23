@@ -5,6 +5,7 @@ import { Globe } from "lucide-react";
 import { useLocale } from "next-intl";
 import { useRouter, usePathname } from "@/i18n/navigation";
 import { LOCALES, type Locale } from "@/i18n/routing";
+import { useSite } from "@/contexts/SiteContext";
 import { cn } from "@/lib/utils";
 
 const LABEL: Record<Locale, string> = {
@@ -15,6 +16,7 @@ const LABEL: Record<Locale, string> = {
 
 export function LocaleSwitcher({ onDark = false }: { onDark?: boolean }) {
   const locale = useLocale() as Locale;
+  const { isChile } = useSite();
   const router = useRouter();
   const pathname = usePathname();
   const [open, setOpen] = React.useState(false);
@@ -36,6 +38,9 @@ export function LocaleSwitcher({ onDark = false }: { onDark?: boolean }) {
     router.replace(pathname, { locale: next });
     setOpen(false);
   }
+
+  // Site dedicado do Chile é mono-idioma (es): sem troca de idioma.
+  if (isChile) return null;
 
   return (
     <div ref={ref} className="relative">

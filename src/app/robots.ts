@@ -1,9 +1,11 @@
 import type { MetadataRoute } from "next";
+import { isChileSite, MAIN_ORIGIN, CHILE_ORIGIN } from "@/lib/site-host";
 
-export default function robots(): MetadataRoute.Robots {
+export default async function robots(): Promise<MetadataRoute.Robots> {
+  const origin = (await isChileSite()) ? CHILE_ORIGIN : MAIN_ORIGIN;
   return {
     rules: [{ userAgent: "*", allow: "/", disallow: ["/api/"] }],
-    sitemap: "https://superclini.com/sitemap.xml",
-    host: "https://superclini.com",
+    sitemap: `${origin}/sitemap.xml`,
+    host: origin,
   };
 }

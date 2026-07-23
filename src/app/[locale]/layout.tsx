@@ -9,10 +9,12 @@ import { Footer } from "@/components/layout/Footer";
 import { CountryProvider } from "@/contexts/CountryContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { ConsentProvider } from "@/contexts/ConsentContext";
+import { SiteProvider } from "@/contexts/SiteContext";
 import { CookieBanner } from "@/components/consent/CookieBanner";
 import { routing, type Locale } from "@/i18n/routing";
 import { COUNTRIES, COUNTRY_LIST, type CountryCode } from "@/lib/countries";
 import { SUPERCLINI_FACTS } from "@/lib/superclini.facts";
+import { isChileSite, CHILE_ORIGIN, MAIN_ORIGIN } from "@/lib/site-host";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -32,19 +34,26 @@ export function generateStaticParams() {
 }
 
 /**
- * Hreflang multi-país: cada país-com-idioma vira uma tag apontando para a URL
- * do seu locale base. Google entende e serve a versão certa por geo. Quando
- * tivermos subpastas por país (Wave 5), trocamos para URLs distintas.
+ * Hreflang multi-país. O conjunto é o MESMO em todas as páginas (principal e
+ * Chile), como o Google espera: cada variante lista todas as outras.
+ * O Chile ganhou URL própria (subdomínio dedicado), então `es-CL` aponta para
+ * `cl.superclini.com/es`; os demais países-com-idioma seguem no domínio
+ * principal. `x-default` aponta para o apex, que é o redirecionador por geo
+ * (antes apontava para /en, o que não faz sentido para público hispano-LATAM).
  */
 function buildLanguageAlternates(): Record<string, string> {
   const entries: [string, string][] = [];
   for (const country of COUNTRY_LIST) {
-    entries.push([country.intlLocale, `https://superclini.com/${country.locale}`]);
+    const href =
+      country.code === "CL"
+        ? `${CHILE_ORIGIN}/es`
+        : `${MAIN_ORIGIN}/${country.locale}`;
+    entries.push([country.intlLocale, href]);
   }
   for (const locale of routing.locales) {
-    entries.push([locale, `https://superclini.com/${locale}`]);
+    entries.push([locale, `${MAIN_ORIGIN}/${locale}`]);
   }
-  entries.push(["x-default", "https://superclini.com/en"]);
+  entries.push(["x-default", `${MAIN_ORIGIN}/`]);
   return Object.fromEntries(entries);
 }
 
@@ -57,7 +66,9 @@ export async function generateMetadata({
   if (!routing.locales.includes(locale as Locale)) return {};
   const t = await getTranslations({ locale, namespace: "meta" });
 
-  const canonical = `https://superclini.com/${locale}`;
+  const isChile = await isChileSite();
+  // No Chile a versão é sempre es; canonical aponta para o próprio subdomínio.
+  const canonical = isChile ? `${CHILE_ORIGIN}/es` : `${MAIN_ORIGIN}/${locale}`;
   const description = t("description", { countries: SUPERCLINI_FACTS.countriesCount });
 
   return {
@@ -83,16 +94,18 @@ export async function generateMetadata({
   };
 }
 
-function buildJsonLd(locale: string, description: string) {
+function buildJsonLd(locale: string, description: string, isChile: boolean) {
+  const origin = isChile ? CHILE_ORIGIN : MAIN_ORIGIN;
   const organization = {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "SuperClini",
-    url: "https://superclini.com",
-    logo: "https://superclini.com/logo-superclini.svg",
+    url: `${origin}${isChile ? "/es" : ""}`,
+    logo: `${MAIN_ORIGIN}/logo-superclini.svg`,
     description,
     foundingDate: String(SUPERCLINI_FACTS.foundedYear),
-    areaServed: COUNTRY_LIST.map((c) => c.code),
+    // No Chile o schema declara só CL; no principal, todos os países atendidos.
+    areaServed: isChile ? ["CL"] : COUNTRY_LIST.map((c) => c.code),
   };
   const softwareApp = {
     "@context": "https://schema.org",
@@ -103,14 +116,23 @@ function buildJsonLd(locale: string, description: string) {
     operatingSystem: "Web, iOS PWA, Android PWA",
     description,
     inLanguage: locale,
-    offers: {
-      "@type": "AggregateOffer",
-      priceCurrency: "USD",
-      lowPrice: "29",
-      highPrice: "249",
-      offerCount: String(SUPERCLINI_FACTS.tiersCount),
-      url: `https://superclini.com/${locale}/precios`,
-    },
+    offers: isChile
+      ? {
+          "@type": "AggregateOffer",
+          priceCurrency: "CLP",
+          lowPrice: "29990",
+          highPrice: "169990",
+          offerCount: String(SUPERCLINI_FACTS.tiersCount),
+          url: `${CHILE_ORIGIN}/es/precios`,
+        }
+      : {
+          "@type": "AggregateOffer",
+          priceCurrency: "USD",
+          lowPrice: "29",
+          highPrice: "249",
+          offerCount: String(SUPERCLINI_FACTS.tiersCount),
+          url: `${MAIN_ORIGIN}/${locale}/precios`,
+        },
   };
   return [organization, softwareApp];
 }
@@ -129,18 +151,21 @@ export default async function LocaleLayout({
   const messages = await getMessages();
   const t = await getTranslations({ locale, namespace: "meta" });
   const description = t("description", { countries: SUPERCLINI_FACTS.countriesCount });
-  const jsonLd = buildJsonLd(locale, description);
+  const isChile = await isChileSite();
+  const jsonLd = buildJsonLd(locale, description, isChile);
 
   const cookieStore = await cookies();
   const cookieCountry = cookieStore.get("NEXT_COUNTRY")?.value?.toUpperCase();
-  const defaultCountry =
-    cookieCountry && (COUNTRIES as Record<string, unknown>)[cookieCountry]
+  // No subdomínio do Chile o país é sempre CL (ignora cookie herdado do principal).
+  const defaultCountry: CountryCode = isChile
+    ? "CL"
+    : cookieCountry && (COUNTRIES as Record<string, unknown>)[cookieCountry]
       ? (cookieCountry as CountryCode)
       : locale === "pt"
-      ? "BR"
-      : locale === "en"
-      ? "US"
-      : "CL";
+        ? "BR"
+        : locale === "en"
+          ? "US"
+          : "CL";
 
   return (
     <html
@@ -151,6 +176,7 @@ export default async function LocaleLayout({
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ThemeProvider>
+            <SiteProvider isChile={isChile}>
             <CountryProvider defaultCountry={defaultCountry}>
               <ConsentProvider>
                 <div className="flex min-h-screen flex-col bg-white text-ink-900 transition-colors dark:bg-ink-950 dark:text-ink-50">
@@ -168,6 +194,7 @@ export default async function LocaleLayout({
                 />
               ))}
             </CountryProvider>
+            </SiteProvider>
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>

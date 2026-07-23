@@ -10,6 +10,7 @@ import { Section, SectionHeader } from "@/components/ui/section";
 import { Flag } from "@/components/ui/flag";
 import { ContactDialog } from "@/components/home/ContactDialog";
 import { useCountry } from "@/contexts/CountryContext";
+import { useSite } from "@/contexts/SiteContext";
 import { COUNTRIES, COUNTRY_LIST, formatCurrency, type CountryCode } from "@/lib/countries";
 import {
   PRICING,
@@ -36,6 +37,7 @@ export function Pricing() {
   const tFeat = useTranslations("pricing.features");
   const locale = useLocale() as Locale;
   const { country, setCountry } = useCountry();
+  const { isChile } = useSite();
   const [pickerOpen, setPickerOpen] = React.useState(false);
   const [cycle, setCycle] = React.useState<"monthly" | "annual">("annual");
 
@@ -44,36 +46,46 @@ export function Pricing() {
       <Container>
         <SectionHeader eyebrow={t("eyebrow")} title={t("title")} sub={t("sub")} />
 
-        {/* País picker + toggle mensual/anual */}
+        {/* País picker + toggle mensual/anual.
+            No site dedicado do Chile o país é fixo: mostramos o rótulo travado
+            em vez do seletor (mono-país, sem escolha a fazer). */}
         <div className="mt-8 flex flex-col items-center gap-5">
-          <div className="flex items-center gap-3 text-sm text-ink-300">
-            <span>{t("countryLabel")}</span>
-            <div className="relative">
-              <button
-                type="button"
-                onClick={() => setPickerOpen((v) => !v)}
-                aria-haspopup="listbox"
-                aria-expanded={pickerOpen}
-                className="inline-flex min-h-touch items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-2 font-semibold text-white hover:border-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
-              >
-                <Flag code={country.code} />
-                <span>{country.name[locale]}</span>
-                <span className="text-ink-400">({country.currency})</span>
-                <ChevronDown className="h-4 w-4" aria-hidden />
-              </button>
-              {pickerOpen ? (
-                <CountryPicker
-                  locale={locale}
-                  current={country.code}
-                  onPick={(c) => {
-                    setCountry(c);
-                    setPickerOpen(false);
-                  }}
-                  onClose={() => setPickerOpen(false)}
-                />
-              ) : null}
+          {isChile ? (
+            <div className="inline-flex min-h-touch items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-white">
+              <Flag code={country.code} />
+              <span>{country.name[locale]}</span>
+              <span className="text-ink-400">({country.currency})</span>
             </div>
-          </div>
+          ) : (
+            <div className="flex items-center gap-3 text-sm text-ink-300">
+              <span>{t("countryLabel")}</span>
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={() => setPickerOpen((v) => !v)}
+                  aria-haspopup="listbox"
+                  aria-expanded={pickerOpen}
+                  className="inline-flex min-h-touch items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-2 font-semibold text-white hover:border-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
+                >
+                  <Flag code={country.code} />
+                  <span>{country.name[locale]}</span>
+                  <span className="text-ink-400">({country.currency})</span>
+                  <ChevronDown className="h-4 w-4" aria-hidden />
+                </button>
+                {pickerOpen ? (
+                  <CountryPicker
+                    locale={locale}
+                    current={country.code}
+                    onPick={(c) => {
+                      setCountry(c);
+                      setPickerOpen(false);
+                    }}
+                    onClose={() => setPickerOpen(false)}
+                  />
+                ) : null}
+              </div>
+            </div>
+          )}
 
           {/* Toggle cycle */}
           <div className="inline-flex items-center rounded-full border border-white/15 bg-white/5 p-1">

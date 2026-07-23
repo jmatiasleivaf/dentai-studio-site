@@ -1,4 +1,35 @@
 {
+  "chile": {
+    "eyebrow": "Feito para o Chile",
+    "title": "SuperClini, sob medida para sua clínica no Chile",
+    "sub": "Preços em pesos, RUT em cada ficha, conformidade com a Lei 20.584 e os três agentes trabalhando desde o primeiro dia.",
+    "cards": {
+      "pagos": {
+        "title": "Pagamentos habilitados no Chile",
+        "desc": "Cobre seus pacientes com os meios de pagamento locais, conectado à ficha e ao caixa."
+      },
+      "clp": {
+        "title": "Preços em CLP, sem surpresas",
+        "desc": "O plano é cobrado em pesos chilenos, sem conversão nem risco cambial."
+      },
+      "rut": {
+        "title": "RUT nativo",
+        "desc": "O RUT vive em cada ficha do paciente, como sua recepção espera."
+      },
+      "ley": {
+        "title": "Cumpre a Lei 20.584",
+        "desc": "Dados clínicos protegidos: evoluções imutáveis e rastreabilidade de cada acesso."
+      },
+      "dentalink": {
+        "title": "Migração do Dentalink",
+        "desc": "Trazemos seu histórico com apoio da nossa equipe, sem começar do zero."
+      },
+      "agentes": {
+        "title": "Sofía, IAndra e AlicIA",
+        "desc": "Os três agentes atendem no WhatsApp, organizam o caixa e reativam tratamentos parados, no mesmo painel."
+      }
+    }
+  },
   "meta": {
     "siteName": "SuperClini",
     "title": "SuperClini · Software dental com IA no WhatsApp, simulação de sorriso e DICOM 3D",

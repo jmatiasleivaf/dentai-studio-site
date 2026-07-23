@@ -1,8 +1,20 @@
 import type { MetadataRoute } from "next";
 import { LOCALES } from "@/i18n/routing";
 import { getCategories, getAllArticlePaths } from "@/lib/help";
+import { isChileSite, MAIN_ORIGIN, CHILE_ORIGIN } from "@/lib/site-host";
 
-const BASE = "https://superclini.com";
+const BASE = MAIN_ORIGIN;
+
+/**
+ * Alternates de idioma por rota. É o MESMO conjunto servido pelos dois hosts,
+ * como o Google espera. `es-CL` aponta para o subdomínio dedicado do Chile.
+ */
+function alternatesFor(path: string): Record<string, string> {
+  const langs: Record<string, string> = {};
+  for (const l of LOCALES) langs[l] = `${MAIN_ORIGIN}/${l}${path}`;
+  langs["es-CL"] = `${CHILE_ORIGIN}/es${path}`;
+  return langs;
+}
 
 /**
  * Rotas do site organizadas por prioridade SEO.
@@ -39,8 +51,22 @@ const ROUTES: Array<{ path: string; priority: number; changeFrequency: "weekly" 
   })),
 ];
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
+  const chile = await isChileSite();
+
+  // O subdomínio do Chile é mono-idioma (es): serve só as URLs es do próprio
+  // host. O domínio principal serve os três idiomas. Ambos declaram o mesmo
+  // conjunto de alternates (com es-CL apontando para o subdomínio).
+  if (chile) {
+    return ROUTES.map(({ path, priority, changeFrequency }) => ({
+      url: `${CHILE_ORIGIN}/es${path}`,
+      lastModified: now,
+      changeFrequency,
+      priority,
+      alternates: { languages: alternatesFor(path) },
+    }));
+  }
 
   return LOCALES.flatMap((locale) =>
     ROUTES.map(({ path, priority, changeFrequency }) => ({
@@ -48,9 +74,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency,
       priority,
-      alternates: {
-        languages: Object.fromEntries(LOCALES.map((l) => [l, `${BASE}/${l}${path}`])),
-      },
+      alternates: { languages: alternatesFor(path) },
     }))
   );
 }

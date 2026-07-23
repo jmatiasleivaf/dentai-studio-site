@@ -2,8 +2,21 @@ import { NextRequest, NextResponse } from "next/server";
 import createMiddleware from "next-intl/middleware";
 import { routing, type Locale, LOCALES, DEFAULT_LOCALE } from "@/i18n/routing";
 import { localeFromCountry } from "@/lib/countries";
+import { isChileHostname } from "@/lib/site-host";
 
 const intlMiddleware = createMiddleware(routing);
+
+const COUNTRY_COOKIE_MAXAGE = 60 * 60 * 24 * 30;
+
+/** Trava o cookie de país em CL nas respostas do subdomínio dedicado. */
+function lockChileCountry(res: NextResponse): NextResponse {
+  res.cookies.set("NEXT_COUNTRY", "CL", {
+    path: "/",
+    maxAge: COUNTRY_COOKIE_MAXAGE,
+    sameSite: "lax",
+  });
+  return res;
+}
 
 /**
  * Padrão robusto de geolocalização (Stripe/Vercel/Linear):
@@ -38,6 +51,24 @@ function detectLocale(req: NextRequest): { locale: Locale; country: string | nul
 
 export default function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
+
+  // ── Versão dedicada do Chile (cl.superclini.com) ─────────────────────────
+  // Chile é mono-idioma (es) e mono-país (CL). Apex e qualquer locale != es
+  // caem em /es; toda resposta trava o cookie de país em CL para o cliente
+  // (CountryContext) renderizar CLP sem depender de cookie herdado.
+  if (isChileHostname(req.headers.get("host"))) {
+    const firstSeg = pathname.split("/")[1];
+    if (pathname === "/" || pathname === "" || firstSeg === "pt" || firstSeg === "en") {
+      const url = req.nextUrl.clone();
+      const rest =
+        firstSeg === "pt" || firstSeg === "en"
+          ? pathname.slice(3) // remove "/pt" ou "/en", preserva o resto do caminho
+          : "";
+      url.pathname = `/es${rest}`;
+      return lockChileCountry(NextResponse.redirect(url));
+    }
+    return lockChileCountry(intlMiddleware(req));
+  }
 
   // Redirect apex "/" para locale apropriado
   if (pathname === "/" || pathname === "") {

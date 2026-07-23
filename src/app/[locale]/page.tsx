@@ -1,7 +1,9 @@
 import { setRequestLocale } from "next-intl/server";
 import { Hero } from "@/components/home/Hero";
 import { AgentsBand } from "@/components/home/AgentsBand";
+import { ChileHighlights } from "@/components/home/ChileHighlights";
 import { TrustStrip } from "@/components/home/TrustStrip";
+import { isChileSite } from "@/lib/site-host";
 import { AISection } from "@/components/home/AISection";
 import { Features } from "@/components/home/Features";
 import { Proof } from "@/components/home/Proof";
@@ -37,11 +39,13 @@ export default async function HomePage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const chile = await isChileSite();
 
   return (
     <>
       <Hero />
       <AgentsBand />
+      {chile ? <ChileHighlights /> : null}
       <TrustStrip />
       <AISection />
       <Features />
