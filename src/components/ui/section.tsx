@@ -59,12 +59,12 @@ export function SectionHeader({
         </span>
       ) : null}
       {title ? (
-        <h2 className="mt-5 font-display text-fluid-3xl font-extrabold leading-[1.05] tracking-tight">
+        <h2 className="mt-5 font-display text-display-2 font-bold text-balance">
           {title}
         </h2>
       ) : null}
       {sub ? (
-        <p className="mt-5 text-fluid-base leading-relaxed text-ink-600 dark:text-ink-400">
+        <p className="mt-5 text-lead text-ink-600 dark:text-ink-400">
           {sub}
         </p>
       ) : null}

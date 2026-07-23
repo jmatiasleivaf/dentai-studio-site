@@ -188,6 +188,18 @@
     "highlight": "Delega-se.",
     "sub": "A tua equipe para de correr atrás de tudo. Volta a atender."
   },
+  "human": {
+    "kicker": "Tua equipe, não um bot",
+    "title": "Os agentes correm atrás. Tua equipe atende.",
+    "body": "Sofía, IAndra e AlicIA cuidam de confirmar, cobrar e reativar. Tua equipe deixa de viver grudada no telefone e volta ao que sabe fazer: atender bem cada paciente.",
+    "p1": "Menos ligações de confirmação e cobranças para perseguir",
+    "p2": "Mais tempo no consultório e na recepção, com o paciente na frente",
+    "p3": "A mesma equipe, rendendo sem o caos de todo dia",
+    "link": "Conhecer os 3 agentes",
+    "badgeNumber": "18 consultas",
+    "badgeLabel": "confirmadas hoje, sem uma ligação",
+    "photoAlt": "Dentista sorrindo na clínica"
+  },
   "trustStrip": {
     "title": "Construído para ser confiável desde o primeiro dia",
     "items": {

@@ -33,10 +33,26 @@ soava a acoso). "hora" = cita no sub do Chile via override `hero.subChile`
 (host-aware, como `eyebrowChile`): main mostra "las citas", CL mostra "las horas".
 A palavra "perseguir" foi tirada também do `closing.sub`.
 
-**Fundo do hero mantido navy (decisão de engenharia):** o NavBar entra em overlay
-(texto branco) na home no topo e assume hero escuro. Um hero claro exigiria mexer
-no NavBar (compartilhado). O retrato claro e os cartões brancos ganham contraste
-premium sobre o navy. Se o Matias preferir claro, é follow-up de NavBar.
+**Home inteira em CLARO + NavBar corrigido:** o Hero aprovado era claro; uma
+primeira versão saiu navy por comodidade do NavBar (que entrava em overlay de
+texto branco e assumia hero escuro). Corrigido: o NavBar fica sólido em vidro em
+todas as páginas (sai o overlay), e Hero/HeroStage passam a fundo claro editorial.
+O Hero deixou de usar `-mt-nav`.
+
+**Refactor da home inteira (não só a dobra), 2a rodada:**
+- **Seção humana nova** (`HumanSection.tsx`): 2a foto real (dentista, Pexels) +
+  chip de produto, entre a faixa dos agentes e a plataforma. É o beat humano do
+  ritmo humano/produto que o brief pede.
+- **Features virou "a plataforma"**: saiu o spotlight da Sofía (era a 3a aparição
+  da Sofía na home, reabrindo a moldura de IA que a AgentsBand fecha). No lugar,
+  uma tela REAL do produto (mockup `panel-kpis` do Centro de Ayuda, tri-língue,
+  sem PII) + a grade de módulos.
+- **Escala tipográfica aplicada ao site**: `SectionHeader` (usado por Features,
+  FAQ e landings), `Closing` e `CtaFinal` migrados para `display-1/2` + `lead`.
+  `Closing` perdeu o gradiente-clip no destaque (cliché de IA) por `text-brand-300`.
+- **Ordem nova**: Hero -> AgentsBand -> [ChileHighlights CL] -> HumanSection ->
+  TrustStrip -> Features/Plataforma -> FAQ -> Closing -> CtaFinal. Dois rostos
+  reais, telas de produto repartidas, ritmo humano/produto de ponta a ponta.
 
 **Provas:** `npm run build` exit 0 (tsc limpo) · `npm run lint` 0 erros (12 warnings
 pré-existentes) · `npm run audit-stale` zero drift · **First Load da home 181 kB**

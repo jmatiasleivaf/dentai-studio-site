@@ -18,10 +18,10 @@ export function CtaFinal() {
       />
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-fluid-3xl font-extrabold leading-tight">
+          <h2 className="font-display text-display-2 font-semibold">
             {t("title")}
           </h2>
-          <p className="mt-4 text-fluid-base text-white/85">{t("sub")}</p>
+          <p className="mt-4 text-lead text-white/85">{t("sub")}</p>
           <div className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row">
             <ContactDialog
               defaultInteresse="trial_profesional"

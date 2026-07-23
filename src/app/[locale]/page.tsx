@@ -2,6 +2,7 @@ import { setRequestLocale } from "next-intl/server";
 import { Hero } from "@/components/home/Hero";
 import { AgentsBand } from "@/components/home/AgentsBand";
 import { ChileHighlights } from "@/components/home/ChileHighlights";
+import { HumanSection } from "@/components/home/HumanSection";
 import { TrustStrip } from "@/components/home/TrustStrip";
 import { isChileSite } from "@/lib/site-host";
 import { Features } from "@/components/home/Features";
@@ -45,6 +46,7 @@ export default async function HomePage({
       <Hero isChile={chile} />
       <AgentsBand />
       {chile ? <ChileHighlights /> : null}
+      <HumanSection />
       <TrustStrip isChile={chile} />
       <Features />
       <FAQ />

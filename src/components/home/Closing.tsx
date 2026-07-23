@@ -25,13 +25,11 @@ export function Closing() {
         className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[420px] w-[720px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-500/15 blur-[130px]"
       />
       <Container className="max-w-4xl text-center">
-        <h2 className="font-display text-fluid-3xl font-extrabold leading-[1.02] tracking-tighter text-white sm:text-fluid-5xl">
+        <h2 className="font-display text-display-1 font-semibold text-white text-balance">
           <span className="block">{t("title")}</span>
-          <span className="block bg-gradient-to-r from-brand-300 via-accent-500 to-brand-400 bg-clip-text text-transparent">
-            {t("highlight")}
-          </span>
+          <span className="block text-brand-300">{t("highlight")}</span>
         </h2>
-        <p className="mt-7 text-balance text-base leading-relaxed text-white/70 md:text-lg">
+        <p className="mt-6 text-balance text-lead text-white/70">
           {t("sub")}
         </p>
       </Container>

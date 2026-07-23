@@ -188,6 +188,18 @@
     "highlight": "It is delegated.",
     "sub": "Your team stops chasing everything. It goes back to caring."
   },
+  "human": {
+    "kicker": "Your team, not a bot",
+    "title": "The agents chase. Your team cares.",
+    "body": "Sofía, IAndra and AlicIA handle confirming, collecting and reviving. Your team stops living on the phone and goes back to what it does best: caring for every patient.",
+    "p1": "Fewer confirmation calls and payments to chase",
+    "p2": "More time at the chair and the front desk, with the patient there",
+    "p3": "The same team, performing without the daily chaos",
+    "link": "Meet the 3 agents",
+    "badgeNumber": "18 appts",
+    "badgeLabel": "confirmed today, without a call",
+    "photoAlt": "Dentist smiling at the clinic"
+  },
   "trustStrip": {
     "title": "Built to be trusted on day one",
     "items": {
