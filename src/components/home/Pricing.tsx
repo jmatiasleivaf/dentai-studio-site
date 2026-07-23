@@ -44,7 +44,11 @@ export function Pricing() {
   return (
     <Section id="pricing" tone="dark">
       <Container>
-        <SectionHeader eyebrow={t("eyebrow")} title={t("title")} sub={t("sub")} />
+        <SectionHeader
+          eyebrow={t("eyebrow")}
+          title={t("title")}
+          sub={isChile ? t("subChile") : t("sub")}
+        />
 
         {/* País picker + toggle mensual/anual.
             No site dedicado do Chile o país é fixo: mostramos o rótulo travado

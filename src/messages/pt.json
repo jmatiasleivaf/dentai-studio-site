@@ -232,6 +232,7 @@
     "eyebrow": "Preços transparentes",
     "title": "Preços na sua moeda local. Sem surpresas.",
     "sub": "Detectamos seu país automaticamente. Você pode trocar se preferir outra região.",
+    "subChile": "Preços em pesos chilenos (CLP), sem conversão nem surpresas.",
     "countryLabel": "Seu país:",
     "changeCountry": "Trocar",
     "cycle": {
