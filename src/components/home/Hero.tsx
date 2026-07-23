@@ -20,7 +20,7 @@ import { SUPERCLINI_FACTS } from "@/lib/superclini.facts";
  *    página e fica alto de propósito: posição no documento é um dos dois fatores
  *    robustos de citação por LLM (arXiv 2607.14035 §7.1).
  */
-export function Hero() {
+export function Hero({ isChile = false }: { isChile?: boolean }) {
   const t = useTranslations("hero");
 
   return (
@@ -72,7 +72,9 @@ export function Hero() {
             aria-hidden
             className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400"
           />
-          {t("eyebrow", { countries: SUPERCLINI_FACTS.countriesCount })}
+          {isChile
+            ? t("eyebrowChile")
+            : t("eyebrow", { countries: SUPERCLINI_FACTS.countriesCount })}
         </p>
 
         <h1 className="mt-7 max-w-4xl font-display text-fluid-5xl font-medium leading-[0.95] tracking-tighter text-white">

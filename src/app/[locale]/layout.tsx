@@ -182,7 +182,7 @@ export default async function LocaleLayout({
                 <div className="flex min-h-screen flex-col bg-white text-ink-900 transition-colors dark:bg-ink-950 dark:text-ink-50">
                   <NavBar />
                   <main className="flex-1">{children}</main>
-                  <Footer />
+                  <Footer isChile={isChile} />
                 </div>
                 <CookieBanner />
               </ConsentProvider>

@@ -3,22 +3,28 @@ import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/container";
 import { SUPERCLINI_FACTS } from "@/lib/superclini.facts";
 
-export function TrustStrip() {
+export function TrustStrip({ isChile = false }: { isChile?: boolean }) {
   const t = useTranslations("trustStrip");
 
   // O tile "pruebas automatizadas" saiu em 2026-07-20: contagem de teste é
   // conversa de engenharia, nenhum dentista compra por isso. O fato segue no
   // SSoT (superclini.facts.testsCount), só deixou de ser argumento de venda.
+  // No site dedicado do Chile o tile de países/moedas sai (sem referência a
+  // outros mercados); ficam compliance + uptime.
   const items = [
     { key: "compliance", Icon: ShieldCheck, values: undefined },
-    {
-      key: "countries",
-      Icon: Globe2,
-      values: {
-        countries: SUPERCLINI_FACTS.countriesCount,
-        currencies: SUPERCLINI_FACTS.currenciesCount,
-      },
-    },
+    ...(isChile
+      ? []
+      : [
+          {
+            key: "countries",
+            Icon: Globe2,
+            values: {
+              countries: SUPERCLINI_FACTS.countriesCount,
+              currencies: SUPERCLINI_FACTS.currenciesCount,
+            },
+          },
+        ]),
     { key: "uptime", Icon: Activity, values: undefined },
   ];
 
@@ -28,7 +34,11 @@ export function TrustStrip() {
         <p className="mb-6 text-center text-xs font-semibold uppercase tracking-[0.15em] text-ink-500 dark:text-ink-400">
           {t("title")}
         </p>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+        <div
+          className={`grid grid-cols-1 gap-6 ${
+            items.length === 2 ? "sm:grid-cols-2" : "sm:grid-cols-3"
+          }`}
+        >
           {items.map(({ key, Icon, values }) => (
             <div
               key={key}

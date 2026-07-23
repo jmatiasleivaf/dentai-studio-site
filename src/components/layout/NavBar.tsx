@@ -22,7 +22,6 @@ import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Logo } from "@/components/ui/logo";
-import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { ContactDialog } from "@/components/home/ContactDialog";
 import { NAV_RESOURCES } from "@/lib/site-nav";
 import { LocaleSwitcher } from "./LocaleSwitcher";
@@ -276,7 +275,6 @@ export function NavBar() {
 
         {/* Cluster direito */}
         <div className="flex items-center gap-1 sm:gap-2">
-          <ThemeToggle onDark={overlay} className="hidden sm:inline-flex" />
           <LocaleSwitcher onDark={overlay} />
           <Button
             asChild
@@ -431,14 +429,8 @@ export function NavBar() {
                   })}
                 </div>
 
-                {/* Rodapé: preferências + CTAs */}
-                <div className="mt-4 flex items-center justify-between border-t border-ink-100 pt-4 dark:border-white/10">
-                  <span className="text-[11px] font-extrabold uppercase tracking-wider text-ink-500 dark:text-ink-400">
-                    {t("menuLabel")}
-                  </span>
-                  <ThemeToggle />
-                </div>
-                <div className="mt-4 flex flex-col gap-3">
+                {/* CTAs */}
+                <div className="mt-4 flex flex-col gap-3 border-t border-ink-100 pt-4 dark:border-white/10">
                   <Button asChild variant="outline" size="lg" className="w-full">
                     <a href="https://app.superclini.com">{t("login")}</a>
                   </Button>

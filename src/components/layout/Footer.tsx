@@ -12,7 +12,7 @@ import { CookiePreferencesButton } from "@/components/consent/CookiePreferencesB
  * sempre no SSR (não depende de hover JS como o NavBar dropdown), garantindo
  * que Google indexe os links e descubra as landings via internal linking.
  */
-export function Footer() {
+export function Footer({ isChile = false }: { isChile?: boolean }) {
   const t = useTranslations("footer");
   const tRes = useTranslations("nav.resourcesItems");
   const locale = useLocale();
@@ -66,19 +66,23 @@ export function Footer() {
           </FooterCol>
         </div>
 
-        <div className="border-t border-ink-800 pb-8 pt-6">
-          <p className="mb-3 text-[11px] font-extrabold uppercase tracking-[0.15em] text-ink-500">
-            {t("countriesTitle")}
-          </p>
-          <div className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-ink-400">
-            {COUNTRY_LIST.map((c) => (
-              <span key={c.code} className="inline-flex items-center gap-1.5">
-                <Flag code={c.code} />
-                <span>{c.name.es}</span>
-              </span>
-            ))}
+        {/* Faixa de países: some no site dedicado do Chile (sem referência a
+            outros mercados). No global segue listando os países atendidos. */}
+        {!isChile ? (
+          <div className="border-t border-ink-800 pb-8 pt-6">
+            <p className="mb-3 text-[11px] font-extrabold uppercase tracking-[0.15em] text-ink-500">
+              {t("countriesTitle")}
+            </p>
+            <div className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-ink-400">
+              {COUNTRY_LIST.map((c) => (
+                <span key={c.code} className="inline-flex items-center gap-1.5">
+                  <Flag code={c.code} />
+                  <span>{c.name.es}</span>
+                </span>
+              ))}
+            </div>
           </div>
-        </div>
+        ) : null}
 
         <div className="border-t border-ink-800 py-6 text-center text-xs text-ink-500">
           © {year} SuperClini, {t("rights")}

@@ -6,7 +6,6 @@ import { TrustStrip } from "@/components/home/TrustStrip";
 import { isChileSite } from "@/lib/site-host";
 import { AISection } from "@/components/home/AISection";
 import { Features } from "@/components/home/Features";
-import { Proof } from "@/components/home/Proof";
 import { FAQ } from "@/components/home/FAQ";
 import { FAQSchema } from "@/components/home/FAQSchema";
 import { Closing } from "@/components/home/Closing";
@@ -43,13 +42,12 @@ export default async function HomePage({
 
   return (
     <>
-      <Hero />
+      <Hero isChile={chile} />
       <AgentsBand />
       {chile ? <ChileHighlights /> : null}
-      <TrustStrip />
+      <TrustStrip isChile={chile} />
       <AISection />
       <Features />
-      <Proof />
       <FAQ />
       <FAQSchema locale={locale} />
       <Closing />
