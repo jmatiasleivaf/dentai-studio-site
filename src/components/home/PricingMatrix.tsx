@@ -117,7 +117,7 @@ export function PricingMatrix() {
                   {row.groupKey ? (
                     <tr className="border-t border-ink-100 dark:border-ink-800">
                       <td
-                        colSpan={5}
+                        colSpan={4}
                         className="sticky left-0 bg-ink-50 px-5 py-2.5 text-xs font-extrabold uppercase tracking-[0.15em] text-ink-500 dark:bg-ink-950 dark:text-ink-400"
                       >
                         {tGroups(row.groupKey as never)}

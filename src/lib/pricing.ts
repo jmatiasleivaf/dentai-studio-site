@@ -155,4 +155,6 @@ export const PLAN_MATRIX: MatrixRow[] = [
   { key: "sla",                                  values: { esencial: "email72", profesional: "chat24", avanzado: "chat4",     corporativo: "contractual" } },
 ];
 
-export const PLAN_ORDER: PlanId[] = ["esencial", "profesional", "avanzado", "corporativo"];
+// Corporativo saiu da vitrine em 2026-07-23 (simplificar para 3 planos). Os dados
+// de corporativo seguem em PRICING/PLANS/PLAN_MATRIX (reversível), só não é exibido.
+export const PLAN_ORDER: PlanId[] = ["esencial", "profesional", "avanzado"];

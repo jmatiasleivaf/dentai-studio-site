@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
-import { ContactCTAButton } from "@/components/landing/ContactCTAButton";
+import { Link } from "@/i18n/navigation";
 import { SUPERCLINI_FACTS } from "@/lib/superclini.facts";
 
 /**
@@ -67,15 +67,16 @@ export function Hero({ isChile = false }: { isChile?: boolean }) {
       />
 
       <Container className="relative z-10 flex min-h-[88vh] max-w-5xl flex-col items-center justify-center pb-20 pt-28 text-center sm:pt-32 lg:pt-36">
-        <p className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-4 py-1.5 text-xs font-medium text-white/85 backdrop-blur-md sm:text-sm">
-          <span
-            aria-hidden
-            className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400"
-          />
-          {isChile
-            ? t("eyebrowChile")
-            : t("eyebrow", { countries: SUPERCLINI_FACTS.countriesCount })}
-        </p>
+        {/* Selo do hero removido no site do Chile (pedido do Matias, 23/07). */}
+        {!isChile ? (
+          <p className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-4 py-1.5 text-xs font-medium text-white/85 backdrop-blur-md sm:text-sm">
+            <span
+              aria-hidden
+              className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400"
+            />
+            {t("eyebrow", { countries: SUPERCLINI_FACTS.countriesCount })}
+          </p>
+        ) : null}
 
         <h1 className="mt-7 max-w-4xl font-display text-fluid-5xl font-medium leading-[0.95] tracking-tighter text-white">
           <span className="block">{t("h1Line1")}</span>
@@ -89,17 +90,15 @@ export function Hero({ isChile = false }: { isChile?: boolean }) {
         </p>
 
         <div className="mt-9 flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row">
-          <ContactCTAButton
-            defaultInteresse="trial_profesional"
-            variant="primary"
-            size="lg"
-          >
-            {t("ctaPrimary")}
-            <ArrowRight
-              className="h-4 w-4 transition-transform group-hover:translate-x-1"
-              aria-hidden
-            />
-          </ContactCTAButton>
+          <Button asChild variant="primary" size="lg" className="group">
+            <Link href="/registro">
+              {t("ctaPrimary")}
+              <ArrowRight
+                className="h-4 w-4 transition-transform group-hover:translate-x-1"
+                aria-hidden
+              />
+            </Link>
+          </Button>
           <Button
             asChild
             variant="ghost"

@@ -1707,17 +1707,17 @@
     }
   },
   "signup": {
-    "metaTitle": "Creá tu cuenta SuperClini · 14 días gratis, sin tarjeta",
-    "metaDescription": "Abrí tu clínica en SuperClini en menos de un minuto. 14 días de prueba con acceso completo, sin tarjeta de crédito.",
-    "eyebrow": "Empezá hoy",
+    "metaTitle": "Crea tu cuenta SuperClini · 14 días gratis, sin tarjeta",
+    "metaDescription": "Abre tu clínica en SuperClini en menos de un minuto. 14 días de prueba con acceso completo, sin tarjeta de crédito.",
+    "eyebrow": "Empieza hoy",
     "title": "Tu clínica funcionando en menos de un minuto",
-    "subtitle": "Creá la cuenta, definí tu contraseña por email y entrá. Sin llamadas de ventas, sin tarjeta, sin compromiso.",
+    "subtitle": "Crea la cuenta, define tu contraseña por email y entra. Sin llamadas de ventas, sin tarjeta, sin compromiso.",
     "consent": "Acepto que SuperClini me contacte y acepto la política de privacidad y el tratamiento de mis datos.",
     "noCard": "Sin tarjeta de crédito. La prueba termina sola.",
     "countriesNote": "Disponible en {count} países, con moneda y documento de identidad locales.",
-    "successTitle": "Revisá tu correo",
+    "successTitle": "Revisa tu correo",
     "successBody": "Te enviamos un enlace para definir tu contraseña y activar la cuenta. Con eso empiezan tus 14 días.",
-    "successHint": "¿No llegó? Revisá spam o promociones. El enlace vale 48 horas.",
+    "successHint": "¿No llegó? Revisa spam o promociones. El enlace vale 48 horas.",
     "benefits": {
       "trial": "14 días con acceso completo, sin funciones recortadas",
       "noCard": "Sin tarjeta de crédito ni datos de pago",
@@ -1730,7 +1730,7 @@
       "yourName": "Tu nombre",
       "country": "País",
       "email": "Email",
-      "emailHint": "Acá llega el enlace de activación",
+      "emailHint": "Aquí llega el enlace de activación",
       "phone": "Teléfono",
       "optional": "opcional",
       "submit": "Crear mi cuenta",
@@ -1742,13 +1742,13 @@
       "tooLong": "Demasiado largo",
       "invalidEmail": "Email inválido",
       "consentRequired": "Necesitamos tu consentimiento para crear la cuenta",
-      "emailTaken": "Ya existe una cuenta con este email. Iniciá sesión en su lugar.",
-      "disposableEmail": "Usá un email permanente, no uno temporal.",
-      "rateLimit": "Demasiados intentos. Esperá unos minutos.",
-      "unavailable": "El registro está temporalmente fuera de servicio. Escribinos y te abrimos la cuenta.",
-      "invalid": "Revisá los datos e intentá de nuevo.",
-      "network": "No pudimos conectar. Revisá tu conexión e intentá de nuevo.",
-      "generic": "Algo salió mal. Intentá de nuevo en unos minutos."
+      "emailTaken": "Ya existe una cuenta con este email. Inicia sesión en su lugar.",
+      "disposableEmail": "Usa un email permanente, no uno temporal.",
+      "rateLimit": "Demasiados intentos. Espera unos minutos.",
+      "unavailable": "El registro está temporalmente fuera de servicio. Escríbenos y te abrimos la cuenta.",
+      "invalid": "Revisa los datos e intenta de nuevo.",
+      "network": "No pudimos conectar. Revisa tu conexión e intenta de nuevo.",
+      "generic": "Algo salió mal. Intenta de nuevo en unos minutos."
     }
   }
 }
