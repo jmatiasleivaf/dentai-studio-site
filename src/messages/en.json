@@ -198,9 +198,13 @@
         "body": "Sofía confirms and reschedules appointments on WhatsApp. Your front desk stops living on the phone and welcomes each patient calmly.",
         "p1": "Fewer confirmation calls every morning",
         "p2": "Fewer no-shows, without chasing anyone",
-        "badgeNumber": "18 appts",
-        "badgeLabel": "confirmed today, without a call",
-        "photoAlt": "Receptionist helping a patient at the clinic front desk"
+        "photoAlt": "Receptionist showing the schedule on a tablet to a patient at the front desk",
+        "ill": {
+          "role": "WhatsApp",
+          "time": "now",
+          "bubble": "Your Tuesday 10:00 appointment is confirmed. See you then.",
+          "stat": "18 appts confirmed today"
+        }
       },
       {
         "kicker": "Cash",
@@ -208,9 +212,15 @@
         "body": "IAndra collects, closes the register and sets up the day. Your team stops chasing payments and gets back to the chair.",
         "p1": "Payments and register close without spreadsheets",
         "p2": "The same team, without the end-of-day chaos",
-        "badgeNumber": "0 spreadsheets",
-        "badgeLabel": "to balance the day's register",
-        "photoAlt": "A dental clinic team smiling, a female and a male dentist"
+        "photoAlt": "Team member reviewing the day's register on a tablet at the front desk",
+        "ill": {
+          "role": "Cash",
+          "time": "18:30",
+          "title": "Register close",
+          "metricLabel": "Collected today",
+          "metricValue": "$ 1,248,000",
+          "state": "Balanced · 0 spreadsheets"
+        }
       },
       {
         "kicker": "Treatments",
@@ -218,18 +228,42 @@
         "body": "AlicIA spots stalled treatments and revives them. Your team gets back to the clinic, not the to-do list.",
         "p1": "No sold plan ever goes cold",
         "p2": "More chair time, less manual follow-up",
-        "badgeNumber": "30 and 60 days",
-        "badgeLabel": "with no progress, caught on their own",
-        "photoAlt": "Dentist smiling at the clinic"
+        "photoAlt": "Dentist talking with a patient about her treatment plan",
+        "ill": {
+          "role": "Plans",
+          "time": "detected",
+          "title": "Stalled plan",
+          "metricLabel": "Orthodontics",
+          "metricValue": "45 days",
+          "state": "Revived by AlicIA"
+        }
       }
     ]
   },
   "trustStrip": {
     "title": "Built to be trusted on day one",
+    "titleChile": "Trusted in your clinic from day one",
     "items": {
-      "compliance": "LGPD · Ley 20.584 · GDPR",
-      "countries": "{countries} countries · {currencies} currencies",
-      "uptime": "Cloud infra 24/7"
+      "compliance": {
+        "label": "Local compliance",
+        "detail": "LGPD · Ley 20.584 · GDPR"
+      },
+      "complianceChile": {
+        "label": "Meets Ley 20.584",
+        "detail": "patient record safeguarded"
+      },
+      "countries": {
+        "label": "{countries} countries · {currencies} currencies",
+        "detail": "each market's local format"
+      },
+      "backup": {
+        "label": "Encrypted daily backup",
+        "detail": "your data, always safe"
+      },
+      "uptime": {
+        "label": "Cloud infra 24/7",
+        "detail": "continuous monitoring"
+      }
     }
   },
   "ai": {

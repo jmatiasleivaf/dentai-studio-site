@@ -11,6 +11,9 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
  * controlador só decide qual mostrar. Respeita prefers-reduced-motion, pausa no
  * hover/foco, tem setas + pontos com alvo de toque >= 44px, e usa `inert` para
  * tirar do foco os slides fora de tela.
+ *
+ * `progress`: mostra uma barra de avanço do autoplay (congela no hover/foco,
+ * reseta a cada slide). Só aparece quando há autoplay e sem reduce-motion.
  */
 function useReducedMotion() {
   const [reduce, setReduce] = React.useState(false);
@@ -28,10 +31,12 @@ export function Slider({
   children,
   label,
   autoMs = 0,
+  progress = false,
 }: {
   children: React.ReactNode;
   label?: string;
   autoMs?: number;
+  progress?: boolean;
 }) {
   const slides = React.Children.toArray(children);
   const n = slides.length;
@@ -39,8 +44,14 @@ export function Slider({
   const [paused, setPaused] = React.useState(false);
   const reduce = useReducedMotion();
   const startX = React.useRef<number | null>(null);
+  const barRef = React.useRef<HTMLSpanElement>(null);
+  const pausedRef = React.useRef(false);
 
   const go = React.useCallback((d: number) => setI((p) => (p + d + n) % n), [n]);
+
+  React.useEffect(() => {
+    pausedRef.current = paused;
+  }, [paused]);
 
   React.useEffect(() => {
     if (!autoMs || reduce || paused || n < 2) return;
@@ -48,7 +59,41 @@ export function Slider({
     return () => window.clearInterval(id);
   }, [autoMs, reduce, paused, n]);
 
+  // Barra de progresso: rAF que congela no pause e reinicia a cada slide (dep `i`).
+  React.useEffect(() => {
+    if (!progress || !autoMs || reduce || n < 2) return;
+    if (barRef.current) barRef.current.style.width = "0%";
+    let raf = 0;
+    let startTs: number | null = null;
+    let banked = 0;
+    let wasPaused = false;
+    const loop = (ts: number) => {
+      if (pausedRef.current) {
+        if (!wasPaused) {
+          if (startTs != null) banked += ts - startTs;
+          startTs = null;
+          wasPaused = true;
+        }
+        raf = requestAnimationFrame(loop);
+        return;
+      }
+      if (wasPaused) {
+        wasPaused = false;
+        startTs = ts;
+      }
+      if (startTs == null) startTs = ts;
+      const elapsed = banked + (ts - startTs);
+      const p = Math.min(1, elapsed / autoMs);
+      if (barRef.current) barRef.current.style.width = `${p * 100}%`;
+      raf = requestAnimationFrame(loop);
+    };
+    raf = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(raf);
+  }, [i, progress, autoMs, reduce, n]);
+
   if (n === 0) return null;
+
+  const showProgress = progress && !!autoMs && !reduce && n > 1;
 
   return (
     <div
@@ -126,6 +171,19 @@ export function Slider({
           >
             <ChevronRight className="h-5 w-5" aria-hidden />
           </button>
+        </div>
+      ) : null}
+
+      {showProgress ? (
+        <div
+          aria-hidden
+          className="mx-auto mt-4 h-[3px] w-full max-w-[320px] overflow-hidden rounded-full bg-ink-200 dark:bg-ink-800"
+        >
+          <span
+            ref={barRef}
+            className="block h-full rounded-full bg-gradient-to-r from-brand-500 to-accent-500"
+            style={{ width: "0%" }}
+          />
         </div>
       ) : null}
     </div>

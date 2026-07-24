@@ -198,9 +198,13 @@
         "body": "Sofía confirma y reagenda las citas por WhatsApp. Tu recepción deja de vivir llamando y recibe a cada paciente con calma.",
         "p1": "Menos llamadas de confirmación cada mañana",
         "p2": "Menos ausencias, sin perseguir a nadie",
-        "badgeNumber": "18 citas",
-        "badgeLabel": "confirmadas hoy, sin una llamada",
-        "photoAlt": "Recepcionista atendiendo a una paciente en el mostrador de la clínica"
+        "photoAlt": "Recepcionista mostrando la agenda en una tablet a una paciente en el mostrador",
+        "ill": {
+          "role": "WhatsApp",
+          "time": "ahora",
+          "bubble": "Confirmada tu cita del martes 10:00. Te esperamos.",
+          "stat": "18 citas confirmadas hoy"
+        }
       },
       {
         "kicker": "Caja",
@@ -208,9 +212,15 @@
         "body": "IAndra cobra, cuadra la caja y arma el día. Tu equipo deja de correr detrás de la plata y vuelve al box.",
         "p1": "Cobros y cierre de caja sin planillas",
         "p2": "El mismo equipo, sin el caos de fin de día",
-        "badgeNumber": "0 planillas",
-        "badgeLabel": "para cuadrar la caja del día",
-        "photoAlt": "Equipo de una clínica dental sonriendo, una odontóloga y un odontólogo"
+        "photoAlt": "Integrante del equipo revisando la caja del día en una tablet en recepción",
+        "ill": {
+          "role": "Caja",
+          "time": "18:30",
+          "title": "Cierre de caja",
+          "metricLabel": "Cobrado hoy",
+          "metricValue": "$ 1.248.000",
+          "state": "Cuadrada · 0 planillas"
+        }
       },
       {
         "kicker": "Tratamientos",
@@ -218,18 +228,42 @@
         "body": "AlicIA detecta los tratamientos detenidos y los reactiva. Tu equipo vuelve a la clínica, no a la lista de pendientes.",
         "p1": "Ningún plan vendido se enfría",
         "p2": "Más sillón, menos seguimiento manual",
-        "badgeNumber": "30 y 60 días",
-        "badgeLabel": "sin avance, detectados solos",
-        "photoAlt": "Odontóloga sonriendo en su clínica"
+        "photoAlt": "Odontólogo conversando con una paciente sobre su plan de tratamiento",
+        "ill": {
+          "role": "Planes",
+          "time": "detectado",
+          "title": "Plan detenido",
+          "metricLabel": "Ortodoncia",
+          "metricValue": "45 días",
+          "state": "Reactivado por AlicIA"
+        }
       }
     ]
   },
   "trustStrip": {
     "title": "Construido para ser confiable en el primer día",
+    "titleChile": "Confiable en tu clínica desde el primer día",
     "items": {
-      "compliance": "LGPD · Ley 20.584 · GDPR",
-      "countries": "{countries} países · {currencies} monedas",
-      "uptime": "Infraestructura cloud 24/7"
+      "compliance": {
+        "label": "Cumplimiento local",
+        "detail": "LGPD · Ley 20.584 · GDPR"
+      },
+      "complianceChile": {
+        "label": "Cumple la Ley 20.584",
+        "detail": "resguardo de la ficha clínica"
+      },
+      "countries": {
+        "label": "{countries} países · {currencies} monedas",
+        "detail": "formato local de cada mercado"
+      },
+      "backup": {
+        "label": "Respaldo diario cifrado",
+        "detail": "tus datos, siempre a salvo"
+      },
+      "uptime": {
+        "label": "Infraestructura cloud 24/7",
+        "detail": "monitoreo continuo"
+      }
     }
   },
   "ai": {

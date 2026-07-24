@@ -198,9 +198,13 @@
         "body": "Sofía confirma e reagenda as consultas no WhatsApp. Tua recepção para de viver ligando e recebe cada paciente com calma.",
         "p1": "Menos ligações de confirmação toda manhã",
         "p2": "Menos faltas, sem perseguir ninguém",
-        "badgeNumber": "18 consultas",
-        "badgeLabel": "confirmadas hoje, sem uma ligação",
-        "photoAlt": "Recepcionista atendendo uma paciente no balcão da clínica"
+        "photoAlt": "Recepcionista mostrando a agenda em um tablet para uma paciente no balcão",
+        "ill": {
+          "role": "WhatsApp",
+          "time": "agora",
+          "bubble": "Confirmada tua consulta de terça 10:00. Te esperamos.",
+          "stat": "18 consultas confirmadas hoje"
+        }
       },
       {
         "kicker": "Caixa",
@@ -208,9 +212,15 @@
         "body": "IAndra cobra, fecha o caixa e monta o dia. Tua equipe para de correr atrás do dinheiro e volta ao consultório.",
         "p1": "Cobranças e fechamento de caixa sem planilhas",
         "p2": "A mesma equipe, sem o caos do fim do dia",
-        "badgeNumber": "0 planilhas",
-        "badgeLabel": "para fechar o caixa do dia",
-        "photoAlt": "Equipe de uma clínica odontológica sorrindo, uma dentista e um dentista"
+        "photoAlt": "Integrante da equipe revisando o caixa do dia em um tablet na recepção",
+        "ill": {
+          "role": "Caixa",
+          "time": "18:30",
+          "title": "Fechamento de caixa",
+          "metricLabel": "Recebido hoje",
+          "metricValue": "$ 1.248.000",
+          "state": "Fechado · 0 planilhas"
+        }
       },
       {
         "kicker": "Tratamentos",
@@ -218,18 +228,42 @@
         "body": "AlicIA detecta os tratamentos parados e os reativa. Tua equipe volta para a clínica, não para a lista de pendências.",
         "p1": "Nenhum plano vendido esfria",
         "p2": "Mais cadeira, menos acompanhamento manual",
-        "badgeNumber": "30 e 60 dias",
-        "badgeLabel": "sem avanço, detectados sozinhos",
-        "photoAlt": "Dentista sorrindo na clínica"
+        "photoAlt": "Dentista conversando com uma paciente sobre o plano de tratamento",
+        "ill": {
+          "role": "Planos",
+          "time": "detectado",
+          "title": "Plano parado",
+          "metricLabel": "Ortodontia",
+          "metricValue": "45 dias",
+          "state": "Reativado pela AlicIA"
+        }
       }
     ]
   },
   "trustStrip": {
     "title": "Construído para ser confiável desde o primeiro dia",
+    "titleChile": "Confiável na sua clínica desde o primeiro dia",
     "items": {
-      "compliance": "LGPD · Ley 20.584 · GDPR",
-      "countries": "{countries} países · {currencies} moedas",
-      "uptime": "Infraestrutura cloud 24/7"
+      "compliance": {
+        "label": "Conformidade local",
+        "detail": "LGPD · Ley 20.584 · GDPR"
+      },
+      "complianceChile": {
+        "label": "Cumpre a Ley 20.584",
+        "detail": "resguardo da ficha clínica"
+      },
+      "countries": {
+        "label": "{countries} países · {currencies} moedas",
+        "detail": "formato local de cada mercado"
+      },
+      "backup": {
+        "label": "Backup diário criptografado",
+        "detail": "seus dados, sempre a salvo"
+      },
+      "uptime": {
+        "label": "Infraestrutura cloud 24/7",
+        "detail": "monitoramento contínuo"
+      }
     }
   },
   "ai": {

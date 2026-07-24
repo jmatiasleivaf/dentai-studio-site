@@ -1,6 +1,44 @@
 # SuperClini Site — Status Vivo
 
-**Última atualização**: 2026-07-23 — Home Direção B: carrosséis + finale novo (branch `feat/home-overhaul`, AGUARDA GATE)
+**Última atualização**: 2026-07-24 — Seção humana com ilustrações + franja de confiança viva (branch `feat/human-section-fix`, AGUARDA GATE DE DEPLOY)
+
+## 2026-07-24 — Seção humana (ilustrações + fotos com licença) + franja de confiança (branch `feat/human-section-fix`)
+
+Feedback do Matias sobre a home Direção B (já EM PROD, commit `204edcc`), aprovado
+via mockup HTML-first (Artifact) antes de codar. Quatro pontos + dois refinos:
+
+- **Ilustrações sobre as fotos** (`HumanSection.tsx`): cada slide ganhou um cartão
+  de produto do agente + chip de identidade, DENTRO do marco (não é recortado pelo
+  carrossel, ao contrário do badge pendurado anterior). Sofía confirma no WhatsApp
+  (esmeralda), IAndra fecha a caixa (sky), AlicIA reativa um plano (violeta). Dado
+  fictício, sem PII. Marco passou a `aspect-[4/5]` (mais respiro para os cartões).
+- **Fotos trocadas**: saíram `equipo-mixto.webp` (foto de clínica real com o logo
+  "Dentify" na bata, marca de terceiro) e `equipo.webp` (outra clínica, tom sépia),
+  ambas SEM licença de banco registrada. Entraram 3 da sessão do Cedric Fauntleroy
+  (Pexels, licença comercial, zero marca, casting diverso c/ um homem): `human-recepcion`,
+  `human-caja`, `human-tratamientos`. O slide 1 deixou de repetir a foto do hero.
+- **Autoplay com barra de progresso** (`slider.tsx`): prop `progress`, autoplay 5s,
+  barra via rAF que congela no hover/foco e reinicia a cada slide, respeita reduced-motion.
+- **Franja de confiança viva** (`TrustStrip.tsx`): de 1 linha de texto plano para
+  tiles com ícone (círculo gradiente), título e detalhe. **No CL não entra referência
+  a outros mercados**: sai "países/moedas" e entram 3 sinais locais (Cumple la Ley
+  20.584 + Respaldo diario cifrado + Infraestructura cloud 24/7). A lógica que oculta
+  países no CL já existia; agora vira 3 tiles.
+
+**i18n**: `human.slides[].ill` (ilustrações) e `trustStrip` reestruturado
+(label/detail + `complianceChile`/`backup`/`titleChile`) nos 3 idiomas.
+
+**Provas locais**: `tsc --noEmit` 0 · `npm run lint` 0 erros (12 warnings pré-existentes)
+· `audit-stale` zero drift · `npm run build` exit 0 · **First Load da home 186 kB**
+(sem regressão; ilustrações são server-rendered). Screenshots main+CL desktop+mobile
+(Playwright host-resolver) sem JS-error, sem overflow em 390px. Render vs bundle:
+main renderiza "8 monedas" (=2), CL renderiza "8 monedas"=**0** (tile países fora) e
+"Respaldo diario cifrado"=3 (render). **Pendente: gate de deploy do Matias.**
+
+**Arquivos**: `HumanSection.tsx`, `TrustStrip.tsx`, `ui/slider.tsx`,
+`messages/{es,pt,en}.json`, `public/showcase/home/{human-*.webp (+3), equipo*.webp (-2), CREDITS.md}`.
+
+---
 
 ## 2026-07-23 (noite) — Interatividade + finale (feedback do Matias sobre a home clara)
 
