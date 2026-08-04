@@ -5,6 +5,8 @@ import { ChileHighlights } from "@/components/home/ChileHighlights";
 import { HumanSection } from "@/components/home/HumanSection";
 import { TrustStrip } from "@/components/home/TrustStrip";
 import { isChileSite } from "@/lib/site-host";
+import { resolveCountryServer } from "@/lib/country-server";
+import { isNoTrialCountry } from "@/lib/pricing";
 import { Features } from "@/components/home/Features";
 import { FAQ } from "@/components/home/FAQ";
 import { FAQSchema } from "@/components/home/FAQSchema";
@@ -39,10 +41,14 @@ export default async function HomePage({
   const { locale } = await params;
   setRequestLocale(locale);
   const chile = await isChileSite();
+  // `chile` é o HOST (cl.superclini.com); `noTrial` é o PAÍS. Um chileno em
+  // superclini.com/es tem host falso e país CL, e é ele que não pode ver
+  // oferta de conta grátis que não existe no mercado dele.
+  const noTrial = isNoTrialCountry(await resolveCountryServer(locale));
 
   return (
     <>
-      <Hero isChile={chile} />
+      <Hero isChile={chile} noTrial={noTrial} />
       <AgentsBand />
       {chile ? <ChileHighlights /> : null}
       <HumanSection />
@@ -50,7 +56,7 @@ export default async function HomePage({
       <Features />
       <FAQ />
       <FAQSchema locale={locale} />
-      <CtaFinal />
+      <CtaFinal noTrial={noTrial} />
     </>
   );
 }

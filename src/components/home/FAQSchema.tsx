@@ -1,6 +1,12 @@
 import { getTranslations } from "next-intl/server";
+import { resolveCountryServer } from "@/lib/country-server";
+import { isMembresiaCountry } from "@/lib/pricing";
 
-type FAQItem = { q: string; a: string };
+/**
+ * `aCL` é a resposta para os mercados de membresía (Chile). Só existe nos itens
+ * cuja resposta cita plano por nome ou cota mensal, que lá não existem.
+ */
+type FAQItem = { q: string; a: string; qCL?: string; aCL?: string };
 
 /**
  * Renderiza Schema.org FAQPage como JSON-LD para o Google entender a FAQ
@@ -19,16 +25,17 @@ export async function FAQSchema({
 }) {
   const t = await getTranslations({ locale, namespace });
   const items = t.raw("items") as FAQItem[];
+  const membresia = isMembresiaCountry(await resolveCountryServer(locale));
 
   const schema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: items.map((item) => ({
       "@type": "Question",
-      name: item.q,
+      name: membresia && item.qCL ? item.qCL : item.q,
       acceptedAnswer: {
         "@type": "Answer",
-        text: item.a,
+        text: membresia && item.aCL ? item.aCL : item.a,
       },
     })),
   };

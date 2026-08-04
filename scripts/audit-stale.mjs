@@ -56,6 +56,11 @@ const WHITELIST_KEYS = new Set([
   // Landing /sofia: FAQ menciona "300 conversaciones" como label do plano,
   // não como claim global do produto. Mesma justificativa de pricing.features.*.
   "sofiaPage.faq.items.5.a",
+  // Variante do mercado de membresía (Chile): mesma frase com a cota anual da
+  // membresía. É label de oferta, não claim global. O valor autoritativo é
+  // SUPERCLINI_FACTS.membresiaCL.sofiaConversations, consumido pela vitrine em
+  // MembresiaCL.tsx; aqui a FAQ vem de t.raw() em array, que não interpola ICU.
+  "sofiaPage.faq.items.5.aCL",
 ]);
 
 /**

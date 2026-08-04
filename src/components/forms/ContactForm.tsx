@@ -16,6 +16,7 @@ import {
 } from "@/lib/lead-schema";
 import { useCountry } from "@/contexts/CountryContext";
 import { COUNTRIES, type CountryCode } from "@/lib/countries";
+import { isMembresiaCountry } from "@/lib/pricing";
 import { useConsent } from "@/contexts/ConsentContext";
 import { forTransmission } from "@/lib/attribution";
 import { CONSENT_POLICY_VERSION } from "@/lib/consent";
@@ -54,6 +55,14 @@ export function ContactForm({ defaultInteresse, onSuccess, hideHeader }: Contact
   const locale = useLocale();
   const { country } = useCountry();
   const { attribution, consent } = useConsent();
+
+  // Mercado de membresía (Chile): não existe trial, então a opção "probar 14
+  // días gratis" some da lista. Filtrar o que a plataforma não faz é mais
+  // honesto que renomear e receber lead esperando outra coisa.
+  const membresia = isMembresiaCountry(country.code);
+  const interesses = membresia
+    ? LEAD_INTERESSES.filter((i) => i !== "trial_profesional")
+    : LEAD_INTERESSES;
 
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState<string>("");
@@ -303,9 +312,14 @@ export function ContactForm({ defaultInteresse, onSuccess, hideHeader }: Contact
         <Field label={tForm("interest")} hint={tForm("optional")}>
           <select {...register("interesse")} className={fieldClass}>
             <option value="">{tForm("interestAny")}</option>
-            {LEAD_INTERESSES.map((i) => (
+            {interesses.map((i) => (
               <option key={i} value={i}>
-                {tForm(`interests.${i}` as never)}
+                {/* `interestsCL` só cobre os rótulos que mudam no mercado de
+                    membresía. O VALOR do enum nunca muda: é contrato com o
+                    lead-validation.ts do app. */}
+                {membresia && tForm.has(`interestsCL.${i}` as never)
+                  ? tForm(`interestsCL.${i}` as never)
+                  : tForm(`interests.${i}` as never)}
               </option>
             ))}
           </select>
@@ -373,7 +387,7 @@ export function ContactForm({ defaultInteresse, onSuccess, hideHeader }: Contact
       </Button>
 
       <p className="pt-1 text-center text-xs text-ink-500 dark:text-ink-400">
-        {t("slaMicrocopy")}
+        {membresia ? t("slaMicrocopyCL") : t("slaMicrocopy")}
       </p>
     </form>
   );

@@ -9,6 +9,7 @@ import { Container } from "@/components/ui/container";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { Flag } from "@/components/ui/flag";
 import { ContactDialog } from "@/components/home/ContactDialog";
+import { MembresiaCL } from "@/components/home/MembresiaCL";
 import { useCountry } from "@/contexts/CountryContext";
 import { useSite } from "@/contexts/SiteContext";
 import { COUNTRIES, COUNTRY_LIST, formatCurrency, type CountryCode } from "@/lib/countries";
@@ -17,6 +18,7 @@ import {
   PLANS,
   ANNUAL_DISCOUNT,
   PLAN_ORDER,
+  isMembresiaCountry,
   type PlanId,
 } from "@/lib/pricing";
 import type { Locale } from "@/i18n/routing";
@@ -34,6 +36,7 @@ const FEATURE_VALUES: Record<string, Record<string, number>> = {
 
 export function Pricing() {
   const t = useTranslations("pricing");
+  const tm = useTranslations("membresia");
   const tFeat = useTranslations("pricing.features");
   const locale = useLocale() as Locale;
   const { country, setCountry } = useCountry();
@@ -41,13 +44,20 @@ export function Pricing() {
   const [pickerOpen, setPickerOpen] = React.useState(false);
   const [cycle, setCycle] = React.useState<"monthly" | "annual">("annual");
 
+  /**
+   * Chile roda o modelo de membresía anual única desde 2026-08-04. A decisão é
+   * por PAÍS, não por host: quem chega em superclini.com/es/precios com geo CL
+   * ou escolhe Chile no picker vê o mesmo que vê em cl.superclini.com.
+   */
+  const isCL = isMembresiaCountry(country.code);
+
   return (
     <Section id="pricing" tone="dark">
       <Container>
         <SectionHeader
-          eyebrow={t("eyebrow")}
-          title={t("title")}
-          sub={isChile ? t("subChile") : t("sub")}
+          eyebrow={isCL ? tm("eyebrow") : t("eyebrow")}
+          title={isCL ? tm("title") : t("title")}
+          sub={isCL ? tm("sub") : isChile ? t("subChile") : t("sub")}
         />
 
         {/* País picker + toggle mensual/anual.
@@ -91,8 +101,14 @@ export function Pricing() {
             </div>
           )}
 
-          {/* Toggle cycle */}
-          <div className="inline-flex items-center rounded-full border border-white/15 bg-white/5 p-1">
+          {/* Toggle mensual/anual. No Chile não existe: a membresía é anual e única. */}
+          <div
+            className={
+              isCL
+                ? "hidden"
+                : "inline-flex items-center rounded-full border border-white/15 bg-white/5 p-1"
+            }
+          >
             {(["monthly", "annual"] as const).map((c) => (
               <button
                 key={c}
@@ -122,35 +138,41 @@ export function Pricing() {
           </div>
         </div>
 
-        {/* Cards */}
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {PLAN_ORDER.map((planId) => (
-            <PlanCard
-              key={planId}
-              planId={planId}
-              country={country.code}
-              cycle={cycle}
-              tFeat={tFeat}
-              t={t}
-            />
-          ))}
-        </div>
+        {isCL ? (
+          <MembresiaCL />
+        ) : (
+          <>
+            {/* Cards */}
+            <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {PLAN_ORDER.map((planId) => (
+                <PlanCard
+                  key={planId}
+                  planId={planId}
+                  country={country.code}
+                  cycle={cycle}
+                  tFeat={tFeat}
+                  t={t}
+                />
+              ))}
+            </div>
 
-        {/* Disclaimer ARS, revisão trimestral por volatilidade cambial */}
-        {country.code === "AR" ? (
-          <p className="mt-6 text-center text-xs text-ink-400">{t("arsDisclaimer")}</p>
-        ) : null}
+            {/* Disclaimer ARS, revisão trimestral por volatilidade cambial */}
+            {country.code === "AR" ? (
+              <p className="mt-6 text-center text-xs text-ink-400">{t("arsDisclaimer")}</p>
+            ) : null}
 
-        {/* Link para matrix */}
-        <div className="mt-10 text-center">
-          <a
-            href="#plan-matrix"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-brand-300 underline-offset-4 hover:underline"
-          >
-            {t("seeMatrixLink")}
-            <ArrowRight className="h-4 w-4" aria-hidden />
-          </a>
-        </div>
+            {/* Link para matrix */}
+            <div className="mt-10 text-center">
+              <a
+                href="#plan-matrix"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-brand-300 underline-offset-4 hover:underline"
+              >
+                {t("seeMatrixLink")}
+                <ArrowRight className="h-4 w-4" aria-hidden />
+              </a>
+            </div>
+          </>
+        )}
       </Container>
     </Section>
   );

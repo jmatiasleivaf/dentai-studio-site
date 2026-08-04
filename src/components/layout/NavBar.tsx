@@ -23,6 +23,8 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Logo } from "@/components/ui/logo";
 import { ContactDialog } from "@/components/home/ContactDialog";
+import { useCountry } from "@/contexts/CountryContext";
+import { isNoTrialCountry } from "@/lib/pricing";
 import { NAV_RESOURCES } from "@/lib/site-nav";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 import { cn } from "@/lib/utils";
@@ -108,8 +110,15 @@ export function NavBar() {
   const t = useTranslations("nav");
   const tRes = useTranslations("nav.resourcesItems");
   const pathname = usePathname();
+  const { country } = useCountry();
   const [open, setOpen] = React.useState(false);
   const [resourcesOpen, setResourcesOpen] = React.useState(false);
+
+  // Chile não tem conta grátis: o CTA primário leva à membresía em vez de a
+  // /registro. Decidido por país, para valer também em superclini.com.
+  const noTrial = isNoTrialCountry(country.code);
+  const ctaHref = noTrial ? "/precios" : "/registro";
+  const ctaLabel = noTrial ? t("signupNoTrial") : t("signup");
 
   // Hero da home passou a ser CLARO (Direção B, 2026-07-23). A barra fica sólida
   // em vidro em todas as páginas; some o overlay transparente de texto branco que
@@ -306,7 +315,7 @@ export function NavBar() {
             variant={overlay ? "secondary" : "primary"}
             className="hidden md:inline-flex"
           >
-            <Link href="/registro">{t("signup")}</Link>
+            <Link href={ctaHref}>{ctaLabel}</Link>
           </Button>
           {/* Hambúrguer mobile (≥44px) */}
           <button
@@ -445,8 +454,8 @@ export function NavBar() {
                   {/* CTA primário no mobile fica por ÚLTIMO: é o mais perto do
                       polegar em tela alta, e é o que queremos que seja tocado. */}
                   <Button asChild size="lg" className="w-full">
-                    <Link href="/registro" onClick={() => setOpen(false)}>
-                      {t("signup")}
+                    <Link href={ctaHref} onClick={() => setOpen(false)}>
+                      {ctaLabel}
                       <ArrowRight className="h-4 w-4" aria-hidden />
                     </Link>
                   </Button>

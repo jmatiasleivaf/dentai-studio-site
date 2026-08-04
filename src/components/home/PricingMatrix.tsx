@@ -5,7 +5,14 @@ import { Check, Minus } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/container";
 import { Section, SectionHeader } from "@/components/ui/section";
-import { PLAN_MATRIX, PLAN_ORDER, type MatrixValue, type PlanId } from "@/lib/pricing";
+import { useCountry } from "@/contexts/CountryContext";
+import {
+  PLAN_MATRIX,
+  PLAN_ORDER,
+  isMembresiaCountry,
+  type MatrixValue,
+  type PlanId,
+} from "@/lib/pricing";
 import { SUPERCLINI_FACTS } from "@/lib/superclini.facts";
 
 /** Valores da matriz que consomem número do SSoT em vez de literal na string. */
@@ -38,6 +45,7 @@ export function PricingMatrix() {
   const tRows = useTranslations("pricing.matrix.rows");
   const tValues = useTranslations("pricing.matrix.values");
   const tGroups = useTranslations("pricing.matrix.groups");
+  const { country } = useCountry();
 
   const renderValue = (v: MatrixValue, planId: PlanId) => {
     if (v === "yes") {
@@ -73,6 +81,10 @@ export function PricingMatrix() {
       </span>
     );
   };
+
+  // Chile roda membresía anual única: comparar 3 planos que não existem nesse
+  // mercado seria vitrine falsa. A tabela some por país, não por host.
+  if (isMembresiaCountry(country.code)) return null;
 
   return (
     <Section id="plan-matrix" tone="default" className="py-20 sm:py-24">

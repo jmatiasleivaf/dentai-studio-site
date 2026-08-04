@@ -14,10 +14,21 @@ import type { Locale } from "@/i18n/routing";
  * Fundo claro: o NavBar virou sólido em vidro (sem overlay branco), então o hero
  * não usa mais `-mt-nav`. H1 afinado para o Chile (ver i18n).
  */
-export function Hero({ isChile = false }: { isChile?: boolean }) {
+export function Hero({
+  isChile = false,
+  noTrial = false,
+}: {
+  isChile?: boolean;
+  noTrial?: boolean;
+}) {
   const t = useTranslations("hero");
   const locale = useLocale() as Locale;
   const sub = isChile ? t("subChile") : t("sub");
+  // Sem trial (Chile), o CTA primário deixa de ser "crear cuenta gratis" e passa
+  // a levar à membresía, que é o produto que existe naquele mercado.
+  const trustKeys = noTrial
+    ? (["included", "setup", "payment"] as const)
+    : (["noCard", "setup", "cancel"] as const);
 
   return (
     <section className="relative isolate overflow-hidden bg-gradient-to-b from-ink-50 to-white dark:from-ink-950 dark:to-ink-950">
@@ -43,8 +54,8 @@ export function Hero({ isChile = false }: { isChile?: boolean }) {
 
           <div className="mt-9 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center">
             <Button asChild variant="primary" size="lg" className="group">
-              <Link href="/registro">
-                {t("ctaPrimary")}
+              <Link href={noTrial ? "/precios" : "/registro"}>
+                {noTrial ? t("ctaPrimaryNoTrial") : t("ctaPrimary")}
                 <ArrowRight
                   className="h-4 w-4 transition-transform group-hover:translate-x-1"
                   aria-hidden
@@ -57,7 +68,7 @@ export function Hero({ isChile = false }: { isChile?: boolean }) {
           </div>
 
           <ul className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-fluid-xs text-ink-500 dark:text-white/60">
-            {(["noCard", "setup", "cancel"] as const).map((k) => (
+            {trustKeys.map((k) => (
               <li key={k} className="flex items-center gap-1.5">
                 <span aria-hidden className="inline-block h-1 w-1 rounded-full bg-brand-500" />
                 {t(`trustItems.${k}`)}

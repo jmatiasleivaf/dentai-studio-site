@@ -50,6 +50,22 @@ export const SUPERCLINI_FACTS = {
   /** Desconto efetivo do ciclo anual (-16.67% real, narrativa -20%). */
   annualDiscountPct: 20,
 
+  /**
+   * Chile, membresía anual única (2026-08-04). Cotas ANUAIS, não mensais:
+   * a bolsa acompanha o aniversário da assinatura. O que o cliente compra em
+   * paquete SOMA ao incluído, nunca substitui.
+   * Fonte: SuperClini/partners/CLAUDE.md (tabela de unidade por agente).
+   */
+  membresiaCL: {
+    /** Sofía: conversação única, 1 contato interagindo dentro da janela de 24h. */
+    sofiaConversations: 400,
+    /** AlicIA: paciente ativado no primeiro uso de qualquer função. */
+    aiPatients: 20,
+    storageGB: 100,
+    /** Teto por paciente ativado. IAndra é ilimitada e não se mede. */
+    perPatient: { simulations: 5, radiographs: 10 },
+  },
+
   // ─── Cotas IA por tier (referência narrativa; valores autoritativos em pricing.ts PLAN_MATRIX) ─
   aiQuotas: {
     // whatsappConv do Profesional passou de 0 para 100 em 2026-07-20: sem Sofía

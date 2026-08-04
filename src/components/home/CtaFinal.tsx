@@ -13,11 +13,18 @@ import { ContactDialog } from "@/components/home/ContactDialog";
  * + o bloco de CTA em degradê neon (que o Matias marcou como legado e feio) por um
  * painel claro premium. Carrega a assinatura da marca (closing.*) e a conversão
  * (ctaFinal.*) num só lugar, sem o corte cromático agressivo.
+ *
+ * `noTrial`: mercados onde não existe conta grátis (Chile desde 2026-08-04, que
+ * vende membresía anual por asociado). Ali "sin tarjeta" e "crear cuenta gratis"
+ * seriam promessa falsa, então o CTA vira conversa com o asociado.
  */
-export function CtaFinal() {
+export function CtaFinal({ noTrial = false }: { noTrial?: boolean }) {
   const t = useTranslations("ctaFinal");
   const tc = useTranslations("closing");
   const th = useTranslations("hero");
+  const trustKeys = noTrial
+    ? (["included", "setup", "payment"] as const)
+    : (["noCard", "setup", "cancel"] as const);
 
   return (
     <Section tone="default" className="py-24 sm:py-28">
@@ -33,29 +40,43 @@ export function CtaFinal() {
               <span className="block text-brand-600 dark:text-brand-300">{tc("highlight")}</span>
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-lead text-ink-600 dark:text-ink-300">
-              {t("sub")}
+              {noTrial ? t("subNoTrial") : t("sub")}
             </p>
             <div className="mt-9 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
-              <Button asChild variant="primary" size="lg" className="group">
-                <Link href="/registro">
-                  {t("ctaPrimary")}
-                  <ArrowRight
-                    className="h-4 w-4 transition-transform group-hover:translate-x-1"
-                    aria-hidden
-                  />
-                </Link>
-              </Button>
-              <ContactDialog
-                trigger={({ onClick }) => (
-                  <Button size="lg" variant="outline" onClick={onClick}>
-                    <MessageSquare className="h-4 w-4" aria-hidden />
-                    {t("ctaSecondary")}
+              {noTrial ? (
+                <ContactDialog
+                  defaultInteresse="avaliar"
+                  trigger={({ onClick }) => (
+                    <Button variant="primary" size="lg" onClick={onClick}>
+                      <MessageSquare className="h-4 w-4" aria-hidden />
+                      {t("ctaPrimaryNoTrial")}
+                    </Button>
+                  )}
+                />
+              ) : (
+                <>
+                  <Button asChild variant="primary" size="lg" className="group">
+                    <Link href="/registro">
+                      {t("ctaPrimary")}
+                      <ArrowRight
+                        className="h-4 w-4 transition-transform group-hover:translate-x-1"
+                        aria-hidden
+                      />
+                    </Link>
                   </Button>
-                )}
-              />
+                  <ContactDialog
+                    trigger={({ onClick }) => (
+                      <Button size="lg" variant="outline" onClick={onClick}>
+                        <MessageSquare className="h-4 w-4" aria-hidden />
+                        {t("ctaSecondary")}
+                      </Button>
+                    )}
+                  />
+                </>
+              )}
             </div>
             <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-fluid-xs text-ink-500 dark:text-ink-400">
-              {(["noCard", "setup", "cancel"] as const).map((k) => (
+              {trustKeys.map((k) => (
                 <li key={k} className="flex items-center gap-1.5">
                   <span aria-hidden className="inline-block h-1 w-1 rounded-full bg-brand-500" />
                   {th(`trustItems.${k}`)}

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { cookies } from "next/headers";
 import { Inter, Space_Grotesk } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
@@ -12,9 +11,11 @@ import { ConsentProvider } from "@/contexts/ConsentContext";
 import { SiteProvider } from "@/contexts/SiteContext";
 import { CookieBanner } from "@/components/consent/CookieBanner";
 import { routing, type Locale } from "@/i18n/routing";
-import { COUNTRIES, COUNTRY_LIST, type CountryCode } from "@/lib/countries";
+import { COUNTRY_LIST } from "@/lib/countries";
 import { SUPERCLINI_FACTS } from "@/lib/superclini.facts";
 import { isChileSite, CHILE_ORIGIN, MAIN_ORIGIN } from "@/lib/site-host";
+import { resolveCountryServer } from "@/lib/country-server";
+import { MEMBRESIA_CL } from "@/lib/pricing";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -116,13 +117,17 @@ function buildJsonLd(locale: string, description: string, isChile: boolean) {
     operatingSystem: "Web, iOS PWA, Android PWA",
     description,
     inLanguage: locale,
+    // Chile deixou de ter faixa de preço em 2026-08-04: é uma membresía anual
+    // única, então o schema é um Offer só, com o preço NETO da campanha e a
+    // data em que ela termina. AggregateOffer aqui declararia planos que não
+    // existem mais nesse mercado.
     offers: isChile
       ? {
-          "@type": "AggregateOffer",
+          "@type": "Offer",
           priceCurrency: "CLP",
-          lowPrice: "29990",
-          highPrice: "169990",
-          offerCount: String(SUPERCLINI_FACTS.tiersCount),
+          price: String(MEMBRESIA_CL.promo),
+          priceValidUntil: MEMBRESIA_CL.campaignEndsAt,
+          availability: "https://schema.org/InStock",
           url: `${CHILE_ORIGIN}/es/precios`,
         }
       : {
@@ -154,18 +159,11 @@ export default async function LocaleLayout({
   const isChile = await isChileSite();
   const jsonLd = buildJsonLd(locale, description, isChile);
 
-  const cookieStore = await cookies();
-  const cookieCountry = cookieStore.get("NEXT_COUNTRY")?.value?.toUpperCase();
-  // No subdomínio do Chile o país é sempre CL (ignora cookie herdado do principal).
-  const defaultCountry: CountryCode = isChile
-    ? "CL"
-    : cookieCountry && (COUNTRIES as Record<string, unknown>)[cookieCountry]
-      ? (cookieCountry as CountryCode)
-      : locale === "pt"
-        ? "BR"
-        : locale === "en"
-          ? "US"
-          : "CL";
+  // Resolução de país centralizada em country-server.ts: host CL, depois cookie
+  // do picker, depois geo do edge, depois idioma. O passo do geo entrou junto
+  // com a membresía do Chile, senão a PRIMEIRA visita renderizava a vitrine
+  // errada no servidor e só o efeito do cliente corrigia.
+  const defaultCountry = await resolveCountryServer(locale);
 
   return (
     <html

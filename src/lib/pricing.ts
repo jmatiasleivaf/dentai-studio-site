@@ -26,6 +26,65 @@ export const PRICING: Record<CountryCode, Record<PlanId, number>> = {
   PT: { esencial: 29,      profesional: 89,      avanzado: 199,     corporativo: 0 },
 };
 
+// ─── Chile: membresía anual única ───────────────────────────────────────────
+// Modelo do Programa de Asociados de Chile, cravado em 2026-08-04.
+// Fonte de verdade: SuperClini/partners/CLAUDE.md + membresia-superclini-cl.pdf.
+//
+// Substitui os 3 tiers SOMENTE quando o país é CL. Os outros 8 mercados seguem
+// em PRICING acima, sem alteração.
+//
+// REGRA INVIOLÁVEL: todos os valores aqui são NETOS, em CLP, e a UI publica
+// sempre com "+ IVA" ao lado. Nunca "IVA incluido". O costume B2B chileno é
+// cotar neto, e cotar diferente do mercado faz a proposta parecer mais cara.
+
+export const MEMBRESIA_CL = {
+  /** Campanha desde agosto de 2026, por 6 meses. Quem entra conserva o preço para sempre. */
+  promo: 199990,
+  /** Preço de lista, aplicado a quem entra depois da campanha. */
+  list: 299990,
+  /**
+   * Fim da campanha: agosto de 2026 mais 6 meses. Usado no `priceValidUntil`
+   * do JSON-LD, que exige data ISO.
+   */
+  campaignEndsAt: "2027-01-31",
+  /** Paquetes de crédito. O que se compra SOMA ao incluído, nunca substitui. */
+  packs: {
+    aiPatient: 4990,
+    aiPatientPack20: 59990,
+    conversations500: 39990,
+    conversations1500: 99990,
+  },
+  /** Rede de clínicas: uma bolsa de créditos para toda a rede. */
+  network: {
+    firstBranch: 199990,
+    additionalBranch: 149990,
+    /** A partir deste número de sucursais, condições corporativas sob medida. */
+    corporateFrom: 10,
+  },
+  /** Migração de outra plataforma: preço fixo, sem importar o tamanho da base. */
+  migration: 149990,
+  /** Cuotas máximas no cartão de crédito. Nunca prometemos "sin interés". */
+  maxInstallments: 12,
+} as const;
+
+/**
+ * Mercados que rodam a membresía anual única em vez dos 3 tiers. Único ponto
+ * onde essa regra vive: cards, matriz, CTA de trial e JSON-LD consultam daqui.
+ */
+export function isMembresiaCountry(country: CountryCode): boolean {
+  return country === "CL";
+}
+
+/**
+ * Mercados sem conta grátis. Hoje coincide com a membresía: no Chile o produto
+ * é vendido por asociado, então "crear cuenta gratis" e "sin tarjeta de crédito"
+ * seriam promessa falsa. Função separada de propósito, porque um mercado pode
+ * um dia ter membresía COM trial, ou trial sem membresía.
+ */
+export function isNoTrialCountry(country: CountryCode): boolean {
+  return country === "CL";
+}
+
 /** Desconto anual: pagar 10 meses, receber 2, -16.67% efetivo, arredondamos a -20%. */
 export const ANNUAL_DISCOUNT = 0.2;
 

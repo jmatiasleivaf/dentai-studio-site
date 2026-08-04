@@ -1,6 +1,57 @@
 # SuperClini Site — Status Vivo
 
-**Última atualização**: 2026-07-24 — Seção humana com ilustrações + franja de confiança viva (branch `feat/human-section-fix`, AGUARDA GATE DE DEPLOY)
+**Última atualização**: 2026-08-04 — Chile passa a membresía anual única (branch `feat/precios-cl-membresia`, AGUARDA GATE DE DEPLOY)
+
+## 2026-08-04 — Chile: membresía anual única no lugar dos 3 planos (branch `feat/precios-cl-membresia`)
+
+Modelo comercial novo do Chile (Programa de Asociados), cravado em
+`SuperClini/partners/CLAUDE.md` + `membresia-superclini-cl.pdf`. Escopo aprovado pelo
+Matias: **decidido por PAÍS, não por host**, e **Chile sem trial**.
+
+- **Corte por país, não por host.** `cl.superclini.com` já existia, mas nada redireciona
+  o chileno para lá: quem cai em `superclini.com/es/precios` pelo Google veria a tabela
+  antiga em CLP enquanto o asociado vende 199.990 anual. `src/lib/country-server.ts`
+  (novo) resolve o país no servidor com a mesma precedência do cliente: host CL, cookie
+  do picker, **geo do edge (`cf-ipcountry`)** e idioma. O passo do geo é novo e existe
+  porque na PRIMEIRA visita o cookie que o middleware acabou de gravar ainda não está
+  no request, e sem ele o SSR renderizava a vitrine errada.
+- **Vitrine** (`MembresiaCL.tsx`, novo): membresía 199.990 de campanha (lista 299.990,
+  riscado), ilimitado, agentes incluídos ao ano (Sofía 400 conversaciones, AlicIA 20
+  pacientes, IAndra ilimitada), 4 paquetes, rede, migração, pago e nota legal do teto
+  por paciente. **Todo preço passa por `<Money>`, que carrega o "+ IVA" junto do número**:
+  não existe caminho de código neste arquivo que publique preço sem o sufixo. Valores
+  em `MEMBRESIA_CL` (`lib/pricing.ts`), cotas em `SUPERCLINI_FACTS.membresiaCL`.
+- **Toggle mensal/anual e matriz de 25 linhas somem no CL** (comparar 3 planos que não
+  existem naquele mercado seria vitrine falsa). Os outros 8 mercados não mudam nada.
+- **Sem trial no Chile**, decisão do Matias, propagada a toda a superfície: NavBar e Hero
+  passam de "Crear cuenta gratis" para "Ver la membresía"; `CtaFinal` vira "Hablar con un
+  asociado" com selos novos (`hero.trustItems.included/payment`); as 5 landings deixam de
+  prometer 14 dias e o lead deixa de nascer `trial_profesional` (vira `avaliar`); a opção
+  "probar 14 días gratis" sai do select do formulário; **`/registro` continua viva na URL**
+  (matar rota indexada é pior) mas renderiza o bloco da membresía com saída para /precios.
+- **FAQ e copy por item**: padrão `qCL`/`aCL` dentro do próprio item (`FAQ`, `LandingFAQ`,
+  `FAQSchema`), usado nos 5 itens que citavam plano por nome ou cota mensal. Bullet de
+  storage do `/clinico` ganhou `exame.bulletsCL`.
+- **SEO**: JSON-LD do host CL deixa de ser `AggregateOffer` 29990-169990 e vira `Offer`
+  199990 CLP com `priceValidUntil` do fim da campanha; `/precios` no host CL passa a ter
+  canonical próprio (o conteúdo deixou de ser o mesmo do principal em outra moeda).
+
+**Provas locais**: `audit-stale` zero drift · `tsc --noEmit` 0 · `npm run build` exit 0 ·
+i18n 1235 chaves iguais nos 3 idiomas, **zero chave perdida e zero valor antigo alterado**
+vs `origin/main` (94 novas por idioma). Runtime em 15 combinações de locale × país:
+nas 4 superfícies CL de /precios o HTML renderizado tem 9 preços e **9 ocorrências de
+"+ IVA"/"+ VAT"**, zero preço antigo, zero nome de tier, zero promessa de trial; o
+controle (MX, AR, BR, US) segue idêntico com 3 planos e trial. Screenshots desktop+mobile
+nos 3 idiomas em `SuperClini/_precios-cl-preview/`. **Pendente: gate de deploy do Matias.**
+
+**Atenção no deploy**: `origin/main` já tem `c9ce0bf` (seção humana) marcado aqui como
+"aguarda gate". Se aquilo não foi para a VPS, o `git pull` deste deploy leva os dois.
+
+**Arquivos**: `lib/country-server.ts` (novo), `components/home/MembresiaCL.tsx` (novo),
+`lib/pricing.ts`, `lib/superclini.facts.ts`, `components/home/{Pricing,PricingMatrix,CtaFinal,Hero,FAQ,FAQSchema}.tsx`,
+`components/landing/LandingFAQ.tsx`, `components/layout/NavBar.tsx`, `components/forms/ContactForm.tsx`,
+`app/[locale]/{layout,page,precios,registro,contato,sofia,ia-clinica,clinico,totem,automatizacoes}`,
+`messages/{es,pt,en}.json`, `scripts/audit-stale.mjs`.
 
 ## 2026-07-24 — Seção humana (ilustrações + fotos com licença) + franja de confiança (branch `feat/human-section-fix`)
 
