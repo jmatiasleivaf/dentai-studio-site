@@ -1,8 +1,8 @@
 # SuperClini Site — Status Vivo
 
-**Última atualização**: 2026-08-04 — Chile passa a membresía anual única (branch `feat/precios-cl-membresia`, AGUARDA GATE DE DEPLOY)
+**Última atualização**: 2026-08-04 — Chile passa a membresía anual única (**EM PROD**, commit `3ee0d56`)
 
-## 2026-08-04 — Chile: membresía anual única no lugar dos 3 planos (branch `feat/precios-cl-membresia`)
+## 2026-08-04 — Chile: membresía anual única no lugar dos 3 planos (**EM PROD**, `3ee0d56`)
 
 Modelo comercial novo do Chile (Programa de Asociados), cravado em
 `SuperClini/partners/CLAUDE.md` + `membresia-superclini-cl.pdf`. Escopo aprovado pelo
@@ -42,10 +42,23 @@ vs `origin/main` (94 novas por idioma). Runtime em 15 combinações de locale ×
 nas 4 superfícies CL de /precios o HTML renderizado tem 9 preços e **9 ocorrências de
 "+ IVA"/"+ VAT"**, zero preço antigo, zero nome de tier, zero promessa de trial; o
 controle (MX, AR, BR, US) segue idêntico com 3 planos e trial. Screenshots desktop+mobile
-nos 3 idiomas em `SuperClini/_precios-cl-preview/`. **Pendente: gate de deploy do Matias.**
+nos 3 idiomas em `SuperClini/_precios-cl-preview/`.
 
-**Atenção no deploy**: `origin/main` já tem `c9ce0bf` (seção humana) marcado aqui como
-"aguarda gate". Se aquilo não foi para a VPS, o `git pull` deste deploy leva os dois.
+**Deploy em produção 2026-08-04**, gate do Matias dado. Container `dentai-site` recriado
+(healthy, HEAD `3ee0d56`), zero `MISSING_MESSAGE`/error no log. **Prova EXTERNA por curl**,
+não pelo log do deploy: nas 4 superfícies CL (`cl.superclini.com/es` e o principal em
+es/pt/en com geo CL) o HTML renderizado tem 9 preços e 9 "+ IVA"/"+ VAT", zero preço
+antigo, zero nome de tier, zero promessa de trial. Controle intacto: MX 3 preços + 9 tiers
++ trial, US 3 preços + 11 tiers + trial, BR idem. As 5 landings e o /contato no host CL
+com trial=0 e tier=0. JSON-LD do host CL confirmado como
+`Offer 199990 CLP priceValidUntil 2027-01-31`, e o principal segue `AggregateOffer` USD.
+Screenshots de produção em `_precios-cl-preview/PROD-precios-cl-{desktop,mobile}.png`.
+Rollback: tag `rollback-precios-cl-2026-08-04` em `c9ce0bf`.
+
+**Correção de registro**: `c9ce0bf` (seção humana) estava marcado aqui como "aguarda gate",
+mas **já estava em produção desde 24/07** (imagem do container criada 2026-07-24T14:46, e o
+repo da VPS já em `c9ce0bf`). Só o SITE-STATUS não tinha sido atualizado. Este deploy levou
+apenas a membresía.
 
 **Arquivos**: `lib/country-server.ts` (novo), `components/home/MembresiaCL.tsx` (novo),
 `lib/pricing.ts`, `lib/superclini.facts.ts`, `components/home/{Pricing,PricingMatrix,CtaFinal,Hero,FAQ,FAQSchema}.tsx`,
