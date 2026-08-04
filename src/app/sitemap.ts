@@ -51,6 +51,18 @@ const ROUTES: Array<{ path: string; priority: number; changeFrequency: "weekly" 
   })),
 ];
 
+/**
+ * Rotas que existem em um idioma só. A landing de asociados é o programa de
+ * canal do Chile: `/pt/asociados` e `/en/asociados` respondem 301 para `/es`,
+ * então declará-las no sitemap mandaria o Google rastrear redirects. Também
+ * não recebem alternates, pela mesma razão.
+ */
+const ES_ONLY_ROUTES: Array<{
+  path: string;
+  priority: number;
+  changeFrequency: "weekly" | "monthly";
+}> = [{ path: "/asociados", priority: 0.8, changeFrequency: "monthly" }];
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
   const chile = await isChileSite();
@@ -59,22 +71,38 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // host. O domínio principal serve os três idiomas. Ambos declaram o mesmo
   // conjunto de alternates (com es-CL apontando para o subdomínio).
   if (chile) {
-    return ROUTES.map(({ path, priority, changeFrequency }) => ({
-      url: `${CHILE_ORIGIN}/es${path}`,
-      lastModified: now,
-      changeFrequency,
-      priority,
-      alternates: { languages: alternatesFor(path) },
-    }));
+    return [
+      ...ROUTES.map(({ path, priority, changeFrequency }) => ({
+        url: `${CHILE_ORIGIN}/es${path}`,
+        lastModified: now,
+        changeFrequency,
+        priority,
+        alternates: { languages: alternatesFor(path) },
+      })),
+      ...ES_ONLY_ROUTES.map(({ path, priority, changeFrequency }) => ({
+        url: `${CHILE_ORIGIN}/es${path}`,
+        lastModified: now,
+        changeFrequency,
+        priority,
+      })),
+    ];
   }
 
-  return LOCALES.flatMap((locale) =>
-    ROUTES.map(({ path, priority, changeFrequency }) => ({
-      url: `${BASE}/${locale}${path}`,
+  return [
+    ...LOCALES.flatMap((locale) =>
+      ROUTES.map(({ path, priority, changeFrequency }) => ({
+        url: `${BASE}/${locale}${path}`,
+        lastModified: now,
+        changeFrequency,
+        priority,
+        alternates: { languages: alternatesFor(path) },
+      }))
+    ),
+    ...ES_ONLY_ROUTES.map(({ path, priority, changeFrequency }) => ({
+      url: `${BASE}/es${path}`,
       lastModified: now,
       changeFrequency,
       priority,
-      alternates: { languages: alternatesFor(path) },
-    }))
-  );
+    })),
+  ];
 }

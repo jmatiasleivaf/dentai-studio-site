@@ -729,7 +729,8 @@
       "about": "About us",
       "blog": "Blog",
       "contact": "Contact",
-      "help": "Help center"
+      "help": "Help center",
+      "partners": "Associate Program"
     },
     "legalTitle": "Legal",
     "legal": {
@@ -1956,6 +1957,312 @@
       "body": "There is no free account here. The membership is annual, includes the whole product and all three agents, and you sign it with an associate who walks you through activation.",
       "ctaPrimary": "See the membership",
       "ctaSecondary": "Talk to an associate"
+    }
+  },
+  "asociadosPage": {
+    "meta": {
+      "title": "SuperClini Associate Program · Chile",
+      "description": "You already know the dentists. We know the software. Introduce and sell SuperClini in your area: we handle onboarding, support and the account itself."
+    },
+    "hero": {
+      "eyebrow": "Associate Program · Chile",
+      "title": "You already know the dentists. We know the software.",
+      "subtitle": "You introduce and sell. We onboard, support and keep the account running.",
+      "cta": "Apply now",
+      "chips": {
+        "noEntry": "No joining fee",
+        "noExclusivity": "No exclusivity",
+        "noStock": "No stock to buy"
+      }
+    },
+    "why": {
+      "eyebrow": "The opportunity",
+      "title": "Why now",
+      "subtitle": "Chilean dental practices are changing systems.",
+      "items": {
+        "market": {
+          "title": "A half served market",
+          "body": "Most practices run expensive software billed per dentist, or still work with spreadsheets and notebooks."
+        },
+        "product": {
+          "title": "A product with something new to show",
+          "body": "AI agents that answer WhatsApp, read radiographs and simulate smiles. You can demo it in two minutes."
+        },
+        "price": {
+          "title": "A price nobody argues with",
+          "body": "One annual payment, everything included, no per dentist billing. The price objection disappears and the conversation moves to value."
+        }
+      }
+    },
+    "split": {
+      "eyebrow": "The program",
+      "title": "How the work is split",
+      "subtitle": "You sell. We operate.",
+      "yoursTitle": "Your job",
+      "yours": {
+        "visit": "Visit or contact practices in your area",
+        "demo": "Show the platform using the demo clinic",
+        "register": "Register the opportunity in your portal",
+        "close": "See the deal and the payment through"
+      },
+      "oursTitle": "Our job",
+      "ours": {
+        "migrate": "Migrate the customer database",
+        "train": "Train the clinic team",
+        "support": "Provide support every day of the year",
+        "billing": "Bill, invoice and renew the account"
+      },
+      "note": "You never have to fix technical problems or chase payments. The account stays yours even when you are not servicing it."
+    },
+    "earn": {
+      "eyebrow": "What you earn",
+      "title": "What you earn commission on",
+      "subtitle": "Every time a practice in your area pays, you get paid.",
+      "items": {
+        "membership": {
+          "title": "Every new membership",
+          "body": "The highest commission in the program. Paid when the practice you introduced signs up."
+        },
+        "branch": {
+          "title": "Every additional branch",
+          "body": "If the practice is a group, each branch it adds pays you too."
+        },
+        "migration": {
+          "title": "Data migration",
+          "body": "Moving data from the previous system is a separate service, and it earns commission as well."
+        },
+        "renewal": {
+          "title": "Every annual renewal",
+          "body": "As long as the practice stays with SuperClini, you keep getting paid every year."
+        }
+      },
+      "detailNote": "The percentages and amounts for each item are reviewed with you in the first conversation, with the full table in front of you.",
+      "cleanNote": "What is agreed is what you are paid. Nothing is deducted for administration or payment processing, and tax never enters the calculation, because it is nobody's revenue."
+    },
+    "renewal": {
+      "eyebrow": "Renewals",
+      "title": "The difference between selling and building",
+      "subtitle": "Every account that stays keeps paying you, without selling it again.",
+      "rules": {
+        "automatic": {
+          "title": "Automatic",
+          "body": "The renewal commission pays itself when the practice renews. There is nothing for you to manage."
+        },
+        "noSupport": {
+          "title": "No support obligation",
+          "body": "You do not have to service or fix anything on that account. That side is ours."
+        },
+        "stayActive": {
+          "title": "Kept active by selling",
+          "body": "One new sale every twelve months is enough to keep the recurring income from your portfolio."
+        },
+        "yours": {
+          "title": "The account is yours",
+          "body": "It is registered in your name from the close, and shows up in your portal with its current status."
+        }
+      },
+      "note": "This is the part of the program that compounds: each year starts with what you already built."
+    },
+    "bonus": {
+      "eyebrow": "Bonuses",
+      "title": "On top of commission",
+      "subtitle": "Two bonuses you can add.",
+      "items": {
+        "activation": {
+          "title": "Activation bonus",
+          "body": "When the practice you sold buys its first AI credit pack, any of them. A single patient does not count, it has to be a pack. Once per account."
+        },
+        "referral": {
+          "title": "Referral bonus",
+          "body": "When you introduce another associate and that person closes their first practice. Once per referred associate."
+        }
+      },
+      "note": "We do not pay for recruiting people. The referral bonus is only paid when there is a real sale to a practice."
+    },
+    "support": {
+      "eyebrow": "What you get",
+      "title": "You do not go out empty handed",
+      "subtitle": "Everything you need to sell, from day one.",
+      "items": {
+        "portal": {
+          "title": "Associate portal",
+          "body": "Your accounts, your commissions and their status, online."
+        },
+        "zone": {
+          "title": "Practices by area",
+          "body": "We assign you contacts in your own territory."
+        },
+        "demo": {
+          "title": "Demo clinic",
+          "body": "An account with real data to show live."
+        },
+        "training": {
+          "title": "Sales training",
+          "body": "Product, objections and visit method."
+        },
+        "email": {
+          "title": "Company email",
+          "body": "Your name at yourname@asociados.superclini.com."
+        },
+        "kit": {
+          "title": "Materials kit",
+          "body": "Deck, brochures and social media assets."
+        },
+        "technical": {
+          "title": "Technical backup",
+          "body": "A specialist joins you in the difficult meeting."
+        },
+        "protection": {
+          "title": "Account protection",
+          "body": "You register the practice and it is yours for 90 days."
+        }
+      }
+    },
+    "profile": {
+      "eyebrow": "The profile",
+      "title": "Who we are looking for",
+      "subtitle": "People who already walk into dental practices.",
+      "who": {
+        "supplies": {
+          "title": "Dental supply reps",
+          "body": "You already work the same route."
+        },
+        "equipment": {
+          "title": "Equipment distributors",
+          "body": "You talk to the decision maker."
+        },
+        "lab": {
+          "title": "Dental laboratories",
+          "body": "You work with several practices at once."
+        },
+        "accountant": {
+          "title": "Accountants and advisors",
+          "body": "They ask you about management and numbers."
+        }
+      },
+      "asksTitle": "What we do ask for",
+      "asks": {
+        "access": "Real access to dental practices",
+        "sii": "Registered business activity with the Chilean SII",
+        "training": "Completing the training and getting certified",
+        "brand": "Representing the brand seriously"
+      },
+      "honestTitle": "Being honest",
+      "honestBody": "This is supplementary income, not a sales career and not a salary, and we will not tell you otherwise. It works very well for people who already visit dental practices for another reason and want to add income that also compounds year after year."
+    },
+    "process": {
+      "eyebrow": "The process",
+      "title": "From application to your first commission",
+      "subtitle": "Five steps, two weeks.",
+      "steps": {
+        "apply": {
+          "title": "You apply",
+          "body": "Fill in the form on this page."
+        },
+        "talk": {
+          "title": "We talk",
+          "body": "A meeting to understand your area and your network."
+        },
+        "train": {
+          "title": "You train",
+          "body": "Product, demo and method. It ends with certification."
+        },
+        "sign": {
+          "title": "You sign",
+          "body": "A services agreement, signed online."
+        },
+        "sell": {
+          "title": "You start selling",
+          "body": "You get the portal, email, demo clinic and area contacts."
+        }
+      },
+      "paymentTitle": "How you get paid",
+      "paymentBody": "You issue a fee receipt or an invoice for the month's commissions. We pay once a month, with every account itemised in your portal."
+    },
+    "rules": {
+      "eyebrow": "Clear rules",
+      "title": "What this program is not",
+      "subtitle": "No fine print, no tricks.",
+      "notTitle": "What you will never find",
+      "not": {
+        "noEntryFee": "You pay nothing to join",
+        "noStock": "You buy no stock and no licences up front",
+        "noRecruiting": "You earn nothing for recruiting people",
+        "noExclusivity": "There is no exclusivity and no required schedule"
+      },
+      "yesTitle": "What you can expect",
+      "yes": {
+        "onlyOnSale": "You earn only when a practice buys",
+        "transparent": "You see every commission and its status in your portal",
+        "leaveAnytime": "You can leave whenever you want",
+        "published": "The rules are published and do not change midway"
+      }
+    },
+    "apply": {
+      "eyebrow": "Apply now",
+      "title": "Start with the practices you already know",
+      "subtitle": "We are building the associate team for Chile, with limited places per area so nobody competes with anybody.",
+      "points": {
+        "zones": "Places per area, defined before you start selling",
+        "answer": "We reply within 48 business hours and set up the first conversation",
+        "noCost": "Applying costs nothing and commits you to nothing"
+      }
+    },
+    "form": {
+      "name": "Full name",
+      "email": "Email",
+      "phone": "Phone",
+      "phoneHint": "with country code",
+      "region": "Region",
+      "comuna": "Comuna",
+      "profile": "Your current profile",
+      "company": "Company or laboratory",
+      "clinics": "Dental practices you visit today",
+      "availability": "Availability",
+      "message": "Message",
+      "messagePlaceholder": "Tell us about your area, your network or anything else we should know.",
+      "optional": "optional",
+      "selectPlaceholder": "Select an option",
+      "submit": "Send my application",
+      "submitting": "Sending…",
+      "sla": "We reply within 48 business hours.",
+      "consent": "I agree to be contacted by SuperClini about this application and I accept the <link>privacy policy</link> and the processing of my data.",
+      "successTitle": "Application received",
+      "successBody": "We will write to you within 48 business hours to set up the first conversation. Check spam or promotions too, just in case.",
+      "profiles": {
+        "representante_insumos": "Dental supply rep",
+        "distribuidor_equipos": "Equipment distributor",
+        "laboratorio_dental": "Dental laboratory",
+        "contador_asesor": "Accountant or advisor",
+        "otro": "Other"
+      },
+      "clinicRanges": {
+        "ninguna": "None yet",
+        "1-5": "Between 1 and 5",
+        "6-15": "Between 6 and 15",
+        "16-30": "Between 16 and 30",
+        "31+": "More than 30"
+      },
+      "availabilityRanges": {
+        "menos_5": "Under 5 hours a week",
+        "5_10": "Between 5 and 10 hours a week",
+        "10_20": "Between 10 and 20 hours a week",
+        "mas_20": "Over 20 hours a week"
+      },
+      "errors": {
+        "required": "Required field",
+        "min2": "Too short",
+        "tooLong": "Too long",
+        "email": "Invalid email",
+        "tel": "Write the phone with country code, for example +56 9 1234 5678",
+        "consent": "We need your consent to receive the application",
+        "invalid": "Check the details and try again.",
+        "rateLimit": "Too many attempts. Wait a few minutes.",
+        "unavailable": "We could not register your application right now. Try again in a few minutes.",
+        "network": "We could not connect. Check your connection and try again.",
+        "generic": "Something went wrong and your application was not registered. Try again.",
+        "fallbackLink": "Write to us through the contact form"
+      }
     }
   }
 }

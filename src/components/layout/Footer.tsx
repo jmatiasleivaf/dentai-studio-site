@@ -61,6 +61,12 @@ export function Footer({ isChile = false }: { isChile?: boolean }) {
             <FooterLink href={`/${locale}/contato`}>{t("company.contact")}</FooterLink>
             <FooterLink href="#">{t("company.about")}</FooterLink>
             <FooterLink href={`/${locale}/ayuda`}>{t("company.help")}</FooterLink>
+            {/* Recrutamento de asociados: programa exclusivo do Chile, servido
+                só em espanhol. Fora do es o link levaria a um 301, e o convite
+                estaria num idioma cujo mercado não tem o programa. */}
+            {locale === "es" ? (
+              <FooterLink href="/es/asociados">{t("company.partners")}</FooterLink>
+            ) : null}
           </FooterCol>
 
           <FooterCol title={t("legalTitle")}>

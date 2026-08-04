@@ -729,7 +729,8 @@
       "about": "Sobre nosotros",
       "blog": "Blog",
       "contact": "Contacto",
-      "help": "Centro de ayuda"
+      "help": "Centro de ayuda",
+      "partners": "Programa de Asociados"
     },
     "legalTitle": "Legal",
     "legal": {
@@ -1956,6 +1957,312 @@
       "body": "Acá no hay cuenta gratuita. La membresía es anual, incluye todo el producto y los tres agentes, y la contratas con un asociado que te acompaña en la activación.",
       "ctaPrimary": "Ver la membresía",
       "ctaSecondary": "Hablar con un asociado"
+    }
+  },
+  "asociadosPage": {
+    "meta": {
+      "title": "Programa de Asociados SuperClini · Chile",
+      "description": "Ya conoces a los dentistas. Nosotros el software. Presenta y vende SuperClini en tu zona: nosotros implementamos, damos soporte y sostenemos la cuenta."
+    },
+    "hero": {
+      "eyebrow": "Programa de Asociados · Chile",
+      "title": "Ya conoces a los dentistas. Nosotros el software.",
+      "subtitle": "Tú presentas y vendes. Nosotros implementamos, damos soporte y sostenemos la cuenta.",
+      "cta": "Postular",
+      "chips": {
+        "noEntry": "Sin costo de ingreso",
+        "noExclusivity": "Sin exclusividad",
+        "noStock": "Sin compra de stock"
+      }
+    },
+    "why": {
+      "eyebrow": "La oportunidad",
+      "title": "Por qué ahora",
+      "subtitle": "La clínica dental chilena está cambiando de sistema.",
+      "items": {
+        "market": {
+          "title": "Un mercado atendido a medias",
+          "body": "La mayoría de las clínicas usa un software caro que cobra por dentista, o sigue con planillas y cuadernos."
+        },
+        "product": {
+          "title": "Un producto con algo nuevo que mostrar",
+          "body": "Agentes de IA que atienden WhatsApp, analizan radiografías y simulan sonrisas. Se demuestra en dos minutos."
+        },
+        "price": {
+          "title": "Un precio que no se discute",
+          "body": "Un pago anual único, con todo incluido y sin cobro por dentista. La objeción de precio deja de existir y la conversación pasa a ser sobre el valor."
+        }
+      }
+    },
+    "split": {
+      "eyebrow": "El programa",
+      "title": "Cómo se reparte el trabajo",
+      "subtitle": "Tú vendes. Nosotros operamos.",
+      "yoursTitle": "Tu trabajo",
+      "yours": {
+        "visit": "Visitar o contactar clínicas de tu zona",
+        "demo": "Mostrar la plataforma con la clínica demo",
+        "register": "Registrar la oportunidad en tu portal",
+        "close": "Acompañar el cierre y el pago"
+      },
+      "oursTitle": "Nuestro trabajo",
+      "ours": {
+        "migrate": "Migrar la base de datos del cliente",
+        "train": "Capacitar al equipo de la clínica",
+        "support": "Dar soporte todos los días del año",
+        "billing": "Cobrar, facturar y renovar la cuenta"
+      },
+      "note": "No tienes que resolver problemas técnicos ni perseguir pagos. Tu cuenta sigue siendo tuya aunque no la atiendas."
+    },
+    "earn": {
+      "eyebrow": "Cuánto ganas",
+      "title": "Por qué cosas ganas comisión",
+      "subtitle": "Cada vez que una clínica de tu zona paga, tú cobras.",
+      "items": {
+        "membership": {
+          "title": "Cada membresía nueva",
+          "body": "Es la comisión más alta del programa. Se paga cuando la clínica que presentaste contrata."
+        },
+        "branch": {
+          "title": "Cada sucursal adicional",
+          "body": "Si la clínica es una red, cada sucursal que suma también te paga."
+        },
+        "migration": {
+          "title": "La migración de datos",
+          "body": "El traspaso desde el sistema anterior es un servicio aparte, y también se comisiona."
+        },
+        "renewal": {
+          "title": "Cada renovación anual",
+          "body": "Mientras la clínica siga con SuperClini, tú sigues cobrando todos los años."
+        }
+      },
+      "detailNote": "Los porcentajes y los montos de cada concepto los revisamos contigo en la primera conversación, con la tabla completa a la vista.",
+      "cleanNote": "Lo que se acuerda es lo que se te paga. No descontamos nada por administración ni por medios de pago, y el IVA nunca entra en el cálculo, porque no es ingreso de nadie."
+    },
+    "renewal": {
+      "eyebrow": "Renovación",
+      "title": "La diferencia entre vender y construir",
+      "subtitle": "Cada cuenta que se queda te sigue pagando, sin volver a venderla.",
+      "rules": {
+        "automatic": {
+          "title": "Automática",
+          "body": "La comisión de renovación se paga sola cuando la clínica renueva. No tienes que gestionar nada."
+        },
+        "noSupport": {
+          "title": "Sin obligación de soporte",
+          "body": "No tienes que atender ni resolver nada de esa cuenta. De eso nos encargamos nosotros."
+        },
+        "stayActive": {
+          "title": "Se mantiene activa vendiendo",
+          "body": "Basta con cerrar una venta nueva cada doce meses para conservar la renta de tu cartera."
+        },
+        "yours": {
+          "title": "La cuenta es tuya",
+          "body": "Queda registrada a tu nombre desde el cierre, y aparece en tu portal con su estado al día."
+        }
+      },
+      "note": "Es la parte del programa que se acumula: cada año empiezas con lo que ya construiste."
+    },
+    "bonus": {
+      "eyebrow": "Bonos",
+      "title": "Además de la comisión",
+      "subtitle": "Dos bonos que puedes sumar.",
+      "items": {
+        "activation": {
+          "title": "Bono de activación",
+          "body": "Cuando la clínica que vendiste compra su primer paquete de créditos de IA, sea cual sea. Un paciente suelto no cuenta, tiene que ser un paquete. Una vez por cuenta."
+        },
+        "referral": {
+          "title": "Bono de referencia",
+          "body": "Cuando presentas a otro asociado y esa persona cierra su primera clínica. Una vez por asociado referido."
+        }
+      },
+      "note": "No pagamos por reclutar personas. El bono de referencia se paga solo cuando hay una venta real a una clínica."
+    },
+    "support": {
+      "eyebrow": "Lo que te damos",
+      "title": "No sales a la calle con las manos vacías",
+      "subtitle": "Todo lo que necesitas para vender, desde el primer día.",
+      "items": {
+        "portal": {
+          "title": "Portal de asociados",
+          "body": "Tus cuentas, tus comisiones y su estado, en línea."
+        },
+        "zone": {
+          "title": "Clínicas por zona",
+          "body": "Te asignamos contactos de tu área para trabajar."
+        },
+        "demo": {
+          "title": "Clínica demo",
+          "body": "Una cuenta con datos reales para mostrar en vivo."
+        },
+        "training": {
+          "title": "Capacitación comercial",
+          "body": "Producto, objeciones y método de visita."
+        },
+        "email": {
+          "title": "Correo corporativo",
+          "body": "Tu nombre en tunombre@asociados.superclini.com."
+        },
+        "kit": {
+          "title": "Kit de materiales",
+          "body": "Presentación, folletos y piezas para redes."
+        },
+        "technical": {
+          "title": "Respaldo técnico",
+          "body": "Un especialista entra contigo a la reunión difícil."
+        },
+        "protection": {
+          "title": "Protección de cuenta",
+          "body": "Registras la clínica y queda tuya por 90 días."
+        }
+      }
+    },
+    "profile": {
+      "eyebrow": "El perfil",
+      "title": "A quién estamos buscando",
+      "subtitle": "Gente que ya entra a las clínicas.",
+      "who": {
+        "supplies": {
+          "title": "Representantes de insumos",
+          "body": "Ya visitas la misma agenda."
+        },
+        "equipment": {
+          "title": "Distribuidores de equipos",
+          "body": "Hablas con quien decide."
+        },
+        "lab": {
+          "title": "Laboratorios dentales",
+          "body": "Trabajas con varias clínicas a la vez."
+        },
+        "accountant": {
+          "title": "Contadores y asesores",
+          "body": "Te consultan por gestión y números."
+        }
+      },
+      "asksTitle": "Lo que sí pedimos",
+      "asks": {
+        "access": "Acceso real a clínicas dentales",
+        "sii": "Iniciación de actividades en el SII",
+        "training": "Completar la capacitación y certificarte",
+        "brand": "Representar la marca con seriedad"
+      },
+      "honestTitle": "Seamos honestos",
+      "honestBody": "Esto es un ingreso complementario, no una carrera de ventas ni un sueldo, y no te vamos a prometer lo contrario. Funciona muy bien para quien ya visita clínicas dentales por otro motivo y quiere sumar un ingreso que además se acumula año a año."
+    },
+    "process": {
+      "eyebrow": "El proceso",
+      "title": "De la postulación a tu primera comisión",
+      "subtitle": "Cinco pasos, dos semanas.",
+      "steps": {
+        "apply": {
+          "title": "Postulas",
+          "body": "Completas el formulario de esta página."
+        },
+        "talk": {
+          "title": "Conversamos",
+          "body": "Una reunión para conocer tu zona y tu red."
+        },
+        "train": {
+          "title": "Te capacitas",
+          "body": "Producto, demostración y método. Termina con certificación."
+        },
+        "sign": {
+          "title": "Firmas",
+          "body": "Contrato de prestación de servicios, firmado en línea."
+        },
+        "sell": {
+          "title": "Sales a vender",
+          "body": "Recibes portal, correo, clínica demo y contactos de zona."
+        }
+      },
+      "paymentTitle": "Cómo cobras",
+      "paymentBody": "Emites boleta de honorarios o factura por tus comisiones del mes. Pagamos una vez al mes, con el detalle de cada cuenta a la vista en tu portal."
+    },
+    "rules": {
+      "eyebrow": "Reglas claras",
+      "title": "Lo que este programa no es",
+      "subtitle": "Sin letra chica, sin trampas.",
+      "notTitle": "Lo que nunca vas a encontrar",
+      "not": {
+        "noEntryFee": "No pagas nada para entrar",
+        "noStock": "No compras stock ni licencias por adelantado",
+        "noRecruiting": "No ganas por reclutar personas",
+        "noExclusivity": "No hay exclusividad ni horario obligatorio"
+      },
+      "yesTitle": "Lo que sí puedes esperar",
+      "yes": {
+        "onlyOnSale": "Ganas solo cuando una clínica compra",
+        "transparent": "Ves cada comisión y su estado en tu portal",
+        "leaveAnytime": "Puedes retirarte cuando quieras",
+        "published": "Las reglas se publican y no cambian a mitad de camino"
+      }
+    },
+    "apply": {
+      "eyebrow": "Postula ahora",
+      "title": "Empieza con las clínicas que ya conoces",
+      "subtitle": "Estamos armando el equipo de asociados para Chile, con cupos por zona para que nadie compita con nadie.",
+      "points": {
+        "zones": "Cupos por zona, definidos antes de que salgas a vender",
+        "answer": "Respondemos en 48 horas hábiles y coordinamos la primera conversación",
+        "noCost": "Postular no tiene costo ni te compromete a nada"
+      }
+    },
+    "form": {
+      "name": "Nombre y apellido",
+      "email": "Email",
+      "phone": "Teléfono",
+      "phoneHint": "con código de país",
+      "region": "Región",
+      "comuna": "Comuna",
+      "profile": "Tu perfil actual",
+      "company": "Empresa o laboratorio",
+      "clinics": "Clínicas dentales que visitas hoy",
+      "availability": "Disponibilidad",
+      "message": "Mensaje",
+      "messagePlaceholder": "Cuéntanos de tu zona, de tu red de contactos o de lo que quieras que sepamos.",
+      "optional": "opcional",
+      "selectPlaceholder": "Selecciona una opción",
+      "submit": "Enviar mi postulación",
+      "submitting": "Enviando…",
+      "sla": "Respondemos en 48 horas hábiles.",
+      "consent": "Acepto que SuperClini me contacte por esta postulación y acepto la <link>política de privacidad</link> y el tratamiento de mis datos.",
+      "successTitle": "Postulación recibida",
+      "successBody": "Te vamos a escribir en 48 horas hábiles para coordinar la primera conversación. Revisa también spam o promociones, por si acaso.",
+      "profiles": {
+        "representante_insumos": "Representante de insumos",
+        "distribuidor_equipos": "Distribuidor de equipos",
+        "laboratorio_dental": "Laboratorio dental",
+        "contador_asesor": "Contador o asesor",
+        "otro": "Otro"
+      },
+      "clinicRanges": {
+        "ninguna": "Ninguna todavía",
+        "1-5": "Entre 1 y 5",
+        "6-15": "Entre 6 y 15",
+        "16-30": "Entre 16 y 30",
+        "31+": "Más de 30"
+      },
+      "availabilityRanges": {
+        "menos_5": "Menos de 5 horas por semana",
+        "5_10": "Entre 5 y 10 horas por semana",
+        "10_20": "Entre 10 y 20 horas por semana",
+        "mas_20": "Más de 20 horas por semana"
+      },
+      "errors": {
+        "required": "Campo obligatorio",
+        "min2": "Muy corto",
+        "tooLong": "Demasiado largo",
+        "email": "Email inválido",
+        "tel": "Escribe el teléfono con código de país, por ejemplo +56 9 1234 5678",
+        "consent": "Necesitamos tu consentimiento para recibir la postulación",
+        "invalid": "Revisa los datos e intenta de nuevo.",
+        "rateLimit": "Demasiados intentos. Espera unos minutos.",
+        "unavailable": "No pudimos registrar tu postulación en este momento. Intenta de nuevo en unos minutos.",
+        "network": "No pudimos conectar. Revisa tu conexión e intenta de nuevo.",
+        "generic": "Algo salió mal y tu postulación no se registró. Intenta de nuevo.",
+        "fallbackLink": "Escríbenos por el formulario de contacto"
+      }
     }
   }
 }
