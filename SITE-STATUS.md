@@ -1,6 +1,60 @@
 # SuperClini Site — Status Vivo
 
-**Última atualização**: 2026-08-04 — Chile passa a membresía anual única (**EM PROD**, commit `3ee0d56`)
+**Última atualização**: 2026-08-04 — landing `/asociados` (**EM PROD**, commit `803094e`)
+
+## 2026-08-04 — `/asociados`: recrutamento do canal de Chile (**EM PROD**, `803094e`)
+
+Landing pública de recrutamento de asociados, na URL que o material comercial já divulga
+(`superclini.com/asociados`). Conteúdo tirado de `SuperClini/partners/CLAUDE.md` +
+`programa-asociados-superclini-cl.pdf`. Onze seções, mais formulário de postulación.
+
+- **Mono-idioma por decisão do Matias.** O programa existe só no Chile, então a página é
+  servida em `/es/asociados` e `/pt/asociados` e `/en/asociados` respondem **308** para
+  ela (`permanentRedirect`, não 301). `generateStaticParams` devolve só `es`, e o sitemap
+  ganha uma lista `ES_ONLY_ROUTES` sem alternates, para o Google não rastrear redirect.
+  **As chaves i18n existem nos três `messages/*.json` mesmo assim**: se um dia o redirect
+  sair, o build passa e a página renderiza, em vez de quebrar em runtime.
+- **Zero valor monetário na página**, decisão comercial de 04/08 ("os detalhes comerciais
+  são passados pelo manager"). Isso reformulou três seções: a tabela de comissões virou a
+  lista do que é comissionado, a projeção de renovação virou a mecânica dela, e os bônus
+  perderam os montos mas mantiveram os critérios (primeiro paquete de IA comprado, e não
+  um paciente solto; o referido tem de fechar uma clínica de verdade). O preço ao cliente
+  também saiu: "un precio que no se discute" ficou qualitativo. Campanha sem data de fim.
+  Efeito colateral útil: a regra do "+ IVA" fica satisfeita por construção, e a
+  verificação é um grep que tem de dar zero.
+- **Posicionamento inegociável mantido**: renda complementar, nunca carreira de vendas
+  nem promessa de sueldo. Fica num bloco destacado, não numa nota de rodapé.
+- **As quatro travas anti-pirâmide são publicadas** (nada a pagar para entrar, nada de
+  estoque, nada por recrutar pessoas, saída livre), porque publicadas são oponíveis.
+- **Formulário com rota própria** `src/app/api/postulacion/route.ts`, não `/api/lead`.
+  Aquela envia sem intenção e o CRM criaria o candidato como `CLIENTE`, escondendo o
+  botão de converter em parceiro. O mapeamento também é outro: `cargo` recebe o perfil
+  comercial, `empresa` recebe o que a pessoa informar ou um `"<perfil> · <región>"`
+  derivado (é obrigatória no CRM e é metade da chave de dedup), e comuna, clínicas
+  visitadas e disponibilidade vão concatenadas em `mensagem`, que vira a nota inicial da
+  ficha. Honeypot no padrão do `ContactForm`. **Falha do CRM é visível na tela**, sem
+  destino secundário e sem gravar PII em log.
+- **Exigiu mudança no CRM** (repo `superclini-crm`, commit `9d8b169`, em prod antes do
+  site): o `payloadSchema` do endpoint `/api/inbound/site-lead` não declarava `intencao`,
+  e Zod em modo strip **descarta em silêncio o que não declara**, respondendo 200. A
+  landing pareceria funcionar com todo candidato nascendo `CLIENTE`. Correção aditiva de
+  duas linhas, com o default preservado.
+
+**Provas**: `audit-stale` zero drift · `tsc --noEmit` 0 · `build` exit 0 · i18n 1418
+chaves iguais nos 3 idiomas, zero divergência · zero em-dash, en-dash, emoji, voseo e
+valor monetário nos 20 arquivos do lote · 375px sem overflow horizontal. Em produção:
+`/es/asociados` 200 com o `<title>` e o `<h1>` certos e canonical próprio, os dois
+redirects 308, home e `/precios` intactos, `MISSING_MESSAGE` zero. **Postulación real
+submetida pela página em produção** devolveu 200 e gravou no CRM
+`intencao=PARCEIRO · origem=INBOUND_SITE · origemDetalhe="Site · Asociados CL · Región
+Metropolitana · asociado_cl" · landingPath=/es/asociados`; lead de teste removido depois,
+contagem de volta ao baseline de 162.827. Regressão provada no mesmo endpoint: payload
+antigo, sem o campo, segue criando `CLIENTE`.
+
+**Pendente**: o link só aparece no rodapé, e só em espanhol. Entrar no NavBar é decisão
+do Matias, ainda não tomada.
+
+## 2026-08-04 — Chile: membresía anual única no lugar dos 3 planos (**EM PROD**, `3ee0d56`)
 
 ## 2026-08-04 — Chile: membresía anual única no lugar dos 3 planos (**EM PROD**, `3ee0d56`)
 
