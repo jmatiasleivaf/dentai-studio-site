@@ -768,6 +768,13 @@
     "insurance": "Plano de saúde",
     "mercadopago": "Mercado Pago"
   },
+  "whatsapp": {
+    "fabLabel": "Fale com vendas",
+    "fabAria": "Falar com vendas no WhatsApp",
+    "hours": "Segunda a sexta, 9h às 18h (hora do Chile)",
+    "prefillSales": "Olá, quero saber mais sobre o SuperClini para minha clínica.",
+    "prefillSupport": "Olá, tenho uma dúvida sobre o SuperClini."
+  },
   "contact": {
     "metaTitle": "Falar com o time",
     "metaDescription": "Entre em contato para testar o SuperClini 14 dias grátis, agendar demo ou solicitar cotação Corporativo.",

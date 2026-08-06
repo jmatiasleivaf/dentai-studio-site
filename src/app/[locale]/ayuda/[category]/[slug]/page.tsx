@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale, getTranslations } from "next-intl/server";
-import { ChevronRight, MessageCircle } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { Container } from "@/components/ui/container";
+import { WhatsAppSupportCta } from "@/components/contact/WhatsAppSupportCta";
 import { HelpGradientDefs } from "@/components/help/illustrations";
 import { ArticleBody } from "@/components/help/ArticleBody";
 import { Feedback } from "@/components/help/Feedback";
@@ -197,13 +198,13 @@ export default async function ArticlePage({
                 {t("article.stillTitle")}
               </div>
               <p className="mb-4 text-[13.5px] text-white/80">{t("article.stillSub")}</p>
-              <a
-                href="https://wa.me/message"
+              {/* Aqui o WhatsApp era o ÚNICO CTA do card, então fora do Chile
+                  entra o ticket no lugar, senão o bloco fica órfão. */}
+              <WhatsAppSupportCta
+                ticketFallback
                 className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] px-4 py-2.5 text-[13.5px] font-bold text-white transition-transform hover:-translate-y-0.5"
-              >
-                <MessageCircle className="h-4 w-4" aria-hidden />
-                {t("support.whatsapp")}
-              </a>
+                ticketClassName="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/[0.08] px-4 py-2.5 text-[13.5px] font-bold text-white transition-transform hover:-translate-y-0.5"
+              />
             </div>
           </aside>
         </div>

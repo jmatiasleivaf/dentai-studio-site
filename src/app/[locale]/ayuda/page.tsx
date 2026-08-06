@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
-import { ArrowRight, FileText, MessageCircle } from "lucide-react";
+import { ArrowRight, FileText } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { Container } from "@/components/ui/container";
+import { WhatsAppSupportCta } from "@/components/contact/WhatsAppSupportCta";
 import { HelpGradientDefs, CategoryIllustration } from "@/components/help/illustrations";
 import { HelpSearch } from "@/components/help/HelpSearch";
 import { routing, type Locale } from "@/i18n/routing";
@@ -268,13 +269,9 @@ export default async function HelpHomePage({ params }: { params: Promise<{ local
               <p className="mt-3 text-white/70">{t("support.sub")}</p>
             </div>
             <div className="relative z-10 flex flex-wrap gap-3">
-              <a
-                href="https://wa.me/message"
-                className="inline-flex items-center gap-2.5 rounded-2xl bg-[#25D366] px-6 py-3.5 text-sm font-bold text-white transition-transform hover:-translate-y-0.5"
-              >
-                <MessageCircle className="h-5 w-5" aria-hidden />
-                {t("support.whatsapp")}
-              </a>
+              {/* Só aparece no Chile. Fora dele o "Enviar un ticket" abaixo
+                  segue sendo o canal, então aqui não há fallback. */}
+              <WhatsAppSupportCta className="inline-flex items-center gap-2.5 rounded-2xl bg-[#25D366] px-6 py-3.5 text-sm font-bold text-white transition-transform hover:-translate-y-0.5" />
               <Link
                 href={"/contato" as never}
                 className="inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-white/[0.08] px-6 py-3.5 text-sm font-bold text-white transition-transform hover:-translate-y-0.5"

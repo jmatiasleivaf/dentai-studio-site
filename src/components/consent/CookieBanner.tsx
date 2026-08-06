@@ -29,10 +29,33 @@ export function CookieBanner() {
     if (bannerOpen) setMarketing(consent?.marketing ?? false);
   }, [bannerOpen, consent]);
 
+  // Publica a ALTURA VIVA do banner em `--sc-consent-h`, para que qualquer
+  // elemento flutuante do rodapé (hoje o WhatsAppFab) se posicione acima dele
+  // sem chutar medida. Offset fixo não serve: em mobile o banner ocupa quase
+  // meia tela e ainda cresce quando o visitante abre "Personalizar".
+  const panelRef = React.useRef<HTMLDivElement>(null);
+  React.useEffect(() => {
+    const root = document.documentElement;
+    const el = panelRef.current;
+    if (!bannerOpen || !el) {
+      root.style.removeProperty("--sc-consent-h");
+      return;
+    }
+    const publish = () => root.style.setProperty("--sc-consent-h", `${el.offsetHeight}px`);
+    publish();
+    const ro = new ResizeObserver(publish);
+    ro.observe(el);
+    return () => {
+      ro.disconnect();
+      root.style.removeProperty("--sc-consent-h");
+    };
+  }, [bannerOpen, detailsOpen]);
+
   if (!ready || !bannerOpen) return null;
 
   return (
     <div
+      ref={panelRef}
       role="dialog"
       aria-modal="false"
       aria-labelledby="sc-consent-title"

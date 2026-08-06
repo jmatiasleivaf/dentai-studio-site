@@ -16,6 +16,8 @@ import { SUPERCLINI_FACTS } from "@/lib/superclini.facts";
 import { isChileSite, CHILE_ORIGIN, MAIN_ORIGIN } from "@/lib/site-host";
 import { resolveCountryServer } from "@/lib/country-server";
 import { MEMBRESIA_CL } from "@/lib/pricing";
+import { WHATSAPP_SALES } from "@/lib/contact-channels";
+import { WhatsAppFab } from "@/components/contact/WhatsAppFab";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -107,6 +109,24 @@ function buildJsonLd(locale: string, description: string, isChile: boolean) {
     foundingDate: String(SUPERCLINI_FACTS.foundedYear),
     // No Chile o schema declara só CL; no principal, todos os países atendidos.
     areaServed: isChile ? ["CL"] : COUNTRY_LIST.map((c) => c.code),
+    // Telefone só no host do Chile: é uma linha comercial chilena, e declará-la
+    // no schema do domínio principal a ofereceria como canal dos 9 mercados.
+    // Aqui a decisão é por HOST de propósito, porque JSON-LD é identidade de
+    // URL indexada, não conteúdo servido por geo (que a busca não vê).
+    ...(isChile
+      ? {
+          telephone: WHATSAPP_SALES.e164,
+          contactPoint: [
+            {
+              "@type": "ContactPoint",
+              contactType: "sales",
+              telephone: WHATSAPP_SALES.e164,
+              areaServed: "CL",
+              availableLanguage: ["es"],
+            },
+          ],
+        }
+      : {}),
   };
   const softwareApp = {
     "@context": "https://schema.org",
@@ -183,6 +203,9 @@ export default async function LocaleLayout({
                   <Footer isChile={isChile} />
                 </div>
                 <CookieBanner />
+                {/* Dentro do ConsentProvider: o FAB sobe enquanto o banner
+                    de cookies estiver ocupando o rodapé. */}
+                <WhatsAppFab />
               </ConsentProvider>
               {jsonLd.map((schema, idx) => (
                 <script

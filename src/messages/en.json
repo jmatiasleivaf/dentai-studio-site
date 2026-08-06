@@ -768,6 +768,13 @@
     "insurance": "Insurance",
     "mercadopago": "Mercado Pago"
   },
+  "whatsapp": {
+    "fabLabel": "Talk to sales",
+    "fabAria": "Talk to sales on WhatsApp",
+    "hours": "Monday to Friday, 9:00 to 18:00 Chile time",
+    "prefillSales": "Hi, I would like to know more about SuperClini for my clinic.",
+    "prefillSupport": "Hi, I have a question about SuperClini."
+  },
   "contact": {
     "metaTitle": "Talk to our team",
     "metaDescription": "Get in touch to try SuperClini free for 14 days, schedule a demo, or request a Corporate quote.",
