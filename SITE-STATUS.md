@@ -1,6 +1,49 @@
 # SuperClini Site — Status Vivo
 
-**Última atualização**: 2026-08-04 — landing `/asociados` (**EM PROD**, commit `803094e`)
+**Última atualização**: 2026-08-06 — WhatsApp de ventas para o Chile (**EM PROD**, commit `21c4c7b`)
+
+## 2026-08-06 — Canal de WhatsApp de ventas para o Chile (**EM PROD**, `21c4c7b`)
+
+Publica a linha comercial de Chile (`+56 9 3699 4987`) para quem o site resolve como
+país CL. Rollback na tag `rollback-whatsapp-cl-2026-08-06` (aponta para `ff5a4bb`).
+
+- **Corte por PAÍS, não por host**, pelo mesmo critério que já governa o preço desde
+  04/08: host `cl.superclini.com`, cookie do picker, `cf-ipcountry` do edge, idioma.
+  Quem cai em `superclini.com/es` pelo Google também é chileno; a opção "só no host"
+  deixaria de fora justamente o tráfego orgânico.
+- **O `href="https://wa.me/message"` estava vivo em produção** na home do Centro de
+  Ayuda e nos 54 artigos, nos dois hosts e nos 3 idiomas. Sem ID, esse link cai numa
+  página genérica do WhatsApp: era um CTA quebrado. No Chile passa a apontar para a
+  linha real; fora dele sai de cena, e **no aside do artigo entra o ticket no lugar**,
+  porque ali o WhatsApp era o único CTA do card e o bloco ficaria órfão.
+- **O número vive em `src/lib/contact-channels.ts`, nunca em `messages/*.json`.** Além da
+  regra de SSoT, isso é o que torna a validação confiável: o next-intl embute todas as
+  mensagens no HTML de toda página, então string de i18n aparece pelo menos 1x mesmo onde
+  não renderiza. Vindo do módulo TS, contar ocorrências distingue render real de bundle.
+- **O offset fixo do FAB não funcionava e a captura provou.** O `CookieBanner` ocupa a
+  faixa do rodapé em `z-[60]` e em mobile come quase meia tela, então o botão sumia atrás
+  dele, e sumiria de novo quando o banner cresce no "Personalizar". O banner passou a
+  publicar a própria altura viva em `--sc-consent-h` e o FAB se posiciona por ela.
+  `z-30` deixa o FAB atrás do drawer do NavBar (z-40) e do Dialog (z-50).
+- **Sem gate de `ready` do CountryContext.** As rotas saem com `private, no-cache`
+  (verificado por curl), ou seja o SSR já vê o país certo; esperar a hidratação só
+  atrasaria o botão e trocaria o CTA na cara do visitante no card do artigo.
+- **JSON-LD ganha `telephone` e `contactPoint` de vendas só no host CL.** Aqui a decisão é
+  por host de propósito: schema é identidade de URL indexada, não conteúdo servido por geo.
+- **Armadilha de validação, nova:** este ambiente de trabalho sai para a internet com IP
+  chileno (`cdn-cgi/trace` devolve `loc=CL`, `colo=SCL`). Não dá para provar o lado "fora
+  do Chile" por curl externo daqui, porque a Cloudflare sempre marca CL. O lado negativo
+  se prova com o cookie `NEXT_COUNTRY`, que tem precedência sobre o geo.
+- **Prova externa** (HTML sem os `<script>`): com geo CL, `/es` = 1 ocorrência do número,
+  `/es/ayuda` = 2, artigo = 2; com `NEXT_COUNTRY=BR` os três dão 0 e o ticket segue
+  presente; `cl.superclini.com` = 1 mesmo com cookie BR (host manda); `contactPoint`
+  presente só no host CL; `wa.me/message` = 0 em toda a superfície; 8 URLs em 200;
+  zero `MISSING_MESSAGE` e zero erro no container.
+- **Pendências deixadas anotadas**, não resolvidas: o bloco do Centro de Ayuda ainda diz
+  "Habla con Sofía o con nuestro equipo de soporte" mas o número é de ventas, e o horário
+  publicado ("Lunes a viernes, 9:00 a 18:00 h de Chile") foi assunção declarada na spec.
+
+## 2026-08-04 — `/asociados`: recrutamento do canal de Chile (**EM PROD**, `803094e`)
 
 ## 2026-08-04 — `/asociados`: recrutamento do canal de Chile (**EM PROD**, `803094e`)
 
