@@ -136,7 +136,12 @@ function montar({ host, ip, ts, metodo, alvo, status, referrer, ua }) {
 
 /** Só o site institucional. O app e o CRM entopem o mesmo log e não são o canal. */
 const ROTA_SITE = /^\/(es|pt|en)(\/|$)/;
-const HOST_SITE = /^(www\.)?superclini\.com$/i;
+// `cl.` entra porque o subdomínio do Chile é servido pelo MESMO container do
+// site e é site institucional para todo efeito. Enquanto o log foi `combined`
+// isso não importava (sem host, o filtro era só por rota, e o tráfego de `cl.`
+// contava). No dia em que o `log_format` passou a trazer `$host`, deixar `cl.`
+// de fora faria a série CAIR sem que nada acusasse erro.
+const HOST_SITE = /^(www\.|cl\.)?superclini\.com$/i;
 
 /**
  * Com o formato `canal` dá para filtrar pelo host, que é exato. Com o
