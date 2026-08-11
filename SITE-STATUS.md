@@ -1,8 +1,10 @@
 # SuperClini Site — Status Vivo
 
-**Última atualização**: 2026-08-10 — membresía anual nos 9 mercados (**aguardando gate de deploy**)
+**Última atualização**: 2026-08-10 — membresía anual nos 9 mercados (**EM PROD**, commit `0b6115a`)
 
-## 2026-08-10 — Membresía anual única nos 9 mercados (**PRONTA, não deployada**)
+## 2026-08-10 — Membresía anual única nos 9 mercados (**EM PROD**, `0b6115a`)
+
+Rollback na tag `rollback-precios-global-2026-08-10` (aponta para `acb12e6`).
 
 O modelo que era exclusivo do Chile desde 04/08 passa a valer nos 9 mercados: preço
 único por ano, cobrança por capacidade dos agentes e fim do trial. Decisões do Matias
@@ -52,12 +54,21 @@ com base 199, imposto publicado como "+ impostos" por país, e Argentina em USD.
   critério que manteve o Corporativo em 23/07: voltar atrás custa uma linha em
   `isMembresiaCountry`, reconstruir a tabela custaria muito mais. A matriz comparativa
   saiu de `/precios`: com uma membresía única não há colunas a comparar.
-- **Prova local** (dev + curl com cookie `NEXT_COUNTRY`, contando ocorrência para separar
-  render de bundle): os 9 países servem a membresía na moeda certa; "+ IVA" renderiza 9x
-  só no CL e "+ impostos" 9x nos outros 8; "cuotas" aparece em CL/BR/CO/AR/MX/PE e não em
-  US/ES/PT; "14 días", "sin tarjeta" e "Crear cuenta" dão **zero render** nas 9 páginas;
-  JSON-LD com CLP/BRL/USD nos 3 idiomas e zero `AggregateOffer`. Capturas em 375px e
-  1440px para CL, BR, US e MX em `SuperClini/shots-membresia`.
+- **Prova em produção** (curl externo, contando ocorrência para separar render de bundle):
+  os 9 países servem a membresía na moeda certa; "+ IVA" renderiza 10x só no CL e
+  "+ impostos" 10x nos outros 8; "cuotas" aparece em CL/BR/CO/AR/MX/PE e não em US/ES/PT;
+  "14 días", "sin tarjeta", "Crear cuenta" e "US$ 39/mes" dão **zero render** nas páginas
+  medidas; JSON-LD com `CLP,199990`, `BRL,999.90` e `USD,199`, zero `AggregateOffer`;
+  `/registro` em priority 0.3 e `/precios` em 0.9; `cl.superclini.com` intacto; 11 rotas
+  em 200; zero `MISSING_MESSAGE` no container. Capturas em 375px e 1440px para CL, BR, US
+  e MX em `SuperClini/shots-membresia`.
+- **O deploy quase reverteu trabalho vivo.** A VPS tinha `scripts/canal-llm.mjs`
+  modificado à mão, com o conteúdo do commit `b39d801` que dormia sem push na
+  `feat/whatsapp-cl`. Descartar para destravar o pull teria apagado a correção do parser
+  e a série do canal LLM cairia sem erro nenhum. Provei a identidade por `git hash-object`
+  contra o blob do commit (`26b345d` dos dois lados) e promovi os dois juntos, com rebase.
+- **Disco em 76% antes do deploy**: `docker builder prune -af` derrubou para 43%, ao custo
+  de um build frio (~7 min em vez de ~2).
 - **Pendências deixadas anotadas**: o site passa a prometer nos 9 mercados a bolsa anual,
   a cota por paciente ativado, a compra de pack e as cuotas, e **nada disso existe no app**
   (F1 e F6 nunca foram aprovadas) — antes essa exposição estava contida ao Chile. O Centro
