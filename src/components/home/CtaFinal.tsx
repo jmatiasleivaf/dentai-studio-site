@@ -1,12 +1,13 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { ArrowRight, MessageSquare } from "lucide-react";
+import { MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
-import { Link } from "@/i18n/navigation";
 import { ContactDialog } from "@/components/home/ContactDialog";
+import { useCountry } from "@/contexts/CountryContext";
+import { isAsociadoCountry } from "@/lib/pricing";
 
 /**
  * Finale único (Direção B, 2026-07-23): substitui a antiga banda escura do Closing
@@ -14,17 +15,18 @@ import { ContactDialog } from "@/components/home/ContactDialog";
  * painel claro premium. Carrega a assinatura da marca (closing.*) e a conversão
  * (ctaFinal.*) num só lugar, sem o corte cromático agressivo.
  *
- * `noTrial`: mercados onde não existe conta grátis (Chile desde 2026-08-04, que
- * vende membresía anual por asociado). Ali "sin tarjeta" e "crear cuenta gratis"
- * seriam promessa falsa, então o CTA vira conversa com o asociado.
+ * Desde 2026-08-10 não existe conta grátis em nenhum mercado: o caminho de
+ * "crear cuenta gratis" e "sin tarjeta" saiu daqui junto com o trial. O CTA é
+ * sempre conversa, e quem atende muda por país: asociado no Chile, ventas nos
+ * demais, onde não há canal recrutado.
  */
-export function CtaFinal({ noTrial = false }: { noTrial?: boolean }) {
+export function CtaFinal() {
   const t = useTranslations("ctaFinal");
   const tc = useTranslations("closing");
   const th = useTranslations("hero");
-  const trustKeys = noTrial
-    ? (["included", "setup", "payment"] as const)
-    : (["noCard", "setup", "cancel"] as const);
+  const tCta = useTranslations("salesCta");
+  const { country } = useCountry();
+  const trustKeys = ["included", "setup", "payment"] as const;
 
   return (
     <Section tone="default" className="py-24 sm:py-28">
@@ -40,40 +42,18 @@ export function CtaFinal({ noTrial = false }: { noTrial?: boolean }) {
               <span className="block text-brand-600 dark:text-brand-300">{tc("highlight")}</span>
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-lead text-ink-600 dark:text-ink-300">
-              {noTrial ? t("subNoTrial") : t("sub")}
+              {t("sub")}
             </p>
             <div className="mt-9 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
-              {noTrial ? (
-                <ContactDialog
-                  defaultInteresse="avaliar"
-                  trigger={({ onClick }) => (
-                    <Button variant="primary" size="lg" onClick={onClick}>
-                      <MessageSquare className="h-4 w-4" aria-hidden />
-                      {t("ctaPrimaryNoTrial")}
-                    </Button>
-                  )}
-                />
-              ) : (
-                <>
-                  <Button asChild variant="primary" size="lg" className="group">
-                    <Link href="/registro">
-                      {t("ctaPrimary")}
-                      <ArrowRight
-                        className="h-4 w-4 transition-transform group-hover:translate-x-1"
-                        aria-hidden
-                      />
-                    </Link>
+              <ContactDialog
+                defaultInteresse="avaliar"
+                trigger={({ onClick }) => (
+                  <Button variant="primary" size="lg" onClick={onClick}>
+                    <MessageSquare className="h-4 w-4" aria-hidden />
+                    {tCta(isAsociadoCountry(country.code) ? "asociado" : "ventas")}
                   </Button>
-                  <ContactDialog
-                    trigger={({ onClick }) => (
-                      <Button size="lg" variant="outline" onClick={onClick}>
-                        <MessageSquare className="h-4 w-4" aria-hidden />
-                        {t("ctaSecondary")}
-                      </Button>
-                    )}
-                  />
-                </>
-              )}
+                )}
+              />
             </div>
             <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-fluid-xs text-ink-500 dark:text-ink-400">
               {trustKeys.map((k) => (

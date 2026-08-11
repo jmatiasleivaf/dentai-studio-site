@@ -14,21 +14,14 @@ import type { Locale } from "@/i18n/routing";
  * Fundo claro: o NavBar virou sólido em vidro (sem overlay branco), então o hero
  * não usa mais `-mt-nav`. H1 afinado para o Chile (ver i18n).
  */
-export function Hero({
-  isChile = false,
-  noTrial = false,
-}: {
-  isChile?: boolean;
-  noTrial?: boolean;
-}) {
+export function Hero({ isChile = false }: { isChile?: boolean }) {
   const t = useTranslations("hero");
   const locale = useLocale() as Locale;
   const sub = isChile ? t("subChile") : t("sub");
-  // Sem trial (Chile), o CTA primário deixa de ser "crear cuenta gratis" e passa
-  // a levar à membresía, que é o produto que existe naquele mercado.
-  const trustKeys = noTrial
-    ? (["included", "setup", "payment"] as const)
-    : (["noCard", "setup", "cancel"] as const);
+  // Desde 2026-08-10 nenhum mercado tem conta grátis: o CTA primário leva à
+  // membresía, e a franja de confiança fala do que a membresía entrega em vez
+  // de "sin tarjeta de crédito" e "cancela cuando quieras".
+  const trustKeys = ["included", "setup", "payment"] as const;
 
   return (
     <section className="relative isolate overflow-hidden bg-gradient-to-b from-ink-50 to-white dark:from-ink-950 dark:to-ink-950">
@@ -54,8 +47,8 @@ export function Hero({
 
           <div className="mt-9 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center">
             <Button asChild variant="primary" size="lg" className="group">
-              <Link href={noTrial ? "/precios" : "/registro"}>
-                {noTrial ? t("ctaPrimaryNoTrial") : t("ctaPrimary")}
+              <Link href="/precios">
+                {t("ctaPrimary")}
                 <ArrowRight
                   className="h-4 w-4 transition-transform group-hover:translate-x-1"
                   aria-hidden

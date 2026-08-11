@@ -1,6 +1,12 @@
-import type { CountryCode } from "./countries";
+import type { CountryCode, CurrencyCode } from "./countries";
 
-// ─── Tiers ──────────────────────────────────────────────────────────────────
+// ─── Tiers (FORA DA VITRINE desde 2026-08-10) ───────────────────────────────
+// PRICING, PLANS, PLAN_MATRIX e PLAN_ORDER descrevem o modelo de 3 planos
+// mensais, que deixou de ser exibido quando os 9 mercados passaram à membresía
+// anual (ver MEMBRESIA abaixo). Ficam no código, sem consumidor de tela, pelo
+// mesmo motivo que o Corporativo ficou em 23/07: voltar atrás custa uma linha
+// em isMembresiaCountry, e apagar a tabela custaria reconstruí-la.
+//
 // Alinhado com "Estrategia de Pricing v1.1 / abril 2026" (decisões com sócios).
 // 4 tiers com features progressivas e paridade por mercado (PPP).
 // Display names: Esencial | Profesional | Avanzado | Corporativo (renomeado de Enterprise).
@@ -26,62 +32,163 @@ export const PRICING: Record<CountryCode, Record<PlanId, number>> = {
   PT: { esencial: 29,      profesional: 89,      avanzado: 199,     corporativo: 0 },
 };
 
-// ─── Chile: membresía anual única ───────────────────────────────────────────
-// Modelo do Programa de Asociados de Chile, cravado em 2026-08-04.
-// Fonte de verdade: SuperClini/partners/CLAUDE.md + membresia-superclini-cl.pdf.
+// ─── Membresía anual única, os 9 mercados ───────────────────────────────────
+// Modelo nascido no Programa de Asociados de Chile (2026-08-04) e estendido a
+// todos os mercados em 2026-08-10, por decisão do Matias.
+// Fonte de verdade do Chile: SuperClini/partners/CLAUDE.md + membresia-superclini-cl.pdf.
 //
-// Substitui os 3 tiers SOMENTE quando o país é CL. Os outros 8 mercados seguem
-// em PRICING acima, sem alteração.
+// Moeda por decisão comercial, não por país de origem: Chile em CLP, Brasil em
+// BRL, os outros 7 em USD como moeda de referência. A tabela USD é o espelho
+// exato da chilena na paridade de 1 USD por 1.000 CLP.
 //
-// REGRA INVIOLÁVEL: todos os valores aqui são NETOS, em CLP, e a UI publica
-// sempre com "+ IVA" ao lado. Nunca "IVA incluido". O costume B2B chileno é
-// cotar neto, e cotar diferente do mercado faz a proposta parecer mais cara.
+// REGRA INVIOLÁVEL: todos os valores aqui são NETOS e a UI publica sempre o
+// rótulo de imposto ao lado, nunca o preço nu. No Chile o rótulo é "+ IVA",
+// decisão de 04/08 que está no deck, no PDF e no discurso do asociado; nos
+// demais mercados é o genérico "+ impostos", porque o tributo muda de nome
+// (IGV no Peru, VAT na Europa) e prometer "IVA" a um peruano é errar o nome.
 
-export const MEMBRESIA_CL = {
-  /** Campanha desde agosto de 2026, por 6 meses. Quem entra conserva o preço para sempre. */
-  promo: 199990,
+export type TaxLabel = "iva" | "taxes";
+
+export interface MembresiaConfig {
+  currency: CurrencyCode;
+  /** Casas decimais na exibição. CLP e USD são inteiros; BRL tem centavos. */
+  currencyDecimals: 0 | 2;
+  /** Campanha de lançamento. Quem entra conserva o preço na renovação. */
+  promo: number;
   /** Preço de lista, aplicado a quem entra depois da campanha. */
-  list: 299990,
+  list: number;
   /**
-   * Fim da campanha: agosto de 2026 mais 6 meses. Usado no `priceValidUntil`
-   * do JSON-LD, que exige data ISO.
+   * Fim da campanha. Usado no `priceValidUntil` do JSON-LD, que exige data ISO.
    */
-  campaignEndsAt: "2027-01-31",
+  campaignEndsAt: string;
   /** Paquetes de crédito. O que se compra SOMA ao incluído, nunca substitui. */
   packs: {
-    aiPatient: 4990,
-    aiPatientPack20: 59990,
-    conversations500: 39990,
-    conversations1500: 99990,
-  },
+    aiPatient: number;
+    aiPatientPack20: number;
+    conversations500: number;
+    conversations1500: number;
+  };
   /** Rede de clínicas: uma bolsa de créditos para toda a rede. */
   network: {
-    firstBranch: 199990,
-    additionalBranch: 149990,
+    firstBranch: number;
+    additionalBranch: number;
     /** A partir deste número de sucursais, condições corporativas sob medida. */
-    corporateFrom: 10,
-  },
+    corporateFrom: number;
+  };
   /** Migração de outra plataforma: preço fixo, sem importar o tamanho da base. */
-  migration: 149990,
-  /** Cuotas máximas no cartão de crédito. Nunca prometemos "sin interés". */
-  maxInstallments: 12,
-} as const;
+  migration: number;
+  /**
+   * Cuotas máximas no cartão. Nunca prometemos "sin interés". Zero significa
+   * não prometer parcelamento: só a LATAM tem MercadoPago integrado, e em US,
+   * ES e PT o Stripe nunca foi ligado.
+   */
+  maxInstallments: number;
+  /** Qual rótulo de imposto acompanha todo preço deste mercado. */
+  taxLabel: TaxLabel;
+}
+
+/** Campanha de lançamento: agosto de 2026 mais 6 meses. */
+const CAMPAIGN_ENDS_AT = "2027-01-31";
 
 /**
- * Mercados que rodam a membresía anual única em vez dos 3 tiers. Único ponto
- * onde essa regra vive: cards, matriz, CTA de trial e JSON-LD consultam daqui.
+ * Os 7 mercados que cobram em USD. Só o parcelamento varia entre eles, porque
+ * o MercadoPago opera na LATAM e não na Europa nem nos Estados Unidos.
  */
-export function isMembresiaCountry(country: CountryCode): boolean {
-  return country === "CL";
+function usdMembresia(maxInstallments: number): MembresiaConfig {
+  return {
+    currency: "USD",
+    currencyDecimals: 0,
+    promo: 199,
+    list: 299,
+    campaignEndsAt: CAMPAIGN_ENDS_AT,
+    packs: {
+      aiPatient: 5,
+      aiPatientPack20: 59,
+      conversations500: 39,
+      conversations1500: 99,
+    },
+    network: { firstBranch: 199, additionalBranch: 149, corporateFrom: 10 },
+    migration: 149,
+    maxInstallments,
+    taxLabel: "taxes",
+  };
+}
+
+export const MEMBRESIA: Record<CountryCode, MembresiaConfig> = {
+  CL: {
+    currency: "CLP",
+    currencyDecimals: 0,
+    promo: 199990,
+    list: 299990,
+    campaignEndsAt: CAMPAIGN_ENDS_AT,
+    packs: {
+      aiPatient: 4990,
+      aiPatientPack20: 59990,
+      conversations500: 39990,
+      conversations1500: 99990,
+    },
+    network: { firstBranch: 199990, additionalBranch: 149990, corporateFrom: 10 },
+    migration: 149990,
+    maxInstallments: 12,
+    taxLabel: "iva",
+  },
+  BR: {
+    currency: "BRL",
+    currencyDecimals: 2,
+    promo: 999.9,
+    list: 1499.9,
+    campaignEndsAt: CAMPAIGN_ENDS_AT,
+    packs: {
+      aiPatient: 24.9,
+      aiPatientPack20: 299.9,
+      conversations500: 199.9,
+      conversations1500: 499.9,
+    },
+    network: { firstBranch: 999.9, additionalBranch: 749.9, corporateFrom: 10 },
+    migration: 749.9,
+    maxInstallments: 12,
+    taxLabel: "taxes",
+  },
+  // MercadoPago opera em CL, BR, AR, MX, CO e PE.
+  CO: usdMembresia(12),
+  AR: usdMembresia(12),
+  MX: usdMembresia(12),
+  PE: usdMembresia(12),
+  // Sem gateway com parcelamento: não prometer cuotas.
+  US: usdMembresia(0),
+  ES: usdMembresia(0),
+  PT: usdMembresia(0),
+};
+
+export function getMembresia(country: CountryCode): MembresiaConfig {
+  return MEMBRESIA[country];
 }
 
 /**
- * Mercados sem conta grátis. Hoje coincide com a membresía: no Chile o produto
- * é vendido por asociado, então "crear cuenta gratis" e "sin tarjeta de crédito"
- * seriam promessa falsa. Função separada de propósito, porque um mercado pode
- * um dia ter membresía COM trial, ou trial sem membresía.
+ * Mercados que rodam a membresía anual única em vez dos 3 tiers. Desde
+ * 2026-08-10 são todos. A função continua existindo, em vez de sumir junto com
+ * a bifurcação, porque é o interruptor de um único ponto: se um mercado voltar
+ * aos planos mensais, muda aqui e os 18 consumidores acompanham.
  */
-export function isNoTrialCountry(country: CountryCode): boolean {
+export function isMembresiaCountry(_country: CountryCode): boolean {
+  return true;
+}
+
+/**
+ * Mercados sem conta grátis. Passou a valer para todos em 2026-08-10, junto com
+ * a membresía. Função separada de propósito, porque um mercado pode um dia ter
+ * membresía COM trial, ou trial sem membresía.
+ */
+export function isNoTrialCountry(_country: CountryCode): boolean {
+  return true;
+}
+
+/**
+ * Mercados com Programa de Asociados. Só o Chile: é lá que existe canal
+ * recrutado, e "hablar con un asociado" fora dele manda o cliente a um
+ * interlocutor que não existe. Nos demais o CTA fala com ventas.
+ */
+export function isAsociadoCountry(country: CountryCode): boolean {
   return country === "CL";
 }
 

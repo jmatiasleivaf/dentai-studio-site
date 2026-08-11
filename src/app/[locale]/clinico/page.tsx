@@ -24,8 +24,6 @@ import { LandingFAQ } from "@/components/landing/LandingFAQ";
 import { LandingCTA } from "@/components/landing/LandingCTA";
 import { FAQSchema } from "@/components/home/FAQSchema";
 import { routing, type Locale } from "@/i18n/routing";
-import { resolveCountryServer } from "@/lib/country-server";
-import { isMembresiaCountry } from "@/lib/pricing";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -66,12 +64,7 @@ export default async function ClinicoPage({
 
   const odontoBullets = t.raw("odonto.bullets") as string[];
   const dicomBullets = t.raw("dicom.bullets") as string[];
-  // O último bullet enumera storage por plano (5GB Esencial, 50GB Profesional...).
-  // Nos mercados de membresía não existem esses planos: o armazenamento é um só.
-  const membresia = isMembresiaCountry(await resolveCountryServer(locale));
-  const exameBullets = t.raw(
-    membresia ? "exame.bulletsCL" : "exame.bullets"
-  ) as string[];
+    const exameBullets = t.raw("exame.bullets") as string[];
   const dicomPresets = t.raw("dicom.presets") as { name: string; values: string }[];
 
   return (
@@ -81,7 +74,7 @@ export default async function ClinicoPage({
         title={t("hero.h1")}
         sub={t("hero.sub")}
         primaryCta={
-          <ContactCTAButton defaultInteresse={membresia ? "avaliar" : "trial_profesional"}>
+          <ContactCTAButton defaultInteresse="avaliar">
             {t("hero.ctaPrimary")}
             <ArrowRight className="h-4 w-4" aria-hidden />
           </ContactCTAButton>
@@ -164,9 +157,9 @@ export default async function ClinicoPage({
 
       <LandingCTA
         title={t("ctaFinal.title")}
-        sub={t(membresia ? "ctaFinal.subCL" : "ctaFinal.sub")}
+        sub={t("ctaFinal.sub")}
         primaryCta={
-          <ContactCTAButton defaultInteresse={membresia ? "avaliar" : "trial_profesional"} variant="secondary">
+          <ContactCTAButton defaultInteresse="avaliar" variant="secondary">
             {t("ctaFinal.ctaPrimary")}
             <ArrowRight className="h-4 w-4" aria-hidden />
           </ContactCTAButton>

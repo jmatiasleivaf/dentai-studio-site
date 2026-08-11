@@ -32,8 +32,6 @@ import { LandingFAQ } from "@/components/landing/LandingFAQ";
 import { LandingCTA } from "@/components/landing/LandingCTA";
 import { FAQSchema } from "@/components/home/FAQSchema";
 import { routing, type Locale } from "@/i18n/routing";
-import { resolveCountryServer } from "@/lib/country-server";
-import { isMembresiaCountry } from "@/lib/pricing";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -71,10 +69,7 @@ export default async function AutomatizacoesPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("automatizacoesPage");
-  // Mercado de membresía (Chile): não existe trial, então nem a copy promete
-  // 14 dias nem o lead nasce marcado como trial.
-  const membresia = isMembresiaCountry(await resolveCountryServer(locale));
-
+  
   const caixaBullets = t.raw("caixa.bullets") as string[];
   const liquidacaoBullets = t.raw("liquidacao.bullets") as string[];
   const membershipBullets = t.raw("membership.bullets") as string[];
@@ -86,7 +81,7 @@ export default async function AutomatizacoesPage({
         title={t("hero.h1")}
         sub={t("hero.sub")}
         primaryCta={
-          <ContactCTAButton defaultInteresse={membresia ? "avaliar" : "trial_profesional"}>
+          <ContactCTAButton defaultInteresse="avaliar">
             {t("hero.ctaPrimary")}
             <ArrowRight className="h-4 w-4" aria-hidden />
           </ContactCTAButton>
@@ -169,9 +164,9 @@ export default async function AutomatizacoesPage({
 
       <LandingCTA
         title={t("ctaFinal.title")}
-        sub={t(membresia ? "ctaFinal.subCL" : "ctaFinal.sub")}
+        sub={t("ctaFinal.sub")}
         primaryCta={
-          <ContactCTAButton defaultInteresse={membresia ? "avaliar" : "trial_profesional"} variant="secondary">
+          <ContactCTAButton defaultInteresse="avaliar" variant="secondary">
             {t("ctaFinal.ctaPrimary")}
             <ArrowRight className="h-4 w-4" aria-hidden />
           </ContactCTAButton>

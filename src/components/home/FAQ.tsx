@@ -5,17 +5,17 @@ import { ChevronDown } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/container";
 import { Section, SectionHeader } from "@/components/ui/section";
-import { useCountry } from "@/contexts/CountryContext";
-import { isMembresiaCountry } from "@/lib/pricing";
 
-/** `aCL`: resposta dos mercados de membresia (Chile), onde nao existem os 3 planos. */
-type Item = { q: string; a: string; qCL?: string; aCL?: string };
+/**
+ * As variantes `qCL`/`aCL` sumiram em 2026-08-10: descreviam o modelo de
+ * membresía quando ele era só do Chile, e viraram o texto padrão dos 9
+ * mercados. Onde o canal ainda importa, quem decide é `salesCta`.
+ */
+type Item = { q: string; a: string };
 
 export function FAQ() {
   const t = useTranslations("faq");
   const items = t.raw("items") as Item[];
-  const { country } = useCountry();
-  const membresia = isMembresiaCountry(country.code);
   const [openIdx, setOpenIdx] = React.useState<number | null>(0);
 
   return (
@@ -38,7 +38,7 @@ export function FAQ() {
                   className="flex min-h-touch-md w-full items-center justify-between gap-4 px-5 py-4 text-left text-base font-semibold text-ink-900 hover:bg-ink-50 dark:text-ink-50 dark:hover:bg-ink-800"
                 >
                   <span className="flex-1">
-                    {membresia && item.qCL ? item.qCL : item.q}
+                    {item.q}
                   </span>
                   <ChevronDown
                     className={`h-5 w-5 flex-shrink-0 transition-transform ${
@@ -54,7 +54,7 @@ export function FAQ() {
                 >
                   <div className="min-h-0">
                     <p className="px-5 pb-5 text-sm leading-relaxed text-ink-600 dark:text-ink-400">
-                      {membresia && item.aCL ? item.aCL : item.a}
+                      {item.a}
                     </p>
                   </div>
                 </div>

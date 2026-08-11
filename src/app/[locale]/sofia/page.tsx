@@ -24,7 +24,7 @@ import { ChatMockup, type ChatMessage } from "@/components/landing/ChatMockup";
 import { FAQSchema } from "@/components/home/FAQSchema";
 import { routing, type Locale } from "@/i18n/routing";
 import { resolveCountryServer } from "@/lib/country-server";
-import { isMembresiaCountry } from "@/lib/pricing";
+import { isAsociadoCountry } from "@/lib/pricing";
 import { SUPERCLINI_FACTS } from "@/lib/superclini.facts";
 
 export function generateStaticParams() {
@@ -72,9 +72,8 @@ export default async function SofiaPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("sofiaPage");
-  // Mercado de membresía (Chile): não existe trial, então nem a copy promete
-  // 14 dias nem o lead nasce marcado como trial.
-  const membresia = isMembresiaCountry(await resolveCountryServer(locale));
+  const tCta = await getTranslations("salesCta");
+  const asociado = isAsociadoCountry(await resolveCountryServer(locale));
 
   const messages: ChatMessage[] = [
     { side: "user", text: t("hero.chat.messages.user1") },
@@ -98,8 +97,8 @@ export default async function SofiaPage({
         title={t("hero.h1")}
         sub={t("hero.sub", { count: SUPERCLINI_FACTS.sofiaToolsCount })}
         primaryCta={
-          <ContactCTAButton defaultInteresse={membresia ? "avaliar" : "trial_profesional"}>
-            {t(membresia ? "hero.ctaPrimaryCL" : "hero.ctaPrimary")}
+          <ContactCTAButton defaultInteresse="avaliar">
+            {tCta(asociado ? "asociado" : "ventas")}
             <ArrowRight className="h-4 w-4" aria-hidden />
           </ContactCTAButton>
         }
@@ -228,10 +227,10 @@ export default async function SofiaPage({
 
       <LandingCTA
         title={t("ctaFinal.title")}
-        sub={t(membresia ? "ctaFinal.subCL" : "ctaFinal.sub")}
+        sub={t("ctaFinal.sub")}
         primaryCta={
-          <ContactCTAButton defaultInteresse={membresia ? "avaliar" : "trial_profesional"} variant="secondary">
-            {t(membresia ? "ctaFinal.ctaPrimaryCL" : "ctaFinal.ctaPrimary")}
+          <ContactCTAButton defaultInteresse="avaliar" variant="secondary">
+            {tCta(asociado ? "asociado" : "ventas")}
             <ArrowRight className="h-4 w-4" aria-hidden />
           </ContactCTAButton>
         }

@@ -16,7 +16,6 @@ import {
 } from "@/lib/lead-schema";
 import { useCountry } from "@/contexts/CountryContext";
 import { COUNTRIES, type CountryCode } from "@/lib/countries";
-import { isMembresiaCountry } from "@/lib/pricing";
 import { useConsent } from "@/contexts/ConsentContext";
 import { forTransmission } from "@/lib/attribution";
 import { CONSENT_POLICY_VERSION } from "@/lib/consent";
@@ -56,13 +55,14 @@ export function ContactForm({ defaultInteresse, onSuccess, hideHeader }: Contact
   const { country } = useCountry();
   const { attribution, consent } = useConsent();
 
-  // Mercado de membresía (Chile): não existe trial, então a opção "probar 14
-  // días gratis" some da lista. Filtrar o que a plataforma não faz é mais
+  // Não existe trial em mercado nenhum desde 2026-08-10, então a opção "probar
+  // 14 días gratis" some da lista. Filtrar o que a plataforma não faz é mais
   // honesto que renomear e receber lead esperando outra coisa.
-  const membresia = isMembresiaCountry(country.code);
-  const interesses = membresia
-    ? LEAD_INTERESSES.filter((i) => i !== "trial_profesional")
-    : LEAD_INTERESSES;
+  //
+  // O valor segue no enum LEAD_INTERESSES de propósito: ele é contrato com o
+  // `lead-validation.ts` do app e com o CRM, e leads antigos já nasceram com
+  // ele. Some da vitrine, não do schema.
+  const interesses = LEAD_INTERESSES.filter((i) => i !== "trial_profesional");
 
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState<string>("");
@@ -314,12 +314,9 @@ export function ContactForm({ defaultInteresse, onSuccess, hideHeader }: Contact
             <option value="">{tForm("interestAny")}</option>
             {interesses.map((i) => (
               <option key={i} value={i}>
-                {/* `interestsCL` só cobre os rótulos que mudam no mercado de
-                    membresía. O VALOR do enum nunca muda: é contrato com o
-                    lead-validation.ts do app. */}
-                {membresia && tForm.has(`interestsCL.${i}` as never)
-                  ? tForm(`interestsCL.${i}` as never)
-                  : tForm(`interests.${i}` as never)}
+                {/* O rótulo acompanha o modelo de membresía; o VALOR do enum
+                    nunca muda, é contrato com o lead-validation.ts do app. */}
+                {tForm(`interests.${i}` as never)}
               </option>
             ))}
           </select>
@@ -387,7 +384,7 @@ export function ContactForm({ defaultInteresse, onSuccess, hideHeader }: Contact
       </Button>
 
       <p className="pt-1 text-center text-xs text-ink-500 dark:text-ink-400">
-        {membresia ? t("slaMicrocopyCL") : t("slaMicrocopy")}
+        {t("slaMicrocopy")}
       </p>
     </form>
   );

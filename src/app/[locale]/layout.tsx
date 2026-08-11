@@ -11,11 +11,11 @@ import { ConsentProvider } from "@/contexts/ConsentContext";
 import { SiteProvider } from "@/contexts/SiteContext";
 import { CookieBanner } from "@/components/consent/CookieBanner";
 import { routing, type Locale } from "@/i18n/routing";
-import { COUNTRY_LIST } from "@/lib/countries";
+import { COUNTRY_LIST, type CountryCode } from "@/lib/countries";
 import { SUPERCLINI_FACTS } from "@/lib/superclini.facts";
 import { isChileSite, CHILE_ORIGIN, MAIN_ORIGIN } from "@/lib/site-host";
 import { resolveCountryServer } from "@/lib/country-server";
-import { MEMBRESIA_CL } from "@/lib/pricing";
+import { getMembresia } from "@/lib/pricing";
 import { WHATSAPP_SALES } from "@/lib/contact-channels";
 import { WhatsAppFab } from "@/components/contact/WhatsAppFab";
 
@@ -97,7 +97,12 @@ export async function generateMetadata({
   };
 }
 
-function buildJsonLd(locale: string, description: string, isChile: boolean) {
+function buildJsonLd(
+  locale: string,
+  description: string,
+  isChile: boolean,
+  country: CountryCode
+) {
   const origin = isChile ? CHILE_ORIGIN : MAIN_ORIGIN;
   const organization = {
     "@context": "https://schema.org",
@@ -137,27 +142,27 @@ function buildJsonLd(locale: string, description: string, isChile: boolean) {
     operatingSystem: "Web, iOS PWA, Android PWA",
     description,
     inLanguage: locale,
-    // Chile deixou de ter faixa de preço em 2026-08-04: é uma membresía anual
-    // única, então o schema é um Offer só, com o preço NETO da campanha e a
-    // data em que ela termina. AggregateOffer aqui declararia planos que não
-    // existem mais nesse mercado.
-    offers: isChile
-      ? {
-          "@type": "Offer",
-          priceCurrency: "CLP",
-          price: String(MEMBRESIA_CL.promo),
-          priceValidUntil: MEMBRESIA_CL.campaignEndsAt,
-          availability: "https://schema.org/InStock",
-          url: `${CHILE_ORIGIN}/es/precios`,
-        }
-      : {
-          "@type": "AggregateOffer",
-          priceCurrency: "USD",
-          lowPrice: "29",
-          highPrice: "249",
-          offerCount: String(SUPERCLINI_FACTS.tiersCount),
-          url: `${MAIN_ORIGIN}/${locale}/precios`,
-        },
+    // Nenhum mercado tem mais faixa de preço: desde 2026-08-10 os 9 vendem uma
+    // membresía anual única, então o schema é um Offer só, com o preço NETO da
+    // campanha e a data em que ela termina. O AggregateOffer que declarava
+    // lowPrice 29 / highPrice 249 descrevia planos que não existem mais.
+    //
+    // A moeda sai do país resolvido. Para um crawler sem geo do edge, a
+    // precedência de country-server cai no idioma da URL (es para CL, pt para
+    // BR, en para US), então cada variante indexada publica a moeda do mercado
+    // que ela de fato atende.
+    offers: {
+      "@type": "Offer",
+      priceCurrency: getMembresia(country).currency,
+      // Duas casas onde a moeda tem centavos: "999.9" é válido em schema.org,
+      // mas "999.90" é o que o Google mostra sem reinterpretar.
+      price: getMembresia(country).promo.toFixed(getMembresia(country).currencyDecimals),
+      priceValidUntil: getMembresia(country).campaignEndsAt,
+      availability: "https://schema.org/InStock",
+      url: isChile
+        ? `${CHILE_ORIGIN}/es/precios`
+        : `${MAIN_ORIGIN}/${locale}/precios`,
+    },
   };
   return [organization, softwareApp];
 }
@@ -177,13 +182,13 @@ export default async function LocaleLayout({
   const t = await getTranslations({ locale, namespace: "meta" });
   const description = t("description", { countries: SUPERCLINI_FACTS.countriesCount });
   const isChile = await isChileSite();
-  const jsonLd = buildJsonLd(locale, description, isChile);
 
   // Resolução de país centralizada em country-server.ts: host CL, depois cookie
   // do picker, depois geo do edge, depois idioma. O passo do geo entrou junto
   // com a membresía do Chile, senão a PRIMEIRA visita renderizava a vitrine
   // errada no servidor e só o efeito do cliente corrigia.
   const defaultCountry = await resolveCountryServer(locale);
+  const jsonLd = buildJsonLd(locale, description, isChile, defaultCountry);
 
   return (
     <html

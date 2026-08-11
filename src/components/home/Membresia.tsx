@@ -5,18 +5,19 @@ import { useTranslations } from "next-intl";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ContactDialog } from "@/components/home/ContactDialog";
-import { COUNTRIES, formatCurrency } from "@/lib/countries";
-import { MEMBRESIA_CL } from "@/lib/pricing";
+import { formatMoney, type CountryConfig } from "@/lib/countries";
+import { getMembresia, isAsociadoCountry } from "@/lib/pricing";
 import { SUPERCLINI_FACTS } from "@/lib/superclini.facts";
 
 /**
- * Vitrine do Chile: uma membresía anual única, no lugar dos 3 tiers.
- * Renderizada por <Pricing> quando o país é CL (por host cl.superclini.com,
- * por cookie do picker ou por geo do edge), nunca por idioma.
+ * Vitrine da membresía anual única, nascida no Chile em 2026-08-04 e estendida
+ * aos 9 mercados em 2026-08-10. Renderizada por <Pricing> para todo país (por
+ * host cl.superclini.com, por cookie do picker ou por geo do edge), nunca por
+ * idioma: um brasileiro lendo em espanhol continua vendo o preço em reais.
  *
- * REGRA INVIOLÁVEL: todo valor sai de MEMBRESIA_CL, que é NETO, e passa por
- * <Money>, que carrega o "+ IVA" junto do número. Não existe caminho de código
- * neste arquivo que publique preço sem o sufixo.
+ * REGRA INVIOLÁVEL: todo valor sai de MEMBRESIA[país], que é NETO, e passa por
+ * <Money>, que carrega o rótulo de imposto junto do número. Não existe caminho
+ * de código neste arquivo que publique preço sem o sufixo.
  */
 
 const UNLIMITED_ITEMS = [
@@ -29,12 +30,10 @@ const UNLIMITED_ITEMS = [
   "whatsapp",
 ] as const;
 
-const PAYMENT_ITEMS = ["credit", "debit", "installments", "renewal"] as const;
-
 /**
- * Preço neto formatado, sempre acompanhado do "+ IVA". Componente de módulo,
- * não closure dentro do render: definir componente durante o render remonta a
- * subárvore a cada ciclo (e o lint do Next barra o build).
+ * Preço neto formatado, sempre acompanhado do rótulo de imposto. Componente de
+ * módulo, não closure dentro do render: definir componente durante o render
+ * remonta a subárvore a cada ciclo (e o lint do Next barra o build).
  *
  * `suffix` entra por prop em vez de ler i18n aqui para manter este componente
  * puro e deixar um único ponto de decisão de idioma no pai.
@@ -42,36 +41,50 @@ const PAYMENT_ITEMS = ["credit", "debit", "installments", "renewal"] as const;
 function Money({
   value,
   suffix,
+  country,
   className,
 }: {
   value: number;
   suffix: string;
+  country: CountryConfig;
   className?: string;
 }) {
+  const { currency, currencyDecimals } = getMembresia(country.code);
   return (
     <span className={className}>
-      {formatCurrency(value, COUNTRIES.CL)}{" "}
+      {formatMoney(value, country.intlLocale, currency, currencyDecimals)}{" "}
       <span className="whitespace-nowrap text-[0.7em] font-semibold text-ink-400">{suffix}</span>
     </span>
   );
 }
 
-export function MembresiaCL() {
+export function Membresia({ country }: { country: CountryConfig }) {
   const t = useTranslations("membresia");
-  const iva = t("price.suffix");
+  const tCta = useTranslations("salesCta");
+  const membresia = getMembresia(country.code);
+  const tax = t(`price.tax.${membresia.taxLabel}`);
 
   const PACKS = [
-    { key: "patient", value: MEMBRESIA_CL.packs.aiPatient },
-    { key: "patientPack", value: MEMBRESIA_CL.packs.aiPatientPack20 },
-    { key: "conv500", value: MEMBRESIA_CL.packs.conversations500 },
-    { key: "conv1500", value: MEMBRESIA_CL.packs.conversations1500 },
+    { key: "patient", value: membresia.packs.aiPatient },
+    { key: "patientPack", value: membresia.packs.aiPatientPack20 },
+    { key: "conv500", value: membresia.packs.conversations500 },
+    { key: "conv1500", value: membresia.packs.conversations1500 },
   ] as const;
 
   const AGENTS = [
-    { key: "sofia", count: SUPERCLINI_FACTS.membresiaCL.sofiaConversations },
-    { key: "alicia", count: SUPERCLINI_FACTS.membresiaCL.aiPatients },
+    { key: "sofia", count: SUPERCLINI_FACTS.membresia.sofiaConversations },
+    { key: "alicia", count: SUPERCLINI_FACTS.membresia.aiPatients },
     { key: "iandra", count: 0 },
   ] as const;
+
+  /**
+   * Parcelamento só entra onde há gateway que o faça. Em US, ES e PT o
+   * MercadoPago não opera e o Stripe nunca foi ligado: prometer cuotas ali
+   * seria vender uma forma de pagamento que o checkout não oferece.
+   */
+  const paymentItems = membresia.maxInstallments
+    ? (["credit", "debit", "installments", "renewal"] as const)
+    : (["credit", "debit", "renewal"] as const);
 
   return (
     <div className="mt-12">
@@ -86,8 +99,9 @@ export function MembresiaCL() {
 
           <div className="mt-2 flex flex-wrap items-baseline justify-center gap-x-3 gap-y-1">
             <Money
-              suffix={iva}
-              value={MEMBRESIA_CL.promo}
+              suffix={tax}
+              country={country}
+              value={membresia.promo}
               className="font-display text-fluid-3xl font-extrabold text-white"
             />
             <span className="text-sm text-ink-300">{t("price.perYear")}</span>
@@ -96,8 +110,9 @@ export function MembresiaCL() {
           <p className="mt-3 text-sm text-ink-400">
             {t("price.listLabel")}{" "}
             <Money
-              suffix={iva}
-              value={MEMBRESIA_CL.list}
+              suffix={tax}
+              country={country}
+              value={membresia.list}
               className="font-semibold text-ink-300 line-through"
             />{" "}
             {t("price.perYear")}
@@ -112,7 +127,7 @@ export function MembresiaCL() {
               defaultInteresse="avaliar"
               trigger={({ onClick }) => (
                 <Button variant="primary" size="lg" onClick={onClick} className="w-full">
-                  {t("cta")}
+                  {tCta(isAsociadoCountry(country.code) ? "asociado" : "ventas")}
                   <ArrowRight className="h-4 w-4" aria-hidden />
                 </Button>
               )}
@@ -134,7 +149,7 @@ export function MembresiaCL() {
             ))}
             <li className="flex items-start gap-2.5 text-sm text-ink-200">
               <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-emerald-400" aria-hidden />
-              <span>{t("unlimited.storage", { gb: SUPERCLINI_FACTS.membresiaCL.storageGB })}</span>
+              <span>{t("unlimited.storage", { gb: SUPERCLINI_FACTS.membresia.storageGB })}</span>
             </li>
           </ul>
         </section>
@@ -168,7 +183,8 @@ export function MembresiaCL() {
             >
               <span className="text-sm text-ink-200">{t(`packs.items.${key}`)}</span>
               <Money
-                suffix={iva}
+                suffix={tax}
+                country={country}
                 value={value}
                 className="text-sm font-bold text-white sm:text-right"
               />
@@ -186,31 +202,34 @@ export function MembresiaCL() {
             <li className="flex items-baseline justify-between gap-3">
               <span>{t("network.first")}</span>
               <Money
-                suffix={iva}
-                value={MEMBRESIA_CL.network.firstBranch}
+                suffix={tax}
+                country={country}
+                value={membresia.network.firstBranch}
                 className="font-bold text-white"
               />
             </li>
             <li className="flex items-baseline justify-between gap-3">
               <span>{t("network.additional")}</span>
               <Money
-                suffix={iva}
-                value={MEMBRESIA_CL.network.additionalBranch}
+                suffix={tax}
+                country={country}
+                value={membresia.network.additionalBranch}
                 className="font-bold text-white"
               />
             </li>
           </ul>
           <p className="mt-4 text-sm text-ink-400">{t("network.pool")}</p>
           <p className="mt-2 text-sm text-ink-400">
-            {t("network.corporate", { count: MEMBRESIA_CL.network.corporateFrom })}
+            {t("network.corporate", { count: membresia.network.corporateFrom })}
           </p>
         </section>
 
         <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-7">
           <h3 className="font-display text-lg font-bold text-white">{t("migration.title")}</h3>
           <Money
-            suffix={iva}
-            value={MEMBRESIA_CL.migration}
+            suffix={tax}
+            country={country}
+            value={membresia.migration}
             className="mt-5 block font-display text-fluid-xl font-extrabold text-white"
           />
           <p className="mt-3 text-sm text-ink-400">{t("migration.desc")}</p>
@@ -222,12 +241,10 @@ export function MembresiaCL() {
             {t("payment.title")}
           </h3>
           <ul className="mt-5 space-y-3">
-            {PAYMENT_ITEMS.map((key) => (
+            {paymentItems.map((key) => (
               <li key={key} className="flex items-start gap-2.5 text-sm text-ink-200">
                 <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-emerald-400" aria-hidden />
-                <span>
-                  {t(`payment.items.${key}`, { count: MEMBRESIA_CL.maxInstallments })}
-                </span>
+                <span>{t(`payment.items.${key}`, { count: membresia.maxInstallments })}</span>
               </li>
             ))}
           </ul>
@@ -238,9 +255,12 @@ export function MembresiaCL() {
       {/* ── Nota legal do teto por paciente ────────────────────────────── */}
       <p className="mx-auto mt-8 max-w-3xl text-center text-xs leading-relaxed text-ink-400">
         {t("legal", {
-          simulations: SUPERCLINI_FACTS.membresiaCL.perPatient.simulations,
-          radiographs: SUPERCLINI_FACTS.membresiaCL.perPatient.radiographs,
-        })}
+          simulations: SUPERCLINI_FACTS.membresia.perPatient.simulations,
+          radiographs: SUPERCLINI_FACTS.membresia.perPatient.radiographs,
+        })}{" "}
+        {/* A frase fiscal é separada porque nomeia o tributo: IVA no Chile,
+            genérico nos demais. Ver taxLabel em MEMBRESIA. */}
+        {t(`legalTax.${membresia.taxLabel}`)}
       </p>
     </div>
   );

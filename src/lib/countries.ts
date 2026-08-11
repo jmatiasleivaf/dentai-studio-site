@@ -156,3 +156,34 @@ export function formatCurrency(amount: number, country: CountryConfig): string {
     maximumFractionDigits: country.currencyDecimals,
   }).format(amount);
 }
+
+/**
+ * Formata um valor numa moeda que pode não ser a do país, que é o caso da
+ * membresía: 7 dos 9 mercados cobram em USD.
+ *
+ * O dólar é escrito à mão como "US$ " em vez de sair do `style: "currency"`
+ * porque o Intl é inconsistente e ambíguo aqui: o mesmo valor vira "USD 199"
+ * em es-MX, "US$199" em es-CL e "199 US$" em es-ES, e o símbolo estreito vira
+ * "$199", que um mexicano lê como peso e um peruano como sol. O número em si
+ * segue formatado pelo locale, para manter o separador local.
+ */
+export function formatMoney(
+  amount: number,
+  intlLocale: string,
+  currency: CurrencyCode,
+  decimals: 0 | 2
+): string {
+  if (currency === "USD") {
+    const n = new Intl.NumberFormat(intlLocale, {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals,
+    }).format(amount);
+    return `US$ ${n}`;
+  }
+  return new Intl.NumberFormat(intlLocale, {
+    style: "currency",
+    currency,
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals,
+  }).format(amount);
+}

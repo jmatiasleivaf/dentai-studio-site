@@ -62,8 +62,7 @@
       "ayuda_desc": "Guides, tutorials and step-by-step answers.",
       "comingSoon": "Coming soon"
     },
-    "signup": "Start free",
-    "signupNoTrial": "See the membership"
+    "signup": "See the membership"
   },
   "help": {
     "meta": {
@@ -135,16 +134,13 @@
     "h1Line2": "Back to caring.",
     "sub": "Sofía answers and confirms appointments on WhatsApp, IAndra collects and closes the register, AlicIA revives stalled treatments. All in one panel, on the same record.",
     "subChile": "Sofía answers and confirms appointments on WhatsApp, IAndra collects and closes the register, AlicIA revives stalled treatments. All in one panel, on the same record.",
-    "ctaPrimary": "Create free account",
+    "ctaPrimary": "See the membership",
     "ctaSecondary": "Meet the 3 agents",
     "trustItems": {
-      "noCard": "No credit card",
       "setup": "Guided setup in 1 day",
-      "cancel": "Cancel anytime",
       "included": "Everything included, no fine print",
       "payment": "Payment inside the platform"
-    },
-    "ctaPrimaryNoTrial": "See the membership"
+    }
   },
   "agents": {
     "eyebrow": "One AI story, not a checklist",
@@ -338,7 +334,7 @@
       "profesional": {
         "name": "Professional",
         "desc": "The established 3-8 chair practice that wants to close more cases with AI.",
-        "cta": "Request 14-day trial"
+        "cta": "Talk to sales"
       },
       "avanzado": {
         "name": "Advanced",
@@ -473,11 +469,13 @@
       "keepsPrice": "Whoever joins during the campaign keeps the price forever, including at renewal."
     },
     "price": {
-      "suffix": "+ VAT",
       "perYear": "per year",
-      "listLabel": "Regular price:"
+      "listLabel": "Regular price:",
+      "tax": {
+        "iva": "+ VAT",
+        "taxes": "+ taxes"
+      }
     },
-    "cta": "Talk to an associate",
     "unlimited": {
       "title": "Unlimited in the membership",
       "items": {
@@ -540,10 +538,16 @@
       },
       "note": "All inside the platform."
     },
-    "legal": "An AI patient stays active while the membership is valid, and includes up to {simulations} smile simulations and {radiographs} radiograph analyses, with unlimited summaries. All prices are net and published with VAT on top.",
+    "legal": "An AI patient stays active while the membership is valid, and includes up to {simulations} smile simulations and {radiographs} radiograph analyses, with unlimited summaries.",
     "meta": {
-      "title": "Pricing · SuperClini Chile",
-      "description": "One annual membership for your dental clinic, with all three AI agents included. Net prices in Chilean pesos, VAT on top."
+      "title": "Pricing · SuperClini annual membership",
+      "description": "One annual membership for your dental clinic, with all three AI agents included. Net prices, across {countries} markets.",
+      "titleCL": "Pricing · SuperClini Chile",
+      "descriptionCL": "One annual membership for your dental clinic, with all three AI agents included. Net prices in Chilean pesos, VAT on top."
+    },
+    "legalTax": {
+      "iva": "All prices are net and published with VAT on top.",
+      "taxes": "All prices are net; taxes are added on top."
     }
   },
   "personas": {
@@ -669,10 +673,8 @@
     "title": "Questions we hear all the time.",
     "items": [
       {
-        "q": "How does the free trial work?",
-        "a": "14 days with full access to all features. No credit card. If you don't want to continue, simply don't enter payment details.",
-        "qCL": "How do I get started?",
-        "aCL": "The membership is annual and you sign it with an associate, who walks you through activation. There is no free trial: there is a membership with everything included and payment inside the platform."
+        "q": "How do I get started?",
+        "a": "The membership is annual and you sign it with our sales team (in Chile, with an associate), who walks you through activation. There is no free trial: there is a membership with everything included and payment inside the platform."
       },
       {
         "q": "Can I migrate from another system?",
@@ -692,8 +694,7 @@
       },
       {
         "q": "What if I need support?",
-        "a": "Direct WhatsApp chat with the team. Professional plan includes business-hours support. Corporate is 24/7 with SLA.",
-        "aCL": "Direct WhatsApp chat with the team, included in the membership. And IAndra answers you inside the panel, with no usage cap."
+        "a": "Direct WhatsApp chat with the team, included in the membership. And IAndra answers you inside the panel, with no usage cap."
       },
       {
         "q": "Does it work in my country?",
@@ -706,12 +707,7 @@
     ]
   },
   "ctaFinal": {
-    "title": "Start today. 14 days free.",
-    "sub": "No card. No commitment. With our team alongside you in setup.",
-    "ctaPrimary": "Request 14-day trial",
-    "ctaSecondary": "Book a demo",
-    "subNoTrial": "One annual membership, everything included, with your team alongside you at activation.",
-    "ctaPrimaryNoTrial": "Talk to an associate"
+    "sub": "One annual membership, everything included, with our team alongside you at activation."
   },
   "footer": {
     "tagline": "The dental platform with native AI, built for practices that want to grow without chaos.",
@@ -777,26 +773,22 @@
   },
   "contact": {
     "metaTitle": "Talk to our team",
-    "metaDescription": "Get in touch to try SuperClini free for 14 days, schedule a demo, or request a Corporate quote.",
+    "metaDescription": "Get in touch to learn about the SuperClini annual membership, book a demo or price your clinic network.",
     "eyebrow": "Let's talk",
     "pageTitle": "Tell us about your practice.",
     "pageBody": "We reply within 24 business hours, in your language. No commitment, no canned scripts.",
     "benefits": {
       "trial": {
-        "title": "14-day free trial",
-        "body": "We activate the Professional plan with full AI, no card, no commitment.",
-        "titleCL": "Annual membership",
-        "bodyCL": "A single payment per year, with all three agents and the whole product included."
+        "title": "Annual membership",
+        "body": "A single payment per year, with all three agents and the whole product included."
       },
       "demo": {
         "title": "Guided demo",
         "body": "30 minutes with your team, walking through the platform with real clinic data."
       },
       "enterprise": {
-        "title": "Corporate quote",
-        "body": "4+ locations, multi-site consolidation, SSO, full API and contractual SLA.",
-        "titleCL": "Clinic network",
-        "bodyCL": "Several locations on a single credit pool, with tailored terms from 10 onwards."
+        "title": "Clinic network",
+        "body": "Several locations on a single credit pool, with tailored terms from 10 onwards."
       }
     },
     "title": "Write to us",
@@ -805,7 +797,7 @@
     "dialogSubtitle": "Share your contact info and we'll get back within 24 business hours.",
     "submit": "Send request",
     "submitting": "Sending…",
-    "slaMicrocopy": "Our sales team replies within 24 business hours and walks you through enabling the 14-day trial.",
+    "slaMicrocopy": "Our sales team replies within 24 business hours and arranges the membership activation with you.",
     "successTitle": "Thanks! We got your message.",
     "successBody": "We'll reply within 24 business hours by email or WhatsApp.",
     "sendAnother": "Send another request",
@@ -845,13 +837,9 @@
       "interests": {
         "avaliar": "Evaluate the platform",
         "demo": "Schedule a demo",
-        "trial_profesional": "Try 14 days free",
         "cotizacion_enterprise": "Corporate quote (4+ locations)",
         "suporte": "Support",
         "outro": "Other"
-      },
-      "interestsCL": {
-        "cotizacion_enterprise": "Clinic network (several locations)"
       }
     },
     "errors": {
@@ -866,9 +854,7 @@
       "rateLimit": "Too many requests from your network. Try again in a few minutes.",
       "network": "Network issue. Check your connection and try again.",
       "generic": "Something went wrong. Try again in a few minutes."
-    },
-    "metaDescriptionCL": "Get in touch to learn about the SuperClini annual membership, book a demo or price your clinic network.",
-    "slaMicrocopyCL": "Our sales team replies within 24 business hours and arranges the membership activation with you."
+    }
   },
   "privacy": {
     "metaTitle": "Privacy policy",
@@ -936,7 +922,6 @@
       "badge": "AI Assistant · WhatsApp",
       "h1": "Sofía answers your WhatsApp 24/7. You handle the patient.",
       "sub": "AI agent with {count} real functions wired to your schedule. Books, confirms, reschedules and answers questions, in English, Spanish and Portuguese. Never miss a lead at 3 AM.",
-      "ctaPrimary": "Request 14-day trial",
       "ctaSecondary": "See Sofía in action",
       "chat": {
         "proofLabel": "Real conversation (new patient booking)",
@@ -948,8 +933,7 @@
           "user3": "10:30 is perfect",
           "bot3": "Done. Booked for Saturday 10:30 with Dr. Carolina. I'll send a reminder Friday."
         }
-      },
-      "ctaPrimaryCL": "Talk to an associate"
+      }
     },
     "howItWorks": {
       "eyebrow": "How it works",
@@ -1084,8 +1068,7 @@
         },
         {
           "q": "How much per message?",
-          "a": "No per-message charge. Advanced plan includes 300 unique conversations/month (1 conversation = 1 unique patient interacting). Add-on packs available for higher volume.",
-          "aCL": "No charge per message. The membership includes 400 unique conversations per year (1 conversation = 1 unique patient interacting). When you need more, you add a package on top of what you already have."
+          "a": "No charge per message. The membership includes 400 unique conversations per year (1 conversation = 1 unique patient interacting). When you need more, you add a package on top of what you already have."
         },
         {
           "q": "Does Sofía recognize who's already in our system?",
@@ -1099,11 +1082,8 @@
     },
     "ctaFinal": {
       "title": "Stop losing leads on WhatsApp.",
-      "sub": "Guided activation by our team in 1 business day. 14-day trial, no credit card.",
-      "ctaPrimary": "Request free trial",
-      "ctaSecondary": "Talk to sales",
-      "ctaPrimaryCL": "Talk to an associate",
-      "subCL": "Guided activation by our team in 1 business day. Sofía comes included in the annual membership."
+      "sub": "Guided activation by our team in 1 business day. Sofía comes included in the annual membership.",
+      "ctaSecondary": "Talk to sales"
     }
   },
   "iaClinicaPage": {
@@ -1244,10 +1224,8 @@
           "a": "Panoramic, cephalometric, bitewing and periapical. Formats: PNG, JPEG, WEBP. Native DICOM not yet supported, for CBCT 3D, use the integrated DICOM 3D viewer (which is manual, not AI-driven)."
         },
         {
-          "q": "Do plans have monthly AI quotas?",
-          "a": "Yes. Professional plan includes monthly quotas of simulations and radiograph analyses. Advanced plan has higher quotas. Corporate plan is custom. Add-on packs available for higher volume.",
-          "qCL": "Does the membership have an AI quota?",
-          "aCL": "It is not monthly, it is annual: the membership includes 20 AI patients per year, with all of AlicIA's functions on every patient you activate. When you need more, you add a single patient or a pack of 20."
+          "q": "Does the membership have an AI quota?",
+          "a": "It is not monthly, it is annual: the membership includes 20 AI patients per year, with all of AlicIA's functions on every patient you activate. When you need more, you add a single patient or a pack of 20."
         },
         {
           "q": "Does the simulation guarantee the real treatment result?",
@@ -1265,11 +1243,8 @@
     },
     "ctaFinal": {
       "title": "Your practice closes more cases with visual explanation and AI-assisted diagnosis.",
-      "sub": "14-day trial with full AI active. Sales-led setup in 1 business day.",
-      "ctaPrimary": "Request trial with AI",
-      "ctaSecondary": "Talk to sales",
-      "ctaPrimaryCL": "Talk to an associate",
-      "subCL": "Full AI included in the annual membership. Guided setup in 1 business day."
+      "sub": "Full AI included in the annual membership. Guided setup in 1 business day.",
+      "ctaSecondary": "Talk to sales"
     }
   },
   "clinicoPage": {
@@ -1382,14 +1357,6 @@
         "Aligners: series, sessions, milestones",
         "External lab integration via CasoAlineador.laboratorioId",
         "MIME validation per upload (PNG/JPEG/WEBP)",
-        "Storage: 5GB Essential · 50GB Professional · 100GB Advanced · custom Corporate",
-        "All inside the patient case, search by exam or date"
-      ],
-      "bulletsCL": [
-        "9 intraoral photo types (intraorals, occlusals, profile)",
-        "Aligners: series, sessions, milestones",
-        "External lab integration via CasoAlineador.laboratorioId",
-        "MIME validation per upload (PNG/JPEG/WEBP)",
         "Storage: 100 GB included in the membership",
         "All inside the patient case, search by exam or date"
       ]
@@ -1444,7 +1411,7 @@
         "custo": {
           "topic": "Total cost",
           "before": "Base software + DICOM viewer + extra modules = $200-500/mo.",
-          "after": "All in one plan. From $39/mo (USD)."
+          "after": "Everything in one annual membership, no add-on modules."
         }
       }
     },
@@ -1481,19 +1448,16 @@
           "a": "Yes. We have 12 import adapters (patient, schedule, plan, receivable, notes, tooth chart, etc.). Legal immutability is preserved · imported notes keep original date and are flagged as migrated."
         },
         {
-          "q": "How many active patients per plan?",
-          "a": "Unlimited in all plans. What varies is storage (5GB Essential, 50GB Professional, 100GB Advanced, custom Corporate) and number of active providers.",
-          "qCL": "How many active patients does the membership include?",
-          "aCL": "Unlimited. The membership sets no cap on patients or charts, and includes 100 GB of storage."
+          "q": "How many active patients does the membership include?",
+          "a": "Unlimited. The membership sets no cap on patients or charts, and includes 100 GB of storage."
         }
       ]
     },
     "ctaFinal": {
       "title": "Everything you need to practice, without installing a thing.",
-      "sub": "14-day trial with full clinical module. Sales-led setup in 1 business day.",
+      "sub": "Full clinical module included in the annual membership. Guided setup by our team in 1 business day.",
       "ctaPrimary": "Request module demo",
-      "ctaSecondary": "Talk to sales",
-      "subCL": "Full clinical module included in the annual membership. Guided setup by our team in 1 business day."
+      "ctaSecondary": "Talk to sales"
     }
   },
   "totemPage": {
@@ -1645,8 +1609,7 @@
         },
         {
           "q": "How much does the hardware cost?",
-          "a": "Basic iPad ~$350. Mac Mini + touch monitor setup ~$1,200. You decide what to buy, our part is just the software, included in Professional+ plans.",
-          "aCL": "Basic iPad ~CLP 350,000 / US$ 350. Mac Mini + touch monitor setup ~CLP 1,000,000 / US$ 1,200. You decide what to buy, our part is only the software, included in the membership."
+          "a": "Basic iPad ~CLP 350,000 / US$ 350. Mac Mini + touch monitor setup ~CLP 1,000,000 / US$ 1,200. You decide what to buy, our part is only the software, included in the membership."
         },
         {
           "q": "Is there a kiosk for the operatory (not front desk)?",
@@ -1672,10 +1635,9 @@
     },
     "ctaFinal": {
       "title": "Your front desk frees up 60% of its time. Without firing anyone.",
-      "sub": "14-day trial with kiosk active. Sales-led setup in 1 business day, no hardware required, runs on any tablet.",
+      "sub": "Kiosk included in the annual membership. Guided setup in 1 business day, no hardware, installable on any tablet.",
       "ctaPrimary": "Request kiosk demo",
-      "ctaSecondary": "Talk to sales",
-      "subCL": "Kiosk included in the annual membership. Guided setup in 1 business day, no hardware, installable on any tablet."
+      "ctaSecondary": "Talk to sales"
     }
   },
   "automatizacoesPage": {
@@ -1882,10 +1844,9 @@
     },
     "ctaFinal": {
       "title": "Your practice bills on autopilot.",
-      "sub": "14-day trial with full finance active in staging. Sales-led setup in 1 business day.",
+      "sub": "Full finance module included in the annual membership. Guided setup by the team in 1 business day.",
       "ctaPrimary": "Request finance demo",
-      "ctaSecondary": "Talk to sales",
-      "subCL": "Full finance module included in the annual membership. Guided setup by the team in 1 business day."
+      "ctaSecondary": "Talk to sales"
     }
   },
   "consent": {
@@ -1913,20 +1874,20 @@
     }
   },
   "signup": {
-    "metaTitle": "Create your SuperClini account · 14 days free, no card",
-    "metaDescription": "Open your clinic on SuperClini in under a minute. 14-day trial with full access, no credit card.",
+    "metaTitle": "Annual membership · SuperClini",
+    "metaDescription": "SuperClini is sold as an annual membership, with everything included and all three AI agents.",
     "eyebrow": "Start today",
     "title": "Your clinic running in under a minute",
-    "subtitle": "Create the account, set your password by email and sign in. No sales calls, no card, no commitment.",
+    "subtitle": "Create the account, set your password by email and sign in.",
     "consent": "I agree to be contacted by SuperClini and accept the privacy policy and the processing of my data.",
-    "noCard": "No credit card. The trial ends on its own.",
+    "noCard": "Activation guided by our team.",
     "countriesNote": "Available in {count} countries, with local currency and ID documents.",
     "successTitle": "Check your email",
-    "successBody": "We sent you a link to set your password and activate the account. That is when your 14 days begin.",
+    "successBody": "We sent you a link to set your password and activate the account.",
     "successHint": "Not there? Check spam or promotions. The link is valid for 48 hours.",
     "benefits": {
-      "trial": "14 days with full access, no crippled features",
-      "noCard": "No credit card or payment details",
+      "trial": "Full access, no crippled features",
+      "noCard": "Guided activation, no blind setup",
       "fullAccess": "Scheduling, clinical records, odontogram and AI assistant included",
       "support": "Support from day one"
     },
@@ -1958,12 +1919,11 @@
     },
     "metaTitleCL": "Annual membership · SuperClini Chile",
     "metaDescriptionCL": "In Chile SuperClini is sold as an annual membership, everything included and all three AI agents.",
-    "chile": {
-      "eyebrow": "Chile",
-      "title": "In Chile we work with an annual membership",
-      "body": "There is no free account here. The membership is annual, includes the whole product and all three agents, and you sign it with an associate who walks you through activation.",
-      "ctaPrimary": "See the membership",
-      "ctaSecondary": "Talk to an associate"
+    "membresia": {
+      "eyebrow": "Annual membership",
+      "title": "SuperClini is sold as an annual membership",
+      "body": "There is no free account. The membership is annual, includes the whole product and all three agents, and our team walks you through activation.",
+      "ctaPrimary": "See the membership"
     }
   },
   "asociadosPage": {
@@ -2271,5 +2231,9 @@
         "fallbackLink": "Write to us through the contact form"
       }
     }
+  },
+  "salesCta": {
+    "asociado": "Talk to an associate",
+    "ventas": "Talk to sales"
   }
 }

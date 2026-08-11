@@ -62,8 +62,7 @@
       "ayuda_desc": "Guías, tutoriales y respuestas paso a paso.",
       "comingSoon": "Próximamente"
     },
-    "signup": "Crear cuenta gratis",
-    "signupNoTrial": "Ver la membresía"
+    "signup": "Ver la membresía"
   },
   "help": {
     "meta": {
@@ -135,16 +134,13 @@
     "h1Line2": "Vuelve a atender.",
     "sub": "Sofía contesta y confirma las citas por WhatsApp, IAndra cobra y cuadra la caja, AlicIA reactiva los tratamientos detenidos. Todo en el mismo panel, sobre la misma ficha.",
     "subChile": "Sofía contesta y confirma las horas por WhatsApp, IAndra cobra y cuadra la caja, AlicIA reactiva los tratamientos detenidos. Todo en el mismo panel, sobre la misma ficha.",
-    "ctaPrimary": "Crear cuenta gratis",
+    "ctaPrimary": "Ver la membresía",
     "ctaSecondary": "Conocer los 3 agentes",
     "trustItems": {
-      "noCard": "Sin tarjeta de crédito",
       "setup": "Setup guiado en 1 día",
-      "cancel": "Cancela cuando quieras",
       "included": "Todo incluido, sin letra chica",
       "payment": "Pago dentro de la plataforma"
-    },
-    "ctaPrimaryNoTrial": "Ver la membresía"
+    }
   },
   "agents": {
     "eyebrow": "Una sola historia de IA",
@@ -338,7 +334,7 @@
       "profesional": {
         "name": "Profesional",
         "desc": "La clínica consolidada de 3-8 sillones que quiere cerrar más casos con IA.",
-        "cta": "Solicitar 14 días gratis"
+        "cta": "Hablar con ventas"
       },
       "avanzado": {
         "name": "Avanzado",
@@ -473,11 +469,13 @@
       "keepsPrice": "Quien entra en la campaña conserva el precio para siempre, incluso al renovar."
     },
     "price": {
-      "suffix": "+ IVA",
       "perYear": "al año",
-      "listLabel": "Precio normal:"
+      "listLabel": "Precio normal:",
+      "tax": {
+        "iva": "+ IVA",
+        "taxes": "+ impuestos"
+      }
     },
-    "cta": "Hablar con un asociado",
     "unlimited": {
       "title": "Ilimitado en la membresía",
       "items": {
@@ -540,10 +538,16 @@
       },
       "note": "Todo dentro de la plataforma."
     },
-    "legal": "Un paciente con IA queda activo mientras la membresía esté vigente, e incluye hasta {simulations} simulaciones de sonrisa y {radiographs} análisis radiográficos, con resúmenes sin límite. Todos los precios son netos y se publican con IVA aparte.",
+    "legal": "Un paciente con IA queda activo mientras la membresía esté vigente, e incluye hasta {simulations} simulaciones de sonrisa y {radiographs} análisis radiográficos, con resúmenes sin límite.",
     "meta": {
-      "title": "Precios · SuperClini Chile",
-      "description": "Una membresía anual para tu clínica dental, con los tres agentes de IA incluidos. Precios netos en pesos chilenos, con IVA aparte."
+      "title": "Precios · Membresía anual SuperClini",
+      "description": "Una membresía anual para tu clínica dental, con los tres agentes de IA incluidos. Precios netos, en {countries} mercados.",
+      "titleCL": "Precios · SuperClini Chile",
+      "descriptionCL": "Una membresía anual para tu clínica dental, con los tres agentes de IA incluidos. Precios netos en pesos chilenos, con IVA aparte."
+    },
+    "legalTax": {
+      "iva": "Todos los precios son netos y se publican con IVA aparte.",
+      "taxes": "Todos los precios son netos; los impuestos se suman aparte."
     }
   },
   "personas": {
@@ -669,10 +673,8 @@
     "title": "Dudas que escuchamos todo el tiempo.",
     "items": [
       {
-        "q": "¿Cómo funciona la prueba gratuita?",
-        "a": "14 días con acceso completo a todas las funciones. Sin tarjeta de crédito. Si al final no quieres continuar, simplemente no registras tu medio de pago.",
-        "qCL": "¿Cómo empiezo?",
-        "aCL": "La membresía es anual y la contratas con un asociado, que te acompaña en la activación. No hay prueba gratuita: hay una membresía con todo incluido y el pago dentro de la plataforma."
+        "q": "¿Cómo empiezo?",
+        "a": "La membresía es anual y la contratas con nuestro equipo comercial (en Chile, con un asociado), que te acompaña en la activación. No hay prueba gratuita: hay una membresía con todo incluido y el pago dentro de la plataforma."
       },
       {
         "q": "¿Puedo migrar desde otro sistema?",
@@ -692,8 +694,7 @@
       },
       {
         "q": "¿Qué pasa si necesito soporte?",
-        "a": "Chat de WhatsApp directo con el equipo. Plan Profesional incluye soporte en horario comercial. Corporativo es 24/7 con SLA.",
-        "aCL": "Chat de WhatsApp directo con el equipo, incluido en la membresía. Y IAndra te responde dentro del panel, sin límite de uso."
+        "a": "Chat de WhatsApp directo con el equipo, incluido en la membresía. Y IAndra te responde dentro del panel, sin límite de uso."
       },
       {
         "q": "¿Funciona en mi país?",
@@ -706,12 +707,7 @@
     ]
   },
   "ctaFinal": {
-    "title": "Empieza hoy. 14 días gratis.",
-    "sub": "Sin tarjeta. Sin compromiso. Con tu equipo acompañándote en el setup.",
-    "ctaPrimary": "Solicitar 14 días gratis",
-    "ctaSecondary": "Agendar demo con ventas",
-    "subNoTrial": "Una membresía anual, con todo incluido y tu equipo acompañándote en la activación.",
-    "ctaPrimaryNoTrial": "Hablar con un asociado"
+    "sub": "Una membresía anual, con todo incluido y nuestro equipo acompañándote en la activación."
   },
   "footer": {
     "tagline": "La plataforma de gestión dental con IA nativa, construida para clínicas que quieren crecer sin caos.",
@@ -777,26 +773,22 @@
   },
   "contact": {
     "metaTitle": "Hablar con el equipo",
-    "metaDescription": "Contáctanos para probar SuperClini 14 días gratis, agendar una demo o solicitar cotización Corporativo.",
+    "metaDescription": "Contáctanos para conocer la membresía anual de SuperClini, agendar una demo o cotizar tu red de clínicas.",
     "eyebrow": "Hablemos",
     "pageTitle": "Cuéntanos sobre tu clínica.",
     "pageBody": "Te respondemos en menos de 24 horas hábiles, en español. Sin compromiso, sin scripts genéricos.",
     "benefits": {
       "trial": {
-        "title": "Prueba gratis 14 días",
-        "body": "Te activamos el plan Profesional con todo el poder de IA, sin tarjeta ni compromiso.",
-        "titleCL": "Membresía anual",
-        "bodyCL": "Un solo pago al año, con los tres agentes y todo el producto incluido."
+        "title": "Membresía anual",
+        "body": "Un solo pago al año, con los tres agentes y todo el producto incluido."
       },
       "demo": {
         "title": "Demo guiada",
         "body": "Agendamos 30 minutos con tu equipo para recorrer la plataforma con datos reales de tu clínica."
       },
       "enterprise": {
-        "title": "Cotización Corporativo",
-        "body": "Redes de 4+ sucursales, multi-localización, SSO, API completa y SLA contractual.",
-        "titleCL": "Red de clínicas",
-        "bodyCL": "Varias sucursales con una sola bolsa de créditos y condiciones a medida desde 10."
+        "title": "Red de clínicas",
+        "body": "Varias sucursales con una sola bolsa de créditos y condiciones a medida desde 10."
       }
     },
     "title": "Escríbenos",
@@ -805,7 +797,7 @@
     "dialogSubtitle": "Compártenos tu contacto y te respondemos en menos de 24 horas hábiles.",
     "submit": "Enviar solicitud",
     "submitting": "Enviando…",
-    "slaMicrocopy": "Nuestro equipo comercial responde en menos de 24 horas hábiles y coordina contigo el inicio del trial de 14 días.",
+    "slaMicrocopy": "Nuestro equipo comercial responde en menos de 24 horas hábiles y coordina contigo la activación de la membresía.",
     "successTitle": "¡Gracias! Recibimos tu mensaje.",
     "successBody": "Te contactaremos en menos de 24 horas hábiles por email o WhatsApp.",
     "sendAnother": "Enviar otra solicitud",
@@ -845,13 +837,9 @@
       "interests": {
         "avaliar": "Evaluar la plataforma",
         "demo": "Agendar demo",
-        "trial_profesional": "Probar 14 días gratis",
         "cotizacion_enterprise": "Cotización Corporativo (4+ sucursales)",
         "suporte": "Soporte",
         "outro": "Otro"
-      },
-      "interestsCL": {
-        "cotizacion_enterprise": "Red de clínicas (varias sucursales)"
       }
     },
     "errors": {
@@ -866,9 +854,7 @@
       "rateLimit": "Recibimos muchas solicitudes de tu red. Inténtalo en unos minutos.",
       "network": "Problema de red. Revisa tu conexión e inténtalo de nuevo.",
       "generic": "Algo salió mal. Inténtalo de nuevo en unos minutos."
-    },
-    "metaDescriptionCL": "Contáctanos para conocer la membresía anual de SuperClini, agendar una demo o cotizar tu red de clínicas.",
-    "slaMicrocopyCL": "Nuestro equipo comercial responde en menos de 24 horas hábiles y coordina contigo la activación de la membresía."
+    }
   },
   "privacy": {
     "metaTitle": "Política de privacidad",
@@ -936,7 +922,6 @@
       "badge": "Asistente IA · WhatsApp",
       "h1": "Sofía atiende tu WhatsApp 24/7. Tú atiendes al paciente.",
       "sub": "Agente IA con {count} funciones reales conectadas a tu agenda. Agenda, confirma, reagenda y responde dudas, en español, portugués e inglés. Sin perder un lead a las 3 AM.",
-      "ctaPrimary": "Solicitar trial 14 días",
       "ctaSecondary": "Ver Sofía en acción",
       "chat": {
         "proofLabel": "Conversación real (paciente nuevo agendando)",
@@ -948,8 +933,7 @@
           "user3": "10:30 está perfecto",
           "bot3": "Listo. Cita agendada sábado 10:30 con Dra. Carolina. Te recordaré el viernes."
         }
-      },
-      "ctaPrimaryCL": "Hablar con un asociado"
+      }
     },
     "howItWorks": {
       "eyebrow": "Cómo funciona",
@@ -1084,8 +1068,7 @@
         },
         {
           "q": "¿Cuánto cuesta por mensaje?",
-          "a": "Sin cobro por mensaje. Plan Avanzado incluye 300 conversaciones únicas/mes (1 conversación = 1 paciente único interactuando). Pack adicional disponible para volumen mayor.",
-          "aCL": "Sin cobro por mensaje. La membresía incluye 400 conversaciones únicas al año (1 conversación = 1 paciente único interactuando). Cuando necesitas más, sumas un paquete y se agrega a lo que ya tienes."
+          "a": "Sin cobro por mensaje. La membresía incluye 400 conversaciones únicas al año (1 conversación = 1 paciente único interactuando). Cuando necesitas más, sumas un paquete y se agrega a lo que ya tienes."
         },
         {
           "q": "¿Sofía reconoce a quien ya está en nuestro sistema?",
@@ -1099,11 +1082,8 @@
     },
     "ctaFinal": {
       "title": "Tu clínica deja de perder leads en WhatsApp.",
-      "sub": "Activación guiada por nuestro equipo en 1 día hábil. Trial 14 días sin tarjeta.",
-      "ctaPrimary": "Solicitar trial gratis",
-      "ctaSecondary": "Hablar con ventas",
-      "ctaPrimaryCL": "Hablar con un asociado",
-      "subCL": "Activación guiada por nuestro equipo en 1 día hábil. Sofía viene incluida en la membresía anual."
+      "sub": "Activación guiada por nuestro equipo en 1 día hábil. Sofía viene incluida en la membresía anual.",
+      "ctaSecondary": "Hablar con ventas"
     }
   },
   "iaClinicaPage": {
@@ -1244,10 +1224,8 @@
           "a": "Panorámica, cefalométrica, bitewing y periapical. Formatos: PNG, JPEG, WEBP. Aún no soporta DICOM nativo, para CBCT 3D, usa el visor DICOM 3D integrado (que es manual, no usa IA)."
         },
         {
-          "q": "¿Los planes tienen cuota mensual de IA?",
-          "a": "Sí. Plan Profesional incluye cuotas mensuales de simulaciones y análisis radiográficos. Plan Avanzado tiene cuotas mayores. Plan Corporativo es personalizado. Packs adicionales disponibles para volumen mayor.",
-          "qCL": "¿La membresía tiene cuota de IA?",
-          "aCL": "No es mensual, es anual: la membresía incluye 20 pacientes con IA al año, con todas las funciones de AlicIA sobre cada paciente que actives. Cuando necesitas más, sumas un paciente suelto o un pack de 20."
+          "q": "¿La membresía tiene cuota de IA?",
+          "a": "No es mensual, es anual: la membresía incluye 20 pacientes con IA al año, con todas las funciones de AlicIA sobre cada paciente que actives. Cuando necesitas más, sumas un paciente suelto o un pack de 20."
         },
         {
           "q": "¿La simulación garantiza el resultado real del tratamiento?",
@@ -1265,11 +1243,8 @@
     },
     "ctaFinal": {
       "title": "Tu clínica cierra más casos con explicación visual y diagnóstico asistido.",
-      "sub": "Trial 14 días con IA completa activa. Setup guiado en 1 día hábil.",
-      "ctaPrimary": "Solicitar trial con IA",
-      "ctaSecondary": "Hablar con ventas",
-      "ctaPrimaryCL": "Hablar con un asociado",
-      "subCL": "IA completa incluida en la membresía anual. Setup guiado en 1 día hábil."
+      "sub": "IA completa incluida en la membresía anual. Setup guiado en 1 día hábil.",
+      "ctaSecondary": "Hablar con ventas"
     }
   },
   "clinicoPage": {
@@ -1382,14 +1357,6 @@
         "Alineadores: series, sesiones, milestones",
         "Integración con laboratorio externo vía CasoAlineador.laboratorioId",
         "Validación MIME por upload (PNG/JPEG/WEBP)",
-        "Storage: 5GB Esencial · 50GB Profesional · 100GB Avanzado · custom Corporativo",
-        "Todo dentro del caso del paciente, búsqueda por examen o fecha"
-      ],
-      "bulletsCL": [
-        "9 tipos de fotografía intraoral (intraorales, oclusales, perfil)",
-        "Alineadores: series, sesiones, milestones",
-        "Integración con laboratorio externo vía CasoAlineador.laboratorioId",
-        "Validación MIME por upload (PNG/JPEG/WEBP)",
         "Almacenamiento: 100 GB incluidos en la membresía",
         "Todo dentro del caso del paciente, búsqueda por examen o fecha"
       ]
@@ -1444,7 +1411,7 @@
         "custo": {
           "topic": "Costo total",
           "before": "Software base + DICOM viewer + módulos extras = US$ 200-500/mes.",
-          "after": "Todo en un plan. Desde US$ 39/mes (USD)."
+          "after": "Todo en una membresía anual, sin módulos extras."
         }
       }
     },
@@ -1481,19 +1448,16 @@
           "a": "Sí. Tenemos 12 adaptadores de import (paciente, agenda, plan, cuenta por cobrar, evolución, odontograma, etc.). La inmutabilidad legal se preserva · evoluciones importadas mantienen fecha original y quedan marcadas como migradas."
         },
         {
-          "q": "¿Cuántos pacientes activos por plan?",
-          "a": "Ilimitado en todos los planes. Lo que varía es storage (5GB Esencial, 50GB Profesional, 100GB Avanzado, custom Corporativo) y número de profesionales activos.",
-          "qCL": "¿Cuántos pacientes activos incluye la membresía?",
-          "aCL": "Ilimitados. La membresía no pone tope de pacientes ni de fichas, e incluye 100 GB de almacenamiento."
+          "q": "¿Cuántos pacientes activos incluye la membresía?",
+          "a": "Ilimitados. La membresía no pone tope de pacientes ni de fichas, e incluye 100 GB de almacenamiento."
         }
       ]
     },
     "ctaFinal": {
       "title": "Todo lo que necesitas para atender, sin instalar nada.",
-      "sub": "Trial 14 días con módulo clínico completo. Setup guiado por nuestro equipo en 1 día hábil.",
+      "sub": "Módulo clínico completo incluido en la membresía anual. Setup guiado por nuestro equipo en 1 día hábil.",
       "ctaPrimary": "Solicitar demo del módulo",
-      "ctaSecondary": "Hablar con ventas",
-      "subCL": "Módulo clínico completo incluido en la membresía anual. Setup guiado por nuestro equipo en 1 día hábil."
+      "ctaSecondary": "Hablar con ventas"
     }
   },
   "totemPage": {
@@ -1645,8 +1609,7 @@
         },
         {
           "q": "¿Cuánto cuesta el hardware?",
-          "a": "iPad básico ~CLP 350.000 / US$ 350. Setup Mac Mini + monitor touch ~CLP 1.000.000 / US$ 1.200. Tú decides qué comprar, nuestra parte es solo el software, incluido en planes Profesional+.",
-          "aCL": "iPad básico ~CLP 350.000 / US$ 350. Setup Mac Mini + monitor touch ~CLP 1.000.000 / US$ 1.200. Tú decides qué comprar, nuestra parte es solo el software, incluido en la membresía."
+          "a": "iPad básico ~CLP 350.000 / US$ 350. Setup Mac Mini + monitor touch ~CLP 1.000.000 / US$ 1.200. Tú decides qué comprar, nuestra parte es solo el software, incluido en la membresía."
         },
         {
           "q": "¿Tiene tótem para el sillón del dentista (no recepción)?",
@@ -1672,10 +1635,9 @@
     },
     "ctaFinal": {
       "title": "Tu recepción libera 60% del tiempo. Sin despedir a nadie.",
-      "sub": "Trial 14 días con tótem activo. Setup guiado en 1 día hábil, sin hardware, instalable en cualquier tablet.",
+      "sub": "Tótem incluido en la membresía anual. Setup guiado en 1 día hábil, sin hardware, instalable en cualquier tablet.",
       "ctaPrimary": "Solicitar demo del tótem",
-      "ctaSecondary": "Hablar con ventas",
-      "subCL": "Tótem incluido en la membresía anual. Setup guiado en 1 día hábil, sin hardware, instalable en cualquier tablet."
+      "ctaSecondary": "Hablar con ventas"
     }
   },
   "automatizacoesPage": {
@@ -1882,10 +1844,9 @@
     },
     "ctaFinal": {
       "title": "Tu clínica factura en piloto automático.",
-      "sub": "Trial 14 días con financiero completo activo en staging. Setup guiado por el equipo en 1 día hábil.",
+      "sub": "Financiero completo incluido en la membresía anual. Setup guiado por el equipo en 1 día hábil.",
       "ctaPrimary": "Solicitar demo financiero",
-      "ctaSecondary": "Hablar con ventas",
-      "subCL": "Financiero completo incluido en la membresía anual. Setup guiado por el equipo en 1 día hábil."
+      "ctaSecondary": "Hablar con ventas"
     }
   },
   "consent": {
@@ -1913,20 +1874,20 @@
     }
   },
   "signup": {
-    "metaTitle": "Crea tu cuenta SuperClini · 14 días gratis, sin tarjeta",
-    "metaDescription": "Abre tu clínica en SuperClini en menos de un minuto. 14 días de prueba con acceso completo, sin tarjeta de crédito.",
+    "metaTitle": "Membresía anual · SuperClini",
+    "metaDescription": "SuperClini se contrata como membresía anual, con todo incluido y los tres agentes de IA.",
     "eyebrow": "Empieza hoy",
     "title": "Tu clínica funcionando en menos de un minuto",
-    "subtitle": "Crea la cuenta, define tu contraseña por email y entra. Sin llamadas de ventas, sin tarjeta, sin compromiso.",
+    "subtitle": "Crea la cuenta, define tu contraseña por email y entra.",
     "consent": "Acepto que SuperClini me contacte y acepto la política de privacidad y el tratamiento de mis datos.",
-    "noCard": "Sin tarjeta de crédito. La prueba termina sola.",
+    "noCard": "Activación acompañada por nuestro equipo.",
     "countriesNote": "Disponible en {count} países, con moneda y documento de identidad locales.",
     "successTitle": "Revisa tu correo",
-    "successBody": "Te enviamos un enlace para definir tu contraseña y activar la cuenta. Con eso empiezan tus 14 días.",
+    "successBody": "Te enviamos un enlace para definir tu contraseña y activar la cuenta.",
     "successHint": "¿No llegó? Revisa spam o promociones. El enlace vale 48 horas.",
     "benefits": {
-      "trial": "14 días con acceso completo, sin funciones recortadas",
-      "noCard": "Sin tarjeta de crédito ni datos de pago",
+      "trial": "Acceso completo, sin funciones recortadas",
+      "noCard": "Activación acompañada, sin configuración a ciegas",
       "fullAccess": "Agenda, ficha clínica, odontograma y asistente de IA incluidos",
       "support": "Soporte en español desde el primer día"
     },
@@ -1958,12 +1919,11 @@
     },
     "metaTitleCL": "Membresía anual · SuperClini Chile",
     "metaDescriptionCL": "En Chile SuperClini se contrata como membresía anual, con todo incluido y los tres agentes de IA.",
-    "chile": {
-      "eyebrow": "Chile",
-      "title": "En Chile trabajamos con membresía anual",
-      "body": "Acá no hay cuenta gratuita. La membresía es anual, incluye todo el producto y los tres agentes, y la contratas con un asociado que te acompaña en la activación.",
-      "ctaPrimary": "Ver la membresía",
-      "ctaSecondary": "Hablar con un asociado"
+    "membresia": {
+      "eyebrow": "Membresía anual",
+      "title": "SuperClini se contrata como membresía anual",
+      "body": "No hay cuenta gratuita. La membresía es anual, incluye todo el producto y los tres agentes, y nuestro equipo te acompaña en la activación.",
+      "ctaPrimary": "Ver la membresía"
     }
   },
   "asociadosPage": {
@@ -2271,5 +2231,9 @@
         "fallbackLink": "Escríbenos por el formulario de contacto"
       }
     }
+  },
+  "salesCta": {
+    "asociado": "Hablar con un asociado",
+    "ventas": "Hablar con ventas"
   }
 }

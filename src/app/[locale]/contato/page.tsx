@@ -2,8 +2,6 @@ import { getTranslations } from "next-intl/server";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { ContactForm } from "@/components/forms/ContactForm";
-import { resolveCountryServer } from "@/lib/country-server";
-import { isMembresiaCountry } from "@/lib/pricing";
 import type { Metadata } from "next";
 
 export async function generateMetadata({
@@ -13,11 +11,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "contact" });
-  const membresia = isMembresiaCountry(await resolveCountryServer(locale));
   return {
     title: `${t("metaTitle")} · SuperClini`,
-    // No mercado de membresía não há "14 días gratis" para prometer no snippet.
-    description: membresia ? t("metaDescriptionCL") : t("metaDescription"),
+    // Não há "14 días gratis" para prometer no snippet: o modelo é membresía.
+    description: t("metaDescription"),
   };
 }
 
@@ -43,9 +40,6 @@ export default async function ContactPage({
 
 async function ContactIntro({ locale }: { locale: string }) {
   const t = await getTranslations({ locale, namespace: "contact" });
-  // Chile: o card "prueba gratis" vira a membresía, e "cotización Corporativo"
-  // vira rede de clínicas, que é como o modelo de lá chama várias sucursais.
-  const membresia = isMembresiaCountry(await resolveCountryServer(locale));
   return (
     <div>
       <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-600">
@@ -62,14 +56,10 @@ async function ContactIntro({ locale }: { locale: string }) {
             <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-brand-500" aria-hidden />
             <div>
               <p className="font-semibold text-ink-900 dark:text-ink-50">
-                {membresia && t.has(`benefits.${k}.titleCL`)
-                  ? t(`benefits.${k}.titleCL`)
-                  : t(`benefits.${k}.title`)}
+                {t(`benefits.${k}.title`)}
               </p>
               <p className="mt-0.5 text-xs text-ink-600 dark:text-ink-400">
-                {membresia && t.has(`benefits.${k}.bodyCL`)
-                  ? t(`benefits.${k}.bodyCL`)
-                  : t(`benefits.${k}.body`)}
+                {t(`benefits.${k}.body`)}
               </p>
             </div>
           </li>

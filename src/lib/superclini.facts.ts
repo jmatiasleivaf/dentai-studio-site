@@ -19,8 +19,12 @@ export const SUPERCLINI_FACTS = {
   modulesCount: 22,
   /** Países atendidos. Derivado de lib/countries.ts para nunca dessincronizar. */
   countriesCount: COUNTRY_LIST.length,
-  /** Moedas distintas em circulação (CLP, BRL, COP, MXN, ARS, PEN, USD, EUR). */
-  currenciesCount: 8,
+  /**
+   * Moedas de cobrança da membresía: CLP no Chile, BRL no Brasil e USD como
+   * moeda de referência nos outros 7 mercados (decisão de 2026-08-10). Eram 8
+   * enquanto cada país tinha preço na moeda local, no modelo de planos mensais.
+   */
+  currenciesCount: 3,
 
   // ─── Agentes de IA ────────────────────────────────────────────────
   /** Sofía (paciente), IAndra (equipe), AlicIA (caso clínico). Todos em produção. */
@@ -43,20 +47,26 @@ export const SUPERCLINI_FACTS = {
   aliciaThresholds: { morno: 30, frio: 60 },
 
   // ─── Pricing ──────────────────────────────────────────────────────
-  /** Tiers públicos: Esencial, Profesional, Avanzado, Corporativo (renomeado de Enterprise em 2026-04-29). */
+  /**
+   * Tiers do modelo de planos mensais. FORA DA VITRINE desde 2026-08-10, junto
+   * com PRICING/PLAN_MATRIX. Mantido porque o Centro de Ayuda ainda descreve o
+   * app real, que segue com esses planos.
+   */
   tiersCount: 4,
-  /** Trial gratuito do tier Profesional. */
+  /** Trial gratuito do tier Profesional. Encerrado nos 9 mercados em 2026-08-10. */
   trialDays: 14,
   /** Desconto efetivo do ciclo anual (-16.67% real, narrativa -20%). */
   annualDiscountPct: 20,
 
   /**
-   * Chile, membresía anual única (2026-08-04). Cotas ANUAIS, não mensais:
-   * a bolsa acompanha o aniversário da assinatura. O que o cliente compra em
-   * paquete SOMA ao incluído, nunca substitui.
+   * Membresía anual única, nascida no Chile em 2026-08-04 e estendida aos 9
+   * mercados em 2026-08-10. Cotas ANUAIS, não mensais: a bolsa acompanha o
+   * aniversário da assinatura. O que o cliente compra em paquete SOMA ao
+   * incluído, nunca substitui. As cotas são as MESMAS em todo mercado; só o
+   * preço muda de moeda (ver MEMBRESIA em lib/pricing.ts).
    * Fonte: SuperClini/partners/CLAUDE.md (tabela de unidade por agente).
    */
-  membresiaCL: {
+  membresia: {
     /** Sofía: conversação única, 1 contato interagindo dentro da janela de 24h. */
     sofiaConversations: 400,
     /** AlicIA: paciente ativado no primeiro uso de qualquer função. */

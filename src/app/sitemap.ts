@@ -34,8 +34,10 @@ const ROUTES: Array<{ path: string; priority: number; changeFrequency: "weekly" 
   // Pricing saiu da home em 2026-07-20 e virou página própria.
   { path: "/precios", priority: 0.9, changeFrequency: "monthly" },
   { path: "/contato", priority: 0.7, changeFrequency: "monthly" },
-  // Prioridade alta: é a página de conversão do funil self-service.
-  { path: "/registro", priority: 0.9, changeFrequency: "monthly" },
+  // Era 0.9 enquanto havia funil self-service. O trial acabou em 2026-08-10 e a
+  // rota virou explicação do modelo com saída para /precios: continua indexável
+  // (há links antigos apontando para cá), mas não é mais página de conversão.
+  { path: "/registro", priority: 0.3, changeFrequency: "monthly" },
   { path: "/privacidade", priority: 0.4, changeFrequency: "monthly" },
   // Centro de Ayuda
   { path: "/ayuda", priority: 0.8, changeFrequency: "weekly" },

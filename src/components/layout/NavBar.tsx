@@ -23,8 +23,6 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Logo } from "@/components/ui/logo";
 import { ContactDialog } from "@/components/home/ContactDialog";
-import { useCountry } from "@/contexts/CountryContext";
-import { isNoTrialCountry } from "@/lib/pricing";
 import { NAV_RESOURCES } from "@/lib/site-nav";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 import { cn } from "@/lib/utils";
@@ -110,15 +108,13 @@ export function NavBar() {
   const t = useTranslations("nav");
   const tRes = useTranslations("nav.resourcesItems");
   const pathname = usePathname();
-  const { country } = useCountry();
   const [open, setOpen] = React.useState(false);
   const [resourcesOpen, setResourcesOpen] = React.useState(false);
 
-  // Chile não tem conta grátis: o CTA primário leva à membresía em vez de a
-  // /registro. Decidido por país, para valer também em superclini.com.
-  const noTrial = isNoTrialCountry(country.code);
-  const ctaHref = noTrial ? "/precios" : "/registro";
-  const ctaLabel = noTrial ? t("signupNoTrial") : t("signup");
+  // Nenhum mercado tem conta grátis desde 2026-08-10: o CTA primário leva à
+  // membresía em vez de a /registro.
+  const ctaHref = "/precios";
+  const ctaLabel = t("signup");
 
   // Hero da home passou a ser CLARO (Direção B, 2026-07-23). A barra fica sólida
   // em vidro em todas as páginas; some o overlay transparente de texto branco que

@@ -1,6 +1,71 @@
 # SuperClini Site — Status Vivo
 
-**Última atualização**: 2026-08-06 — WhatsApp de ventas para o Chile (**EM PROD**, commit `21c4c7b`)
+**Última atualização**: 2026-08-10 — membresía anual nos 9 mercados (**aguardando gate de deploy**)
+
+## 2026-08-10 — Membresía anual única nos 9 mercados (**PRONTA, não deployada**)
+
+O modelo que era exclusivo do Chile desde 04/08 passa a valer nos 9 mercados: preço
+único por ano, cobrança por capacidade dos agentes e fim do trial. Decisões do Matias
+nesta sessão: moeda local só em CL e BR, **USD como moeda de referência nos outros 7**
+com base 199, imposto publicado como "+ impostos" por país, e Argentina em USD.
+
+- **Tabela**: CL 199.990 CLP (lista 299.990), BR R$ 999,90 (1.499,90), demais US$ 199
+  (299). A coluna USD é o espelho da chilena na paridade de 1 USD por 1.000 CLP, o que
+  faz packs saírem 5 / 59 / 39 / 99, rede 199 / 149 e migração 149.
+- **Não havia preço internacional cravado em lugar nenhum.** `SuperClini/partners` é
+  100% Chile, e não existe regra derivável dos preços antigos: a membresía chilena
+  equivale a US$ 219/ano e o tier Esencial de lá custava US$ 393/ano. É preço novo,
+  viabilizado pela economia do canal, não desconto sobre a tabela anterior.
+- **A moeda de cobrança deixou de ser a do país.** `MEMBRESIA[país]` carrega currency e
+  decimais próprios, e `formatMoney` escreve "US$ " à mão: o Intl é inconsistente e
+  ambíguo (o mesmo valor vira "USD 199" em es-MX, "US$199" em es-CL e "199 US$" em
+  es-ES, e o símbolo estreito vira "$199", que um mexicano lê como peso).
+- **O rótulo fiscal virou dado do mercado, não do idioma.** Era `price.suffix` fixo por
+  língua; virou `taxLabel` em MEMBRESIA, com CL em "+ IVA" (decisão de 04/08, que está
+  no deck e no discurso do asociado) e o resto em "+ impostos". A frase fiscal da nota
+  legal foi separada em `legalTax.{iva,taxes}` pelo mesmo motivo: dizer "VAT" a um
+  cliente dos EUA e "IVA" a um peruano era errar o nome do tributo.
+- **Parcelamento só onde há gateway.** `maxInstallments: 0` em US, ES e PT remove o item
+  "hasta 12 cuotas" da lista de pagamento: MercadoPago não opera lá e o Stripe nunca foi
+  ligado. Prometer cuota que o checkout não oferece é promessa falsa.
+- **Trial encerrado nos 9 mercados.** Somem "Crear cuenta gratis", "sin tarjeta" e "14
+  días" de toda a superfície; `/registro` deixa de ter formulário (o `SignupForm` fica no
+  repo, sem rota) e cai de priority 0.9 para 0.3 no sitemap, porque não é mais página de
+  conversão. **Efeito comercial registrado:** fora do Chile não existe canal de asociados,
+  então todo lead dos outros 8 mercados passa a entrar pelo formulário de contato.
+- **O CTA foi centralizado em `salesCta`** (asociado x ventas) em vez de espalhar
+  variantes por página: "hablar con un asociado" fora do Chile mandaria o cliente a um
+  interlocutor que não existe.
+- **As 28 variantes `*CL` do i18n viraram o texto padrão** dos 3 idiomas, porque
+  descreviam o modelo de membresía e não o mercado chileno. Sobraram de propósito só as
+  metas do host CL. O mecanismo `qCL`/`aCL` saiu de FAQ, LandingFAQ e FAQSchema.
+- **Achado que só a varredura do HTML pegou:** `/clinico` renderizava "Todo en un plan.
+  Desde US$ 39/mes (USD)" na tabela de comparação, promessa de um modelo que não existe
+  mais. Corrigida. O vocabulário de trial que restou em chaves órfãs (`pricing.*`,
+  `signup.*`) foi neutralizado no texto em vez de removido: some do bundle indexável sem
+  arriscar `MISSING_MESSAGE` se o self-service voltar.
+- **JSON-LD**: o `AggregateOffer` USD 29-249 morreu (descrevia planos inexistentes) e deu
+  lugar a um `Offer` por país, com a moeda do mercado e `priceValidUntil` da campanha.
+  Para crawler sem geo, a precedência cai no idioma da URL, então cada variante indexada
+  publica a moeda do mercado que atende.
+- **PRICING, PLANS e PLAN_MATRIX ficam no código**, sem consumidor de tela, pelo mesmo
+  critério que manteve o Corporativo em 23/07: voltar atrás custa uma linha em
+  `isMembresiaCountry`, reconstruir a tabela custaria muito mais. A matriz comparativa
+  saiu de `/precios`: com uma membresía única não há colunas a comparar.
+- **Prova local** (dev + curl com cookie `NEXT_COUNTRY`, contando ocorrência para separar
+  render de bundle): os 9 países servem a membresía na moeda certa; "+ IVA" renderiza 9x
+  só no CL e "+ impostos" 9x nos outros 8; "cuotas" aparece em CL/BR/CO/AR/MX/PE e não em
+  US/ES/PT; "14 días", "sin tarjeta" e "Crear cuenta" dão **zero render** nas 9 páginas;
+  JSON-LD com CLP/BRL/USD nos 3 idiomas e zero `AggregateOffer`. Capturas em 375px e
+  1440px para CL, BR, US e MX em `SuperClini/shots-membresia`.
+- **Pendências deixadas anotadas**: o site passa a prometer nos 9 mercados a bolsa anual,
+  a cota por paciente ativado, a compra de pack e as cuotas, e **nada disso existe no app**
+  (F1 e F6 nunca foram aprovadas) — antes essa exposição estava contida ao Chile. O Centro
+  de Ayuda segue descrevendo Esencial/Profesional/Avanzado e cota mensal, por fidelidade
+  ao app real, o que deixa vitrine e KB divergentes até o app mudar. E o PT do repo escreve
+  "membresía" com acento espanhol, herdado das chaves do Chile.
+
+**Última atualização anterior**: 2026-08-06 — WhatsApp de ventas para o Chile (**EM PROD**, commit `21c4c7b`)
 
 ## 2026-08-06 — Canal de WhatsApp de ventas para o Chile (**EM PROD**, `21c4c7b`)
 
