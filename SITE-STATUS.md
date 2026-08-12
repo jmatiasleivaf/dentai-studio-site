@@ -1,6 +1,28 @@
 # SuperClini Site — Status Vivo
 
-**Última atualização**: 2026-08-10 — membresía anual nos 9 mercados (**EM PROD**, commit `0b6115a`)
+**Última atualização**: 2026-08-12 — WhatsApp CL sem horário publicado (**EM PROD**, commit `e5ab347`)
+
+## 2026-08-12 — WhatsApp CL: sai o horário publicado (**EM PROD**, `e5ab347`)
+
+Decisão do Matias ao revisar o canal no ar: o FAB não anuncia janela de atendimento.
+O "Lunes a viernes, 9:00 a 18:00 h de Chile" era assunção declarada na mini-spec e nunca
+confirmada, e publicado na home virava promessa de SLA. Saiu a linha secundária do pill e
+o `title` do link; a chave `hours` saiu dos três `messages/*.json` para não ficar órfã.
+O pill desktop encolheu de 282px para 190px e o círculo de 56px do mobile não mudou.
+
+**Armadilha de validação, corrigida aqui e válida para qualquer teste de geo:** o egress
+deste ambiente de trabalho **muda de país entre sessões**. Em 06/08 o `cdn-cgi/trace` dava
+`loc=CL, colo=SCL`; em 12/08, `loc=BR, colo=GRU`. O mesmo curl que antes encontrava o
+número passou a encontrar 0 no domínio principal, o que **parecia regressão e não era**:
+o site estava certo, quem tinha mudado de país era o observador. Rodar `cdn-cgi/trace`
+antes de interpretar o resultado, e provar as duas pontas pelo cookie `NEXT_COUNTRY`, que
+precede o geo.
+
+**Prova externa pós-deploy** (HTML sem os `<script>`): com `NEXT_COUNTRY=CL` no domínio
+principal, `/es` = 1, `/es/ayuda` = 2, artigo = 2, `/pt` = 1; com geo real BR e sem cookie,
+`/es` = 0 e `/es/ayuda` = 0 com o ticket presente; `cl.superclini.com` = 1 e 2. Ocorrências
+de "Lunes a viernes" = 0 nos quatro pontos verificados (`cl.superclini.com/es`,
+`superclini.com/{es,pt,en}`). `tsc` limpo, `audit-stale` sem drift, build exit 0.
 
 ## 2026-08-10 — Membresía anual única nos 9 mercados (**EM PROD**, `0b6115a`)
 
