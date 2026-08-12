@@ -36,7 +36,6 @@ export function WhatsAppFab() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={t("fabAria")}
-      title={t("hours")}
       style={{
         bottom: "calc(var(--sc-consent-h, 0px) + env(safe-area-inset-bottom) + 1rem)",
       }}
@@ -50,10 +49,9 @@ export function WhatsAppFab() {
       ].join(" ")}
     >
       <WhatsAppGlyph className="h-7 w-7 shrink-0 sm:h-6 sm:w-6" />
-      <span className="hidden text-left leading-tight sm:block">
-        <span className="block text-sm font-bold">{t("fabLabel")}</span>
-        <span className="block text-[11px] font-medium text-white/85">{t("hours")}</span>
-      </span>
+      {/* Sem horário publicado, por decisão de 06/08: o canal não anuncia
+          janela de atendimento, para não criar promessa de SLA na home. */}
+      <span className="hidden text-sm font-bold leading-tight sm:block">{t("fabLabel")}</span>
     </a>
   );
 }
